@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Scissors, Sparkles, Ruler, Package } from "lucide-react";
+import { ArrowUpRight, Scissors, Sparkles, Ruler, Package, Check } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { Marquee } from "@/components/site/Marquee";
 import heroFabric from "@/assets/hero-fabric.jpg";
 import lehenga from "@/assets/collection-lehenga.jpg";
@@ -27,9 +28,15 @@ const services = [
 ];
 
 const collections = [
-  { title: "The Wedding Edit", tag: "Bridal · 24 pieces", img: lehenga, href: "/collections" as const },
-  { title: "Heritage Sherwani", tag: "Men's · 18 pieces", img: sherwani, href: "/collections" as const },
-  { title: "Anarkali Atelier", tag: "Festive · 32 pieces", img: anarkali, href: "/collections" as const },
+  { title: "The Wedding Edit", tag: "Bridal · 24 pieces", img: lehenga },
+  { title: "Heritage Sherwani", tag: "Men's · 18 pieces", img: sherwani },
+  { title: "Anarkali Atelier", tag: "Festive · 32 pieces", img: anarkali },
+  { title: "Banarasi Library", tag: "Fabric · Silk", img: fabrics },
+  { title: "Hand Zardozi", tag: "Embroidery · 14 pieces", img: embroidery },
+  { title: "Tailored Formals", tag: "Men's · 22 pieces", img: tailorHands },
+  { title: "Festive Lehengas", tag: "Women's · 28 pieces", img: lehenga },
+  { title: "Royal Sherwani", tag: "Wedding · 12 pieces", img: sherwani },
+  { title: "Pastel Anarkalis", tag: "Day · 18 pieces", img: anarkali },
 ];
 
 function Index() {
@@ -100,20 +107,45 @@ function Index() {
         </div>
       </section>
 
-      {/* COLLECTIONS */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-16">
-        <div className="flex items-end justify-between mb-12">
+      {/* COLLECTIONS — horizontal scroll */}
+      <section className="py-20 border-y border-border bg-cream/40">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-8 flex items-end justify-between mb-10">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Collections</p>
             <h2 className="font-display text-5xl md:text-6xl mt-3 text-balance">Made for the moments<br /><em>that matter.</em></h2>
           </div>
-          <Link to="/collections" className="hidden md:inline-flex items-center gap-2 text-sm border-b border-foreground pb-1 underline-link">
-            View all <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Scroll left"
+              onClick={() => document.getElementById("collections-rail")?.scrollBy({ left: -400, behavior: "smooth" })}
+              className="w-11 h-11 border border-border bg-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors flex items-center justify-center"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Scroll right"
+              onClick={() => document.getElementById("collections-rail")?.scrollBy({ left: 400, behavior: "smooth" })}
+              className="w-11 h-11 border border-border bg-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors flex items-center justify-center"
+            >
+              →
+            </button>
+            <Link to="/collections" className="ml-4 inline-flex items-center gap-2 text-sm border-b border-foreground pb-1 underline-link">
+              View all <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {collections.map((c, i) => (
-            <Link key={c.title} to={c.href} className={`group block ${i === 1 ? "md:translate-y-12" : ""}`}>
+        <div
+          id="collections-rail"
+          className="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory px-6 lg:px-8 pb-4 scroll-px-6"
+        >
+          {collections.map((c) => (
+            <Link
+              key={c.title}
+              to="/collections"
+              className="group shrink-0 w-[78vw] sm:w-[42vw] md:w-[32vw] lg:w-[24vw] snap-start"
+            >
               <div className="overflow-hidden bg-muted aspect-[3/4]">
                 <img src={c.img} alt={c.title} loading="lazy" width={1024} height={1280} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
@@ -152,30 +184,8 @@ function Index() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent">Process</p>
-            <h2 className="font-display text-5xl mt-4 leading-tight text-balance">From measure<br />to <em>masterpiece.</em></h2>
-            <p className="mt-6 text-muted-foreground">A simple, considered four-step journey — designed around your calendar.</p>
-          </div>
-          <ol className="lg:col-span-8 space-y-2">
-            {[
-              { n: "01", t: "Consult & Choose", d: "Pick a style, fabric, or upload a reference. Or let our AI design tool dream one up." },
-              { n: "02", t: "Doorstep Measure", d: "A master tailor visits your home or studio for precise measurements." },
-              { n: "03", t: "Stitch & Embroider", d: "Your garment is cut, sewn and finished by named artisans — tracked at every stage." },
-              { n: "04", t: "Fit & Deliver", d: "Final fitting at your home. Free alterations forever." },
-            ].map((step) => (
-              <li key={step.n} className="grid grid-cols-12 items-baseline gap-6 py-8 border-t border-border last:border-b">
-                <span className="col-span-2 font-display text-3xl text-accent">{step.n}</span>
-                <h3 className="col-span-4 font-display text-2xl">{step.t}</h3>
-                <p className="col-span-12 md:col-span-6 text-muted-foreground text-sm">{step.d}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {/* PROCESS — animated progress timeline */}
+      <ProcessSection />
 
       {/* TESTIMONIAL */}
       <section className="bg-primary text-primary-foreground">
@@ -187,18 +197,100 @@ function Index() {
           <p className="mt-10 text-sm tracking-widest uppercase text-primary-foreground/70">— Ananya R., Bridal Client · Bengaluru</p>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-32 text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-accent">Begin</p>
-        <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[1.05] text-balance max-w-4xl mx-auto">
-          Your story deserves<br />a garment <em>of its own.</em>
-        </h2>
-        <Link to="/booking" className="mt-12 inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-5 text-sm tracking-wide hover:bg-accent transition-colors">
-          Book your free consultation
-          <ArrowUpRight className="w-4 h-4" />
-        </Link>
-      </section>
     </div>
+  );
+}
+
+const processSteps = [
+  { n: "01", t: "Consult & Choose", d: "Pick a style, fabric, or upload a reference. Or let our AI design tool dream one up." },
+  { n: "02", t: "Doorstep Measure", d: "A master tailor visits your home or studio for precise measurements." },
+  { n: "03", t: "Stitch & Embroider", d: "Your garment is cut, sewn and finished by named artisans — tracked at every stage." },
+  { n: "04", t: "Fit & Deliver", d: "Final fitting at your home. Free alterations forever." },
+];
+
+function ProcessSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setStarted(true);
+        });
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    setActive(0);
+    const timers = processSteps.map((_, i) =>
+      setTimeout(() => setActive(i + 1), (i + 1) * 900)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, [started]);
+
+  const progress = (active / processSteps.length) * 100;
+
+  return (
+    <section ref={ref} className="max-w-[1400px] mx-auto px-6 lg:px-8 py-32">
+      <div className="max-w-3xl">
+        <p className="text-xs uppercase tracking-[0.3em] text-accent">Process</p>
+        <h2 className="font-display text-5xl md:text-6xl mt-4 leading-tight text-balance">
+          From measure to <em>masterpiece.</em>
+        </h2>
+        <p className="mt-6 text-muted-foreground max-w-xl">
+          A simple, considered four-step journey — designed around your calendar.
+        </p>
+      </div>
+
+      {/* Progress rail */}
+      <div className="mt-20 relative">
+        {/* Track */}
+        <div className="absolute left-0 right-0 top-6 h-px bg-border" />
+        {/* Filled progress */}
+        <div
+          className="absolute left-0 top-6 h-px bg-primary transition-[width] duration-700 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 relative">
+          {processSteps.map((step, i) => {
+            const isDone = i < active;
+            const isCurrent = i === active - 1;
+            return (
+              <div key={step.n} className="relative">
+                {/* Node */}
+                <div
+                  className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center border transition-all duration-500 ${
+                    isDone
+                      ? "bg-primary border-primary text-primary-foreground"
+                      : "bg-background border-border text-muted-foreground"
+                  } ${isCurrent ? "scale-110 shadow-[0_0_0_6px_color-mix(in_oklab,var(--primary)_12%,transparent)]" : ""}`}
+                >
+                  {isDone ? (
+                    <Check className="w-5 h-5" strokeWidth={2} />
+                  ) : (
+                    <span className="text-xs tracking-widest">{step.n}</span>
+                  )}
+                </div>
+                <div className="mt-6 pr-4">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent">Step {step.n}</p>
+                  <h3 className="font-display text-2xl mt-2">{step.t}</h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{step.d}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
