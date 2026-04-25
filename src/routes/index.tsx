@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Scissors, Sparkles, Ruler, Package } from "lucide-react";
 import { Marquee } from "@/components/site/Marquee";
 import { ProcessSection } from "@/components/site/ProcessSection";
-import { Marquee } from "@/components/site/Marquee";
 import heroFabric from "@/assets/hero-fabric.jpg";
 import lehenga from "@/assets/collection-lehenga.jpg";
 import sherwani from "@/assets/collection-sherwani.jpg";
