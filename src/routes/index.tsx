@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Scissors, Sparkles, Ruler, Package } from "lucide-react";
+import { ArrowUpRight, Scissors, Sparkles, Ruler, Package, Check } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { Marquee } from "@/components/site/Marquee";
 import heroFabric from "@/assets/hero-fabric.jpg";
 import lehenga from "@/assets/collection-lehenga.jpg";
