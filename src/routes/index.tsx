@@ -1,26 +1,204 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight, Scissors, Sparkles, Ruler, Package } from "lucide-react";
+import { Marquee } from "@/components/site/Marquee";
+import heroFabric from "@/assets/hero-fabric.jpg";
+import lehenga from "@/assets/collection-lehenga.jpg";
+import sherwani from "@/assets/collection-sherwani.jpg";
+import anarkali from "@/assets/collection-anarkali.jpg";
+import tailorHands from "@/assets/tailor-hands.jpg";
+import fabrics from "@/assets/fabrics-stack.jpg";
+import embroidery from "@/assets/embroidery-detail.jpg";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Kaariq — Bespoke Tailoring, Boutique Collections & Doorstep Service" },
+      { name: "description", content: "Custom-made ethnic & modern wear from India's finest tailors. Doorstep measurements, AI design, and worldwide delivery." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+const services = [
+  { icon: Ruler, title: "Doorstep Measurement", desc: "Our master tailor visits you. Zero guesswork, perfect fit." },
+  { icon: Scissors, title: "Bespoke Stitching", desc: "Cut and sewn for you — never off the rack." },
+  { icon: Sparkles, title: "Hand Embroidery", desc: "Zardozi, aari & threadwork by heritage artisans." },
+  { icon: Package, title: "Worldwide Shipping", desc: "Tracked, insured and delivered in 7–10 days." },
+];
+
+const collections = [
+  { title: "The Wedding Edit", tag: "Bridal · 24 pieces", img: lehenga, href: "/collections" as const },
+  { title: "Heritage Sherwani", tag: "Men's · 18 pieces", img: sherwani, href: "/collections" as const },
+  { title: "Anarkali Atelier", tag: "Festive · 32 pieces", img: anarkali, href: "/collections" as const },
+];
 
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <div>
+      {/* HERO */}
+      <section className="relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[88vh]">
+          <div className="lg:col-span-6 flex flex-col justify-between px-6 lg:px-16 py-16 lg:py-24">
+            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground">Atelier · Est. 2014 · Mumbai</p>
+            <div>
+              <h1 className="font-display text-[clamp(3rem,7vw,6.5rem)] leading-[0.95] tracking-tight text-balance">
+                Tailored to <em className="text-accent">you</em>,<br />
+                stitched with <em>soul.</em>
+              </h1>
+              <p className="mt-8 max-w-md text-base text-muted-foreground text-pretty">
+                From the first measure to the final stitch, every Kaariq piece is crafted by hand — at our atelier or your doorstep.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link to="/booking" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-7 py-4 text-sm tracking-wide hover:bg-accent transition-colors">
+                  Book a Fitting
+                  <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+                </Link>
+                <Link to="/collections" className="inline-flex items-center gap-2 px-2 py-4 text-sm tracking-wide border-b border-foreground underline-link">
+                  Browse Collections
+                </Link>
+              </div>
+            </div>
+            <div className="flex items-center gap-10 pt-10">
+              <div>
+                <p className="font-display text-3xl">12k+</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Garments stitched</p>
+              </div>
+              <div>
+                <p className="font-display text-3xl">4.9★</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">2,400 reviews</p>
+              </div>
+              <div className="hidden sm:block">
+                <p className="font-display text-3xl">38</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Master tailors</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-6 relative bg-muted">
+            <img src={heroFabric} alt="Emerald silk with gold embroidery" width={1080} height={1600} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute bottom-8 left-8 right-8 bg-background/95 backdrop-blur p-5 max-w-xs">
+              <p className="text-xs uppercase tracking-[0.2em] text-accent">Featured fabric</p>
+              <p className="font-display text-xl mt-2">Banarasi silk with hand zardozi</p>
+              <p className="text-xs text-muted-foreground mt-2">From ₹4,800 / metre</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MARQUEE */}
+      <Marquee items={["Bespoke Tailoring", "Doorstep Measurement", "Hand Embroidery", "Bridal Couture", "AI Design Studio"]} />
+
+      {/* SERVICES STRIP */}
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-24">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+          {services.map((s) => (
+            <div key={s.title}>
+              <s.icon className="w-7 h-7 text-accent" strokeWidth={1.4} />
+              <h3 className="font-display text-xl mt-5">{s.title}</h3>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* COLLECTIONS */}
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-16">
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Collections</p>
+            <h2 className="font-display text-5xl md:text-6xl mt-3 text-balance">Made for the moments<br /><em>that matter.</em></h2>
+          </div>
+          <Link to="/collections" className="hidden md:inline-flex items-center gap-2 text-sm border-b border-foreground pb-1 underline-link">
+            View all <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {collections.map((c, i) => (
+            <Link key={c.title} to={c.href} className={`group block ${i === 1 ? "md:translate-y-12" : ""}`}>
+              <div className="overflow-hidden bg-muted aspect-[3/4]">
+                <img src={c.img} alt={c.title} loading="lazy" width={1024} height={1280} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="mt-5 flex items-baseline justify-between">
+                <div>
+                  <h3 className="font-display text-2xl">{c.title}</h3>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">{c.tag}</p>
+                </div>
+                <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* CRAFT SECTION */}
+      <section className="bg-cream mt-32">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">The craft</p>
+            <h2 className="font-display text-5xl md:text-6xl mt-4 leading-[1.05] text-balance">
+              Heritage hands.<br /><em>Modern</em> silhouettes.
+            </h2>
+            <p className="mt-6 text-muted-foreground max-w-md">
+              Every Kaariq piece passes through eight pairs of hands — pattern-makers, master cutters, embroiderers, finishers — before it reaches you.
+            </p>
+            <Link to="/booking" className="mt-8 inline-flex items-center gap-2 text-sm border-b border-foreground pb-1 underline-link">
+              Inside our process <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="lg:col-span-7 grid grid-cols-2 gap-4 lg:gap-6">
+            <img src={tailorHands} alt="Tailor's hands" loading="lazy" width={1024} height={1280} className="w-full aspect-[3/4] object-cover" />
+            <img src={embroidery} alt="Hand embroidery" loading="lazy" width={1024} height={1024} className="w-full aspect-[3/4] object-cover translate-y-12" />
+            <img src={fabrics} alt="Fabric library" loading="lazy" width={1024} height={1024} className="w-full aspect-square object-cover col-span-2" />
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Process</p>
+            <h2 className="font-display text-5xl mt-4 leading-tight text-balance">From measure<br />to <em>masterpiece.</em></h2>
+            <p className="mt-6 text-muted-foreground">A simple, considered four-step journey — designed around your calendar.</p>
+          </div>
+          <ol className="lg:col-span-8 space-y-2">
+            {[
+              { n: "01", t: "Consult & Choose", d: "Pick a style, fabric, or upload a reference. Or let our AI design tool dream one up." },
+              { n: "02", t: "Doorstep Measure", d: "A master tailor visits your home or studio for precise measurements." },
+              { n: "03", t: "Stitch & Embroider", d: "Your garment is cut, sewn and finished by named artisans — tracked at every stage." },
+              { n: "04", t: "Fit & Deliver", d: "Final fitting at your home. Free alterations forever." },
+            ].map((step) => (
+              <li key={step.n} className="grid grid-cols-12 items-baseline gap-6 py-8 border-t border-border last:border-b">
+                <span className="col-span-2 font-display text-3xl text-accent">{step.n}</span>
+                <h3 className="col-span-4 font-display text-2xl">{step.t}</h3>
+                <p className="col-span-12 md:col-span-6 text-muted-foreground text-sm">{step.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* TESTIMONIAL */}
+      <section className="bg-primary text-primary-foreground">
+        <div className="max-w-5xl mx-auto px-6 py-32 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-gold">Voices</p>
+          <blockquote className="font-display text-3xl md:text-5xl leading-tight mt-8 text-balance">
+            "I sent a Pinterest screenshot. They sent back a lehenga that fit me <em className="text-gold">like memory</em> — heavier, softer, and somehow more <em className="text-gold">me</em> than I imagined."
+          </blockquote>
+          <p className="mt-10 text-sm tracking-widest uppercase text-primary-foreground/70">— Ananya R., Bridal Client · Bengaluru</p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-32 text-center">
+        <p className="text-xs uppercase tracking-[0.3em] text-accent">Begin</p>
+        <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[1.05] text-balance max-w-4xl mx-auto">
+          Your story deserves<br />a garment <em>of its own.</em>
+        </h2>
+        <Link to="/booking" className="mt-12 inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-5 text-sm tracking-wide hover:bg-accent transition-colors">
+          Book your free consultation
+          <ArrowUpRight className="w-4 h-4" />
+        </Link>
+      </section>
+    </div>
+  );
 }
