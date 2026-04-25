@@ -27,9 +27,15 @@ const services = [
 ];
 
 const collections = [
-  { title: "The Wedding Edit", tag: "Bridal · 24 pieces", img: lehenga, href: "/collections" as const },
-  { title: "Heritage Sherwani", tag: "Men's · 18 pieces", img: sherwani, href: "/collections" as const },
-  { title: "Anarkali Atelier", tag: "Festive · 32 pieces", img: anarkali, href: "/collections" as const },
+  { title: "The Wedding Edit", tag: "Bridal · 24 pieces", img: lehenga },
+  { title: "Heritage Sherwani", tag: "Men's · 18 pieces", img: sherwani },
+  { title: "Anarkali Atelier", tag: "Festive · 32 pieces", img: anarkali },
+  { title: "Banarasi Library", tag: "Fabric · Silk", img: fabrics },
+  { title: "Hand Zardozi", tag: "Embroidery · 14 pieces", img: embroidery },
+  { title: "Tailored Formals", tag: "Men's · 22 pieces", img: tailorHands },
+  { title: "Festive Lehengas", tag: "Women's · 28 pieces", img: lehenga },
+  { title: "Royal Sherwani", tag: "Wedding · 12 pieces", img: sherwani },
+  { title: "Pastel Anarkalis", tag: "Day · 18 pieces", img: anarkali },
 ];
 
 function Index() {
