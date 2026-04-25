@@ -60,30 +60,30 @@
 
 :root {
   --radius: 0.25rem;
-  /* Editorial luxury palette */
-  --background: oklch(0.97 0.012 80);          /* warm ivory */
-  --cream: oklch(0.94 0.02 75);
-  --foreground: oklch(0.22 0.025 60);          /* deep ink */
-  --ink: oklch(0.18 0.02 60);
-  --card: oklch(0.99 0.008 80);
-  --card-foreground: oklch(0.22 0.025 60);
-  --popover: oklch(0.99 0.008 80);
-  --popover-foreground: oklch(0.22 0.025 60);
-  --primary: oklch(0.32 0.06 160);             /* deep forest green */
-  --primary-foreground: oklch(0.97 0.012 80);
-  --secondary: oklch(0.92 0.018 75);
-  --secondary-foreground: oklch(0.22 0.025 60);
-  --muted: oklch(0.93 0.015 78);
-  --muted-foreground: oklch(0.48 0.02 65);
-  --accent: oklch(0.62 0.16 40);               /* terracotta */
-  --accent-foreground: oklch(0.97 0.012 80);
-  --terracotta: oklch(0.62 0.16 40);
-  --gold: oklch(0.72 0.13 75);
+  /* Bright palette: #66333A wine, #A5978B taupe, #C4BBAF stone */
+  --background: oklch(0.995 0.002 80);         /* almost white */
+  --cream: oklch(0.965 0.006 70);              /* very soft warm */
+  --foreground: oklch(0.22 0.04 20);           /* deep wine ink */
+  --ink: oklch(0.32 0.07 18);                  /* #66333A wine */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 20);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 20);
+  --primary: oklch(0.36 0.075 18);             /* #66333A wine */
+  --primary-foreground: oklch(0.99 0.002 80);
+  --secondary: oklch(0.93 0.008 70);           /* light stone */
+  --secondary-foreground: oklch(0.32 0.07 18);
+  --muted: oklch(0.95 0.006 70);
+  --muted-foreground: oklch(0.52 0.012 60);    /* #A5978B taupe */
+  --accent: oklch(0.36 0.075 18);              /* wine accent */
+  --accent-foreground: oklch(0.99 0.002 80);
+  --terracotta: oklch(0.36 0.075 18);
+  --gold: oklch(0.78 0.06 70);                 /* #C4BBAF stone gold */
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.98 0.003 80);
-  --border: oklch(0.88 0.015 75);
-  --input: oklch(0.88 0.015 75);
-  --ring: oklch(0.32 0.06 160);
+  --border: oklch(0.9 0.006 70);               /* #C4BBAF border */
+  --input: oklch(0.9 0.006 70);
+  --ring: oklch(0.36 0.075 18);
 }
 
 .dark {
@@ -125,6 +125,12 @@
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  @keyframes progressFill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
   }
   .underline-link {
     background-image: linear-gradient(currentColor, currentColor);
