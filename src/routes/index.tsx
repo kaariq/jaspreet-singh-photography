@@ -106,20 +106,45 @@ function Index() {
         </div>
       </section>
 
-      {/* COLLECTIONS */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-16">
-        <div className="flex items-end justify-between mb-12">
+      {/* COLLECTIONS — horizontal scroll */}
+      <section className="py-20 border-y border-border bg-cream/40">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-8 flex items-end justify-between mb-10">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Collections</p>
             <h2 className="font-display text-5xl md:text-6xl mt-3 text-balance">Made for the moments<br /><em>that matter.</em></h2>
           </div>
-          <Link to="/collections" className="hidden md:inline-flex items-center gap-2 text-sm border-b border-foreground pb-1 underline-link">
-            View all <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Scroll left"
+              onClick={() => document.getElementById("collections-rail")?.scrollBy({ left: -400, behavior: "smooth" })}
+              className="w-11 h-11 border border-border bg-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors flex items-center justify-center"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Scroll right"
+              onClick={() => document.getElementById("collections-rail")?.scrollBy({ left: 400, behavior: "smooth" })}
+              className="w-11 h-11 border border-border bg-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors flex items-center justify-center"
+            >
+              →
+            </button>
+            <Link to="/collections" className="ml-4 inline-flex items-center gap-2 text-sm border-b border-foreground pb-1 underline-link">
+              View all <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {collections.map((c, i) => (
-            <Link key={c.title} to={c.href} className={`group block ${i === 1 ? "md:translate-y-12" : ""}`}>
+        <div
+          id="collections-rail"
+          className="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory px-6 lg:px-8 pb-4 scroll-px-6"
+        >
+          {collections.map((c) => (
+            <Link
+              key={c.title}
+              to="/collections"
+              className="group shrink-0 w-[78vw] sm:w-[42vw] md:w-[32vw] lg:w-[24vw] snap-start"
+            >
               <div className="overflow-hidden bg-muted aspect-[3/4]">
                 <img src={c.img} alt={c.title} loading="lazy" width={1024} height={1280} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
@@ -158,30 +183,8 @@ function Index() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent">Process</p>
-            <h2 className="font-display text-5xl mt-4 leading-tight text-balance">From measure<br />to <em>masterpiece.</em></h2>
-            <p className="mt-6 text-muted-foreground">A simple, considered four-step journey — designed around your calendar.</p>
-          </div>
-          <ol className="lg:col-span-8 space-y-2">
-            {[
-              { n: "01", t: "Consult & Choose", d: "Pick a style, fabric, or upload a reference. Or let our AI design tool dream one up." },
-              { n: "02", t: "Doorstep Measure", d: "A master tailor visits your home or studio for precise measurements." },
-              { n: "03", t: "Stitch & Embroider", d: "Your garment is cut, sewn and finished by named artisans — tracked at every stage." },
-              { n: "04", t: "Fit & Deliver", d: "Final fitting at your home. Free alterations forever." },
-            ].map((step) => (
-              <li key={step.n} className="grid grid-cols-12 items-baseline gap-6 py-8 border-t border-border last:border-b">
-                <span className="col-span-2 font-display text-3xl text-accent">{step.n}</span>
-                <h3 className="col-span-4 font-display text-2xl">{step.t}</h3>
-                <p className="col-span-12 md:col-span-6 text-muted-foreground text-sm">{step.d}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {/* PROCESS — animated progress timeline */}
+      <ProcessSection />
 
       {/* TESTIMONIAL */}
       <section className="bg-primary text-primary-foreground">
@@ -192,18 +195,6 @@ function Index() {
           </blockquote>
           <p className="mt-10 text-sm tracking-widest uppercase text-primary-foreground/70">— Ananya R., Bridal Client · Bengaluru</p>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-8 py-32 text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-accent">Begin</p>
-        <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[1.05] text-balance max-w-4xl mx-auto">
-          Your story deserves<br />a garment <em>of its own.</em>
-        </h2>
-        <Link to="/booking" className="mt-12 inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-5 text-sm tracking-wide hover:bg-accent transition-colors">
-          Book your free consultation
-          <ArrowUpRight className="w-4 h-4" />
-        </Link>
       </section>
     </div>
   );
