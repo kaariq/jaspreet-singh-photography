@@ -358,19 +358,19 @@ function MediaTestimonials() {
         <circle cx="100" cy="100" r="66" stroke="#c3bcb1" strokeWidth="0.3"/>
         <circle cx="100" cy="100" r="34" stroke="#c3bcb1" strokeWidth="0.3"/>
       </svg>
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32 grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
         {/* LEFT — heading + quote */}
         <Reveal variants={stagger(0.1)} className="lg:col-span-5 lg:sticky lg:top-32">
           <motion.div variants={fadeUp} className="edit-num opacity-70">— 05 / FROM OUR CUSTOMERS</motion.div>
-          <motion.h2 variants={blurUp} className="font-serif-display text-4xl lg:text-[64px] leading-[1.02] mt-4">
+          <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] mt-3 sm:mt-4">
             In their own <span className="italic text-[hsl(33,11%,73%)]">words.</span>
           </motion.h2>
-          <motion.div variants={fadeUp} className="mt-8 max-w-md">
-            <Quote className="w-7 h-7 text-[hsl(64,30%,46%)]"/>
-            <p className="font-serif-display text-xl lg:text-2xl mt-4 leading-snug opacity-90">
+          <motion.div variants={fadeUp} className="mt-5 sm:mt-8 max-w-md">
+            <Quote className="w-6 h-6 sm:w-7 sm:h-7 text-[hsl(64,30%,46%)]"/>
+            <p className="font-serif-display text-base sm:text-xl lg:text-2xl mt-3 sm:mt-4 leading-snug opacity-90">
               &ldquo;Behind every garment is a story of trust — of fabric, fit, and the people who chose us to tell it.&rdquo;
             </p>
-            <div className="mt-6 text-[11px] tracking-[0.22em] uppercase opacity-70">— The Kaariq atelier</div>
+            <div className="mt-4 sm:mt-6 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase opacity-70">— The Kaariq atelier</div>
           </motion.div>
           <motion.div variants={fadeUp} className="hidden lg:flex items-center gap-3 mt-10 text-[11px] tracking-[0.22em] uppercase opacity-70">
             <span>Hover to pause</span>
