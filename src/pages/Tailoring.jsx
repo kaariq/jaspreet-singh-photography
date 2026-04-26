@@ -27,37 +27,37 @@ export default function Tailoring() {
   const items = slug && /sherwani|suit|kurta-pyjama|men|trousers|waistcoat/i.test(slug) ? mensItems : womensItems;
   const heading = slug ? slug.replace(/-/g, ' ').replace(/\band\b/g, '&') : 'Bespoke Tailoring';
   return (
-    <main className="pb-20">
+    <main className="pb-12 sm:pb-20">
       <Breadcrumb items={[{label:'Home', to:'/'},{label:'Tailoring', to:'/tailoring'},{label:heading}]}/>
       <PageHero tag="TAILORING" title={<span className="capitalize">{heading}<span className="italic"> by Kaariq</span></span>} subtitle="Hand-cut, machine and hand-stitched in our Mumbai atelier. From measurement to delivery, every step is yours to direct." image={IMAGES.craft}/>
 
-      {/* Sub-categories pills */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 mt-12">
-        <div className="flex flex-wrap gap-2">
+      {/* Sub-categories pills — horizontal scroll on mobile */}
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-10">
+        <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
           {sub.flatMap(c => c.items).map(it => {
             const s = it.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
             const active = s === slug;
             return (
-              <Link key={it} to={`/tailoring/${s}`} className={`text-[11px] tracking-[0.22em] uppercase px-4 py-2 border transition-colors ${active ? 'bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] border-[hsl(85,13%,19%)]' : 'border-[hsl(33,11%,80%)] hover:border-[hsl(85,13%,19%)]'}`}>{it}</Link>
+              <Link key={it} to={`/tailoring/${s}`} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border transition-colors whitespace-nowrap ${active ? 'bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] border-[hsl(85,13%,19%)]' : 'border-[hsl(33,11%,80%)] hover:border-[hsl(85,13%,19%)]'}`}>{it}</Link>
             );
           })}
         </div>
       </div>
 
       {/* Grid */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 mt-12">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
           {items.map((g, i) => <GarmentCard key={i} {...g}/>)}
         </div>
       </section>
 
       {/* CTA bar */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 mt-20">
-        <div className="bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] p-10 lg:p-14 grid lg:grid-cols-3 gap-8 items-center">
-          <h3 className="font-serif-display text-3xl lg:text-4xl lg:col-span-2">Don't see what you have in mind? <span className="italic">We can craft it.</span></h3>
-          <div className="flex flex-wrap gap-3">
-            <Link to="/booking/book-appointment" className="inline-block bg-[hsl(0,0%,100%)] text-[hsl(85,13%,19%)] px-6 py-3 text-[12px] tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] transition-colors">Book Appointment</Link>
-            <Link to="/contact/whatsapp-support" className="inline-block border border-white/40 px-6 py-3 text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">WhatsApp Us</Link>
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-12 sm:mt-20">
+        <div className="bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] p-6 sm:p-10 lg:p-14 grid lg:grid-cols-3 gap-5 sm:gap-8 items-center">
+          <h3 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl lg:col-span-2 leading-tight">Don't see what you have in mind? <span className="italic">We can craft it.</span></h3>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            <Link to="/booking/book-appointment" className="inline-block bg-[hsl(0,0%,100%)] text-[hsl(85,13%,19%)] px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] transition-colors">Book Appointment</Link>
+            <Link to="/contact/whatsapp-support" className="inline-block border border-white/40 px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">WhatsApp Us</Link>
           </div>
         </div>
       </section>

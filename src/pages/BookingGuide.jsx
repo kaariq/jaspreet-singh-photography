@@ -19,22 +19,22 @@ export default function BookingGuide() {
   const { slug } = useParams();
   const view = slug || 'our-process';
   return (
-    <main className="pb-20">
+    <main className="pb-12 sm:pb-20">
       <Breadcrumb items={[{label:'Home', to:'/'},{label:'Booking & Guide', to:'/booking'},{label:(slug || 'Our Process').replace(/-/g,' ')}]}/>
       <PageHero tag="BOOKING & GUIDE" title={<>Plan your <span className="italic">visit</span>, your way.</>} subtitle="In-studio, at-home, or virtual — choose the experience that suits you. Every appointment ends with a personalised quote and timeline." image={IMAGES.consultation}/>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 mt-12 flex flex-wrap gap-2">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12 flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar">
         {[
           ['our-process','Our Process'],
           ['measurement-guide','Measurement Guide'],
           ['book-appointment','Book Appointment'],
           ['virtual-consultation','Virtual Consultation'],
         ].map(([s,l]) => (
-          <Link key={s} to={`/booking/${s}`} className={`text-[11px] tracking-[0.22em] uppercase px-4 py-2 border transition-colors ${view===s ? 'bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] border-[hsl(85,13%,19%)]' : 'border-[hsl(33,11%,80%)] hover:border-[hsl(85,13%,19%)]'}`}>{l}</Link>
+          <Link key={s} to={`/booking/${s}`} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border whitespace-nowrap transition-colors ${view===s ? 'bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] border-[hsl(85,13%,19%)]' : 'border-[hsl(33,11%,80%)] hover:border-[hsl(85,13%,19%)]'}`}>{l}</Link>
         ))}
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 mt-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12">
         {view === 'our-process' && <ProcessView />}
         {view === 'measurement-guide' && <Measurement items={measurements}/>}
         {view === 'book-appointment' && <BookForm />}
@@ -48,23 +48,23 @@ export default function BookingGuide() {
 
 function ProcessView() {
   return (
-    <div className="grid lg:grid-cols-12 gap-10">
+    <div className="grid lg:grid-cols-12 gap-6 sm:gap-10">
       <div className="lg:col-span-4">
-        <div className="sticky top-32">
-          <div className="aspect-[4/5] overflow-hidden bg-[hsl(33,11%,88%)]">
+        <div className="lg:sticky lg:top-32">
+          <div className="aspect-[16/10] sm:aspect-[4/5] overflow-hidden bg-[hsl(33,11%,88%)]">
             <img src={IMAGES.craft} alt="" className="w-full h-full object-cover"/>
           </div>
-          <p className="text-sm text-[hsl(85,13%,32%)] mt-5 leading-relaxed">A calm, considered process — designed to keep you involved at every stage. From your first conversation to delivery, you'll have one dedicated stylist.</p>
+          <p className="text-[13px] sm:text-sm text-[hsl(85,13%,32%)] mt-4 sm:mt-5 leading-relaxed">A calm, considered process — designed to keep you involved at every stage. From your first conversation to delivery, you'll have one dedicated stylist.</p>
         </div>
       </div>
       <div className="lg:col-span-8">
         <div className="relative">
-          <div className="absolute left-4 top-2 bottom-2 w-px bg-[hsl(33,11%,80%)]" aria-hidden="true"/>
+          <div className="absolute left-3 sm:left-4 top-2 bottom-2 w-px bg-[hsl(33,11%,80%)]" aria-hidden="true"/>
           {PROCESS.map((p) => (
-            <div key={p.n} className="relative pl-14 pb-10 last:pb-0">
-              <div className="absolute left-0 top-0 w-9 h-9 rounded-full bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] flex items-center justify-center font-italiana text-base">{p.n}</div>
-              <h3 className="font-serif-display text-3xl text-[hsl(85,13%,19%)]">{p.title}</h3>
-              <p className="text-sm text-[hsl(85,13%,32%)] mt-2 leading-relaxed max-w-xl">{p.desc}</p>
+            <div key={p.n} className="relative pl-11 sm:pl-14 pb-6 sm:pb-10 last:pb-0">
+              <div className="absolute left-0 top-0 w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] flex items-center justify-center font-italiana text-sm sm:text-base">{p.n}</div>
+              <h3 className="font-serif-display text-xl sm:text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-tight">{p.title}</h3>
+              <p className="text-[13px] sm:text-sm text-[hsl(85,13%,32%)] mt-1.5 sm:mt-2 leading-relaxed max-w-xl">{p.desc}</p>
             </div>
           ))}
         </div>
@@ -75,22 +75,22 @@ function ProcessView() {
 
 function Measurement({ items }) {
   return (
-    <div className="grid lg:grid-cols-12 gap-10">
+    <div className="grid lg:grid-cols-12 gap-6 sm:gap-10">
       <div className="lg:col-span-5">
-        <div className="aspect-[4/5] overflow-hidden bg-[hsl(33,11%,88%)] sticky top-32">
+        <div className="aspect-[16/10] sm:aspect-[4/5] overflow-hidden bg-[hsl(33,11%,88%)] lg:sticky lg:top-32">
           <img src={IMAGES.consultation} alt="" className="w-full h-full object-cover"/>
         </div>
       </div>
       <div className="lg:col-span-7">
-        <h2 className="font-serif-display text-3xl lg:text-4xl text-[hsl(85,13%,19%)]">A short, simple guide.</h2>
-        <p className="text-sm text-[hsl(85,13%,32%)] mt-3 max-w-xl">Use a soft tape, stand naturally, and ask a friend to help. If you're unsure, our master tailor can come to you — free with bespoke orders.</p>
-        <ol className="mt-8 space-y-5">
+        <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl text-[hsl(85,13%,19%)]">A short, simple guide.</h2>
+        <p className="text-[13px] sm:text-sm text-[hsl(85,13%,32%)] mt-2 sm:mt-3 max-w-xl">Use a soft tape, stand naturally, and ask a friend to help. If you're unsure, our master tailor can come to you — free with bespoke orders.</p>
+        <ol className="mt-5 sm:mt-8 space-y-4 sm:space-y-5">
           {items.map((m, i) => (
-            <li key={m.label} className="flex gap-5 pb-5 border-b border-[hsl(33,11%,80%)] last:border-0">
-              <div className="font-italiana text-2xl text-[hsl(64,30%,36%)] w-10">0{i+1}</div>
+            <li key={m.label} className="flex gap-3 sm:gap-5 pb-4 sm:pb-5 border-b border-[hsl(33,11%,80%)] last:border-0">
+              <div className="font-italiana text-xl sm:text-2xl text-[hsl(64,30%,36%)] w-8 sm:w-10 shrink-0">0{i+1}</div>
               <div>
-                <div className="font-serif-display text-xl text-[hsl(85,13%,19%)]">{m.label}</div>
-                <div className="text-sm text-[hsl(85,13%,32%)] mt-1">{m.desc}</div>
+                <div className="font-serif-display text-lg sm:text-xl text-[hsl(85,13%,19%)]">{m.label}</div>
+                <div className="text-[13px] sm:text-sm text-[hsl(85,13%,32%)] mt-1">{m.desc}</div>
               </div>
             </li>
           ))}
@@ -223,17 +223,17 @@ function InfoCard({ icon: Icon, title, body }) {
 
 function FAQSection() {
   return (
-    <section className="max-w-[1100px] mx-auto px-6 lg:px-10 mt-20">
+    <section className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 mt-12 sm:mt-20">
       <div className="edit-num text-[hsl(85,13%,32%)] text-center">—  FREQUENTLY ASKED</div>
-      <h2 className="font-serif-display text-4xl lg:text-5xl text-[hsl(85,13%,19%)] text-center mt-3">Good to know.</h2>
-      <div className="mt-10 divide-y divide-[hsl(33,11%,80%)] border-y border-[hsl(33,11%,80%)]">
+      <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-[hsl(85,13%,19%)] text-center mt-2 sm:mt-3">Good to know.</h2>
+      <div className="mt-6 sm:mt-10 divide-y divide-[hsl(33,11%,80%)] border-y border-[hsl(33,11%,80%)]">
         {FAQ.map((f) => (
-          <details key={f.q} className="group py-5">
-            <summary className="flex items-center justify-between cursor-pointer list-none">
-              <span className="font-serif-display text-xl lg:text-2xl text-[hsl(85,13%,19%)]">{f.q}</span>
-              <span className="font-italiana text-2xl text-[hsl(64,30%,36%)] group-open:rotate-45 transition-transform">+</span>
+          <details key={f.q} className="group py-4 sm:py-5">
+            <summary className="flex items-center justify-between gap-3 cursor-pointer list-none">
+              <span className="font-serif-display text-lg sm:text-xl lg:text-2xl text-[hsl(85,13%,19%)] leading-tight">{f.q}</span>
+              <span className="font-italiana text-2xl text-[hsl(64,30%,36%)] group-open:rotate-45 transition-transform shrink-0">+</span>
             </summary>
-            <p className="text-sm text-[hsl(85,13%,32%)] mt-3 max-w-3xl leading-relaxed">{f.a}</p>
+            <p className="text-[13px] sm:text-sm text-[hsl(85,13%,32%)] mt-3 max-w-3xl leading-relaxed">{f.a}</p>
           </details>
         ))}
       </div>
