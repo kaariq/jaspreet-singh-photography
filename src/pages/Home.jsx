@@ -243,20 +243,38 @@ function HorizontalProcess() {
 /* -------------------- COLLECTIONS EDITORIAL -------------------- */
 function CollectionsEditorial() {
   return (
-    <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32">
-      <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-6 mb-16 items-end">
+    <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
+      <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16 items-end">
         <motion.div variants={fadeUp} className="lg:col-span-3">
           <div className="edit-num text-[hsl(85,13%,32%)]">— 03 / THE COLLECTIONS</div>
         </motion.div>
-        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-4xl lg:text-[64px] leading-[1.02] text-[hsl(85,13%,19%)]">
+        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-[hsl(85,13%,19%)]">
           Edits for every <span className="italic text-[hsl(64,30%,36%)]">occasion.</span>
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
-          <Link to="/collections" className="link-underline text-[12px] tracking-[0.22em] uppercase">Browse the lookbook →</Link>
+          <Link to="/collections" className="link-underline text-[11px] sm:text-[12px] tracking-[0.22em] uppercase">Browse the lookbook →</Link>
         </motion.div>
       </Reveal>
 
-      <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+      {/* Mobile: horizontal scroll */}
+      <div className="lg:hidden -mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+        {COLLECTIONS.map((c, i) => (
+          <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.06, ease }} className="snap-start flex-shrink-0 w-[78%] sm:w-[55%]">
+            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[4/5]">
+              <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1200ms] ease-out"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/80 via-[hsl(85,13%,14%)]/15 to-transparent"/>
+              <div className="absolute left-4 bottom-4 right-4 text-white">
+                <div className="edit-num opacity-90 text-[10px]">{c.tag}</div>
+                <h3 className="font-serif-display text-xl sm:text-2xl mt-1 leading-tight">{c.title}</h3>
+                <span className="link-underline text-[10px] tracking-[0.22em] uppercase mt-2 inline-block">Shop now →</span>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Desktop: editorial grid */}
+      <div className="hidden lg:grid lg:grid-cols-12 gap-6 lg:gap-8">
         {COLLECTIONS.map((c, i) => (
           <motion.div
             key={c.title}
