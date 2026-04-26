@@ -448,26 +448,26 @@ function MediaTestimonials() {
 /* -------------------- JOURNAL — minimal -------------------- */
 function Journal() {
   return (
-    <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32">
-      <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-6 items-end mb-12">
+    <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
+      <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-4 lg:gap-6 items-end mb-6 sm:mb-10 lg:mb-12">
         <motion.div variants={fadeUp} className="lg:col-span-3">
           <div className="edit-num text-[hsl(85,13%,32%)]">— 06 / JOURNAL</div>
         </motion.div>
-        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-4xl lg:text-5xl text-[hsl(85,13%,19%)]">
+        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-5xl text-[hsl(85,13%,19%)]">
           Notes from the <span className="italic text-[hsl(64,30%,36%)]">atelier</span>.
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
-          <Link to="/explore/blog-and-fashion-news" className="link-underline text-[12px] tracking-[0.22em] uppercase">All articles →</Link>
+          <Link to="/explore/blog-and-fashion-news" className="link-underline text-[11px] sm:text-[12px] tracking-[0.22em] uppercase">All articles →</Link>
         </motion.div>
       </Reveal>
 
       <Reveal variants={stagger(0.04)} className="border-t border-[hsl(33,11%,80%)]">
         {BLOG.map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
-            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-6 items-center py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-2 lg:px-3">
-              <div className="col-span-2 lg:col-span-1 font-italiana text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
-              <div className="col-span-10 lg:col-span-3 text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
-              <h3 className="col-span-12 lg:col-span-6 font-serif-display text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors">{b.title}</h3>
+            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-3 sm:gap-6 items-center py-4 sm:py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-2 lg:px-3">
+              <div className="col-span-2 lg:col-span-1 font-italiana text-xl sm:text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
+              <div className="col-span-10 lg:col-span-3 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
+              <h3 className="col-span-12 lg:col-span-6 font-serif-display text-lg sm:text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors">{b.title}</h3>
               <div className="col-span-12 lg:col-span-2 flex items-center justify-start lg:justify-end gap-3">
                 <div className="hidden lg:block w-14 h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full">
                   <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
