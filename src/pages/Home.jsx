@@ -192,18 +192,32 @@ function HorizontalProcess() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.85', 'end 0.2'] });
   const lineW = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   return (
-    <section ref={ref} className="bg-[hsl(85,13%,19%)] text-white py-24 lg:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <Reveal variants={stagger(0.05)} className="max-w-3xl mb-20">
+    <section ref={ref} className="bg-[hsl(85,13%,19%)] text-white py-12 sm:py-20 lg:py-32 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <Reveal variants={stagger(0.05)} className="max-w-3xl mb-8 sm:mb-14 lg:mb-20">
           <motion.div variants={fadeUp} className="edit-num opacity-70">— 02 / THE KAARIQ PROCESS</motion.div>
-          <motion.h2 variants={blurUp} className="font-serif-display text-4xl lg:text-6xl mt-4 leading-[1.05]">From sketch <span className="italic text-[hsl(33,11%,73%)]">to silhouette,</span> in six steps.</motion.h2>
-          <motion.p variants={fadeUp} className="text-sm opacity-75 mt-5 max-w-xl leading-relaxed">A calm, considered process — designed to put you at the centre of every decision.</motion.p>
+          <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.05]">From sketch <span className="italic text-[hsl(33,11%,73%)]">to silhouette,</span> in six steps.</motion.h2>
+          <motion.p variants={fadeUp} className="text-[13px] sm:text-sm opacity-75 mt-3 sm:mt-5 max-w-xl leading-relaxed">A calm, considered process — designed to put you at the centre of every decision.</motion.p>
         </Reveal>
 
+        {/* Mobile: horizontal snap carousel. Desktop: full grid with progress line */}
         <div className="relative">
-          <div className="absolute left-0 right-0 top-[42px] h-px bg-white/15" aria-hidden="true"/>
-          <motion.div className="absolute left-0 top-[42px] h-px bg-[hsl(64,30%,36%)]" style={{ width: lineW }} aria-hidden="true"/>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-12 gap-x-6 relative">
+          <div className="hidden md:block absolute left-0 right-0 top-[42px] h-px bg-white/15" aria-hidden="true"/>
+          <motion.div className="hidden md:block absolute left-0 top-[42px] h-px bg-[hsl(64,30%,36%)]" style={{ width: lineW }} aria-hidden="true"/>
+
+          <div className="md:hidden -mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+            {PROCESS.map((p, idx) => (
+              <motion.div key={p.n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: idx * 0.06 }} className="snap-start flex-shrink-0 w-[72%] xs:w-[60%]">
+                <div className="w-14 h-14 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center">
+                  <span className="font-italiana text-2xl text-[hsl(33,11%,73%)]">{p.n}</span>
+                </div>
+                <h3 className="font-serif-display text-xl mt-4">{p.title}</h3>
+                <p className="text-[13px] opacity-75 mt-1.5 leading-relaxed">{p.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-y-12 gap-x-6 relative">
             {PROCESS.map((p, idx) => (
               <motion.div key={p.n} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8, delay: idx * 0.12, type: 'spring', stiffness: 80, damping: 16 }} className="relative group">
                 <motion.div whileHover={{ y: -6 }} transition={{ type: 'spring', stiffness: 250, damping: 20 }} className="flex flex-col items-start">
@@ -218,8 +232,8 @@ function HorizontalProcess() {
           </div>
         </div>
 
-        <Reveal className="mt-20">
-          <Link to="/booking/our-process" className="inline-flex items-center gap-2 border border-white/40 px-6 py-3 text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">Read full process <ArrowRight className="w-4 h-4"/></Link>
+        <Reveal className="mt-10 sm:mt-16 lg:mt-20">
+          <Link to="/booking/our-process" className="inline-flex items-center gap-2 border border-white/40 px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">Read full process <ArrowRight className="w-4 h-4"/></Link>
         </Reveal>
       </div>
     </section>
