@@ -144,17 +144,17 @@ function TrustStrip() {
 function ServicesGrid() {
   return (
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
-      <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-6 mb-16 items-end">
+      <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16 items-end">
         <motion.div variants={fadeUp} className="lg:col-span-3">
           <div className="edit-num text-[hsl(85,13%,32%)]">— 01 / WHAT WE TAILOR</div>
         </motion.div>
-        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-4xl lg:text-[64px] leading-[1.02] text-[hsl(85,13%,19%)]">
+        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-[hsl(85,13%,19%)]">
           Tailoring,
           <span className="italic text-[hsl(64,30%,36%)]"> re-imagined</span>
           <br className="hidden lg:block"/> for the modern wardrobe.
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
-          <Link to="/tailoring" className="link-underline text-[12px] tracking-[0.22em] uppercase">View all services →</Link>
+          <Link to="/tailoring" className="link-underline text-[11px] sm:text-[12px] tracking-[0.22em] uppercase">View all services →</Link>
         </motion.div>
       </Reveal>
 
