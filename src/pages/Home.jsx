@@ -158,28 +158,25 @@ function ServicesGrid() {
         </motion.div>
       </Reveal>
 
-      <Reveal variants={stagger(0.05)} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
+      <Reveal variants={stagger(0.05)} className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
         {SERVICES.map((s, i) => (
           <motion.div key={s.title} custom={i} variants={dropIn} className="bg-white">
             <Link to={s.link} className="group block relative">
-              <div className="relative aspect-[3/4] overflow-hidden bg-[hsl(33,11%,88%)]">
+              <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-[hsl(33,11%,88%)]">
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-[1400ms] ease-out"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/80 via-[hsl(85,13%,14%)]/20 to-transparent"/>
-                {/* corner index */}
-                <span className="absolute top-5 left-5 font-italiana text-[hsl(33,11%,88%)] text-[26px] tracking-[0.2em]">N°&nbsp;0{i + 1}</span>
-                {/* bottom card content */}
-                <div className="absolute left-0 right-0 bottom-0 p-6 lg:p-7 text-white">
-                  <h3 className="font-serif-display text-[26px] leading-tight">{s.title}</h3>
-                  <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-[max-height] duration-700 ease-out">
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/85 via-[hsl(85,13%,14%)]/25 to-transparent"/>
+                <span className="absolute top-3 left-3 sm:top-5 sm:left-5 font-italiana text-[hsl(33,11%,88%)] text-[16px] sm:text-[26px] tracking-[0.2em]">N°&nbsp;0{i + 1}</span>
+                <div className="absolute left-0 right-0 bottom-0 p-3 sm:p-6 lg:p-7 text-white">
+                  <h3 className="font-serif-display text-[16px] sm:text-[22px] lg:text-[26px] leading-tight">{s.title}</h3>
+                  <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-[max-height] duration-700 ease-out hidden sm:block">
                     <p className="text-[13px] opacity-85 leading-relaxed mt-2 pr-3">{s.desc}</p>
                   </div>
-                  <div className="flex items-center gap-2 mt-4 text-[11px] tracking-[0.28em] uppercase">
+                  <div className="flex items-center gap-1.5 mt-2 sm:mt-4 text-[9px] sm:text-[11px] tracking-[0.24em] uppercase">
                     Discover
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"/>
+                    <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"/>
                   </div>
                 </div>
-                {/* subtle decorative thin line */}
-                <span className="absolute left-6 right-6 bottom-[68px] h-px bg-white/30"/>
+                <span className="absolute left-3 right-3 sm:left-6 sm:right-6 bottom-[44px] sm:bottom-[68px] h-px bg-white/30"/>
               </div>
             </Link>
           </motion.div>
