@@ -380,7 +380,7 @@ function MediaTestimonials() {
         </Reveal>
 
         {/* RIGHT — auto-scrolling marquee column */}
-        <div className="lg:col-span-7 relative h-[640px] overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+        <div className="lg:col-span-7 relative h-[460px] sm:h-[560px] lg:h-[640px] overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
           <motion.div
