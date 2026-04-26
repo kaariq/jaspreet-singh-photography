@@ -20,11 +20,11 @@ export default function Explore() {
   const { slug } = useParams();
   const view = slug || 'gallery-and-lookbook';
   return (
-    <main className="pb-20">
+    <main className="pb-12 sm:pb-20">
       <Breadcrumb items={[{label:'Home', to:'/'},{label:'Explore', to:'/explore'},{label: (slug || 'Gallery').replace(/-/g,' ')}]}/>
       <PageHero tag="EXPLORE" title={<>Stories, style, <span className="italic">and inspiration</span>.</>} subtitle="Step into the Kaariq world — a curated lookbook, journal entries, AI-led design tools and films from our customers." image={IMAGES.lookbook}/>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 mt-12 flex flex-wrap gap-2">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12 flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar -mx-0 sm:mx-0">
         {[
           ['gallery-and-lookbook','Gallery & Lookbook'],
           ['blog-and-fashion-news','Journal'],
@@ -32,13 +32,13 @@ export default function Explore() {
           ['personal-style-quiz','Style Quiz'],
           ['customer-showreels','Showreels'],
         ].map(([s,l]) => (
-          <Link key={s} to={`/explore/${s}`} className={`text-[11px] tracking-[0.22em] uppercase px-4 py-2 border transition-colors ${view===s ? 'bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] border-[hsl(85,13%,19%)]' : 'border-[hsl(33,11%,80%)] hover:border-[hsl(85,13%,19%)]'}`}>{l}</Link>
+          <Link key={s} to={`/explore/${s}`} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border whitespace-nowrap transition-colors ${view===s ? 'bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] border-[hsl(85,13%,19%)]' : 'border-[hsl(33,11%,80%)] hover:border-[hsl(85,13%,19%)]'}`}>{l}</Link>
         ))}
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 mt-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12">
         {view === 'gallery-and-lookbook' && (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-5">
             {GALLERY.map((g, i) => (
               <div key={i} className={`overflow-hidden bg-[hsl(33,11%,88%)] ${i%5===0 ? 'aspect-[3/4] lg:row-span-2 lg:aspect-[3/5]' : 'aspect-[3/4]'}`}>
                 <img src={g} alt="" className="w-full h-full object-cover hover:scale-[1.05] transition-transform duration-700"/>
@@ -47,15 +47,15 @@ export default function Explore() {
           </div>
         )}
         {view === 'blog-and-fashion-news' && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
             {[...BLOG, ...BLOG].map((b, i) => (
               <article key={i} className="group cursor-pointer">
-                <div className="aspect-[4/5] overflow-hidden bg-[hsl(33,11%,88%)] mb-4">
+                <div className="aspect-[4/5] overflow-hidden bg-[hsl(33,11%,88%)] mb-3 sm:mb-4">
                   <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700"/>
                 </div>
-                <div className="text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
-                <h3 className="font-serif-display text-2xl mt-2">{b.title}</h3>
-                <span className="link-underline text-[12px] tracking-[0.22em] uppercase mt-3 inline-block">Read article →</span>
+                <div className="text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
+                <h3 className="font-serif-display text-xl sm:text-2xl mt-1.5 sm:mt-2 leading-tight">{b.title}</h3>
+                <span className="link-underline text-[11px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase mt-2 sm:mt-3 inline-block">Read article →</span>
               </article>
             ))}
           </div>
@@ -63,18 +63,18 @@ export default function Explore() {
         {view === 'ai-design-tool' && <AITool />}
         {view === 'personal-style-quiz' && <Quiz qs={quizQs}/>}
         {view === 'customer-showreels' && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {showreels.map((s) => (
               <div key={s.name} className="group relative aspect-[3/5] overflow-hidden bg-black">
                 <img src={s.vid} alt="" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-700"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"/>
-                <div className="absolute left-4 bottom-4 right-4 text-[hsl(0,0%,100%)]">
-                  <div className="edit-num opacity-90">SHOWREEL</div>
-                  <div className="font-serif-display text-2xl mt-1">{s.name}</div>
-                  <div className="text-[11px] tracking-[0.22em] uppercase opacity-80">{s.city}</div>
+                <div className="absolute left-3 bottom-3 sm:left-4 sm:bottom-4 right-3 sm:right-4 text-[hsl(0,0%,100%)]">
+                  <div className="edit-num opacity-90 text-[9px] sm:text-xs">SHOWREEL</div>
+                  <div className="font-serif-display text-lg sm:text-2xl mt-1 leading-tight">{s.name}</div>
+                  <div className="text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase opacity-80">{s.city}</div>
                 </div>
-                <button className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-[hsl(0,0%,100%)]/90 flex items-center justify-center hover:bg-[hsl(0,0%,100%)] transition-colors" aria-label="Play">
-                  <ChevronRight className="w-6 h-6 text-[hsl(85,13%,19%)] ml-1"/>
+                <button className="absolute inset-0 m-auto w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[hsl(0,0%,100%)]/90 flex items-center justify-center hover:bg-[hsl(0,0%,100%)] transition-colors" aria-label="Play">
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-[hsl(85,13%,19%)] ml-1"/>
                 </button>
               </div>
             ))}
