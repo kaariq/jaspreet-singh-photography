@@ -69,7 +69,7 @@ function HeroCarousel() {
   const alignLeft = slide.align === 'left';
   return (
     <section className="relative w-full bg-[hsl(85,13%,19%)] overflow-hidden" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      <div className="relative h-[78vh] min-h-[560px] max-h-[840px] w-full">
+      <div className="relative h-[calc(100svh-64px)] min-h-[460px] sm:h-[78vh] sm:min-h-[560px] max-h-[840px] w-full">
         <AnimatePresence mode="wait">
           <motion.div key={slide.id} className="absolute inset-0" initial={{ opacity: 0, scale: 1.06 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.15, ease }}>
             <img src={slide.image} alt={slide.title} className="absolute inset-0 w-full h-full object-cover"/>
