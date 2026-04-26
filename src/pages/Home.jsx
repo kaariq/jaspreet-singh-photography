@@ -143,7 +143,7 @@ function TrustStrip() {
 /* -------------------- SERVICES GRID — refined -------------------- */
 function ServicesGrid() {
   return (
-    <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32">
+    <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
       <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-6 mb-16 items-end">
         <motion.div variants={fadeUp} className="lg:col-span-3">
           <div className="edit-num text-[hsl(85,13%,32%)]">— 01 / WHAT WE TAILOR</div>
