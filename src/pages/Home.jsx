@@ -307,13 +307,13 @@ function FabricBanner() {
     <section className="relative h-[55vh] sm:h-[60vh] min-h-[360px] sm:min-h-[440px] overflow-hidden">
       <motion.img initial={{ scale: 1.15 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.8, ease }} src={IMAGES.craft} alt="Atelier" className="absolute inset-0 w-full h-full object-cover"/>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(50,56,43,0.4) 0%, rgba(50,56,43,0.55) 70%, rgba(50,56,43,0.7) 100%)' }}/>
-      <Reveal variants={stagger(0.1)} className="relative h-full flex items-center justify-center text-center px-6">
+      <Reveal variants={stagger(0.1)} className="relative h-full flex items-center justify-center text-center px-4 sm:px-6">
         <div className="max-w-3xl text-white">
           <motion.div variants={blurUp} className="edit-num opacity-80">— AT THE ATELIER</motion.div>
-          <motion.h2 variants={blurUp} className="font-serif-display text-4xl lg:text-6xl mt-4 leading-[1.05]">A garment is never <span className="italic">finished</span> — only delivered.</motion.h2>
-          <motion.p variants={blurUp} className="text-sm opacity-90 mt-5 max-w-xl mx-auto">Every Kaariq piece passes through 14 hands and 6 quality checks before it leaves the studio.</motion.p>
+          <motion.h2 variants={blurUp} className="font-serif-display text-[26px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.1]">A garment is never <span className="italic">finished</span> — only delivered.</motion.h2>
+          <motion.p variants={blurUp} className="text-[13px] sm:text-sm opacity-90 mt-3 sm:mt-5 max-w-xl mx-auto">Every Kaariq piece passes through 14 hands and 6 quality checks before it leaves the studio.</motion.p>
           <motion.div variants={blurUp}>
-            <Link to="/explore/gallery-and-lookbook" className="inline-flex items-center gap-2 mt-8 border border-white px-6 py-3 text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">View the atelier <ArrowRight className="w-4 h-4"/></Link>
+            <Link to="/explore/gallery-and-lookbook" className="inline-flex items-center gap-2 mt-5 sm:mt-8 border border-white px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">View the atelier <ArrowRight className="w-4 h-4"/></Link>
           </motion.div>
         </div>
       </Reveal>
