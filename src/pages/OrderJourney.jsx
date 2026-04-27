@@ -82,11 +82,28 @@ export default function OrderJourney() {
   const isLast = step === steps.length - 1;
 
   return (
-    <main className="pb-28">
-      <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Tailoring', to: '/tailoring' }, { label: CATEGORY_LABELS[schemaKey], to: `/tailoring/${slug}` }, { label: isCustom ? 'Custom order' : (designObj?.label || 'Order') }]}/>
+    <main className="pb-28 lg:pb-28">
+      {/* Desktop breadcrumb */}
+      <div className="hidden lg:block">
+        <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Tailoring', to: '/tailoring' }, { label: CATEGORY_LABELS[schemaKey], to: `/tailoring/${slug}` }, { label: isCustom ? 'Custom order' : (designObj?.label || 'Order') }]}/>
+      </div>
 
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-8">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8">
+      {/* Mobile sticky title bar — sits below the site header */}
+      <div className="lg:hidden sticky top-16 z-30 bg-white/95 backdrop-blur border-b border-[hsl(33,11%,80%)]">
+        <div className="px-4 py-2.5 flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <div className="text-[9px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{CATEGORY_LABELS[schemaKey]} · Step {step + 1}/{steps.length}</div>
+            <h1 className="font-serif-display text-[17px] leading-tight text-[hsl(85,13%,19%)] truncate">{isCustom ? 'Custom Design' : designObj?.label} <span className="italic text-[hsl(64,30%,36%)]">· {stepName}</span></h1>
+          </div>
+        </div>
+        {/* progress bar */}
+        <div className="h-[3px] bg-[hsl(33,11%,90%)]">
+          <div className="h-full bg-[hsl(64,30%,36%)] transition-all" style={{ width: `${((step + 1) / steps.length) * 100}%` }}/>
+        </div>
+      </div>
+
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-8">
+        <div className="hidden lg:flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8">
           <div>
             <div className="edit-num text-[hsl(85,13%,32%)]">—  ORDER JOURNEY</div>
             <h1 className="font-serif-display text-3xl lg:text-5xl mt-2 text-[hsl(85,13%,19%)]">{isCustom ? 'Custom Design' : designObj?.label} <span className="italic text-[hsl(64,30%,36%)]">({CATEGORY_LABELS[schemaKey]})</span></h1>
