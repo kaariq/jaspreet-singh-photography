@@ -141,18 +141,10 @@ export default function OrderJourney() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex items-center justify-between mt-10 pt-6 border-t border-[hsl(33,11%,80%)]">
-              <button onClick={back} disabled={step === 0} className="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase border border-[hsl(33,11%,80%)] px-4 py-2.5 hover:bg-[hsl(33,11%,96%)] disabled:opacity-40"><ArrowLeft className="w-4 h-4"/>Back</button>
-              {step < steps.length - 1 ? (
-                <button onClick={next} className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase bg-[hsl(85,13%,19%)] text-white px-6 py-3 hover:bg-[hsl(64,30%,36%)] transition-colors">Continue<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/></button>
-              ) : (
-                <button onClick={placeOrder} className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase bg-[hsl(64,30%,36%)] text-white px-6 py-3 hover:bg-[hsl(85,13%,19%)] transition-colors">Place order<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/></button>
-              )}
-            </div>
           </div>
 
-          {/* Sticky summary */}
-          <aside className="lg:col-span-4 lg:sticky lg:top-32">
+          {/* Sticky summary (desktop only) */}
+          <aside className="hidden lg:block lg:col-span-4 lg:sticky lg:top-32">
             <div className="border border-[hsl(33,11%,80%)] bg-white">
               {(designObj?.image || data.customPhoto) && (
                 <div className="aspect-[4/5] bg-[hsl(33,11%,88%)] overflow-hidden">
