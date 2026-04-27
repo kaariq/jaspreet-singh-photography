@@ -206,14 +206,16 @@ function HorizontalProcess() {
           <div className="hidden md:block absolute left-0 right-0 top-[42px] h-px bg-white/15" aria-hidden="true"/>
           <motion.div className="hidden md:block absolute left-0 top-[42px] h-px bg-[hsl(64,30%,36%)]" style={{ width: lineW }} aria-hidden="true"/>
 
-          <div className="md:hidden -mx-4 px-4 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+          <div className="md:hidden grid grid-cols-2 gap-x-3 gap-y-5">
             {PROCESS.map((p, idx) => (
-              <motion.div key={p.n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: idx * 0.06 }} className="snap-start flex-shrink-0 w-[55%] xs:w-[48%]">
-                <div className="w-11 h-11 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center">
-                  <span className="font-italiana text-xl text-[hsl(33,11%,73%)]">{p.n}</span>
+              <motion.div key={p.n} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: idx * 0.05 }} className="flex gap-2.5">
+                <div className="w-9 h-9 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center flex-shrink-0">
+                  <span className="font-italiana text-[13px] text-[hsl(33,11%,73%)]">{p.n}</span>
                 </div>
-                <h3 className="font-serif-display text-base mt-3">{p.title}</h3>
-                <p className="text-[12px] opacity-75 mt-1 leading-relaxed line-clamp-3">{p.desc}</p>
+                <div className="min-w-0">
+                  <h3 className="font-serif-display text-[14px] leading-tight">{p.title}</h3>
+                  <p className="text-[10.5px] opacity-70 mt-0.5 leading-snug line-clamp-2">{p.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
