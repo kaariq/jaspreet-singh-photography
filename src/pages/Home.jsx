@@ -85,7 +85,7 @@ function HeroCarousel() {
             </svg>
           </motion.div>
         </AnimatePresence>
-        <div className="relative h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center">
+        <div className="relative h-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-16 flex items-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id + '-text'}
@@ -95,29 +95,29 @@ function HeroCarousel() {
               exit={{ opacity: 0, y: -20, transition: { duration: 0.4 } }}
               variants={stagger(0.15)}
             >
-              <motion.div variants={blurUp} className="font-italiana text-[11px] tracking-[0.4em] uppercase opacity-90">{slide.eyebrow}</motion.div>
-              <motion.h1 variants={blurUp} className="font-serif-display mt-5 text-[44px] sm:text-[56px] lg:text-[78px] leading-[0.98] whitespace-pre-line">{slide.title}</motion.h1>
-              <motion.p variants={blurUp} className="text-[15px] lg:text-[16px] leading-relaxed mt-5 opacity-90 max-w-md ml-0 lg:ml-auto">{slide.body}</motion.p>
-              <motion.div variants={blurUp} className={`flex flex-wrap gap-3 mt-8 ${alignLeft ? '' : 'lg:justify-end'}`}>
-                <Link to={slide.cta.to} className="group inline-flex items-center gap-2 bg-white text-[hsl(85,13%,19%)] px-7 py-3.5 text-[12px] tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] hover:text-white transition-colors">
-                  {slide.cta.label} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/>
+              <motion.div variants={blurUp} className="font-italiana text-[10px] sm:text-[11px] tracking-[0.32em] sm:tracking-[0.4em] uppercase opacity-90">{slide.eyebrow}</motion.div>
+              <motion.h1 variants={blurUp} className="font-serif-display mt-3 sm:mt-5 text-[32px] sm:text-[56px] lg:text-[78px] leading-[1] sm:leading-[0.98] whitespace-pre-line">{slide.title}</motion.h1>
+              <motion.p variants={blurUp} className="text-[12.5px] sm:text-[15px] lg:text-[16px] leading-relaxed mt-3 sm:mt-5 opacity-90 max-w-md ml-0 lg:ml-auto line-clamp-3 sm:line-clamp-none">{slide.body}</motion.p>
+              <motion.div variants={blurUp} className={`flex flex-wrap gap-2 sm:gap-3 mt-5 sm:mt-8 ${alignLeft ? '' : 'lg:justify-end'}`}>
+                <Link to={slide.cta.to} className="group inline-flex items-center gap-2 bg-white text-[hsl(85,13%,19%)] px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] hover:text-white transition-colors">
+                  {slide.cta.label} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"/>
                 </Link>
-                <Link to="/booking/book-appointment" className="inline-flex items-center gap-2 border border-white/70 px-7 py-3.5 text-[12px] tracking-[0.22em] uppercase text-white hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">
+                <Link to="/booking/book-appointment" className="inline-flex items-center gap-2 border border-white/70 px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-white hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">
                   Book Appointment
                 </Link>
               </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
-        <button onClick={() => go(-1)} aria-label="Previous" className="absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronLeft className="w-5 h-5"/></button>
-        <button onClick={() => go(1)} aria-label="Next" className="absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronRight className="w-5 h-5"/></button>
-        <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-3 px-6">
+        <button onClick={() => go(-1)} aria-label="Previous" className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5"/></button>
+        <button onClick={() => go(1)} aria-label="Next" className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronRight className="w-4 h-4 sm:w-5 sm:h-5"/></button>
+        <div className="absolute bottom-3 sm:bottom-6 left-0 right-0 flex justify-center items-center gap-2 sm:gap-3 px-4 sm:px-6">
           {HERO_SLIDES.map((s, idx) => (
-            <button key={s.id} onClick={() => setI(idx)} aria-label={`Slide ${idx + 1}`} className="group relative h-[3px] w-10 lg:w-14 bg-white/30 overflow-hidden">
+            <button key={s.id} onClick={() => setI(idx)} aria-label={`Slide ${idx + 1}`} className="group relative h-[2px] sm:h-[3px] w-7 sm:w-10 lg:w-14 bg-white/30 overflow-hidden">
               <span className={`absolute inset-0 bg-white origin-left transition-transform duration-[5500ms] ease-linear ${idx === i ? 'scale-x-100' : 'scale-x-0'}`}/>
             </button>
           ))}
-          <span className="font-italiana text-white text-[11px] tracking-[0.3em] ml-3">0{i + 1} / 0{total}</span>
+          <span className="font-italiana text-white text-[10px] sm:text-[11px] tracking-[0.28em] sm:tracking-[0.3em] ml-2 sm:ml-3">0{i + 1} / 0{total}</span>
         </div>
       </div>
     </section>
