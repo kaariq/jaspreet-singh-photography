@@ -79,20 +79,7 @@ export default function OrderJourney() {
 
   const stepName = steps[step];
 
-  const summaryRows = (
-    <>
-      <Row k="Category" v={CATEGORY_LABELS[schemaKey]}/>
-      {!isCustom && <Row k="Neckline" v={NECKLINES.find((n) => n.id === data.neckline)?.label || '—'}/>}
-      {!isCustom && <Row k="Back" v={BACK_DESIGNS.find((n) => n.id === data.back)?.label || '—'}/>}
-      <Row k="Sleeve" v={SLEEVE_STYLES.find((n) => n.id === data.sleeve)?.label || '—'}/>
-      <Row k="Add-ons" v={data.addons.length ? `${data.addons.length} selected` : '—'}/>
-      <Row k="Plan" v={PLAN_OPTIONS.find((p) => p.id === data.plan)?.label || '—'}/>
-      <Row k="For" v={state.people.find((p) => p.id === data.personId)?.name || '—'}/>
-      <div className="pt-2 mt-2 border-t border-[hsl(33,11%,80%)]"/>
-      <Row k="Base" v={`₹${basePrice.toLocaleString('en-IN')}`}/>
-      <Row k="Add-ons" v={`₹${addonsPrice.toLocaleString('en-IN')}`}/>
-    </>
-  );
+  const isLast = step === steps.length - 1;
 
   return (
     <main className="pb-28">
