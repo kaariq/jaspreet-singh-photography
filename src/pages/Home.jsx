@@ -256,17 +256,17 @@ function CollectionsEditorial() {
         </motion.div>
       </Reveal>
 
-      {/* Mobile: horizontal scroll */}
-      <div className="lg:hidden -mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+      {/* Mobile: horizontal scroll - short, compact cards */}
+      <div className="lg:hidden -mx-4 px-4 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
         {COLLECTIONS.map((c, i) => (
-          <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.06, ease }} className="snap-start flex-shrink-0 w-[78%] sm:w-[55%]">
-            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[4/5]">
+          <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.06, ease }} className="snap-start flex-shrink-0 w-[58%] sm:w-[44%]">
+            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[3/4]">
               <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1200ms] ease-out"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/80 via-[hsl(85,13%,14%)]/15 to-transparent"/>
-              <div className="absolute left-4 bottom-4 right-4 text-white">
-                <div className="edit-num opacity-90 text-[10px]">{c.tag}</div>
-                <h3 className="font-serif-display text-xl sm:text-2xl mt-1 leading-tight">{c.title}</h3>
-                <span className="link-underline text-[10px] tracking-[0.22em] uppercase mt-2 inline-block">Shop now →</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/85 via-[hsl(85,13%,14%)]/15 to-transparent"/>
+              <div className="absolute left-3 bottom-3 right-3 text-white">
+                <div className="edit-num opacity-90 text-[9px] tracking-[0.2em]">{c.tag}</div>
+                <h3 className="font-serif-display text-base sm:text-lg mt-0.5 leading-tight">{c.title}</h3>
+                <span className="link-underline text-[9px] tracking-[0.2em] uppercase mt-1 inline-block">Shop →</span>
               </div>
             </Link>
           </motion.div>
