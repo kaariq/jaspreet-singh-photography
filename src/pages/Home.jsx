@@ -50,6 +50,7 @@ export default function Home() {
       <FeaturesSection />
       <MediaTestimonials />
       <Journal />
+      <FaqSection />
     </main>
   );
 }
@@ -205,14 +206,16 @@ function HorizontalProcess() {
           <div className="hidden md:block absolute left-0 right-0 top-[42px] h-px bg-white/15" aria-hidden="true"/>
           <motion.div className="hidden md:block absolute left-0 top-[42px] h-px bg-[hsl(64,30%,36%)]" style={{ width: lineW }} aria-hidden="true"/>
 
-          <div className="md:hidden -mx-4 px-4 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+          <div className="md:hidden grid grid-cols-2 gap-x-3 gap-y-5">
             {PROCESS.map((p, idx) => (
-              <motion.div key={p.n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: idx * 0.06 }} className="snap-start flex-shrink-0 w-[55%] xs:w-[48%]">
-                <div className="w-11 h-11 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center">
-                  <span className="font-italiana text-xl text-[hsl(33,11%,73%)]">{p.n}</span>
+              <motion.div key={p.n} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: idx * 0.05 }} className="flex gap-2.5">
+                <div className="w-9 h-9 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center flex-shrink-0">
+                  <span className="font-italiana text-[13px] text-[hsl(33,11%,73%)]">{p.n}</span>
                 </div>
-                <h3 className="font-serif-display text-base mt-3">{p.title}</h3>
-                <p className="text-[12px] opacity-75 mt-1 leading-relaxed line-clamp-3">{p.desc}</p>
+                <div className="min-w-0">
+                  <h3 className="font-serif-display text-[14px] leading-tight">{p.title}</h3>
+                  <p className="text-[10.5px] opacity-70 mt-0.5 leading-snug line-clamp-2">{p.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -329,14 +332,14 @@ function FeaturesSection() {
         <motion.div variants={fadeUp} className="edit-num text-[hsl(85,13%,32%)]">— 04 / WHY KAARIQ</motion.div>
         <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-5xl mt-2 sm:mt-3 text-[hsl(85,13%,19%)]">Fabric. Fashion. <span className="italic text-[hsl(64,30%,36%)]">Fit.</span> Finesse.</motion.h2>
       </Reveal>
-      <Reveal variants={stagger(0.04)} className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
-        {FEATURES.map((f, i) => {
+      <Reveal variants={stagger(0.04)} className="grid grid-cols-3 lg:grid-cols-3 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
+        {FEATURES.slice(0, 6).map((f, i) => {
           const Icon = featureIcons[i % featureIcons.length];
           return (
-            <motion.div key={f.title} custom={i} variants={dropIn} className="bg-white p-4 sm:p-6 lg:p-8 hover:bg-[hsl(33,11%,96%)] transition-colors group">
-              <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-[hsl(64,30%,36%)] group-hover:scale-110 transition-transform" strokeWidth={1.4}/>
-              <h3 className="font-serif-display text-base sm:text-xl mt-3 sm:mt-5 text-[hsl(85,13%,19%)] leading-tight">{f.title}</h3>
-              <p className="text-[12px] sm:text-sm text-[hsl(85,13%,32%)] mt-1.5 sm:mt-2 leading-relaxed">{f.desc}</p>
+            <motion.div key={f.title} custom={i} variants={dropIn} className="bg-white p-3 sm:p-6 lg:p-8 hover:bg-[hsl(33,11%,96%)] transition-colors group">
+              <Icon className="w-4 h-4 sm:w-7 sm:h-7 text-[hsl(64,30%,36%)] group-hover:scale-110 transition-transform" strokeWidth={1.4}/>
+              <h3 className="font-serif-display text-[12px] sm:text-xl mt-2 sm:mt-5 text-[hsl(85,13%,19%)] leading-tight">{f.title}</h3>
+              <p className="hidden sm:block text-[12px] sm:text-sm text-[hsl(85,13%,32%)] mt-1.5 sm:mt-2 leading-relaxed">{f.desc}</p>
             </motion.div>
           );
         })}
@@ -448,36 +451,105 @@ function MediaTestimonials() {
 /* -------------------- JOURNAL — minimal -------------------- */
 function Journal() {
   return (
-    <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
-      <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-4 lg:gap-6 items-end mb-6 sm:mb-10 lg:mb-12">
+    <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-20 lg:py-32">
+      <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-3 lg:gap-6 items-end mb-4 sm:mb-10 lg:mb-12">
         <motion.div variants={fadeUp} className="lg:col-span-3">
           <div className="edit-num text-[hsl(85,13%,32%)]">— 06 / JOURNAL</div>
         </motion.div>
-        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-5xl text-[hsl(85,13%,19%)]">
+        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[22px] sm:text-4xl lg:text-5xl text-[hsl(85,13%,19%)]">
           Notes from the <span className="italic text-[hsl(64,30%,36%)]">atelier</span>.
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
-          <Link to="/explore/blog-and-fashion-news" className="link-underline text-[11px] sm:text-[12px] tracking-[0.22em] uppercase">All articles →</Link>
+          <Link to="/explore/blog-and-fashion-news" className="link-underline text-[10px] sm:text-[12px] tracking-[0.22em] uppercase">All articles →</Link>
         </motion.div>
       </Reveal>
 
-      <Reveal variants={stagger(0.04)} className="border-t border-[hsl(33,11%,80%)]">
+      {/* Mobile: ultra-compact list, top 3 only */}
+      <Reveal variants={stagger(0.04)} className="lg:hidden border-t border-[hsl(33,11%,80%)]">
+        {BLOG.slice(0, 3).map((b, i) => (
+          <motion.article key={b.title} custom={i} variants={fadeUp}>
+            <Link to="/explore/blog-and-fashion-news" className="group flex items-center gap-3 py-2.5 border-b border-[hsl(33,11%,80%)]">
+              <div className="w-9 h-9 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full shrink-0">
+                <img src={b.img} alt="" className="w-full h-full object-cover"/>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-[8.5px] tracking-[0.2em] uppercase text-[hsl(85,13%,32%)] leading-none">{b.tag} · {b.date}</div>
+                <h3 className="font-serif-display text-[13px] text-[hsl(85,13%,19%)] leading-snug line-clamp-1 mt-0.5">{b.title}</h3>
+              </div>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[hsl(85,13%,32%)] shrink-0"/>
+            </Link>
+          </motion.article>
+        ))}
+      </Reveal>
+
+      {/* Desktop: original full row */}
+      <Reveal variants={stagger(0.04)} className="hidden lg:block border-t border-[hsl(33,11%,80%)]">
         {BLOG.map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
-            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-2 sm:gap-6 items-center py-3 sm:py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-1.5 sm:px-2 lg:px-3">
-              <div className="col-span-1 font-italiana text-base sm:text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
-              <div className="col-span-11 lg:col-span-3 text-[9px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-[hsl(85,13%,32%)] order-2 lg:order-none">{b.tag} · {b.date}</div>
-              <h3 className="col-span-9 lg:col-span-6 font-serif-display text-[14px] sm:text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors line-clamp-2">{b.title}</h3>
-              <div className="col-span-3 lg:col-span-2 flex items-center justify-end gap-2 sm:gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full shrink-0">
+            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-6 items-center py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-2 lg:px-3">
+              <div className="col-span-1 font-italiana text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
+              <div className="col-span-3 text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
+              <h3 className="col-span-6 font-serif-display text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors line-clamp-2">{b.title}</h3>
+              <div className="col-span-2 flex items-center justify-end gap-3">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full shrink-0">
                   <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
                 </div>
-                <ArrowUpRight className="hidden sm:block w-5 h-5 text-[hsl(85,13%,19%)] group-hover:text-[hsl(64,30%,36%)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
+                <ArrowUpRight className="w-5 h-5 text-[hsl(85,13%,19%)] group-hover:text-[hsl(64,30%,36%)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
               </div>
             </Link>
           </motion.article>
         ))}
       </Reveal>
+    </section>
+  );
+}
+
+/* -------------------- FAQ -------------------- */
+const FAQS = [
+  { q: 'How long does a bespoke piece take?', a: 'Most garments are delivered in 14–21 days. Heavy bridal and embroidered pieces may take 4–6 weeks. We share a clear timeline at consultation.' },
+  { q: 'Do you offer doorstep measurement?', a: 'Yes — our master tailor visits at home or office across major cities, free of charge. For other locations, a virtual fitting is available.' },
+  { q: 'Can I bring my own fabric?', a: 'Absolutely. You can supply your own fabric, choose from our curated mill, or have us source something rare — silk, linen, hand-loom or embroidered.' },
+  { q: 'What if the fit is not perfect?', a: 'Every order includes up to three rounds of fittings, plus a lifetime alteration warranty for size changes within reason.' },
+  { q: 'Do you ship worldwide?', a: 'Yes. We ship insured, duty-prepaid parcels to 60+ countries with delivery in 4–7 working days post-completion.' },
+  { q: 'How is pricing decided?', a: 'Pricing depends on the garment, fabric, embroidery and finishing. You receive a transparent quote before we begin — no surprises.' },
+];
+
+function FaqSection() {
+  const [open, setOpen] = useState(0);
+  return (
+    <section className="bg-[hsl(33,11%,96%)] border-t border-[hsl(33,11%,80%)]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-20 lg:py-28">
+        <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+          <motion.div variants={fadeUp} className="lg:col-span-4 lg:sticky lg:top-32">
+            <div className="edit-num text-[hsl(85,13%,32%)]">— 07 / FAQ</div>
+            <h2 className="font-serif-display text-[24px] sm:text-4xl lg:text-[56px] leading-[1.05] mt-2 sm:mt-4 text-[hsl(85,13%,19%)]">
+              Questions, <span className="italic text-[hsl(64,30%,36%)]">answered</span>.
+            </h2>
+            <p className="hidden lg:block text-sm text-[hsl(85,13%,32%)] mt-5 leading-relaxed max-w-sm">Still curious? Our concierge is on WhatsApp every day, 10am–8pm IST.</p>
+          </motion.div>
+          <motion.div variants={fadeUp} className="lg:col-span-8 border-t border-[hsl(33,11%,73%)]">
+            {FAQS.map((f, i) => {
+              const isOpen = open === i;
+              return (
+                <div key={f.q} className="border-b border-[hsl(33,11%,73%)]">
+                  <button onClick={() => setOpen(isOpen ? -1 : i)} className="w-full text-left flex items-start gap-3 py-3.5 sm:py-5 group">
+                    <span className="font-italiana text-[hsl(64,30%,36%)] text-sm sm:text-lg pt-0.5 sm:pt-1 w-6 sm:w-8 shrink-0">0{i + 1}</span>
+                    <span className="flex-1 font-serif-display text-[14px] sm:text-[20px] lg:text-[22px] text-[hsl(85,13%,19%)] leading-snug pr-3">{f.q}</span>
+                    <span className={`text-[hsl(85,13%,19%)] text-xl sm:text-2xl leading-none transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>+</span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease }} className="overflow-hidden">
+                        <p className="text-[12.5px] sm:text-[14px] text-[hsl(85,13%,32%)] leading-relaxed pl-9 sm:pl-11 pr-6 pb-4 sm:pb-5">{f.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </motion.div>
+        </Reveal>
+      </div>
     </section>
   );
 }
