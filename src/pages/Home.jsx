@@ -50,6 +50,7 @@ export default function Home() {
       <FeaturesSection />
       <MediaTestimonials />
       <Journal />
+      <FaqSection />
     </main>
   );
 }
