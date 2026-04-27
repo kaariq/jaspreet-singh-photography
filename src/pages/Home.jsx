@@ -69,7 +69,7 @@ function HeroCarousel() {
   const alignLeft = slide.align === 'left';
   return (
     <section className="relative w-full bg-[hsl(85,13%,19%)] overflow-hidden" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      <div className="relative h-[calc(100svh-64px)] min-h-[460px] sm:h-[78vh] sm:min-h-[560px] max-h-[840px] w-full">
+      <div className="relative h-[calc(100svh-64px)] min-h-[420px] sm:h-[78vh] sm:min-h-[560px] max-h-[840px] w-full">
         <AnimatePresence mode="wait">
           <motion.div key={slide.id} className="absolute inset-0" initial={{ opacity: 0, scale: 1.06 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.15, ease }}>
             <img src={slide.image} alt={slide.title} className="absolute inset-0 w-full h-full object-cover"/>
@@ -85,7 +85,7 @@ function HeroCarousel() {
             </svg>
           </motion.div>
         </AnimatePresence>
-        <div className="relative h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center">
+        <div className="relative h-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-16 flex items-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id + '-text'}
@@ -95,29 +95,29 @@ function HeroCarousel() {
               exit={{ opacity: 0, y: -20, transition: { duration: 0.4 } }}
               variants={stagger(0.15)}
             >
-              <motion.div variants={blurUp} className="font-italiana text-[11px] tracking-[0.4em] uppercase opacity-90">{slide.eyebrow}</motion.div>
-              <motion.h1 variants={blurUp} className="font-serif-display mt-5 text-[44px] sm:text-[56px] lg:text-[78px] leading-[0.98] whitespace-pre-line">{slide.title}</motion.h1>
-              <motion.p variants={blurUp} className="text-[15px] lg:text-[16px] leading-relaxed mt-5 opacity-90 max-w-md ml-0 lg:ml-auto">{slide.body}</motion.p>
-              <motion.div variants={blurUp} className={`flex flex-wrap gap-3 mt-8 ${alignLeft ? '' : 'lg:justify-end'}`}>
-                <Link to={slide.cta.to} className="group inline-flex items-center gap-2 bg-white text-[hsl(85,13%,19%)] px-7 py-3.5 text-[12px] tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] hover:text-white transition-colors">
-                  {slide.cta.label} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/>
+              <motion.div variants={blurUp} className="font-italiana text-[10px] sm:text-[11px] tracking-[0.32em] sm:tracking-[0.4em] uppercase opacity-90">{slide.eyebrow}</motion.div>
+              <motion.h1 variants={blurUp} className="font-serif-display mt-3 sm:mt-5 text-[32px] sm:text-[56px] lg:text-[78px] leading-[1] sm:leading-[0.98] whitespace-pre-line">{slide.title}</motion.h1>
+              <motion.p variants={blurUp} className="text-[12.5px] sm:text-[15px] lg:text-[16px] leading-relaxed mt-3 sm:mt-5 opacity-90 max-w-md ml-0 lg:ml-auto line-clamp-3 sm:line-clamp-none">{slide.body}</motion.p>
+              <motion.div variants={blurUp} className={`flex flex-wrap gap-2 sm:gap-3 mt-5 sm:mt-8 ${alignLeft ? '' : 'lg:justify-end'}`}>
+                <Link to={slide.cta.to} className="group inline-flex items-center gap-2 bg-white text-[hsl(85,13%,19%)] px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] hover:text-white transition-colors">
+                  {slide.cta.label} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"/>
                 </Link>
-                <Link to="/booking/book-appointment" className="inline-flex items-center gap-2 border border-white/70 px-7 py-3.5 text-[12px] tracking-[0.22em] uppercase text-white hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">
+                <Link to="/booking/book-appointment" className="inline-flex items-center gap-2 border border-white/70 px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-white hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">
                   Book Appointment
                 </Link>
               </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
-        <button onClick={() => go(-1)} aria-label="Previous" className="absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronLeft className="w-5 h-5"/></button>
-        <button onClick={() => go(1)} aria-label="Next" className="absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronRight className="w-5 h-5"/></button>
-        <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-3 px-6">
+        <button onClick={() => go(-1)} aria-label="Previous" className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5"/></button>
+        <button onClick={() => go(1)} aria-label="Next" className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronRight className="w-4 h-4 sm:w-5 sm:h-5"/></button>
+        <div className="absolute bottom-3 sm:bottom-6 left-0 right-0 flex justify-center items-center gap-2 sm:gap-3 px-4 sm:px-6">
           {HERO_SLIDES.map((s, idx) => (
-            <button key={s.id} onClick={() => setI(idx)} aria-label={`Slide ${idx + 1}`} className="group relative h-[3px] w-10 lg:w-14 bg-white/30 overflow-hidden">
+            <button key={s.id} onClick={() => setI(idx)} aria-label={`Slide ${idx + 1}`} className="group relative h-[2px] sm:h-[3px] w-7 sm:w-10 lg:w-14 bg-white/30 overflow-hidden">
               <span className={`absolute inset-0 bg-white origin-left transition-transform duration-[5500ms] ease-linear ${idx === i ? 'scale-x-100' : 'scale-x-0'}`}/>
             </button>
           ))}
-          <span className="font-italiana text-white text-[11px] tracking-[0.3em] ml-3">0{i + 1} / 0{total}</span>
+          <span className="font-italiana text-white text-[10px] sm:text-[11px] tracking-[0.28em] sm:tracking-[0.3em] ml-2 sm:ml-3">0{i + 1} / 0{total}</span>
         </div>
       </div>
     </section>
@@ -205,14 +205,14 @@ function HorizontalProcess() {
           <div className="hidden md:block absolute left-0 right-0 top-[42px] h-px bg-white/15" aria-hidden="true"/>
           <motion.div className="hidden md:block absolute left-0 top-[42px] h-px bg-[hsl(64,30%,36%)]" style={{ width: lineW }} aria-hidden="true"/>
 
-          <div className="md:hidden -mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+          <div className="md:hidden -mx-4 px-4 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
             {PROCESS.map((p, idx) => (
-              <motion.div key={p.n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: idx * 0.06 }} className="snap-start flex-shrink-0 w-[72%] xs:w-[60%]">
-                <div className="w-14 h-14 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center">
-                  <span className="font-italiana text-2xl text-[hsl(33,11%,73%)]">{p.n}</span>
+              <motion.div key={p.n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: idx * 0.06 }} className="snap-start flex-shrink-0 w-[55%] xs:w-[48%]">
+                <div className="w-11 h-11 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center">
+                  <span className="font-italiana text-xl text-[hsl(33,11%,73%)]">{p.n}</span>
                 </div>
-                <h3 className="font-serif-display text-xl mt-4">{p.title}</h3>
-                <p className="text-[13px] opacity-75 mt-1.5 leading-relaxed">{p.desc}</p>
+                <h3 className="font-serif-display text-base mt-3">{p.title}</h3>
+                <p className="text-[12px] opacity-75 mt-1 leading-relaxed line-clamp-3">{p.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -256,17 +256,17 @@ function CollectionsEditorial() {
         </motion.div>
       </Reveal>
 
-      {/* Mobile: horizontal scroll */}
-      <div className="lg:hidden -mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+      {/* Mobile: horizontal scroll - short, compact cards */}
+      <div className="lg:hidden -mx-4 px-4 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
         {COLLECTIONS.map((c, i) => (
-          <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.06, ease }} className="snap-start flex-shrink-0 w-[78%] sm:w-[55%]">
-            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[4/5]">
+          <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.06, ease }} className="snap-start flex-shrink-0 w-[58%] sm:w-[44%]">
+            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[3/4]">
               <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1200ms] ease-out"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/80 via-[hsl(85,13%,14%)]/15 to-transparent"/>
-              <div className="absolute left-4 bottom-4 right-4 text-white">
-                <div className="edit-num opacity-90 text-[10px]">{c.tag}</div>
-                <h3 className="font-serif-display text-xl sm:text-2xl mt-1 leading-tight">{c.title}</h3>
-                <span className="link-underline text-[10px] tracking-[0.22em] uppercase mt-2 inline-block">Shop now →</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/85 via-[hsl(85,13%,14%)]/15 to-transparent"/>
+              <div className="absolute left-3 bottom-3 right-3 text-white">
+                <div className="edit-num opacity-90 text-[9px] tracking-[0.2em]">{c.tag}</div>
+                <h3 className="font-serif-display text-base sm:text-lg mt-0.5 leading-tight">{c.title}</h3>
+                <span className="link-underline text-[9px] tracking-[0.2em] uppercase mt-1 inline-block">Shop →</span>
               </div>
             </Link>
           </motion.div>
@@ -304,7 +304,7 @@ function CollectionsEditorial() {
 /* -------------------- FABRIC BANNER -------------------- */
 function FabricBanner() {
   return (
-    <section className="relative h-[55vh] sm:h-[60vh] min-h-[360px] sm:min-h-[440px] overflow-hidden">
+    <section className="relative h-[42vh] sm:h-[60vh] min-h-[300px] sm:min-h-[440px] overflow-hidden">
       <motion.img initial={{ scale: 1.15 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.8, ease }} src={IMAGES.craft} alt="Atelier" className="absolute inset-0 w-full h-full object-cover"/>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(50,56,43,0.4) 0%, rgba(50,56,43,0.55) 70%, rgba(50,56,43,0.7) 100%)' }}/>
       <Reveal variants={stagger(0.1)} className="relative h-full flex items-center justify-center text-center px-4 sm:px-6">
@@ -380,11 +380,11 @@ function MediaTestimonials() {
         </Reveal>
 
         {/* RIGHT — auto-scrolling marquee column */}
-        <div className="lg:col-span-7 relative h-[460px] sm:h-[560px] lg:h-[640px] overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
+        <div className="lg:col-span-7 relative h-[380px] sm:h-[520px] lg:h-[640px] overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+          <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
           <motion.div
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-4 sm:gap-6"
             animate={{ y: paused ? undefined : ['0%', '-66.66%'] }}
             transition={{ duration: 36, ease: 'linear', repeat: Infinity }}
           >
@@ -393,22 +393,22 @@ function MediaTestimonials() {
                 key={`${t.name}-${i}`}
                 whileHover={{ scale: 1.015 }}
                 onClick={() => setOpen(t)}
-                className="group flex gap-5 items-stretch text-left bg-white/[0.04] border border-white/10 hover:border-[hsl(64,30%,46%)]/60 backdrop-blur-sm p-4 lg:p-5 transition-colors"
+                className="group flex gap-3 sm:gap-5 items-stretch text-left bg-white/[0.04] border border-white/10 hover:border-[hsl(64,30%,46%)]/60 backdrop-blur-sm p-3 sm:p-4 lg:p-5 transition-colors"
               >
-                <div className="relative w-[140px] sm:w-[180px] aspect-[3/4] overflow-hidden flex-shrink-0 bg-black">
+                <div className="relative w-[96px] sm:w-[160px] lg:w-[180px] aspect-[3/4] overflow-hidden flex-shrink-0 bg-black">
                   <img src={t.thumb} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[900ms]"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"/>
-                  <span className="absolute top-3 left-3 text-[9px] tracking-[0.22em] uppercase bg-white/95 text-[hsl(85,13%,19%)] px-2 py-0.5">{t.type === 'video' ? 'Video' : 'Photo'}</span>
-                  <span className="absolute inset-0 m-auto w-11 h-11 rounded-full bg-white/95 flex items-center justify-center group-hover:bg-[hsl(64,30%,36%)] group-hover:text-white transition-all">
-                    {t.type === 'video' ? <Play className="w-4 h-4 ml-0.5"/> : <Eye className="w-4 h-4"/>}
+                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 text-[8px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] uppercase bg-white/95 text-[hsl(85,13%,19%)] px-1.5 py-0.5">{t.type === 'video' ? 'Video' : 'Photo'}</span>
+                  <span className="absolute inset-0 m-auto w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 flex items-center justify-center group-hover:bg-[hsl(64,30%,36%)] group-hover:text-white transition-all">
+                    {t.type === 'video' ? <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5"/> : <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4"/>}
                   </span>
                 </div>
-                <div className="flex-1 py-1 flex flex-col">
-                  <Quote className="w-4 h-4 text-[hsl(64,30%,46%)]"/>
-                  <p className="font-serif-display text-[17px] sm:text-[19px] leading-snug mt-2 line-clamp-5">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-auto pt-3">
-                    <div className="font-serif-display text-base">{t.name}</div>
-                    <div className="text-[10px] tracking-[0.22em] uppercase opacity-70">{t.role}</div>
+                <div className="flex-1 py-0.5 sm:py-1 flex flex-col min-w-0">
+                  <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[hsl(64,30%,46%)]"/>
+                  <p className="font-serif-display text-[13.5px] sm:text-[17px] lg:text-[19px] leading-snug mt-1.5 sm:mt-2 line-clamp-4 sm:line-clamp-5">&ldquo;{t.quote}&rdquo;</p>
+                  <div className="mt-auto pt-2 sm:pt-3">
+                    <div className="font-serif-display text-sm sm:text-base">{t.name}</div>
+                    <div className="text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.22em] uppercase opacity-70">{t.role}</div>
                   </div>
                 </div>
               </motion.button>
@@ -464,15 +464,15 @@ function Journal() {
       <Reveal variants={stagger(0.04)} className="border-t border-[hsl(33,11%,80%)]">
         {BLOG.map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
-            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-3 sm:gap-6 items-center py-4 sm:py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-2 lg:px-3">
-              <div className="col-span-2 lg:col-span-1 font-italiana text-xl sm:text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
-              <div className="col-span-10 lg:col-span-3 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
-              <h3 className="col-span-12 lg:col-span-6 font-serif-display text-lg sm:text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors">{b.title}</h3>
-              <div className="col-span-12 lg:col-span-2 flex items-center justify-start lg:justify-end gap-3">
-                <div className="hidden lg:block w-14 h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full">
+            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-2 sm:gap-6 items-center py-3 sm:py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-1.5 sm:px-2 lg:px-3">
+              <div className="col-span-1 font-italiana text-base sm:text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
+              <div className="col-span-11 lg:col-span-3 text-[9px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-[hsl(85,13%,32%)] order-2 lg:order-none">{b.tag} · {b.date}</div>
+              <h3 className="col-span-9 lg:col-span-6 font-serif-display text-[14px] sm:text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors line-clamp-2">{b.title}</h3>
+              <div className="col-span-3 lg:col-span-2 flex items-center justify-end gap-2 sm:gap-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full shrink-0">
                   <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-[hsl(85,13%,19%)] group-hover:text-[hsl(64,30%,36%)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
+                <ArrowUpRight className="hidden sm:block w-5 h-5 text-[hsl(85,13%,19%)] group-hover:text-[hsl(64,30%,36%)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
               </div>
             </Link>
           </motion.article>
