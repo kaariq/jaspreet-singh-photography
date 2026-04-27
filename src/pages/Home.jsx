@@ -304,7 +304,7 @@ function CollectionsEditorial() {
 /* -------------------- FABRIC BANNER -------------------- */
 function FabricBanner() {
   return (
-    <section className="relative h-[55vh] sm:h-[60vh] min-h-[360px] sm:min-h-[440px] overflow-hidden">
+    <section className="relative h-[42vh] sm:h-[60vh] min-h-[300px] sm:min-h-[440px] overflow-hidden">
       <motion.img initial={{ scale: 1.15 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.8, ease }} src={IMAGES.craft} alt="Atelier" className="absolute inset-0 w-full h-full object-cover"/>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(50,56,43,0.4) 0%, rgba(50,56,43,0.55) 70%, rgba(50,56,43,0.7) 100%)' }}/>
       <Reveal variants={stagger(0.1)} className="relative h-full flex items-center justify-center text-center px-4 sm:px-6">
