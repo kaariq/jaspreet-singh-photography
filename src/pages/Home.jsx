@@ -464,15 +464,15 @@ function Journal() {
       <Reveal variants={stagger(0.04)} className="border-t border-[hsl(33,11%,80%)]">
         {BLOG.map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
-            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-3 sm:gap-6 items-center py-4 sm:py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-2 lg:px-3">
-              <div className="col-span-2 lg:col-span-1 font-italiana text-xl sm:text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
-              <div className="col-span-10 lg:col-span-3 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
-              <h3 className="col-span-12 lg:col-span-6 font-serif-display text-lg sm:text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors">{b.title}</h3>
-              <div className="col-span-12 lg:col-span-2 flex items-center justify-start lg:justify-end gap-3">
-                <div className="hidden lg:block w-14 h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full">
+            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-2 sm:gap-6 items-center py-3 sm:py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-1.5 sm:px-2 lg:px-3">
+              <div className="col-span-1 font-italiana text-base sm:text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
+              <div className="col-span-11 lg:col-span-3 text-[9px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-[hsl(85,13%,32%)] order-2 lg:order-none">{b.tag} · {b.date}</div>
+              <h3 className="col-span-9 lg:col-span-6 font-serif-display text-[14px] sm:text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors line-clamp-2">{b.title}</h3>
+              <div className="col-span-3 lg:col-span-2 flex items-center justify-end gap-2 sm:gap-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full shrink-0">
                   <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-[hsl(85,13%,19%)] group-hover:text-[hsl(64,30%,36%)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
+                <ArrowUpRight className="hidden sm:block w-5 h-5 text-[hsl(85,13%,19%)] group-hover:text-[hsl(64,30%,36%)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
               </div>
             </Link>
           </motion.article>
