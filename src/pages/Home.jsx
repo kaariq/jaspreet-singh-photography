@@ -380,11 +380,11 @@ function MediaTestimonials() {
         </Reveal>
 
         {/* RIGHT — auto-scrolling marquee column */}
-        <div className="lg:col-span-7 relative h-[460px] sm:h-[560px] lg:h-[640px] overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
+        <div className="lg:col-span-7 relative h-[380px] sm:h-[520px] lg:h-[640px] overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+          <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
           <motion.div
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-4 sm:gap-6"
             animate={{ y: paused ? undefined : ['0%', '-66.66%'] }}
             transition={{ duration: 36, ease: 'linear', repeat: Infinity }}
           >
@@ -393,22 +393,22 @@ function MediaTestimonials() {
                 key={`${t.name}-${i}`}
                 whileHover={{ scale: 1.015 }}
                 onClick={() => setOpen(t)}
-                className="group flex gap-5 items-stretch text-left bg-white/[0.04] border border-white/10 hover:border-[hsl(64,30%,46%)]/60 backdrop-blur-sm p-4 lg:p-5 transition-colors"
+                className="group flex gap-3 sm:gap-5 items-stretch text-left bg-white/[0.04] border border-white/10 hover:border-[hsl(64,30%,46%)]/60 backdrop-blur-sm p-3 sm:p-4 lg:p-5 transition-colors"
               >
-                <div className="relative w-[140px] sm:w-[180px] aspect-[3/4] overflow-hidden flex-shrink-0 bg-black">
+                <div className="relative w-[96px] sm:w-[160px] lg:w-[180px] aspect-[3/4] overflow-hidden flex-shrink-0 bg-black">
                   <img src={t.thumb} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[900ms]"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"/>
-                  <span className="absolute top-3 left-3 text-[9px] tracking-[0.22em] uppercase bg-white/95 text-[hsl(85,13%,19%)] px-2 py-0.5">{t.type === 'video' ? 'Video' : 'Photo'}</span>
-                  <span className="absolute inset-0 m-auto w-11 h-11 rounded-full bg-white/95 flex items-center justify-center group-hover:bg-[hsl(64,30%,36%)] group-hover:text-white transition-all">
-                    {t.type === 'video' ? <Play className="w-4 h-4 ml-0.5"/> : <Eye className="w-4 h-4"/>}
+                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 text-[8px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] uppercase bg-white/95 text-[hsl(85,13%,19%)] px-1.5 py-0.5">{t.type === 'video' ? 'Video' : 'Photo'}</span>
+                  <span className="absolute inset-0 m-auto w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 flex items-center justify-center group-hover:bg-[hsl(64,30%,36%)] group-hover:text-white transition-all">
+                    {t.type === 'video' ? <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5"/> : <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4"/>}
                   </span>
                 </div>
-                <div className="flex-1 py-1 flex flex-col">
-                  <Quote className="w-4 h-4 text-[hsl(64,30%,46%)]"/>
-                  <p className="font-serif-display text-[17px] sm:text-[19px] leading-snug mt-2 line-clamp-5">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-auto pt-3">
-                    <div className="font-serif-display text-base">{t.name}</div>
-                    <div className="text-[10px] tracking-[0.22em] uppercase opacity-70">{t.role}</div>
+                <div className="flex-1 py-0.5 sm:py-1 flex flex-col min-w-0">
+                  <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[hsl(64,30%,46%)]"/>
+                  <p className="font-serif-display text-[13.5px] sm:text-[17px] lg:text-[19px] leading-snug mt-1.5 sm:mt-2 line-clamp-4 sm:line-clamp-5">&ldquo;{t.quote}&rdquo;</p>
+                  <div className="mt-auto pt-2 sm:pt-3">
+                    <div className="font-serif-display text-sm sm:text-base">{t.name}</div>
+                    <div className="text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.22em] uppercase opacity-70">{t.role}</div>
                   </div>
                 </div>
               </motion.button>
