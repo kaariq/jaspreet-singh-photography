@@ -332,14 +332,14 @@ function FeaturesSection() {
         <motion.div variants={fadeUp} className="edit-num text-[hsl(85,13%,32%)]">— 04 / WHY KAARIQ</motion.div>
         <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-5xl mt-2 sm:mt-3 text-[hsl(85,13%,19%)]">Fabric. Fashion. <span className="italic text-[hsl(64,30%,36%)]">Fit.</span> Finesse.</motion.h2>
       </Reveal>
-      <Reveal variants={stagger(0.04)} className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
-        {FEATURES.map((f, i) => {
+      <Reveal variants={stagger(0.04)} className="grid grid-cols-3 lg:grid-cols-3 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
+        {FEATURES.slice(0, 6).map((f, i) => {
           const Icon = featureIcons[i % featureIcons.length];
           return (
-            <motion.div key={f.title} custom={i} variants={dropIn} className="bg-white p-4 sm:p-6 lg:p-8 hover:bg-[hsl(33,11%,96%)] transition-colors group">
-              <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-[hsl(64,30%,36%)] group-hover:scale-110 transition-transform" strokeWidth={1.4}/>
-              <h3 className="font-serif-display text-base sm:text-xl mt-3 sm:mt-5 text-[hsl(85,13%,19%)] leading-tight">{f.title}</h3>
-              <p className="text-[12px] sm:text-sm text-[hsl(85,13%,32%)] mt-1.5 sm:mt-2 leading-relaxed">{f.desc}</p>
+            <motion.div key={f.title} custom={i} variants={dropIn} className="bg-white p-3 sm:p-6 lg:p-8 hover:bg-[hsl(33,11%,96%)] transition-colors group">
+              <Icon className="w-4 h-4 sm:w-7 sm:h-7 text-[hsl(64,30%,36%)] group-hover:scale-110 transition-transform" strokeWidth={1.4}/>
+              <h3 className="font-serif-display text-[12px] sm:text-xl mt-2 sm:mt-5 text-[hsl(85,13%,19%)] leading-tight">{f.title}</h3>
+              <p className="hidden sm:block text-[12px] sm:text-sm text-[hsl(85,13%,32%)] mt-1.5 sm:mt-2 leading-relaxed">{f.desc}</p>
             </motion.div>
           );
         })}
