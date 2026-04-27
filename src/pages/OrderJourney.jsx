@@ -79,8 +79,10 @@ export default function OrderJourney() {
 
   const stepName = steps[step];
 
+  const isLast = step === steps.length - 1;
+
   return (
-    <main className="pb-20">
+    <main className="pb-28">
       <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Tailoring', to: '/tailoring' }, { label: CATEGORY_LABELS[schemaKey], to: `/tailoring/${slug}` }, { label: isCustom ? 'Custom order' : (designObj?.label || 'Order') }]}/>
 
       <section className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-8">
@@ -126,18 +128,10 @@ export default function OrderJourney() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex items-center justify-between mt-10 pt-6 border-t border-[hsl(33,11%,80%)]">
-              <button onClick={back} disabled={step === 0} className="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase border border-[hsl(33,11%,80%)] px-4 py-2.5 hover:bg-[hsl(33,11%,96%)] disabled:opacity-40"><ArrowLeft className="w-4 h-4"/>Back</button>
-              {step < steps.length - 1 ? (
-                <button onClick={next} className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase bg-[hsl(85,13%,19%)] text-white px-6 py-3 hover:bg-[hsl(64,30%,36%)] transition-colors">Continue<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/></button>
-              ) : (
-                <button onClick={placeOrder} className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase bg-[hsl(64,30%,36%)] text-white px-6 py-3 hover:bg-[hsl(85,13%,19%)] transition-colors">Place order<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/></button>
-              )}
-            </div>
           </div>
 
-          {/* Sticky summary */}
-          <aside className="lg:col-span-4 lg:sticky lg:top-32">
+          {/* Sticky summary (desktop only) */}
+          <aside className="hidden lg:block lg:col-span-4 lg:sticky lg:top-32">
             <div className="border border-[hsl(33,11%,80%)] bg-white">
               {(designObj?.image || data.customPhoto) && (
                 <div className="aspect-[4/5] bg-[hsl(33,11%,88%)] overflow-hidden">
@@ -166,6 +160,47 @@ export default function OrderJourney() {
           </aside>
         </div>
       </section>
+
+      {/* Sticky bottom action bar */}
+      <div className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-[hsl(33,11%,80%)]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-3 flex items-center gap-3">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="text-[10px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)] hidden sm:block">Total</div>
+            <div className="font-serif-display text-xl sm:text-2xl text-[hsl(85,13%,19%)] whitespace-nowrap">₹{total.toLocaleString('en-IN')}</div>
+            <div className="relative group">
+              <button type="button" aria-label="Order details" className="w-7 h-7 inline-flex items-center justify-center rounded-full border border-[hsl(33,11%,80%)] text-[hsl(85,13%,32%)] hover:bg-[hsl(33,11%,96%)]">
+                <Info className="w-3.5 h-3.5"/>
+              </button>
+              <div className="pointer-events-none absolute bottom-full left-0 mb-3 w-72 sm:w-80 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 transition-all bg-white border border-[hsl(33,11%,80%)] shadow-lg p-4 z-50">
+                <div className="edit-num text-[hsl(64,30%,36%)] mb-2">—  YOUR ORDER</div>
+                <div className="font-serif-display text-base mb-2 text-[hsl(85,13%,19%)]">{isCustom ? 'Custom Design' : designObj?.label}</div>
+                <ul className="text-sm space-y-1.5">
+                  <Row k="Category" v={CATEGORY_LABELS[schemaKey]}/>
+                  {!isCustom && <Row k="Neckline" v={NECKLINES.find((n) => n.id === data.neckline)?.label || '—'}/>}
+                  {!isCustom && <Row k="Back" v={BACK_DESIGNS.find((n) => n.id === data.back)?.label || '—'}/>}
+                  <Row k="Sleeve" v={SLEEVE_STYLES.find((n) => n.id === data.sleeve)?.label || '—'}/>
+                  <Row k="Add-ons" v={data.addons.length ? `${data.addons.length} selected` : '—'}/>
+                  <Row k="Plan" v={PLAN_OPTIONS.find((p) => p.id === data.plan)?.label || '—'}/>
+                  <Row k="For" v={state.people.find((p) => p.id === data.personId)?.name || '—'}/>
+                </ul>
+                <div className="mt-3 pt-3 border-t border-[hsl(33,11%,80%)] space-y-1.5 text-sm">
+                  <Row k="Base" v={`₹${basePrice.toLocaleString('en-IN')}`}/>
+                  <Row k="Add-ons" v={`₹${addonsPrice.toLocaleString('en-IN')}`}/>
+                  <div className="flex justify-between pt-1.5"><span className="text-[11px] tracking-[0.22em] uppercase">Total</span><span className="font-serif-display text-lg">₹{total.toLocaleString('en-IN')}</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 ml-auto">
+            <button onClick={back} disabled={step === 0} className="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase border border-[hsl(33,11%,80%)] px-3 sm:px-4 py-2.5 hover:bg-[hsl(33,11%,96%)] disabled:opacity-40"><ArrowLeft className="w-4 h-4"/><span className="hidden sm:inline">Back</span></button>
+            {!isLast ? (
+              <button onClick={next} className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase bg-[hsl(85,13%,19%)] text-white px-4 sm:px-6 py-3 hover:bg-[hsl(64,30%,36%)] transition-colors">Continue<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/></button>
+            ) : (
+              <button onClick={placeOrder} className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase bg-[hsl(64,30%,36%)] text-white px-4 sm:px-6 py-3 hover:bg-[hsl(85,13%,19%)] transition-colors">Place order<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/></button>
+            )}
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
