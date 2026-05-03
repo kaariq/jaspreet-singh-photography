@@ -69,7 +69,7 @@ function HeroCarousel() {
   const slide = HERO_SLIDES[i];
   const alignLeft = slide.align === 'left';
   return (
-    <section className="relative w-full bg-[hsl(85,13%,19%)] overflow-hidden" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <section className="relative w-full bg-[#2A0A12] overflow-hidden" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <div className="relative h-[calc(100svh-64px)] min-h-[420px] sm:h-[78vh] sm:min-h-[560px] max-h-[840px] w-full">
         <AnimatePresence mode="wait">
           <motion.div key={slide.id} className="absolute inset-0" initial={{ opacity: 0, scale: 1.06 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.15, ease }}>
@@ -100,18 +100,18 @@ function HeroCarousel() {
               <motion.h1 variants={blurUp} className="font-serif-display mt-3 sm:mt-5 text-[32px] sm:text-[56px] lg:text-[78px] leading-[1] sm:leading-[0.98] whitespace-pre-line">{slide.title}</motion.h1>
               <motion.p variants={blurUp} className="text-[12.5px] sm:text-[15px] lg:text-[16px] leading-relaxed mt-3 sm:mt-5 opacity-90 max-w-md ml-0 lg:ml-auto line-clamp-3 sm:line-clamp-none">{slide.body}</motion.p>
               <motion.div variants={blurUp} className={`flex flex-wrap gap-2 sm:gap-3 mt-5 sm:mt-8 ${alignLeft ? '' : 'lg:justify-end'}`}>
-                <Link to={slide.cta.to} className="group inline-flex items-center gap-2 bg-white text-[hsl(85,13%,19%)] px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] hover:text-white transition-colors">
+                <Link to={slide.cta.to} className="group inline-flex items-center gap-2 bg-white text-[#2A0A12] px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-[#6E0D25] hover:text-white transition-colors">
                   {slide.cta.label} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"/>
                 </Link>
-                <Link to="/booking/book-appointment" className="inline-flex items-center gap-2 border border-white/70 px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-white hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">
+                <Link to="/booking/book-appointment" className="inline-flex items-center gap-2 border border-white/70 px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-white hover:bg-white hover:text-[#2A0A12] transition-colors">
                   Book Appointment
                 </Link>
               </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
-        <button onClick={() => go(-1)} aria-label="Previous" className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5"/></button>
-        <button onClick={() => go(1)} aria-label="Next" className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center transition-colors"><ChevronRight className="w-4 h-4 sm:w-5 sm:h-5"/></button>
+        <button onClick={() => go(-1)} aria-label="Previous" className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[#2A0A12] flex items-center justify-center transition-colors"><ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5"/></button>
+        <button onClick={() => go(1)} aria-label="Next" className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white text-white hover:text-[#2A0A12] flex items-center justify-center transition-colors"><ChevronRight className="w-4 h-4 sm:w-5 sm:h-5"/></button>
         <div className="absolute bottom-3 sm:bottom-6 left-0 right-0 flex justify-center items-center gap-2 sm:gap-3 px-4 sm:px-6">
           {HERO_SLIDES.map((s, idx) => (
             <button key={s.id} onClick={() => setI(idx)} aria-label={`Slide ${idx + 1}`} className="group relative h-[2px] sm:h-[3px] w-7 sm:w-10 lg:w-14 bg-white/30 overflow-hidden">
@@ -129,11 +129,11 @@ function HeroCarousel() {
 function TrustStrip() {
   const items = ['Free Doorstep Measurement', 'Free Pickup & Delivery', 'Free Lifetime Alterations', 'Worldwide Shipping', 'Hand Embroidery', 'Sustainable Atelier'];
   return (
-    <div className="border-y border-[hsl(33,11%,80%)] bg-white overflow-hidden">
+    <div className="border-y border-[#E0BCC0] bg-white overflow-hidden">
       <div className="flex marquee-track whitespace-nowrap py-4">
         {[...items, ...items, ...items].map((t, i) => (
-          <span key={i} className="inline-flex items-center gap-3 px-8 text-[12px] tracking-[0.28em] uppercase text-[hsl(85,13%,19%)]">
-            <span className="font-italiana text-base text-[hsl(64,30%,36%)]">—</span>{t}
+          <span key={i} className="inline-flex items-center gap-3 px-8 text-[12px] tracking-[0.28em] uppercase text-[#2A0A12]">
+            <span className="font-italiana text-base text-[#6E0D25]">—</span>{t}
           </span>
         ))}
       </div>
@@ -147,11 +147,11 @@ function ServicesGrid() {
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
       <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16 items-end">
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-[hsl(85,13%,32%)]">— 01 / WHAT WE TAILOR</div>
+          <div className="edit-num text-[#6B4046]">— 01 / WHAT WE TAILOR</div>
         </motion.div>
-        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-[hsl(85,13%,19%)]">
+        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-[#2A0A12]">
           Tailoring,
-          <span className="italic text-[hsl(64,30%,36%)]"> re-imagined</span>
+          <span className="italic text-[#6E0D25]"> re-imagined</span>
           <br className="hidden lg:block"/> for the modern wardrobe.
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
@@ -159,14 +159,14 @@ function ServicesGrid() {
         </motion.div>
       </Reveal>
 
-      <Reveal variants={stagger(0.05)} className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
+      <Reveal variants={stagger(0.05)} className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#E0BCC0] border border-[#E0BCC0]">
         {SERVICES.map((s, i) => (
           <motion.div key={s.title} custom={i} variants={dropIn} className="bg-white">
             <Link to={s.link} className="group block relative">
-              <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-[hsl(33,11%,88%)]">
+              <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-[#ECD4D7]">
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-[1400ms] ease-out"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/85 via-[hsl(85,13%,14%)]/25 to-transparent"/>
-                <span className="absolute top-3 left-3 sm:top-5 sm:left-5 font-italiana text-[hsl(33,11%,88%)] text-[16px] sm:text-[26px] tracking-[0.2em]">N°&nbsp;0{i + 1}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A050A]/85 via-[#1A050A]/25 to-transparent"/>
+                <span className="absolute top-3 left-3 sm:top-5 sm:left-5 font-italiana text-[#ECD4D7] text-[16px] sm:text-[26px] tracking-[0.2em]">N°&nbsp;0{i + 1}</span>
                 <div className="absolute left-0 right-0 bottom-0 p-3 sm:p-6 lg:p-7 text-white">
                   <h3 className="font-serif-display text-[16px] sm:text-[22px] lg:text-[26px] leading-tight">{s.title}</h3>
                   <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-[max-height] duration-700 ease-out hidden sm:block">
@@ -193,24 +193,24 @@ function HorizontalProcess() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.85', 'end 0.2'] });
   const lineW = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   return (
-    <section ref={ref} className="bg-[hsl(85,13%,19%)] text-white py-12 sm:py-20 lg:py-32 overflow-hidden">
+    <section ref={ref} className="bg-[#2A0A12] text-white py-12 sm:py-20 lg:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
         <Reveal variants={stagger(0.05)} className="max-w-3xl mb-8 sm:mb-14 lg:mb-20">
           <motion.div variants={fadeUp} className="edit-num opacity-70">— 02 / THE KAARIQ PROCESS</motion.div>
-          <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.05]">From sketch <span className="italic text-[hsl(33,11%,73%)]">to silhouette,</span> in six steps.</motion.h2>
+          <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.05]">From sketch <span className="italic text-[#C99CA2]">to silhouette,</span> in six steps.</motion.h2>
           <motion.p variants={fadeUp} className="text-[13px] sm:text-sm opacity-75 mt-3 sm:mt-5 max-w-xl leading-relaxed">A calm, considered process — designed to put you at the centre of every decision.</motion.p>
         </Reveal>
 
         {/* Mobile: horizontal snap carousel. Desktop: full grid with progress line */}
         <div className="relative">
           <div className="hidden md:block absolute left-0 right-0 top-[42px] h-px bg-white/15" aria-hidden="true"/>
-          <motion.div className="hidden md:block absolute left-0 top-[42px] h-px bg-[hsl(64,30%,36%)]" style={{ width: lineW }} aria-hidden="true"/>
+          <motion.div className="hidden md:block absolute left-0 top-[42px] h-px bg-[#6E0D25]" style={{ width: lineW }} aria-hidden="true"/>
 
           <div className="md:hidden grid grid-cols-2 gap-x-3 gap-y-5">
             {PROCESS.map((p, idx) => (
               <motion.div key={p.n} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: idx * 0.05 }} className="flex gap-2.5">
-                <div className="w-9 h-9 rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 flex items-center justify-center flex-shrink-0">
-                  <span className="font-italiana text-[13px] text-[hsl(33,11%,73%)]">{p.n}</span>
+                <div className="w-9 h-9 rounded-full bg-[#2A0A12] border-2 border-white/25 flex items-center justify-center flex-shrink-0">
+                  <span className="font-italiana text-[13px] text-[#C99CA2]">{p.n}</span>
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-serif-display text-[14px] leading-tight">{p.title}</h3>
@@ -224,8 +224,8 @@ function HorizontalProcess() {
             {PROCESS.map((p, idx) => (
               <motion.div key={p.n} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8, delay: idx * 0.12, type: 'spring', stiffness: 80, damping: 16 }} className="relative group">
                 <motion.div whileHover={{ y: -6 }} transition={{ type: 'spring', stiffness: 250, damping: 20 }} className="flex flex-col items-start">
-                  <div className="relative z-10 w-[84px] h-[84px] rounded-full bg-[hsl(85,13%,19%)] border-2 border-white/25 group-hover:border-[hsl(64,30%,36%)] flex items-center justify-center transition-colors">
-                    <span className="font-italiana text-3xl text-[hsl(33,11%,73%)] group-hover:text-[hsl(64,30%,36%)] transition-colors">{p.n}</span>
+                  <div className="relative z-10 w-[84px] h-[84px] rounded-full bg-[#2A0A12] border-2 border-white/25 group-hover:border-[#6E0D25] flex items-center justify-center transition-colors">
+                    <span className="font-italiana text-3xl text-[#C99CA2] group-hover:text-[#6E0D25] transition-colors">{p.n}</span>
                   </div>
                   <h3 className="font-serif-display text-2xl mt-5">{p.title}</h3>
                   <p className="text-[13px] opacity-75 mt-2 leading-relaxed pr-2">{p.desc}</p>
@@ -236,7 +236,7 @@ function HorizontalProcess() {
         </div>
 
         <Reveal className="mt-10 sm:mt-16 lg:mt-20">
-          <Link to="/booking/our-process" className="inline-flex items-center gap-2 border border-white/40 px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">Read full process <ArrowRight className="w-4 h-4"/></Link>
+          <Link to="/booking/our-process" className="inline-flex items-center gap-2 border border-white/40 px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[#2A0A12] transition-colors">Read full process <ArrowRight className="w-4 h-4"/></Link>
         </Reveal>
       </div>
     </section>
@@ -249,10 +249,10 @@ function CollectionsEditorial() {
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
       <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16 items-end">
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-[hsl(85,13%,32%)]">— 03 / THE COLLECTIONS</div>
+          <div className="edit-num text-[#6B4046]">— 03 / THE COLLECTIONS</div>
         </motion.div>
-        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-[hsl(85,13%,19%)]">
-          Edits for every <span className="italic text-[hsl(64,30%,36%)]">occasion.</span>
+        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-[#2A0A12]">
+          Edits for every <span className="italic text-[#6E0D25]">occasion.</span>
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
           <Link to="/collections" className="link-underline text-[11px] sm:text-[12px] tracking-[0.22em] uppercase">Browse the lookbook →</Link>
@@ -263,9 +263,9 @@ function CollectionsEditorial() {
       <div className="lg:hidden -mx-4 px-4 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
         {COLLECTIONS.map((c, i) => (
           <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.06, ease }} className="snap-start flex-shrink-0 w-[58%] sm:w-[44%]">
-            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[3/4]">
+            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[#ECD4D7] block aspect-[3/4]">
               <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1200ms] ease-out"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/85 via-[hsl(85,13%,14%)]/15 to-transparent"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A050A]/85 via-[#1A050A]/15 to-transparent"/>
               <div className="absolute left-3 bottom-3 right-3 text-white">
                 <div className="edit-num opacity-90 text-[9px] tracking-[0.2em]">{c.tag}</div>
                 <h3 className="font-serif-display text-base sm:text-lg mt-0.5 leading-tight">{c.title}</h3>
@@ -287,9 +287,9 @@ function CollectionsEditorial() {
             transition={{ duration: 1.0, delay: i * 0.12, ease }}
             className={i === 0 ? 'lg:col-span-7' : i === 1 ? 'lg:col-span-5' : i === 2 ? 'lg:col-span-5' : 'lg:col-span-7'}
           >
-            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[4/3]">
+            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g, '-')}`} className="group relative overflow-hidden bg-[#ECD4D7] block aspect-[4/3]">
               <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-[1400ms] ease-out"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(85,13%,14%)]/72 via-[hsl(85,13%,14%)]/15 to-transparent"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A050A]/72 via-[#1A050A]/15 to-transparent"/>
               <div className="absolute left-7 bottom-7 lg:left-9 lg:bottom-9 text-white max-w-md">
                 <div className="edit-num opacity-90">{c.tag}</div>
                 <h3 className="font-serif-display text-3xl lg:text-[40px] mt-1 leading-tight">{c.title}</h3>
@@ -316,7 +316,7 @@ function FabricBanner() {
           <motion.h2 variants={blurUp} className="font-serif-display text-[26px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.1]">A garment is never <span className="italic">finished</span> — only delivered.</motion.h2>
           <motion.p variants={blurUp} className="text-[13px] sm:text-sm opacity-90 mt-3 sm:mt-5 max-w-xl mx-auto">Every Kaariq piece passes through 14 hands and 6 quality checks before it leaves the studio.</motion.p>
           <motion.div variants={blurUp}>
-            <Link to="/explore/gallery-and-lookbook" className="inline-flex items-center gap-2 mt-5 sm:mt-8 border border-white px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[hsl(85,13%,19%)] transition-colors">View the atelier <ArrowRight className="w-4 h-4"/></Link>
+            <Link to="/explore/gallery-and-lookbook" className="inline-flex items-center gap-2 mt-5 sm:mt-8 border border-white px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[#2A0A12] transition-colors">View the atelier <ArrowRight className="w-4 h-4"/></Link>
           </motion.div>
         </div>
       </Reveal>
@@ -329,17 +329,17 @@ function FeaturesSection() {
   return (
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
       <Reveal variants={stagger(0.05)} className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
-        <motion.div variants={fadeUp} className="edit-num text-[hsl(85,13%,32%)]">— 04 / WHY KAARIQ</motion.div>
-        <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-5xl mt-2 sm:mt-3 text-[hsl(85,13%,19%)]">Fabric. Fashion. <span className="italic text-[hsl(64,30%,36%)]">Fit.</span> Finesse.</motion.h2>
+        <motion.div variants={fadeUp} className="edit-num text-[#6B4046]">— 04 / WHY KAARIQ</motion.div>
+        <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-5xl mt-2 sm:mt-3 text-[#2A0A12]">Fabric. Fashion. <span className="italic text-[#6E0D25]">Fit.</span> Finesse.</motion.h2>
       </Reveal>
-      <Reveal variants={stagger(0.04)} className="grid grid-cols-3 lg:grid-cols-3 gap-px bg-[hsl(33,11%,80%)] border border-[hsl(33,11%,80%)]">
+      <Reveal variants={stagger(0.04)} className="grid grid-cols-3 lg:grid-cols-3 gap-px bg-[#E0BCC0] border border-[#E0BCC0]">
         {FEATURES.slice(0, 6).map((f, i) => {
           const Icon = featureIcons[i % featureIcons.length];
           return (
-            <motion.div key={f.title} custom={i} variants={dropIn} className="bg-white p-3 sm:p-6 lg:p-8 hover:bg-[hsl(33,11%,96%)] transition-colors group">
-              <Icon className="w-4 h-4 sm:w-7 sm:h-7 text-[hsl(64,30%,36%)] group-hover:scale-110 transition-transform" strokeWidth={1.4}/>
-              <h3 className="font-serif-display text-[12px] sm:text-xl mt-2 sm:mt-5 text-[hsl(85,13%,19%)] leading-tight">{f.title}</h3>
-              <p className="hidden sm:block text-[12px] sm:text-sm text-[hsl(85,13%,32%)] mt-1.5 sm:mt-2 leading-relaxed">{f.desc}</p>
+            <motion.div key={f.title} custom={i} variants={dropIn} className="bg-white p-3 sm:p-6 lg:p-8 hover:bg-[#F7EBEC] transition-colors group">
+              <Icon className="w-4 h-4 sm:w-7 sm:h-7 text-[#6E0D25] group-hover:scale-110 transition-transform" strokeWidth={1.4}/>
+              <h3 className="font-serif-display text-[12px] sm:text-xl mt-2 sm:mt-5 text-[#2A0A12] leading-tight">{f.title}</h3>
+              <p className="hidden sm:block text-[12px] sm:text-sm text-[#6B4046] mt-1.5 sm:mt-2 leading-relaxed">{f.desc}</p>
             </motion.div>
           );
         })}
@@ -354,7 +354,7 @@ function MediaTestimonials() {
   const list = [...TESTIMONIAL_MEDIA, ...TESTIMONIAL_MEDIA, ...TESTIMONIAL_MEDIA]; // for seamless loop
   const [paused, setPaused] = useState(false);
   return (
-    <section className="relative bg-[hsl(85,13%,14%)] text-white overflow-hidden">
+    <section className="relative bg-[#1A050A] text-white overflow-hidden">
       {/* decorative SVG */}
       <svg className="absolute -left-32 top-20 w-[420px] h-[420px] opacity-[0.06] pointer-events-none" viewBox="0 0 200 200" fill="none">
         <circle cx="100" cy="100" r="98" stroke="#c3bcb1" strokeWidth="0.3"/>
@@ -366,10 +366,10 @@ function MediaTestimonials() {
         <Reveal variants={stagger(0.1)} className="lg:col-span-5 lg:sticky lg:top-32">
           <motion.div variants={fadeUp} className="edit-num opacity-70">— 05 / FROM OUR CUSTOMERS</motion.div>
           <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] mt-3 sm:mt-4">
-            In their own <span className="italic text-[hsl(33,11%,73%)]">words.</span>
+            In their own <span className="italic text-[#C99CA2]">words.</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="mt-5 sm:mt-8 max-w-md">
-            <Quote className="w-6 h-6 sm:w-7 sm:h-7 text-[hsl(64,30%,46%)]"/>
+            <Quote className="w-6 h-6 sm:w-7 sm:h-7 text-[#8B1A30]"/>
             <p className="font-serif-display text-base sm:text-xl lg:text-2xl mt-3 sm:mt-4 leading-snug opacity-90">
               &ldquo;Behind every garment is a story of trust — of fabric, fit, and the people who chose us to tell it.&rdquo;
             </p>
@@ -384,8 +384,8 @@ function MediaTestimonials() {
 
         {/* RIGHT — auto-scrolling marquee column */}
         <div className="lg:col-span-7 relative h-[380px] sm:h-[520px] lg:h-[640px] overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-          <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
-          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-[hsl(85,13%,14%)] to-transparent z-10 pointer-events-none"/>
+          <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[#1A050A] to-transparent z-10 pointer-events-none"/>
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-[#1A050A] to-transparent z-10 pointer-events-none"/>
           <motion.div
             className="flex flex-col gap-4 sm:gap-6"
             animate={{ y: paused ? undefined : ['0%', '-66.66%'] }}
@@ -396,18 +396,18 @@ function MediaTestimonials() {
                 key={`${t.name}-${i}`}
                 whileHover={{ scale: 1.015 }}
                 onClick={() => setOpen(t)}
-                className="group flex gap-3 sm:gap-5 items-stretch text-left bg-white/[0.04] border border-white/10 hover:border-[hsl(64,30%,46%)]/60 backdrop-blur-sm p-3 sm:p-4 lg:p-5 transition-colors"
+                className="group flex gap-3 sm:gap-5 items-stretch text-left bg-white/[0.04] border border-white/10 hover:border-[#8B1A30]/60 backdrop-blur-sm p-3 sm:p-4 lg:p-5 transition-colors"
               >
                 <div className="relative w-[96px] sm:w-[160px] lg:w-[180px] aspect-[3/4] overflow-hidden flex-shrink-0 bg-black">
                   <img src={t.thumb} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[900ms]"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"/>
-                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 text-[8px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] uppercase bg-white/95 text-[hsl(85,13%,19%)] px-1.5 py-0.5">{t.type === 'video' ? 'Video' : 'Photo'}</span>
-                  <span className="absolute inset-0 m-auto w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 flex items-center justify-center group-hover:bg-[hsl(64,30%,36%)] group-hover:text-white transition-all">
+                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 text-[8px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] uppercase bg-white/95 text-[#2A0A12] px-1.5 py-0.5">{t.type === 'video' ? 'Video' : 'Photo'}</span>
+                  <span className="absolute inset-0 m-auto w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 flex items-center justify-center group-hover:bg-[#6E0D25] group-hover:text-white transition-all">
                     {t.type === 'video' ? <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5"/> : <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4"/>}
                   </span>
                 </div>
                 <div className="flex-1 py-0.5 sm:py-1 flex flex-col min-w-0">
-                  <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[hsl(64,30%,46%)]"/>
+                  <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B1A30]"/>
                   <p className="font-serif-display text-[13.5px] sm:text-[17px] lg:text-[19px] leading-snug mt-1.5 sm:mt-2 line-clamp-4 sm:line-clamp-5">&ldquo;{t.quote}&rdquo;</p>
                   <div className="mt-auto pt-2 sm:pt-3">
                     <div className="font-serif-display text-sm sm:text-base">{t.name}</div>
@@ -425,7 +425,7 @@ function MediaTestimonials() {
         {open && (
           <motion.div className="fixed inset-0 z-[80] bg-black/85 flex items-center justify-center p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setOpen(null)}>
             <motion.div className="relative max-w-4xl w-full" initial={{ scale: 0.94, y: 24, opacity: 0 }} animate={{ scale: 1, y: 0, opacity: 1 }} exit={{ scale: 0.94, y: 24, opacity: 0 }} transition={{ type: 'spring', stiffness: 220, damping: 24 }} onClick={(e) => e.stopPropagation()}>
-              <button onClick={() => setOpen(null)} aria-label="Close" className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/15 hover:bg-white text-white hover:text-[hsl(85,13%,19%)] flex items-center justify-center"><X className="w-5 h-5"/></button>
+              <button onClick={() => setOpen(null)} aria-label="Close" className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#2A0A12] flex items-center justify-center"><X className="w-5 h-5"/></button>
               <div className="aspect-video bg-black">
                 {open.type === 'video' ? (
                   <iframe src={open.src} title={open.name} className="w-full h-full" allow="autoplay; encrypted-media" allowFullScreen/>
@@ -434,10 +434,10 @@ function MediaTestimonials() {
                 )}
               </div>
               <div className="bg-white p-6">
-                <p className="font-serif-display text-xl text-[hsl(85,13%,19%)]">&ldquo;{open.quote}&rdquo;</p>
+                <p className="font-serif-display text-xl text-[#2A0A12]">&ldquo;{open.quote}&rdquo;</p>
                 <div className="mt-3">
                   <div className="font-serif-display text-base">{open.name}</div>
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{open.role}</div>
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#6B4046]">{open.role}</div>
                 </div>
               </div>
             </motion.div>
@@ -454,10 +454,10 @@ function Journal() {
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-20 lg:py-32">
       <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-3 lg:gap-6 items-end mb-4 sm:mb-10 lg:mb-12">
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-[hsl(85,13%,32%)]">— 06 / JOURNAL</div>
+          <div className="edit-num text-[#6B4046]">— 06 / JOURNAL</div>
         </motion.div>
-        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[22px] sm:text-4xl lg:text-5xl text-[hsl(85,13%,19%)]">
-          Notes from the <span className="italic text-[hsl(64,30%,36%)]">atelier</span>.
+        <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[22px] sm:text-4xl lg:text-5xl text-[#2A0A12]">
+          Notes from the <span className="italic text-[#6E0D25]">atelier</span>.
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
           <Link to="/explore/blog-and-fashion-news" className="link-underline text-[10px] sm:text-[12px] tracking-[0.22em] uppercase">All articles →</Link>
@@ -465,36 +465,36 @@ function Journal() {
       </Reveal>
 
       {/* Mobile: ultra-compact list, top 3 only */}
-      <Reveal variants={stagger(0.04)} className="lg:hidden border-t border-[hsl(33,11%,80%)]">
+      <Reveal variants={stagger(0.04)} className="lg:hidden border-t border-[#E0BCC0]">
         {BLOG.slice(0, 3).map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
-            <Link to="/explore/blog-and-fashion-news" className="group flex items-center gap-3 py-2.5 border-b border-[hsl(33,11%,80%)]">
-              <div className="w-9 h-9 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full shrink-0">
+            <Link to="/explore/blog-and-fashion-news" className="group flex items-center gap-3 py-2.5 border-b border-[#E0BCC0]">
+              <div className="w-9 h-9 overflow-hidden bg-[#ECD4D7] rounded-full shrink-0">
                 <img src={b.img} alt="" className="w-full h-full object-cover"/>
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-[8.5px] tracking-[0.2em] uppercase text-[hsl(85,13%,32%)] leading-none">{b.tag} · {b.date}</div>
-                <h3 className="font-serif-display text-[13px] text-[hsl(85,13%,19%)] leading-snug line-clamp-1 mt-0.5">{b.title}</h3>
+                <div className="text-[8.5px] tracking-[0.2em] uppercase text-[#6B4046] leading-none">{b.tag} · {b.date}</div>
+                <h3 className="font-serif-display text-[13px] text-[#2A0A12] leading-snug line-clamp-1 mt-0.5">{b.title}</h3>
               </div>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[hsl(85,13%,32%)] shrink-0"/>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#6B4046] shrink-0"/>
             </Link>
           </motion.article>
         ))}
       </Reveal>
 
       {/* Desktop: original full row */}
-      <Reveal variants={stagger(0.04)} className="hidden lg:block border-t border-[hsl(33,11%,80%)]">
+      <Reveal variants={stagger(0.04)} className="hidden lg:block border-t border-[#E0BCC0]">
         {BLOG.map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
-            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-6 items-center py-7 lg:py-8 border-b border-[hsl(33,11%,80%)] hover:bg-[hsl(33,11%,96%)] transition-colors px-2 lg:px-3">
-              <div className="col-span-1 font-italiana text-2xl lg:text-3xl text-[hsl(64,30%,36%)]">0{i + 1}</div>
-              <div className="col-span-3 text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{b.tag} · {b.date}</div>
-              <h3 className="col-span-6 font-serif-display text-2xl lg:text-3xl text-[hsl(85,13%,19%)] leading-snug group-hover:text-[hsl(64,30%,36%)] transition-colors line-clamp-2">{b.title}</h3>
+            <Link to="/explore/blog-and-fashion-news" className="group grid grid-cols-12 gap-6 items-center py-7 lg:py-8 border-b border-[#E0BCC0] hover:bg-[#F7EBEC] transition-colors px-2 lg:px-3">
+              <div className="col-span-1 font-italiana text-2xl lg:text-3xl text-[#6E0D25]">0{i + 1}</div>
+              <div className="col-span-3 text-[11px] tracking-[0.22em] uppercase text-[#6B4046]">{b.tag} · {b.date}</div>
+              <h3 className="col-span-6 font-serif-display text-2xl lg:text-3xl text-[#2A0A12] leading-snug group-hover:text-[#6E0D25] transition-colors line-clamp-2">{b.title}</h3>
               <div className="col-span-2 flex items-center justify-end gap-3">
-                <div className="w-12 h-12 lg:w-14 lg:h-14 overflow-hidden bg-[hsl(33,11%,88%)] rounded-full shrink-0">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 overflow-hidden bg-[#ECD4D7] rounded-full shrink-0">
                   <img src={b.img} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-[hsl(85,13%,19%)] group-hover:text-[hsl(64,30%,36%)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
+                <ArrowUpRight className="w-5 h-5 text-[#2A0A12] group-hover:text-[#6E0D25] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"/>
               </div>
             </Link>
           </motion.article>
@@ -517,30 +517,30 @@ const FAQS = [
 function FaqSection() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="bg-[hsl(33,11%,96%)] border-t border-[hsl(33,11%,80%)]">
+    <section className="bg-[#F7EBEC] border-t border-[#E0BCC0]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-20 lg:py-28">
         <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
           <motion.div variants={fadeUp} className="lg:col-span-4 lg:sticky lg:top-32">
-            <div className="edit-num text-[hsl(85,13%,32%)]">— 07 / FAQ</div>
-            <h2 className="font-serif-display text-[24px] sm:text-4xl lg:text-[56px] leading-[1.05] mt-2 sm:mt-4 text-[hsl(85,13%,19%)]">
-              Questions, <span className="italic text-[hsl(64,30%,36%)]">answered</span>.
+            <div className="edit-num text-[#6B4046]">— 07 / FAQ</div>
+            <h2 className="font-serif-display text-[24px] sm:text-4xl lg:text-[56px] leading-[1.05] mt-2 sm:mt-4 text-[#2A0A12]">
+              Questions, <span className="italic text-[#6E0D25]">answered</span>.
             </h2>
-            <p className="hidden lg:block text-sm text-[hsl(85,13%,32%)] mt-5 leading-relaxed max-w-sm">Still curious? Our concierge is on WhatsApp every day, 10am–8pm IST.</p>
+            <p className="hidden lg:block text-sm text-[#6B4046] mt-5 leading-relaxed max-w-sm">Still curious? Our concierge is on WhatsApp every day, 10am–8pm IST.</p>
           </motion.div>
-          <motion.div variants={fadeUp} className="lg:col-span-8 border-t border-[hsl(33,11%,73%)]">
+          <motion.div variants={fadeUp} className="lg:col-span-8 border-t border-[#C99CA2]">
             {FAQS.map((f, i) => {
               const isOpen = open === i;
               return (
-                <div key={f.q} className="border-b border-[hsl(33,11%,73%)]">
+                <div key={f.q} className="border-b border-[#C99CA2]">
                   <button onClick={() => setOpen(isOpen ? -1 : i)} className="w-full text-left flex items-start gap-3 py-3.5 sm:py-5 group">
-                    <span className="font-italiana text-[hsl(64,30%,36%)] text-sm sm:text-lg pt-0.5 sm:pt-1 w-6 sm:w-8 shrink-0">0{i + 1}</span>
-                    <span className="flex-1 font-serif-display text-[14px] sm:text-[20px] lg:text-[22px] text-[hsl(85,13%,19%)] leading-snug pr-3">{f.q}</span>
-                    <span className={`text-[hsl(85,13%,19%)] text-xl sm:text-2xl leading-none transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>+</span>
+                    <span className="font-italiana text-[#6E0D25] text-sm sm:text-lg pt-0.5 sm:pt-1 w-6 sm:w-8 shrink-0">0{i + 1}</span>
+                    <span className="flex-1 font-serif-display text-[14px] sm:text-[20px] lg:text-[22px] text-[#2A0A12] leading-snug pr-3">{f.q}</span>
+                    <span className={`text-[#2A0A12] text-xl sm:text-2xl leading-none transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>+</span>
                   </button>
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease }} className="overflow-hidden">
-                        <p className="text-[12.5px] sm:text-[14px] text-[hsl(85,13%,32%)] leading-relaxed pl-9 sm:pl-11 pr-6 pb-4 sm:pb-5">{f.a}</p>
+                        <p className="text-[12.5px] sm:text-[14px] text-[#6B4046] leading-relaxed pl-9 sm:pl-11 pr-6 pb-4 sm:pb-5">{f.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>

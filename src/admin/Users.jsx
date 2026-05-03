@@ -10,10 +10,10 @@ export default function AdminUsers() {
     <div>
       <header className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="font-serif-display text-3xl text-[hsl(85,13%,19%)]">Users</h1>
+          <h1 className="font-serif-display text-3xl text-[#2A0A12]">Users</h1>
           <p className="text-sm text-neutral-500">Manage tailors, masters, advisors, and delivery staff.</p>
         </div>
-        <button onClick={() => setEdit({})} className="inline-flex items-center gap-2 bg-[hsl(85,13%,19%)] text-white px-4 py-2 text-[11px] tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] transition-colors"><Plus className="w-4 h-4"/>Add user</button>
+        <button onClick={() => setEdit({})} className="inline-flex items-center gap-2 bg-[#2A0A12] text-white px-4 py-2 text-[11px] tracking-[0.22em] uppercase hover:bg-[#6E0D25] transition-colors"><Plus className="w-4 h-4"/>Add user</button>
       </header>
 
       <div className="bg-white border border-neutral-200 overflow-x-auto">
@@ -66,7 +66,7 @@ function UserEditor({ user, onClose, onSave }) {
         </div>
         <div className="flex gap-2 mt-5">
           <button onClick={onClose} className="flex-1 border border-neutral-200 py-2.5 text-[11px] tracking-[0.22em] uppercase">Cancel</button>
-          <button onClick={() => onSave(f)} disabled={!f.name} className="flex-1 bg-[hsl(85,13%,19%)] text-white py-2.5 text-[11px] tracking-[0.22em] uppercase disabled:opacity-50">Save</button>
+          <button onClick={() => onSave(f)} disabled={!f.name} className="flex-1 bg-[#2A0A12] text-white py-2.5 text-[11px] tracking-[0.22em] uppercase disabled:opacity-50">Save</button>
         </div>
       </motion.div>
     </motion.div>

@@ -30,7 +30,7 @@ export default function Metrics() {
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="font-serif-display text-3xl text-[hsl(85,13%,19%)]">Metrics</h1>
+        <h1 className="font-serif-display text-3xl text-[#2A0A12]">Metrics</h1>
         <p className="text-sm text-neutral-500">Real-time, event-driven product analytics. Last 30 days.</p>
       </header>
 
@@ -48,7 +48,7 @@ export default function Metrics() {
             {sortedCats.map(([cat, n], i) => (
               <li key={cat}>
                 <div className="flex justify-between text-[12px] mb-1"><span className="capitalize font-medium">{cat}</span><span className="text-neutral-500">{n}</span></div>
-                <div className="h-2 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(n / maxView) * 100}%` }} transition={{ duration: 0.7, delay: i * 0.05 }} className="h-full bg-[hsl(85,13%,19%)]"/></div>
+                <div className="h-2 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(n / maxView) * 100}%` }} transition={{ duration: 0.7, delay: i * 0.05 }} className="h-full bg-[#2A0A12]"/></div>
               </li>
             ))}
           </ul>
@@ -60,7 +60,7 @@ export default function Metrics() {
             {sortedOrderCats.map(([cat, n], i) => (
               <li key={cat}>
                 <div className="flex justify-between text-[12px] mb-1"><span className="capitalize font-medium">{cat}</span><span className="text-neutral-500">{n}</span></div>
-                <div className="h-2 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(n / maxOrd) * 100}%` }} transition={{ duration: 0.7, delay: i * 0.05 }} className="h-full bg-[hsl(64,30%,36%)]"/></div>
+                <div className="h-2 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(n / maxOrd) * 100}%` }} transition={{ duration: 0.7, delay: i * 0.05 }} className="h-full bg-[#6E0D25]"/></div>
               </li>
             ))}
             {!sortedOrderCats.length && <li className="text-[11px] text-neutral-400">No orders yet.</li>}
@@ -75,7 +75,7 @@ export default function Metrics() {
             {funnel.map((t, i) => (
               <li key={t}>
                 <div className="flex justify-between text-[12px] mb-1"><span className="capitalize">{t.replace(/_/g, ' ')}</span><span className="text-neutral-500">{funnelCounts[i]}</span></div>
-                <div className="h-3 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(funnelCounts[i] / funnelMax) * 100}%` }} transition={{ duration: 0.8, delay: i * 0.1 }} className="h-full" style={{ background: `hsl(85,13%,${19 + i*10}%)` }}/></div>
+                <div className="h-3 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(funnelCounts[i] / funnelMax) * 100}%` }} transition={{ duration: 0.8, delay: i * 0.1 }} className="h-full" style={{ background: `rgba(110,13,37,${0.4 + i*0.15})` }}/></div>
               </li>
             ))}
           </ul>
@@ -87,7 +87,7 @@ export default function Metrics() {
             {Object.entries(leadSources).map(([src, n], i) => (
               <li key={src} className="flex items-center gap-3">
                 <div className="w-24 text-[12px] font-medium">{src}</div>
-                <div className="flex-1 h-2 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(n / s.leads.length) * 100}%` }} transition={{ duration: 0.7, delay: i * 0.05 }} className="h-full bg-[hsl(64,30%,36%)]"/></div>
+                <div className="flex-1 h-2 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(n / s.leads.length) * 100}%` }} transition={{ duration: 0.7, delay: i * 0.05 }} className="h-full bg-[#6E0D25]"/></div>
                 <span className="text-[12px] text-neutral-500 w-8 text-right">{n}</span>
               </li>
             ))}
