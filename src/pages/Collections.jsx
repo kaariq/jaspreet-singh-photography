@@ -30,16 +30,16 @@ export default function Collections() {
             const s = it.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
             const active = s === slug;
             return (
-              <Link key={it} to={`/collections/${s}`} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border whitespace-nowrap transition-colors ${active ? 'bg-[hsl(85,13%,19%)] text-[hsl(0,0%,100%)] border-[hsl(85,13%,19%)]' : 'border-[hsl(33,11%,80%)] hover:border-[hsl(85,13%,19%)]'}`}>{it}</Link>
+              <Link key={it} to={`/collections/${s}`} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border whitespace-nowrap transition-colors ${active ? 'bg-[#2A0A12] text-[#ffffff] border-[#2A0A12]' : 'border-[#E0BCC0] hover:border-[#2A0A12]'}`}>{it}</Link>
             );
           })}
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-8 mb-10 sm:mb-16">
           {COLLECTIONS.map((c, i) => (
-            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g,'-')}`} key={c.title} className={`group relative overflow-hidden bg-[hsl(33,11%,88%)] block aspect-[4/5] sm:aspect-[4/3] ${i%2===0 ? 'lg:col-span-7' : 'lg:col-span-5'}`}>
+            <Link to={`/collections/${c.tag.toLowerCase().replace(/\s+/g,'-')}`} key={c.title} className={`group relative overflow-hidden bg-[#ECD4D7] block aspect-[4/5] sm:aspect-[4/3] ${i%2===0 ? 'lg:col-span-7' : 'lg:col-span-5'}`}>
               <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-[1200ms]"/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"/>
-              <div className="absolute left-3 bottom-3 sm:left-6 sm:bottom-6 lg:left-8 lg:bottom-8 text-[hsl(0,0%,100%)] max-w-md">
+              <div className="absolute left-3 bottom-3 sm:left-6 sm:bottom-6 lg:left-8 lg:bottom-8 text-[#ffffff] max-w-md">
                 <div className="edit-num opacity-90 text-[9px] sm:text-xs">{c.tag}</div>
                 <h3 className="font-serif-display text-lg sm:text-2xl lg:text-3xl mt-1 leading-tight">{c.title}</h3>
                 <p className="text-sm opacity-90 mt-1 hidden lg:block">{c.blurb}</p>

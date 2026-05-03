@@ -40,14 +40,14 @@ function Shell({ children }) {
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900 flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-[hsl(85,13%,19%)] text-white flex-shrink-0 hidden lg:flex flex-col">
+      <aside className="w-64 bg-[#2A0A12] text-white flex-shrink-0 hidden lg:flex flex-col">
         <div className="px-6 py-6 border-b border-white/10">
           <div className="font-italiana text-2xl tracking-[0.3em]">KAARIQ</div>
           <div className="text-[10px] tracking-[0.28em] uppercase opacity-70 mt-1">Admin Console</div>
         </div>
         <nav className="flex-1 py-4">
           {nav.map((n) => (
-            <NavLink key={n.label} to={n.to} end={n.end} className={({isActive}) => `flex items-center gap-3 px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition-colors ${isActive ? 'bg-white/10 text-white border-l-2 border-[hsl(64,30%,46%)]' : 'text-white/70 hover:text-white hover:bg-white/5 border-l-2 border-transparent'}`}>
+            <NavLink key={n.label} to={n.to} end={n.end} className={({isActive}) => `flex items-center gap-3 px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition-colors ${isActive ? 'bg-white/10 text-white border-l-2 border-[#8B1A30]' : 'text-white/70 hover:text-white hover:bg-white/5 border-l-2 border-transparent'}`}>
               <n.icon className="w-4 h-4"/>{n.label}
             </NavLink>
           ))}
@@ -59,13 +59,13 @@ function Shell({ children }) {
       <div className="flex-1 flex flex-col min-w-0">
         <header className="sticky top-0 z-30 bg-white border-b border-neutral-200 px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="font-serif-display text-xl text-[hsl(85,13%,19%)]">Provider Console</div>
-            <span className="hidden sm:inline text-[10px] tracking-[0.22em] uppercase bg-[hsl(64,30%,36%)] text-white px-2 py-0.5">{ROLES[s.activeRole]?.label}</span>
+            <div className="font-serif-display text-xl text-[#2A0A12]">Provider Console</div>
+            <span className="hidden sm:inline text-[10px] tracking-[0.22em] uppercase bg-[#6E0D25] text-white px-2 py-0.5">{ROLES[s.activeRole]?.label}</span>
           </div>
           {/* Role / user switcher */}
           <div className="relative">
             <button onClick={() => setOpen(!open)} className="flex items-center gap-3 px-3 py-2 border border-neutral-200 hover:border-neutral-400 transition-colors">
-              <span className="w-8 h-8 rounded-full bg-[hsl(85,13%,19%)] text-white flex items-center justify-center text-[11px] font-medium">{activeUser?.avatar}</span>
+              <span className="w-8 h-8 rounded-full bg-[#2A0A12] text-white flex items-center justify-center text-[11px] font-medium">{activeUser?.avatar}</span>
               <span className="text-left hidden sm:block">
                 <span className="block text-[12px] font-medium text-neutral-900">{activeUser?.name}</span>
                 <span className="block text-[10px] tracking-[0.18em] uppercase text-neutral-500">{ROLES[activeUser?.role]?.label}</span>

@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <main className="min-h-[80vh] grid lg:grid-cols-2 bg-white">
       {/* Visual side */}
-      <div className="relative hidden lg:block bg-[hsl(85,13%,19%)] overflow-hidden">
+      <div className="relative hidden lg:block bg-[#2A0A12] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1771074152971-7dba5f49bf93" alt="" className="absolute inset-0 w-full h-full object-cover opacity-65"/>
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(50,56,43,0.85) 0%, rgba(50,56,43,0.4) 60%, rgba(0,0,0,0) 100%)' }}/>
         <div className="relative h-full flex flex-col justify-between p-12 text-white">
@@ -41,13 +41,13 @@ export default function Login() {
       {/* Form side */}
       <div className="flex items-center justify-center p-8 lg:p-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="w-full max-w-md">
-          <div className="edit-num text-[hsl(85,13%,32%)]">—  WELCOME</div>
-          <h1 className="font-serif-display text-4xl mt-3 text-[hsl(85,13%,19%)]">{mode === 'login' ? 'Sign in' : 'Create account'}</h1>
-          <p className="text-sm text-[hsl(85,13%,32%)] mt-2">{mode === 'login' ? 'Welcome back. Sign in to manage measurements, orders and appointments.' : 'A free account stores your measurements, orders and appointments forever.'}</p>
+          <div className="edit-num text-[#6B4046]">—  WELCOME</div>
+          <h1 className="font-serif-display text-4xl mt-3 text-[#2A0A12]">{mode === 'login' ? 'Sign in' : 'Create account'}</h1>
+          <p className="text-sm text-[#6B4046] mt-2">{mode === 'login' ? 'Welcome back. Sign in to manage measurements, orders and appointments.' : 'A free account stores your measurements, orders and appointments forever.'}</p>
 
-          <div className="flex gap-1 mt-6 p-1 bg-[hsl(33,11%,96%)] border border-[hsl(33,11%,80%)] w-fit">
+          <div className="flex gap-1 mt-6 p-1 bg-[#F7EBEC] border border-[#E0BCC0] w-fit">
             {['login', 'register'].map((m) => (
-              <button key={m} onClick={() => setMode(m)} className={`px-5 py-2 text-[11px] tracking-[0.22em] uppercase transition-colors ${mode === m ? 'bg-[hsl(85,13%,19%)] text-white' : 'text-[hsl(85,13%,19%)] hover:bg-white'}`}>{m === 'login' ? 'Sign in' : 'Create account'}</button>
+              <button key={m} onClick={() => setMode(m)} className={`px-5 py-2 text-[11px] tracking-[0.22em] uppercase transition-colors ${mode === m ? 'bg-[#2A0A12] text-white' : 'text-[#2A0A12] hover:bg-white'}`}>{m === 'login' ? 'Sign in' : 'Create account'}</button>
             ))}
           </div>
 
@@ -65,10 +65,10 @@ export default function Login() {
             )}
             <Field icon={Lock} type="password" label="Password" value={form.password} onChange={(v) => setForm({ ...form, password: v })} required/>
             {err && <div className="text-[12px] text-red-700 bg-red-50 border border-red-200 px-3 py-2">{err}</div>}
-            <button type="submit" className="group w-full inline-flex items-center justify-center gap-2 bg-[hsl(85,13%,19%)] text-white px-7 py-3.5 text-[12px] tracking-[0.22em] uppercase hover:bg-[hsl(64,30%,36%)] transition-colors">
+            <button type="submit" className="group w-full inline-flex items-center justify-center gap-2 bg-[#2A0A12] text-white px-7 py-3.5 text-[12px] tracking-[0.22em] uppercase hover:bg-[#6E0D25] transition-colors">
               {mode === 'login' ? 'Sign in' : 'Create account'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/>
             </button>
-            <p className="text-[11px] tracking-[0.18em] uppercase text-[hsl(85,13%,32%)] text-center">By continuing you agree to our terms & privacy.</p>
+            <p className="text-[11px] tracking-[0.18em] uppercase text-[#6B4046] text-center">By continuing you agree to our terms & privacy.</p>
           </form>
         </motion.div>
       </div>
@@ -79,9 +79,9 @@ export default function Login() {
 function Field({ icon: Icon, label, value, onChange, type = 'text', required }) {
   return (
     <label className="block">
-      <span className="text-[11px] tracking-[0.22em] uppercase text-[hsl(85,13%,32%)]">{label}</span>
-      <div className="flex items-center gap-2 mt-1.5 bg-white border border-[hsl(33,11%,80%)] focus-within:border-[hsl(85,13%,19%)] transition-colors">
-        <span className="pl-3 text-[hsl(85,13%,32%)]"><Icon className="w-4 h-4"/></span>
+      <span className="text-[11px] tracking-[0.22em] uppercase text-[#6B4046]">{label}</span>
+      <div className="flex items-center gap-2 mt-1.5 bg-white border border-[#E0BCC0] focus-within:border-[#2A0A12] transition-colors">
+        <span className="pl-3 text-[#6B4046]"><Icon className="w-4 h-4"/></span>
         <input type={type} value={value} required={required} onChange={(e) => onChange(e.target.value)} className="flex-1 bg-transparent py-3 px-2 text-sm focus:outline-none"/>
       </div>
     </label>
