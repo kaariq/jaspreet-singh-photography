@@ -5,7 +5,9 @@ import { ArrowRight, ArrowUpRight, Sparkles, Upload } from 'lucide-react';
 import { Breadcrumb, PageHero } from '@/components/PageBits';
 import { DESIGNS } from '@/data/designs';
 import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from '@/data/measurements';
-import { IMAGES } from '@/mock/mock';
+import { IMAGES, NAV } from '@/mock/mock';
+
+const tailoringSub = NAV[0].columns;
 
 export default function CategoryPage({ slug: forcedSlug }) {
   const params = useParams();
@@ -20,6 +22,21 @@ export default function CategoryPage({ slug: forcedSlug }) {
     <main className="pb-12 sm:pb-20">
       <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Tailoring', to: '/tailoring' }, { label }]}/>
       <PageHero tag="BESPOKE TAILORING" title={<span className="capitalize">{label}<span className="italic text-[#6E0D25]"> by Kaariq</span></span>} subtitle="Pick a design to start your bespoke order — or build something one-of-a-kind with our designers." image={heroImg}/>
+
+      {/* Sticky sub-categories */}
+      <div className="sticky-subnav">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3">
+          <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
+            {tailoringSub.flatMap(c => c.items).map(it => {
+              const s = it.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+              const active = s === slug;
+              return (
+                <Link key={it} to={`/tailoring/${s}`} aria-current={active ? 'page' : undefined} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full whitespace-nowrap transition-colors ${active ? 'bg-primary text-primary-foreground border-primary shadow-sm' : 'border-border bg-card hover:border-primary hover:text-primary'}`}>{it}</Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-8 sm:mt-12">
         <div className="flex items-end justify-between gap-3 mb-4 sm:mb-6">
