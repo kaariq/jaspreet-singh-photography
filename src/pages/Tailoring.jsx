@@ -31,16 +31,18 @@ export default function Tailoring() {
       <Breadcrumb items={[{label:'Home', to:'/'},{label:'Tailoring', to:'/tailoring'},{label:heading}]}/>
       <PageHero tag="TAILORING" title={<span className="capitalize">{heading}<span className="italic"> by Kaariq</span></span>} subtitle="Hand-cut, machine and hand-stitched in our Mumbai atelier. From measurement to delivery, every step is yours to direct." image={IMAGES.craft}/>
 
-      {/* Sub-categories pills — horizontal scroll on mobile */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-10">
-        <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
-          {sub.flatMap(c => c.items).map(it => {
-            const s = it.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-            const active = s === slug;
-            return (
-              <Link key={it} to={`/tailoring/${s}`} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border transition-colors whitespace-nowrap ${active ? 'bg-[#2A0A12] text-[#ffffff] border-[#2A0A12]' : 'border-[#E0BCC0] hover:border-[#2A0A12]'}`}>{it}</Link>
-            );
-          })}
+      {/* Sub-categories — sticky under header so users always know where they are */}
+      <div className="sticky-subnav">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3">
+          <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
+            {sub.flatMap(c => c.items).map(it => {
+              const s = it.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+              const active = s === slug;
+              return (
+                <Link key={it} to={`/tailoring/${s}`} aria-current={active ? 'page' : undefined} className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full transition-colors whitespace-nowrap ${active ? 'bg-primary text-primary-foreground border-primary shadow-sm' : 'border-border bg-card hover:border-primary hover:text-primary'}`}>{it}</Link>
+              );
+            })}
+          </div>
         </div>
       </div>
 
