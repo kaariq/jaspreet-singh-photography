@@ -75,7 +75,7 @@ export default function Metrics() {
             {funnel.map((t, i) => (
               <li key={t}>
                 <div className="flex justify-between text-[12px] mb-1"><span className="capitalize">{t.replace(/_/g, ' ')}</span><span className="text-neutral-500">{funnelCounts[i]}</span></div>
-                <div className="h-3 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(funnelCounts[i] / funnelMax) * 100}%` }} transition={{ duration: 0.8, delay: i * 0.1 }} className="h-full" style={{ background: `hsl(85,13%,${19 + i*10}%)` }}/></div>
+                <div className="h-3 bg-neutral-100"><motion.div initial={{ width: 0 }} animate={{ width: `${(funnelCounts[i] / funnelMax) * 100}%` }} transition={{ duration: 0.8, delay: i * 0.1 }} className="h-full" style={{ background: `rgba(110,13,37,${0.4 + i*0.15})` }}/></div>
               </li>
             ))}
           </ul>

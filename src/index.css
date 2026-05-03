@@ -1,12 +1,9 @@
 /* ============================================================
-   KAARIQ — Global Design System
-   Edit this file to change typography, colors & generic styles
-   site-wide. All components consume these tokens via Tailwind.
+   KAARIQ — Global Design System (single source of truth)
+   All colors live here as #hex / rgb. Components consume them
+   via Tailwind tokens (e.g. text-primary, bg-background).
    ============================================================ */
 
-/* ---------- 1. FONT IMPORTS ----------
-   Swap these URLs to try different typography pairings.
-   Update --font-display / --font-body / --font-accent below to match. */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Italiana&display=swap');
 
 @tailwind base;
@@ -15,52 +12,55 @@
 
 @layer base {
   :root {
-    /* ---------- 2. COLOR PALETTE (HSL: hue saturation lightness) ----------
-       Change these values to retheme the entire app.
-       Try uncommenting one of the alternative palettes at the bottom. */
+    /* ---------- BRAND PALETTE (edit here only) ---------- */
+    --brand-wine:  #6E0D25;     /* primary brand */
+    --brand-blush: #F7EBEC;     /* background blush */
+    --brand-ink:   #2A0A12;     /* dark text on blush */
+    --brand-rose:  #E0BCC0;     /* borders / soft accents */
+    --brand-mute:  #8A5961;     /* muted text */
 
-    --background: 0 0% 100%;             /* page background */
-    --foreground: #31372a;            /* primary text */
+    /* ---------- SEMANTIC TOKENS ---------- */
+    --background:           #F7EBEC;
+    --foreground:           #2A0A12;
 
-    --card: 33 11% 96%;
-    --card-foreground: #31372a;
+    --card:                 #ffffff;
+    --card-foreground:      #2A0A12;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: #31372a;
+    --popover:              #ffffff;
+    --popover-foreground:   #2A0A12;
 
-    --primary: #31372a;               /* buttons / brand */
-    --primary-foreground: 0 0% 100%;
+    --primary:              #6E0D25;
+    --primary-foreground:   #F7EBEC;
 
-    --secondary: 33 11% 88%;
-    --secondary-foreground: #31372a;
+    --secondary:            #F0DDDF;
+    --secondary-foreground: #2A0A12;
 
-    --muted: 33 11% 73%;
-    --muted-foreground: 85 13% 32%;
+    --muted:                #ECD4D7;
+    --muted-foreground:     #8A5961;
 
-    --accent: #747740;             /* highlights / links */
-    --accent-foreground: 0 0% 100%;
+    --accent:               #6E0D25;
+    --accent-foreground:    #ffffff;
 
-    --destructive: 0 70% 45%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive:          #b3261e;
+    --destructive-foreground: #ffffff;
 
-    --border: 33 11% 80%;
-    --input: 33 11% 80%;
-    --ring: #31372a;
+    --border:               #E0BCC0;
+    --input:                #E0BCC0;
+    --ring:                 #6E0D25;
 
-    --gold: #31372a;
+    --gold:                 #6E0D25;
 
-    /* ---------- 3. RADIUS & ELEVATION ---------- */
+    /* ---------- RADIUS & ELEVATION ---------- */
     --radius: 0.25rem;
-    --shadow-sm: 0 1px 2px hsl(var(--foreground) / 0.05);
-    --shadow-md: 0 4px 12px hsl(var(--foreground) / 0.08);
-    --shadow-lg: 0 16px 40px hsl(var(--foreground) / 0.12);
+    --shadow-sm: 0 1px 2px rgba(42,10,18,0.06);
+    --shadow-md: 0 4px 12px rgba(42,10,18,0.08);
+    --shadow-lg: 0 16px 40px rgba(42,10,18,0.14);
 
-    /* ---------- 4. TYPOGRAPHY TOKENS ---------- */
+    /* ---------- TYPOGRAPHY ---------- */
     --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
     --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-accent:  'Italiana', serif;
 
-    /* Fluid type scale (clamp = min, preferred, max) */
     --fs-xs:   0.75rem;
     --fs-sm:   0.875rem;
     --fs-base: 1rem;
@@ -72,46 +72,27 @@
     --fs-5xl:  clamp(2.75rem, 5.5vw, 4.5rem);
     --fs-6xl:  clamp(3.5rem,  7vw,   6rem);
 
-    /* Spacing rhythm */
     --space-section: clamp(3rem, 8vw, 6rem);
     --space-block:   clamp(1.5rem, 4vw, 2.5rem);
 
-    /* Transitions */
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --dur-fast: 180ms;
     --dur-base: 320ms;
     --dur-slow: 600ms;
-  }
 
-  .dark {
-    --background: 160 18% 8%;
-    --foreground: 36 30% 92%;
-    --card: 160 14% 12%;
-    --card-foreground: 36 30% 92%;
-    --popover: 160 18% 8%;
-    --popover-foreground: 36 30% 92%;
-    --primary: 36 30% 92%;
-    --primary-foreground: 160 18% 8%;
-    --secondary: 160 12% 16%;
-    --secondary-foreground: 36 30% 92%;
-    --muted: 160 10% 22%;
-    --muted-foreground: 36 12% 70%;
-    --accent: 64 30% 56%;
-    --accent-foreground: 160 18% 8%;
-    --border: 160 10% 22%;
-    --input: 160 10% 22%;
-    --ring: 36 30% 92%;
+    /* sticky offsets */
+    --header-h: 112px;       /* nav (no announcement) */
+    --header-h-mobile: 64px;
   }
 }
 
-/* ---------- 5. BASE ELEMENTS ---------- */
 @layer base {
-  * { @apply border-border; }
+  * { border-color: var(--border); }
 
   html, body {
     margin: 0;
-    background: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background: var(--background);
+    color: var(--foreground);
     font-family: var(--font-body);
     font-size: var(--fs-base);
     line-height: 1.6;
@@ -124,7 +105,7 @@
     font-weight: 500;
     letter-spacing: -0.01em;
     line-height: 1.15;
-    color: hsl(var(--foreground));
+    color: var(--foreground);
   }
   h1 { font-size: var(--fs-5xl); }
   h2 { font-size: var(--fs-4xl); }
@@ -132,13 +113,9 @@
   h4 { font-size: var(--fs-2xl); }
   h5 { font-size: var(--fs-xl); }
 
-  p  { font-size: var(--fs-base); }
-  small { font-size: var(--fs-sm); }
-
-  ::selection { background: hsl(var(--accent) / 0.2); color: hsl(var(--foreground)); }
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
 }
 
-/* ---------- 6. UTILITY CLASSES (typography) ---------- */
 .font-serif-display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; }
 .font-italiana       { font-family: var(--font-accent); letter-spacing: 0.02em; }
 .font-body           { font-family: var(--font-body); }
@@ -148,33 +125,30 @@
   font-size: var(--fs-xs);
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .edit-num { font-family: var(--font-accent); font-size: 0.75rem; letter-spacing: 0.3em; }
 
-/* ---------- 7. GENERIC SITE UTILITIES ---------- */
 .container-page { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
 .section-y     { padding-block: var(--space-section); }
 
 .surface-card {
-  background: hsl(var(--card));
-  color: hsl(var(--card-foreground));
-  border: 1px solid hsl(var(--border));
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
 }
 
-.divider-soft { height: 1px; background: hsl(var(--border)); width: 100%; }
+.divider-soft { height: 1px; background: var(--border); width: 100%; }
 
-/* ---------- 8. ANIMATIONS ---------- */
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee-track { animation: marquee 40s linear infinite; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .fade-up { animation: fadeUp 0.9s var(--ease-out) both; }
 
-/* underline link */
 .link-underline { position: relative; display: inline-block; }
 .link-underline::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
@@ -184,30 +158,18 @@
 }
 .link-underline:hover::after { transform: scaleX(1); }
 
-/* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* ============================================================
-   ALTERNATIVE PALETTES — copy values into :root above to try
-   ------------------------------------------------------------
-   A) Warm Sand & Ink
-     --background: 36 30% 97%;  --foreground: 220 14% 14%;
-     --primary: 220 14% 14%;    --accent: 28 60% 48%;
-     --muted: 36 18% 78%;       --border: 36 14% 84%;
-
-   B) Midnight Bloom
-     --background: 230 24% 10%; --foreground: 36 30% 94%;
-     --primary: 36 30% 94%;     --accent: 340 70% 62%;
-     --muted: 230 16% 22%;      --border: 230 14% 26%;
-
-   C) Sage Editorial
-     --background: 80 14% 96%;  --foreground: 150 18% 18%;
-     --primary: 150 18% 18%;    --accent: 145 28% 38%;
-     --muted: 80 10% 78%;       --border: 80 10% 84%;
-
-   D) Mocha Couture
-     --background: 30 18% 95%;  --foreground: 20 18% 16%;
-     --primary: 20 28% 22%;     --accent: 18 48% 44%;
-     --muted: 30 14% 80%;       --border: 30 12% 84%;
-   ============================================================ */
+/* Sticky sub-category tabs (used on Tailoring / Collections / etc) */
+.sticky-subnav {
+  position: sticky;
+  top: var(--header-h-mobile);
+  z-index: 30;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+@media (min-width: 1024px) {
+  .sticky-subnav { top: var(--header-h); }
+}
