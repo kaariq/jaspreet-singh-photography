@@ -4,7 +4,6 @@ import { ShoppingBag, User, Menu, X, ChevronRight, LogOut } from 'lucide-react';
 import AnnouncementBar from './AnnouncementBar';
 import { NAV, SITE } from '@/mock/mock';
 import { useAuth } from '@/contexts/AuthContext';
-
 const slug = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const routeFor = (key, item) => `/${key === 'tailoring' ? 'tailoring' : key === 'collections' ? 'collections' : key === 'pricing' ? 'pricing' : key === 'explore' ? 'explore' : key === 'booking' ? 'booking' : 'contact'}/${slug(item)}`;
 const parentRoute = (key) => `/${key === 'booking' ? 'booking' : key}`;
@@ -34,10 +33,22 @@ export default function Header() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="h-16 lg:h-[72px] flex items-center justify-between gap-4">
             {/* Brand left */}
-            <Link to="/" className="select-none flex items-center gap-3">
-              <div className="font-italiana text-2xl lg:text-[26px] tracking-[0.3em] text-[hsl(85,13%,19%)]">KAARIQ</div>
-              <div className="hidden lg:block text-[10px] tracking-[0.28em] uppercase text-[hsl(85,13%,32%)] border-l border-[hsl(33,11%,73%)] pl-3">Tailoring · Boutique</div>
-            </Link>
+         <Link to="/" className="select-none flex items-center gap-3">
+            {/* Logo */}
+            <img
+              src="/kaariq.svg" // place inside public folder
+              alt="KAARIQ Logo"
+              className="w-[140px] h-[50px] object-contain"
+            />
+            <div className="hidden lg:block text-[10px] tracking-[0.28em] uppercase text-[hsl(85,13%,32%)] border-l border-[hsl(33,11%,73%)] pl-3">
+             · 
+            </div>
+            <img
+              src="/boutique.svg" // place inside public folder
+              alt="Boutique Logo"
+              className="h-[200px] w-[190px] object-contain"
+            />
+          </Link>
             {/* Right icons */}
             <div className="flex items-center gap-4 lg:gap-5 text-[hsl(85,13%,19%)]">
               <Link to="/booking/book-appointment" className="hidden lg:inline-block text-[12px] tracking-[0.18em] uppercase border border-[hsl(85,13%,19%)]/80 px-4 py-2 hover:bg-[hsl(85,13%,19%)] hover:text-[hsl(0,0%,100%)] transition-colors">Book Appointment</Link>

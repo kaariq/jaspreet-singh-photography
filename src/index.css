@@ -20,24 +20,24 @@
        Try uncommenting one of the alternative palettes at the bottom. */
 
     --background: 0 0% 100%;             /* page background */
-    --foreground: 85 13% 19%;            /* primary text */
+    --foreground: #31372a;            /* primary text */
 
     --card: 33 11% 96%;
-    --card-foreground: 85 13% 19%;
+    --card-foreground: #31372a;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 85 13% 19%;
+    --popover-foreground: #31372a;
 
-    --primary: 85 13% 19%;               /* buttons / brand */
+    --primary: #31372a;               /* buttons / brand */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 33 11% 88%;
-    --secondary-foreground: 85 13% 19%;
+    --secondary-foreground: #31372a;
 
     --muted: 33 11% 73%;
     --muted-foreground: 85 13% 32%;
 
-    --accent: 64 30% 36%;                /* highlights / links */
+    --accent: #747740;             /* highlights / links */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 45%;
@@ -45,9 +45,9 @@
 
     --border: 33 11% 80%;
     --input: 33 11% 80%;
-    --ring: 85 13% 19%;
+    --ring: #31372a;
 
-    --gold: 64 30% 36%;
+    --gold: #31372a;
 
     /* ---------- 3. RADIUS & ELEVATION ---------- */
     --radius: 0.25rem;
