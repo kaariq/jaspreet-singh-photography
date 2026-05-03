@@ -26,8 +26,9 @@ export default function Header() {
   useEffect(() => { setOpen(null); setMobile(false); }, [loc.pathname]);
 
   return (
-    <header className="sticky top-0 z-50">
+    <>
       <AnnouncementBar />
+      <header className="sticky top-0 z-50">
       <div className={`bg-[#ffffff] border-b border-[#E0BCC0] transition-shadow ${scrolled ? 'shadow-[0_1px_0_rgba(0,0,0,0.04)]' : ''}`}
         onMouseLeave={() => setOpen(null)}>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
