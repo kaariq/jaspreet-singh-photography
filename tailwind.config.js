@@ -15,37 +15,34 @@ module.exports = {
   		colors: {
   			background: 'var(--background)',
   			foreground: 'var(--foreground)',
-  			card: {
-  				DEFAULT: 'var(--card)',
-  				foreground: 'var(--card-foreground)'
-  			},
-  			popover: {
-  				DEFAULT: 'var(--popover)',
-  				foreground: 'var(--popover-foreground)'
-  			},
-  			primary: {
-  				DEFAULT: 'var(--primary)',
-  				foreground: 'var(--primary-foreground)'
-  			},
-  			secondary: {
-  				DEFAULT: 'var(--secondary)',
-  				foreground: 'var(--secondary-foreground)'
-  			},
-  			muted: {
-  				DEFAULT: 'var(--muted)',
-  				foreground: 'var(--muted-foreground)'
-  			},
-  			accent: {
-  				DEFAULT: 'var(--accent)',
-  				foreground: 'var(--accent-foreground)'
-  			},
-  			destructive: {
-  				DEFAULT: 'var(--destructive)',
-  				foreground: 'var(--destructive-foreground)'
-  			},
+  			card: { DEFAULT: 'var(--card)', foreground: 'var(--card-foreground)' },
+  			popover: { DEFAULT: 'var(--popover)', foreground: 'var(--popover-foreground)' },
+  			primary: { DEFAULT: 'var(--primary)', foreground: 'var(--primary-foreground)' },
+  			secondary: { DEFAULT: 'var(--secondary)', foreground: 'var(--secondary-foreground)' },
+  			muted: { DEFAULT: 'var(--muted)', foreground: 'var(--muted-foreground)' },
+  			accent: { DEFAULT: 'var(--accent)', foreground: 'var(--accent-foreground)' },
+  			destructive: { DEFAULT: 'var(--destructive)', foreground: 'var(--destructive-foreground)' },
   			border: 'var(--border)',
   			input: 'var(--input)',
   			ring: 'var(--ring)',
+  			/* brand palette — direct named access */
+  			wine:        'var(--wine)',
+  			'wine-light':'var(--wine-light)',
+  			'wine-muted':'var(--wine-muted)',
+  			blush:       'var(--blush)',
+  			'blush-soft':'var(--blush-soft)',
+  			ink:         'var(--ink)',
+  			'ink-deep':  'var(--ink-deep)',
+  			noir:        'var(--noir)',
+  			rose:        'var(--rose)',
+  			'rose-soft': 'var(--rose-soft)',
+  			'rose-pale': 'var(--rose-pale)',
+  			mute:        'var(--mute)',
+  			'mute-soft': 'var(--mute-soft)',
+  			sand:        'var(--sand)',
+  			'sand-light':'var(--sand-light)',
+  			cream:       'var(--cream)',
+  			'cream-border':'var(--cream-border)',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',
