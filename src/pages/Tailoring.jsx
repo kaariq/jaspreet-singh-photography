@@ -28,8 +28,6 @@ export default function Tailoring() {
   const heading = slug ? slug.replace(/-/g, ' ').replace(/\band\b/g, '&') : 'Bespoke Tailoring';
   return (
     <main className="pb-12 sm:pb-20">
-      <Breadcrumb items={[{label:'Home', to:'/'},{label:'Tailoring', to:'/tailoring'},{label:heading}]}/>
-      <PageHero tag="TAILORING" title={<span className="capitalize">{heading}<span className="italic"> by Kaariq</span></span>} subtitle="Hand-cut, machine and hand-stitched in our Mumbai atelier. From measurement to delivery, every step is yours to direct." image={IMAGES.craft}/>
 
       {/* Sub-categories — sticky under header so users always know where they are */}
       <div className="sticky-subnav">

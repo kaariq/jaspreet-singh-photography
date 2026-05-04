@@ -6,20 +6,7 @@ export function PageHero({ tag, title, subtitle, image }) {
   return (
     <section className="relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 lg:pt-16">
-        <div className="grid lg:grid-cols-12 gap-5 lg:gap-8 items-end">
-          <div className="lg:col-span-7">
-            <div className="edit-num text-mute">—  {tag}</div>
-            <h1 className="font-serif-display text-3xl sm:text-4xl lg:text-7xl mt-2 sm:mt-3 lg:mt-4 leading-[1.05] lg:leading-[1.02] text-ink">{title}</h1>
-            {subtitle && <p className="text-[13px] sm:text-[14px] lg:text-[15px] text-mute mt-3 sm:mt-4 lg:mt-5 max-w-xl leading-relaxed">{subtitle}</p>}
-          </div>
-          {image && (
-            <div className="lg:col-span-5">
-              <div className="aspect-[16/10] sm:aspect-[5/4] overflow-hidden bg-rose-pale">
-                <img src={image} alt="" className="w-full h-full object-cover"/>
-              </div>
-            </div>
-          )}
-        </div>
+        
       </div>
     </section>
   );

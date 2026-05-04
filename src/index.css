@@ -25,11 +25,11 @@
        Ink     : #1f1f1f (near-black for text)
        Every other token below is an alias to one of these. */
 
-    --brand:        #85883c;
+    --brand:        #9a9c69;
     --brand-hover:  #747740;
-    --brand-muted:  #5b5c3c;
-    --surface:      #F7EBEC;
-    --ink-base:     #1f1f1f;
+    --brand-muted:  #9b9c82;
+    --surface:      #ffffff;
+    --ink-base:     #43442b;
     --white:        #ffffff;
 
     /* ---- Aliases (kept so existing class names keep working) ---- */
@@ -53,7 +53,26 @@
     --cream:       var(--surface);
     --cream-border:var(--brand-muted);
 
-    /* ---------- SEMANTIC TOKENS (map roles → palette) ---------- */
+    /* --wine:        #6E0D25;  
+    --wine-light:  #8B1A30;  
+    --wine-muted:  #66333A;  
+    --blush:       #F7EBEC;  
+    --blush-soft:  #F0DDDF;   
+    --ink:         #2A0A12;   
+    --ink-deep:    #1A050A;   
+    --noir:        #1a1a1a;     
+    --rose:        #E0BCC0;  
+    --rose-soft:   #C99CA2;  
+    --rose-pale:   #ECD4D7;   
+    --mute:        #6B4046;  
+    --mute-soft:   #8A5961;   
+    --sand:        #A5978B;  
+    --sand-light:  #C4BBAF;  
+    --cream:       #f8f7f5;
+    --cream-border:#e5e2de;
+    --white:       #ffffff; */
+
+
     --background:           var(--blush);
     --foreground:           var(--ink);
 

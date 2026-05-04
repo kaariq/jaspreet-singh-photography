@@ -20,8 +20,6 @@ export default function CategoryPage({ slug: forcedSlug }) {
 
   return (
     <main className="pb-12 sm:pb-20">
-      <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Tailoring', to: '/tailoring' }, { label }]}/>
-      <PageHero tag="BESPOKE TAILORING" title={<span className="capitalize">{label}<span className="italic text-wine"> by Kaariq</span></span>} subtitle="Pick a design to start your bespoke order — or build something one-of-a-kind with our designers." image={heroImg}/>
 
       {/* Sticky sub-categories */}
       <div className="sticky-subnav">
@@ -61,7 +59,6 @@ export default function CategoryPage({ slug: forcedSlug }) {
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-rose-pale">
                 <img src={d.image} alt={d.label} className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1000ms]"/>
-                <span className="absolute top-3 left-3 text-[10px] tracking-[0.22em] uppercase bg-white/95 px-2 py-1">N° {String(i + 1).padStart(2, '0')}</span>
               </div>
               <div className="p-3 sm:p-4">
                 <div className="flex items-start justify-between gap-2">

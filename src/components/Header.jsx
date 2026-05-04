@@ -89,7 +89,6 @@ export default function Header() {
         <div className={`hidden lg:block absolute left-0 right-0 top-full bg-blush border-t border-b border-rose overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="max-w-[1400px] mx-auto px-10 py-10 grid grid-cols-12 gap-10">
             <div className="col-span-3">
-              <div className="edit-num text-mute">{open ? `0${(NAV.findIndex(x=>x.key===open)+1)}` : ''} / 06</div>
               <h3 className="font-serif-display text-3xl mt-2 text-ink">{NAV.find(n => n.key === open)?.label}</h3>
               <p className="text-sm text-mute mt-3 leading-relaxed">Discover bespoke craft, made to your measure — at the atelier or your doorstep.</p>
             </div>

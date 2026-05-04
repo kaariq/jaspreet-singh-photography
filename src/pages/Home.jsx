@@ -96,9 +96,8 @@ function HeroCarousel() {
               exit={{ opacity: 0, y: -20, transition: { duration: 0.4 } }}
               variants={stagger(0.15)}
             >
-              <motion.div variants={blurUp} className="font-italiana text-[10px] sm:text-[11px] tracking-[0.32em] sm:tracking-[0.4em] uppercase opacity-90">{slide.eyebrow}</motion.div>
-              <motion.h1 variants={blurUp} className="font-serif-display mt-3 sm:mt-5 text-[32px] sm:text-[56px] lg:text-[78px] leading-[1] sm:leading-[0.98] whitespace-pre-line">{slide.title}</motion.h1>
-              <motion.p variants={blurUp} className="text-[12.5px] sm:text-[15px] lg:text-[16px] leading-relaxed mt-3 sm:mt-5 opacity-90 max-w-md ml-0 lg:ml-auto line-clamp-3 sm:line-clamp-none">{slide.body}</motion.p>
+              <motion.h1 variants={blurUp} className=" text-white font-serif-display mt-3 sm:mt-5 text-[32px] sm:text-[56px] lg:text-[78px] leading-[1] sm:leading-[0.98] whitespace-pre-line">{slide.title}</motion.h1>
+              <motion.p variants={blurUp} className="text-[12.5px] sm:text-[15px] lg:text-[16px] leading-relaxed mt-3 sm:mt-5 opacity-90 max-w-md ml-0">{slide.body}</motion.p>
               <motion.div variants={blurUp} className={`flex flex-wrap gap-2 sm:gap-3 mt-5 sm:mt-8 ${alignLeft ? '' : 'lg:justify-end'}`}>
                 <Link to={slide.cta.to} className="group inline-flex items-center gap-2 bg-white text-ink px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-wine hover:text-white transition-colors">
                   {slide.cta.label} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"/>
@@ -118,7 +117,6 @@ function HeroCarousel() {
               <span className={`absolute inset-0 bg-white origin-left transition-transform duration-[5500ms] ease-linear ${idx === i ? 'scale-x-100' : 'scale-x-0'}`}/>
             </button>
           ))}
-          <span className="font-italiana text-white text-[10px] sm:text-[11px] tracking-[0.28em] sm:tracking-[0.3em] ml-2 sm:ml-3">0{i + 1} / 0{total}</span>
         </div>
       </div>
     </section>
@@ -147,7 +145,7 @@ function ServicesGrid() {
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
       <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16 items-end">
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-mute">— 01 / WHAT WE TAILOR</div>
+          <div className="edit-num text-mute">— WHAT WE TAILOR</div>
         </motion.div>
         <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-ink">
           Tailoring,
@@ -166,15 +164,12 @@ function ServicesGrid() {
               <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-rose-pale">
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-[1400ms] ease-out"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-deep/85 via-ink-deep/25 to-transparent"/>
-                <span className="absolute top-3 left-3 sm:top-5 sm:left-5 font-italiana text-rose-pale text-[16px] sm:text-[26px] tracking-[0.2em]">N°&nbsp;0{i + 1}</span>
                 <div className="absolute left-0 right-0 bottom-0 p-3 sm:p-6 lg:p-7 text-white">
-                  <h3 className="font-serif-display text-[16px] sm:text-[22px] lg:text-[26px] leading-tight">{s.title}</h3>
+                  <h3 className="font-serif-display text-[16px] sm:text-[22px] lg:text-[26px] leading-tight">{s.title}
+                  <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"/>
+                  </h3>
                   <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-[max-height] duration-700 ease-out hidden sm:block">
                     <p className="text-[13px] opacity-85 leading-relaxed mt-2 pr-3">{s.desc}</p>
-                  </div>
-                  <div className="flex items-center gap-1.5 mt-2 sm:mt-4 text-[9px] sm:text-[11px] tracking-[0.24em] uppercase">
-                    Discover
-                    <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"/>
                   </div>
                 </div>
                 <span className="absolute left-3 right-3 sm:left-6 sm:right-6 bottom-[44px] sm:bottom-[68px] h-px bg-white/30"/>
@@ -196,7 +191,7 @@ function HorizontalProcess() {
     <section ref={ref} className="bg-ink text-white py-12 sm:py-20 lg:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
         <Reveal variants={stagger(0.05)} className="max-w-3xl mb-8 sm:mb-14 lg:mb-20">
-          <motion.div variants={fadeUp} className="edit-num opacity-70">— 02 / THE KAARIQ PROCESS</motion.div>
+          <motion.div variants={fadeUp} className="edit-num opacity-70">— THE KAARIQ PROCESS</motion.div>
           <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.05]">From sketch <span className="italic text-rose-soft">to silhouette,</span> in six steps.</motion.h2>
           <motion.p variants={fadeUp} className="text-[13px] sm:text-sm opacity-75 mt-3 sm:mt-5 max-w-xl leading-relaxed">A calm, considered process — designed to put you at the centre of every decision.</motion.p>
         </Reveal>
@@ -249,7 +244,7 @@ function CollectionsEditorial() {
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
       <Reveal variants={stagger()} className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16 items-end">
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-mute">— 03 / THE COLLECTIONS</div>
+          <div className="edit-num text-mute">— THE COLLECTIONS</div>
         </motion.div>
         <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-ink">
           Edits for every <span className="italic text-wine">occasion.</span>
@@ -329,7 +324,7 @@ function FeaturesSection() {
   return (
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32">
       <Reveal variants={stagger(0.05)} className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
-        <motion.div variants={fadeUp} className="edit-num text-mute">— 04 / WHY KAARIQ</motion.div>
+        <motion.div variants={fadeUp} className="edit-num text-mute">— WHY KAARIQ</motion.div>
         <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-5xl mt-2 sm:mt-3 text-ink">Fabric. Fashion. <span className="italic text-wine">Fit.</span> Finesse.</motion.h2>
       </Reveal>
       <Reveal variants={stagger(0.04)} className="grid grid-cols-3 lg:grid-cols-3 gap-px bg-rose border border-rose">
@@ -364,7 +359,7 @@ function MediaTestimonials() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32 grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
         {/* LEFT — heading + quote */}
         <Reveal variants={stagger(0.1)} className="lg:col-span-5 lg:sticky lg:top-32">
-          <motion.div variants={fadeUp} className="edit-num opacity-70">— 05 / FROM OUR CUSTOMERS</motion.div>
+          <motion.div variants={fadeUp} className="edit-num opacity-70">— FROM OUR CUSTOMERS</motion.div>
           <motion.h2 variants={blurUp} className="font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] mt-3 sm:mt-4">
             In their own <span className="italic text-rose-soft">words.</span>
           </motion.h2>
@@ -454,7 +449,7 @@ function Journal() {
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-20 lg:py-32">
       <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-3 lg:gap-6 items-end mb-4 sm:mb-10 lg:mb-12">
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-mute">— 06 / JOURNAL</div>
+          <div className="edit-num text-mute">— JOURNAL</div>
         </motion.div>
         <motion.h2 variants={blurUp} className="lg:col-span-7 font-serif-display text-[22px] sm:text-4xl lg:text-5xl text-ink">
           Notes from the <span className="italic text-wine">atelier</span>.
@@ -521,7 +516,7 @@ function FaqSection() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-20 lg:py-28">
         <Reveal variants={stagger(0.05)} className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
           <motion.div variants={fadeUp} className="lg:col-span-4 lg:sticky lg:top-32">
-            <div className="edit-num text-mute">— 07 / FAQ</div>
+            <div className="edit-num text-mute">— FAQ</div>
             <h2 className="font-serif-display text-[24px] sm:text-4xl lg:text-[56px] leading-[1.05] mt-2 sm:mt-4 text-ink">
               Questions, <span className="italic text-wine">answered</span>.
             </h2>
