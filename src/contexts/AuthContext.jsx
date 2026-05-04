@@ -4,7 +4,10 @@ import { loadState, saveState, uid } from '@/lib/storage';
 const AuthCtx = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [state, setState] = useState(() => loadState());
+  const [state, setState] = useState(() => {
+    const s = loadState();
+    return { ...s, cart: s.cart || [], parentOrders: s.parentOrders || [] };
+  });
 
   useEffect(() => { saveState(state); }, [state]);
 
@@ -71,6 +74,55 @@ export function AuthProvider({ children }) {
   const setOrderDraft = (draft) => setState((s) => ({ ...s, drafts: { ...s.drafts, order: draft } }));
   const clearOrderDraft = () => setState((s) => ({ ...s, drafts: { ...s.drafts, order: null } }));
 
+  // ---------- CART (multiple sub-orders before checkout) ----------
+  const addToCart = (item) => {
+    const cartItem = { id: uid('ci'), createdAt: Date.now(), status: 'Pending Details', ...item };
+    setState((s) => ({ ...s, cart: [cartItem, ...(s.cart || [])] }));
+    return cartItem;
+  };
+  const updateCartItem = (id, patch) => setState((s) => ({
+    ...s, cart: (s.cart || []).map((c) => c.id === id ? { ...c, ...patch } : c),
+  }));
+  const removeCartItem = (id) => setState((s) => ({ ...s, cart: (s.cart || []).filter((c) => c.id !== id) }));
+  const clearCart = () => setState((s) => ({ ...s, cart: [] }));
+
+  // Group all current cart items into a parent order. Each child becomes
+  // an individual order processed separately by the team.
+  const checkoutCart = ({ contact, notes } = {}) => {
+    const parentId = uid('po');
+    const createdAt = Date.now();
+    const childOrders = (state.cart || []).map((c) => ({
+      id: uid('o'),
+      parentId,
+      category: c.category,
+      design: c.design,
+      designLabel: c.designLabel,
+      price: c.price,
+      image: c.image,
+      personId: c.personId || null,
+      notes: c.notes || '',
+      status: 'Awaiting Team Contact',
+      createdAt,
+    }));
+    const parent = {
+      id: parentId,
+      createdAt,
+      itemCount: childOrders.length,
+      total: childOrders.reduce((a, b) => a + (b.price || 0), 0),
+      contact: contact || null,
+      notes: notes || '',
+      status: 'Received',
+      childIds: childOrders.map((o) => o.id),
+    };
+    setState((s) => ({
+      ...s,
+      orders: [...childOrders, ...s.orders],
+      parentOrders: [parent, ...(s.parentOrders || [])],
+      cart: [],
+    }));
+    return parent;
+  };
+
   const value = {
     state,
     user: state.auth,
@@ -81,6 +133,9 @@ export function AuthProvider({ children }) {
     addAppointment, cancelAppointment,
     addOrder, updateOrder,
     setOrderDraft, clearOrderDraft,
+    cart: state.cart || [],
+    parentOrders: state.parentOrders || [],
+    addToCart, updateCartItem, removeCartItem, clearCart, checkoutCart,
   };
   return <AuthCtx.Provider value={value}>{children}</AuthCtx.Provider>;
 }
