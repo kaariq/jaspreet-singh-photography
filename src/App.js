@@ -13,7 +13,14 @@ import BookingGuide from './pages/BookingGuide';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-import OrderJourney from './pages/OrderJourney';
+// NOTE: OrderJourney is intentionally commented out for now.
+// We've replaced the multi-step wizard with a lightweight callback-request
+// flow (RequestContact) plus a Cart that groups multiple designs into a
+// single parent order. Do NOT delete OrderJourney — we'll bring it back
+// once the team is ready to handle full self-serve ordering.
+// import OrderJourney from './pages/OrderJourney';
+import RequestContact from './pages/RequestContact';
+import Cart from './pages/Cart';
 import ScrollToTop from './components/ScrollToTop';
 import PreFooterBooking from './components/PreFooterBooking';
 import AdminApp from './admin/AdminApp';
@@ -36,6 +43,7 @@ function HideOnAuth({ children }) {
   if (
     loc.pathname.startsWith('/login') ||
     loc.pathname.startsWith('/profile') ||
+    loc.pathname.startsWith('/cart') ||
     loc.pathname.includes('/order/') ||
     isAdminPath(loc.pathname)
   ) return null;
@@ -67,7 +75,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/tailoring" element={<Tailoring />} />
             <Route path="/tailoring/:slug" element={<TailoringRouter />} />
-            <Route path="/tailoring/:slug/order/:design" element={<OrderJourney />} />
+            {/* OrderJourney route is paused — routed to RequestContact instead.
+                Original route kept as comment so we can restore it later:
+                <Route path="/tailoring/:slug/order/:design" element={<OrderJourney />} /> */}
+            <Route path="/tailoring/:slug/order/:design" element={<RequestContact />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/collections" element={<Collections />} />
             <Route path="/collections/:slug" element={<Collections />} />
             <Route path="/pricing" element={<Pricing />} />

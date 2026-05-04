@@ -15,7 +15,8 @@ export default function Header() {
   const [userMenu, setUserMenu] = useState(false);
   const loc = useLocation();
   const nav = useNavigate();
-  const { isAuthed, user, logout } = useAuth();
+  const { isAuthed, user, logout, cart } = useAuth();
+  const cartCount = cart?.length || 0;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -62,11 +63,14 @@ export default function Header() {
                   <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-rose shadow-lg z-50">
                     <Link to="/profile" onClick={() => setUserMenu(false)} className="block px-4 py-3 text-[12px] tracking-[0.18em] uppercase hover:bg-blush">Profile</Link>
                     <Link to="/profile" onClick={() => setUserMenu(false)} className="block px-4 py-3 text-[12px] tracking-[0.18em] uppercase hover:bg-blush">Orders</Link>
-                    <button onClick={() => {                                                                                                                                                        aaut(); setUserMenu(false); nav('/'); }} className="w-full text-left px-4 py-3 text-[12px] tracking-[0.18em] uppercase hover:bg-blush flex items-center gap-2 border-t border-rose"><LogOut className="w-3.5 h-3.5"/>Sign out</button>
+                    <button onClick={() => { logout(); setUserMenu(false); nav('/'); }} className="w-full text-left px-4 py-3 text-[12px] tracking-[0.18em] uppercase hover:bg-blush flex items-center gap-2 border-t border-rose"><LogOut className="w-3.5 h-3.5"/>Sign out</button>
                   </div>
                 )}
               </div>
-              <button aria-label="Bag" className="relative hover:opacity-70"><ShoppingBag className="w-[18px] h-[18px]"/><span className="absolute -top-2 -right-2 text-[10px] bg-wine text-white rounded-full w-4 h-4 flex items-center justify-center">0</span></button>
+              <Link to="/cart" aria-label="Cart" className="relative hover:opacity-70">
+                <ShoppingBag className="w-[18px] h-[18px]"/>
+                <span className="absolute -top-2 -right-2 text-[10px] bg-wine text-white rounded-full min-w-4 h-4 px-1 flex items-center justify-center">{cartCount}</span>
+              </Link>
               <button className="lg:hidden" onClick={() => setMobile(true)} aria-label="Open menu"><Menu className="w-5 h-5"/></button>
             </div>
           </div>
