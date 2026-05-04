@@ -12,43 +12,65 @@
 
 @layer base {
   :root {
-    /* ---------- BRAND PALETTE (edit here only) ---------- */
-    --brand-wine:  #6E0D25;     /* primary brand */
-    --brand-blush: #F7EBEC;     /* background blush */
-    --brand-ink:   #2A0A12;     /* dark text on blush */
-    --brand-rose:  #E0BCC0;     /* borders / soft accents */
-    --brand-mute:  #8A5961;     /* muted text */
+    /* ---------- BRAND PALETTE — single source of truth ----------
+       Every color used anywhere in the app must be defined here.
+       Components must consume them via Tailwind tokens (e.g. bg-primary,
+       text-ink, border-rose) — never hardcode hex/rgb in JSX. */
 
-    /* ---------- SEMANTIC TOKENS ---------- */
-    --background:           #F7EBEC;
-    --foreground:           #2A0A12;
+    /* Core brand */
+    --wine:        #6E0D25;   /* primary brand */
+    --wine-light:  #8B1A30;   /* hover / accent highlight */
+    --wine-muted:  #66333A;   /* muted brand surface */
+    --blush:       #F7EBEC;   /* page background */
+    --blush-soft:  #F0DDDF;   /* secondary surface */
+    --ink:         #2A0A12;   /* primary dark text */
+    --ink-deep:    #1A050A;   /* deepest dark (overlays) */
+    --noir:        #1a1a1a;   /* near-black surface */
 
-    --card:                 #ffffff;
-    --card-foreground:      #2A0A12;
+    /* Rose / blush scale */
+    --rose:        #E0BCC0;   /* borders, soft accents */
+    --rose-soft:   #C99CA2;   /* dividers on dark */
+    --rose-pale:   #ECD4D7;   /* placeholder surfaces */
 
-    --popover:              #ffffff;
-    --popover-foreground:   #2A0A12;
+    /* Neutrals */
+    --mute:        #6B4046;   /* muted body text */
+    --mute-soft:   #8A5961;   /* lighter muted text */
+    --sand:        #A5978B;   /* footer text */
+    --sand-light:  #C4BBAF;   /* light sand surface */
+    --cream:       #f8f7f5;
+    --cream-border:#e5e2de;
+    --white:       #ffffff;
 
-    --primary:              #6E0D25;
-    --primary-foreground:   #F7EBEC;
+    /* ---------- SEMANTIC TOKENS (map roles → palette) ---------- */
+    --background:           var(--blush);
+    --foreground:           var(--ink);
 
-    --secondary:            #F0DDDF;
-    --secondary-foreground: #2A0A12;
+    --card:                 var(--white);
+    --card-foreground:      var(--ink);
 
-    --muted:                #ECD4D7;
-    --muted-foreground:     #8A5961;
+    --popover:              var(--white);
+    --popover-foreground:   var(--ink);
 
-    --accent:               #6E0D25;
-    --accent-foreground:    #ffffff;
+    --primary:              var(--wine);
+    --primary-foreground:   var(--blush);
+
+    --secondary:            var(--blush-soft);
+    --secondary-foreground: var(--ink);
+
+    --muted:                var(--rose-pale);
+    --muted-foreground:     var(--mute-soft);
+
+    --accent:               var(--wine);
+    --accent-foreground:    var(--white);
 
     --destructive:          #b3261e;
-    --destructive-foreground: #ffffff;
+    --destructive-foreground: var(--white);
 
-    --border:               #E0BCC0;
-    --input:                #E0BCC0;
-    --ring:                 #6E0D25;
+    --border:               var(--rose);
+    --input:                var(--rose);
+    --ring:                 var(--wine);
 
-    --gold:                 #6E0D25;
+    --gold:                 var(--wine);
 
     /* ---------- RADIUS & ELEVATION ---------- */
     --radius: 0.25rem;
