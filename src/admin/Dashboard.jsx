@@ -32,7 +32,7 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="font-serif-display text-3xl text-[#2A0A12]">Welcome back, {activeUser.name.split(' ')[0]}.</h1>
+        <h1 className="font-serif-display text-3xl text-ink">Welcome back, {activeUser.name.split(' ')[0]}.</h1>
         <p className="text-sm text-neutral-500">Here’s what needs your attention today.</p>
       </header>
 
@@ -58,13 +58,13 @@ export default function Dashboard() {
           <ul>
             {myOrders.slice(0, 6).map((o) => (
               <li key={o.id} className="px-5 py-4 border-b border-neutral-100 last:border-0 grid grid-cols-12 gap-3 items-center hover:bg-neutral-50 transition-colors">
-                <div className="col-span-2 text-[11px] tracking-[0.22em] uppercase text-[#6E0D25]">{o.id}</div>
+                <div className="col-span-2 text-[11px] tracking-[0.22em] uppercase text-wine">{o.id}</div>
                 <div className="col-span-5">
                   <div className="font-medium text-neutral-900">{o.title}</div>
                   <div className="text-[11px] text-neutral-500">{o.customer} · {o.phone}</div>
                 </div>
                 <div className="col-span-3"><Stage stage={o.stage}/></div>
-                <div className="col-span-2 text-right"><Link to="orders" className="text-[11px] tracking-[0.22em] uppercase text-[#2A0A12] link-underline">Open <ArrowRight className="w-3 h-3 inline"/></Link></div>
+                <div className="col-span-2 text-right"><Link to="orders" className="text-[11px] tracking-[0.22em] uppercase text-ink link-underline">Open <ArrowRight className="w-3 h-3 inline"/></Link></div>
               </li>
             ))}
           </ul>
@@ -82,7 +82,7 @@ export default function Dashboard() {
           <ul>
             {newLeads.slice(0, 5).map((l) => (
               <li key={l.id} className="px-5 py-3 border-b border-neutral-100 last:border-0 flex items-center gap-3 hover:bg-neutral-50">
-                <span className="w-1.5 h-10 rounded-full bg-[#6E0D25] flex-shrink-0"/>
+                <span className="w-1.5 h-10 rounded-full bg-wine flex-shrink-0"/>
                 <div className="min-w-0 flex-1">
                   <div className="text-sm font-medium truncate">{l.name}</div>
                   <div className="text-[11px] text-neutral-500 truncate">{l.source} · {l.notes}</div>
@@ -107,7 +107,7 @@ export default function Dashboard() {
           <div className="flex items-end gap-3 mt-6 h-48">
             {days.map((d, i) => (
               <div key={i} className="flex-1 flex flex-col items-center gap-2">
-                <motion.div initial={{ height: 0 }} animate={{ height: `${(d.value / maxRev) * 100}%` }} transition={{ duration: 0.8, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }} className="w-full bg-gradient-to-t from-[#2A0A12] to-[#6E0D25] min-h-[2px]"/>
+                <motion.div initial={{ height: 0 }} animate={{ height: `${(d.value / maxRev) * 100}%` }} transition={{ duration: 0.8, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }} className="w-full bg-gradient-to-t from-ink to-wine min-h-[2px]"/>
                 <span className="text-[10px] tracking-[0.18em] uppercase text-neutral-500">{d.day}</span>
                 <span className="text-[10px] text-neutral-400">{d.value > 0 ? `₹${(d.value/1000).toFixed(0)}k` : '—'}</span>
               </div>
@@ -119,12 +119,12 @@ export default function Dashboard() {
         <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="bg-white border border-neutral-200 p-5">
           <div className="text-[10px] tracking-[0.22em] uppercase text-neutral-500">Customer satisfaction</div>
           <h2 className="font-serif-display text-xl mt-0.5">Reviews</h2>
-          <div className="flex items-baseline gap-2 mt-3"><span className="font-serif-display text-4xl text-[#2A0A12]">{avg}</span><span className="text-sm text-neutral-500">/ 5.0</span></div>
+          <div className="flex items-baseline gap-2 mt-3"><span className="font-serif-display text-4xl text-ink">{avg}</span><span className="text-sm text-neutral-500">/ 5.0</span></div>
           <div className="text-[11px] text-neutral-500 mb-3">{totalReviews} reviews</div>
           {reviews.map((r) => (
             <div key={r.stars} className="flex items-center gap-2 my-1.5">
               <span className="text-[11px] w-6">{r.stars}★</span>
-              <div className="flex-1 h-1.5 bg-neutral-100 overflow-hidden"><motion.div initial={{ width: 0 }} animate={{ width: `${(r.count / totalReviews) * 100}%` }} transition={{ duration: 0.7 }} className="h-full bg-[#6E0D25]"/></div>
+              <div className="flex-1 h-1.5 bg-neutral-100 overflow-hidden"><motion.div initial={{ width: 0 }} animate={{ width: `${(r.count / totalReviews) * 100}%` }} transition={{ duration: 0.7 }} className="h-full bg-wine"/></div>
               <span className="text-[11px] text-neutral-500 w-8 text-right">{r.count}</span>
             </div>
           ))}
@@ -139,9 +139,9 @@ function Kpi({ icon: Icon, label, value, hint }) {
     <motion.div whileHover={{ y: -2 }} className="bg-white border border-neutral-200 p-5">
       <div className="flex items-center justify-between">
         <span className="text-[10px] tracking-[0.22em] uppercase text-neutral-500">{label}</span>
-        <Icon className="w-4 h-4 text-[#6E0D25]"/>
+        <Icon className="w-4 h-4 text-wine"/>
       </div>
-      <div className="font-serif-display text-3xl mt-3 text-[#2A0A12]">{value}</div>
+      <div className="font-serif-display text-3xl mt-3 text-ink">{value}</div>
       <div className="text-[11px] text-neutral-500 mt-1">{hint}</div>
     </motion.div>
   );

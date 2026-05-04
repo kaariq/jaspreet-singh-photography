@@ -65,7 +65,7 @@ export default function BookingSection() {
     displayDate.getFullYear() === today.getFullYear();
 
   return (
-    <section className="py-20 lg:py-28 bg-[#1a1a1a] text-white">
+    <section className="py-20 lg:py-28 bg-noir text-white">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
@@ -95,7 +95,7 @@ export default function BookingSection() {
               {[1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="w-14 h-14 overflow-hidden border border-white/20 bg-[#C4BBAF]"
+                  className="w-14 h-14 overflow-hidden border border-white/20 bg-sand-light"
                   style={{ transform: `rotate(${(i - 2) * 6}deg)` }}
                 >
                   <Image
@@ -121,8 +121,8 @@ export default function BookingSection() {
 
               {/* Meeting Info */}
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 bg-[#f8f7f5] flex items-center justify-center">
-                  <Calendar className="w-4 h-4 text-[#66333A]" />
+                <div className="w-9 h-9 bg-cream flex items-center justify-center">
+                  <Calendar className="w-4 h-4 text-wine-muted" />
                 </div>
                 <div>
                   <p className="text-sm font-medium">Kaariq Design Team</p>
@@ -155,7 +155,7 @@ export default function BookingSection() {
               <div className="block lg:hidden mt-4">
                 <input
                   type="date"
-                  className="w-full border border-[#e5e2de] p-3 text-sm"
+                  className="w-full border border-cream-border p-3 text-sm"
                   onChange={(e) => {
                     const selected = new Date(e.target.value);
                     setSelectedDate(selected.getDate());
@@ -164,7 +164,7 @@ export default function BookingSection() {
               </div>
 
               {/* ✅ DESKTOP CALENDAR */}
-              <div className="hidden lg:block border-t border-[#e5e2de] pt-5">
+              <div className="hidden lg:block border-t border-cream-border pt-5">
                 
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-sm font-medium">
@@ -234,10 +234,10 @@ export default function BookingSection() {
                           ${
                             isPast
                               ? "text-muted-foreground/40 cursor-not-allowed"
-                              : "hover:bg-[#66333A] hover:text-white"
+                              : "hover:bg-wine-muted hover:text-white"
                           }
-                          ${isToday ? "ring-1 ring-[#66333A]" : ""}
-                          ${isSelected ? "bg-[#66333A] text-white" : ""}
+                          ${isToday ? "ring-1 ring-wine-muted" : ""}
+                          ${isSelected ? "bg-wine-muted text-white" : ""}
                         `}
                       >
                         {day}
@@ -249,7 +249,7 @@ export default function BookingSection() {
 
               {/* Continue Button */}
               {selectedDate && (
-                <Button className="w-full mt-5 bg-[#66333A] hover:bg-[#66333A]/90 text-white text-sm">
+                <Button className="w-full mt-5 bg-wine-muted hover:bg-wine-muted/90 text-white text-sm">
                   Continue with {monthNames[displayDate.getMonth()]}{" "}
                   {selectedDate}
                 </Button>

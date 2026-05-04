@@ -16,7 +16,7 @@ export default function Orders() {
     <div>
       <header className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="font-serif-display text-3xl text-[#2A0A12]">Orders</h1>
+          <h1 className="font-serif-display text-3xl text-ink">Orders</h1>
           <p className="text-sm text-neutral-500">{filtered.length} orders · punch in to track time spent</p>
         </div>
         <div className="flex items-center gap-3">
@@ -25,7 +25,7 @@ export default function Orders() {
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search by ID, customer, title" className="py-2 text-sm focus:outline-none w-64"/>
           </div>
           <div className="flex border border-neutral-200">
-            {['board', 'list'].map((v) => <button key={v} onClick={() => setView(v)} className={`px-4 py-2 text-[11px] tracking-[0.22em] uppercase transition-colors ${view === v ? 'bg-[#2A0A12] text-white' : 'bg-white hover:bg-neutral-50'}`}>{v}</button>)}
+            {['board', 'list'].map((v) => <button key={v} onClick={() => setView(v)} className={`px-4 py-2 text-[11px] tracking-[0.22em] uppercase transition-colors ${view === v ? 'bg-ink text-white' : 'bg-white hover:bg-neutral-50'}`}>{v}</button>)}
           </div>
         </div>
       </header>
@@ -43,9 +43,9 @@ export default function Orders() {
                   const owner = s.users.find((u) => u.id === o.assignedTo);
                   const myActivePunch = (o.punches || []).find((p) => p.userId === activeUser.id && !p.out);
                   return (
-                    <motion.button layout key={o.id} onClick={() => setOpen(o.id)} className="w-full text-left bg-white border border-neutral-200 hover:border-[#2A0A12] p-3 transition-colors">
+                    <motion.button layout key={o.id} onClick={() => setOpen(o.id)} className="w-full text-left bg-white border border-neutral-200 hover:border-ink p-3 transition-colors">
                       <div className="flex items-start justify-between gap-2">
-                        <div className="text-[11px] tracking-[0.22em] uppercase text-[#6E0D25]">{o.id}</div>
+                        <div className="text-[11px] tracking-[0.22em] uppercase text-wine">{o.id}</div>
                         <div className="font-serif-display text-sm">₹{o.price.toLocaleString('en-IN')}</div>
                       </div>
                       <div className="font-medium text-sm mt-1">{o.title}</div>
@@ -75,7 +75,7 @@ export default function Orders() {
                 const owner = s.users.find((u) => u.id === o.assignedTo);
                 return (
                   <tr key={o.id} className="border-t border-neutral-100 hover:bg-neutral-50">
-                    <td className="px-4 py-3 text-[#6E0D25] font-medium">{o.id}</td>
+                    <td className="px-4 py-3 text-wine font-medium">{o.id}</td>
                     <td className="px-4 py-3">{o.customer}<br/><span className="text-[11px] text-neutral-500">{o.phone}</span></td>
                     <td className="px-4 py-3">{o.title}</td>
                     <td className="px-4 py-3">{ORDER_STAGES.find((st) => st.id === o.stage)?.label}</td>
@@ -111,7 +111,7 @@ function OrderDrawer({ orderId, onClose }) {
       <motion.aside initial={{ x: 480 }} animate={{ x: 0 }} exit={{ x: 480 }} transition={{ type: 'spring', stiffness: 220, damping: 28 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-xl bg-white h-full overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-neutral-200 px-6 py-4 flex items-center justify-between">
           <div>
-            <div className="text-[11px] tracking-[0.22em] uppercase text-[#6E0D25]">{o.id}</div>
+            <div className="text-[11px] tracking-[0.22em] uppercase text-wine">{o.id}</div>
             <h2 className="font-serif-display text-2xl">{o.title}</h2>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-neutral-100"><X className="w-5 h-5"/></button>
@@ -129,7 +129,7 @@ function OrderDrawer({ orderId, onClose }) {
           <Section title="Stage / Workflow">
             <div className="flex flex-wrap gap-2">
               {ORDER_STAGES.map((st) => (
-                <button key={st.id} onClick={() => moveStage(o.id, st.id, activeUser.id)} className={`text-[10px] tracking-[0.22em] uppercase px-3 py-1.5 border transition-colors ${o.stage === st.id ? 'bg-[#2A0A12] text-white border-[#2A0A12]' : 'border-neutral-300 hover:border-[#2A0A12]'}`}>{st.label}</button>
+                <button key={st.id} onClick={() => moveStage(o.id, st.id, activeUser.id)} className={`text-[10px] tracking-[0.22em] uppercase px-3 py-1.5 border transition-colors ${o.stage === st.id ? 'bg-ink text-white border-ink' : 'border-neutral-300 hover:border-ink'}`}>{st.label}</button>
               ))}
             </div>
           </Section>
@@ -138,7 +138,7 @@ function OrderDrawer({ orderId, onClose }) {
           <Section title="Assigned To">
             <div className="flex flex-wrap gap-2">
               {s.users.map((u) => (
-                <button key={u.id} onClick={() => assignOrder(o.id, u.id)} className={`text-[10px] tracking-[0.22em] uppercase px-3 py-1.5 border transition-colors ${owner?.id === u.id ? 'bg-[#6E0D25] text-white border-[#6E0D25]' : 'border-neutral-300 hover:border-[#2A0A12]'}`}>{u.name} ({u.role})</button>
+                <button key={u.id} onClick={() => assignOrder(o.id, u.id)} className={`text-[10px] tracking-[0.22em] uppercase px-3 py-1.5 border transition-colors ${owner?.id === u.id ? 'bg-wine text-white border-wine' : 'border-neutral-300 hover:border-ink'}`}>{u.name} ({u.role})</button>
               ))}
             </div>
           </Section>
@@ -165,7 +165,7 @@ function OrderDrawer({ orderId, onClose }) {
                     <span className="text-neutral-400">{new Date(p.in).toLocaleString()}</span>
                     →
                     <span className="text-neutral-400">{p.out ? new Date(p.out).toLocaleString() : 'active'}</span>
-                    {dur != null && <span className="ml-auto text-[#6E0D25] font-medium">{dur} min</span>}
+                    {dur != null && <span className="ml-auto text-wine font-medium">{dur} min</span>}
                   </li>
                 );
               })}
@@ -175,8 +175,8 @@ function OrderDrawer({ orderId, onClose }) {
           {/* Notes */}
           <Section title="Notes">
             <div className="flex gap-2 mb-3">
-              <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Add a note for the team…" className="flex-1 border border-neutral-200 px-3 py-2 text-sm focus:outline-none focus:border-[#2A0A12]"/>
-              <button onClick={() => { if (note) { addOrderNote(o.id, note, activeUser.id); setNote(''); } }} className="inline-flex items-center gap-1 bg-[#2A0A12] text-white px-3 py-2 text-[11px] tracking-[0.22em] uppercase"><MessageSquarePlus className="w-4 h-4"/>Add</button>
+              <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Add a note for the team…" className="flex-1 border border-neutral-200 px-3 py-2 text-sm focus:outline-none focus:border-ink"/>
+              <button onClick={() => { if (note) { addOrderNote(o.id, note, activeUser.id); setNote(''); } }} className="inline-flex items-center gap-1 bg-ink text-white px-3 py-2 text-[11px] tracking-[0.22em] uppercase"><MessageSquarePlus className="w-4 h-4"/>Add</button>
             </div>
             <ul className="space-y-2">
               {(o.notes || []).slice().reverse().map((n) => {

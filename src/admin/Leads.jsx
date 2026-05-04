@@ -16,18 +16,18 @@ export default function Leads() {
     <div>
       <header className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="font-serif-display text-3xl text-[#2A0A12]">Leads & Appointments</h1>
+          <h1 className="font-serif-display text-3xl text-ink">Leads & Appointments</h1>
           <p className="text-sm text-neutral-500">Inquiries from website, WhatsApp, calls, walk-ins. Color-code your funnel.</p>
         </div>
-        <button onClick={() => setAdding(true)} className="inline-flex items-center gap-2 bg-[#2A0A12] text-white px-4 py-2 text-[11px] tracking-[0.22em] uppercase hover:bg-[#6E0D25] transition-colors"><Plus className="w-4 h-4"/>Add lead</button>
+        <button onClick={() => setAdding(true)} className="inline-flex items-center gap-2 bg-ink text-white px-4 py-2 text-[11px] tracking-[0.22em] uppercase hover:bg-wine transition-colors"><Plus className="w-4 h-4"/>Add lead</button>
       </header>
 
       <div className="flex flex-wrap gap-2 mb-5">
-        <button onClick={() => setFilter('all')} className={`px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase border ${filter === 'all' ? 'bg-[#2A0A12] text-white border-[#2A0A12]' : 'bg-white border-neutral-200 hover:border-[#2A0A12]'}`}>All ({s.leads.length})</button>
+        <button onClick={() => setFilter('all')} className={`px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase border ${filter === 'all' ? 'bg-ink text-white border-ink' : 'bg-white border-neutral-200 hover:border-ink'}`}>All ({s.leads.length})</button>
         {LEAD_STATUSES.map((st) => {
           const c = s.leads.filter((l) => l.status === st.id).length;
           return (
-            <button key={st.id} onClick={() => setFilter(st.id)} className={`px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase border flex items-center gap-1.5 transition-colors ${filter === st.id ? 'border-[#2A0A12] bg-neutral-50' : 'border-neutral-200 bg-white hover:border-[#2A0A12]'}`}>
+            <button key={st.id} onClick={() => setFilter(st.id)} className={`px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase border flex items-center gap-1.5 transition-colors ${filter === st.id ? 'border-ink bg-neutral-50' : 'border-neutral-200 bg-white hover:border-ink'}`}>
               <span className={`w-2 h-2 rounded-full ${st.dot}`}/>{st.label} ({c})
             </button>
           );
@@ -74,7 +74,7 @@ function LeadDrawer({ leadId, onClose }) {
       <motion.aside initial={{ x: 480 }} animate={{ x: 0 }} exit={{ x: 480 }} transition={{ type: 'spring', stiffness: 220, damping: 28 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-lg bg-white h-full overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-neutral-200 px-6 py-4 flex items-center justify-between">
           <div>
-            <div className="text-[11px] tracking-[0.22em] uppercase text-[#6E0D25]">{l.source}</div>
+            <div className="text-[11px] tracking-[0.22em] uppercase text-wine">{l.source}</div>
             <h2 className="font-serif-display text-2xl">{l.name}</h2>
             <div className="text-sm text-neutral-500"><Phone className="w-3 h-3 inline mr-1"/>{l.phone}</div>
           </div>
@@ -85,7 +85,7 @@ function LeadDrawer({ leadId, onClose }) {
             <div className="text-[10px] tracking-[0.22em] uppercase text-neutral-500 mb-2">Color code / status</div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {LEAD_STATUSES.map((st) => (
-                <button key={st.id} onClick={() => setLeadStatus(l.id, st.id)} className={`flex items-center gap-2 p-2 border text-[11px] tracking-[0.18em] uppercase transition-colors ${l.status === st.id ? 'border-[#2A0A12] bg-neutral-50' : 'border-neutral-200 hover:border-neutral-400'}`}>
+                <button key={st.id} onClick={() => setLeadStatus(l.id, st.id)} className={`flex items-center gap-2 p-2 border text-[11px] tracking-[0.18em] uppercase transition-colors ${l.status === st.id ? 'border-ink bg-neutral-50' : 'border-neutral-200 hover:border-neutral-400'}`}>
                   <span className={`w-2.5 h-2.5 rounded-full ${st.dot}`}/>{st.label}
                 </button>
               ))}
@@ -97,7 +97,7 @@ function LeadDrawer({ leadId, onClose }) {
           </section>
           <section>
             <div className="text-[10px] tracking-[0.22em] uppercase text-neutral-500 mb-2">Internal notes</div>
-            <textarea value={note} onChange={(e) => setNote(e.target.value)} onBlur={() => addLeadNote(l.id, note)} placeholder="Add notes — saved on blur…" rows="4" className="w-full border border-neutral-200 p-3 text-sm focus:outline-none focus:border-[#2A0A12]"/>
+            <textarea value={note} onChange={(e) => setNote(e.target.value)} onBlur={() => addLeadNote(l.id, note)} placeholder="Add notes — saved on blur…" rows="4" className="w-full border border-neutral-200 p-3 text-sm focus:outline-none focus:border-ink"/>
           </section>
           <section>
             <div className="text-[10px] tracking-[0.22em] uppercase text-neutral-500 mb-2">Status history</div>
@@ -128,7 +128,7 @@ function AddLeadModal({ onClose, onAdd }) {
         </div>
         <div className="flex gap-2 mt-5">
           <button onClick={onClose} className="flex-1 border border-neutral-200 py-2.5 text-[11px] tracking-[0.22em] uppercase">Cancel</button>
-          <button onClick={() => onAdd(f)} disabled={!f.name || !f.phone} className="flex-1 bg-[#2A0A12] text-white py-2.5 text-[11px] tracking-[0.22em] uppercase disabled:opacity-50">Add lead</button>
+          <button onClick={() => onAdd(f)} disabled={!f.name || !f.phone} className="flex-1 bg-ink text-white py-2.5 text-[11px] tracking-[0.22em] uppercase disabled:opacity-50">Add lead</button>
         </div>
       </motion.div>
     </motion.div>
