@@ -17,29 +17,41 @@
        Components must consume them via Tailwind tokens (e.g. bg-primary,
        text-ink, border-rose) — never hardcode hex/rgb in JSX. */
 
-    /* Core brand */
-    --wine:        #6E0D25;   /* primary brand */
-    --wine-light:  #8B1A30;   /* hover / accent highlight */
-    --wine-muted:  #66333A;   /* muted brand surface */
-    --blush:       #F7EBEC;   /* page background */
-    --blush-soft:  #F0DDDF;   /* secondary surface */
-    --ink:         #2A0A12;   /* primary dark text */
-    --ink-deep:    #1A050A;   /* deepest dark (overlays) */
-    --noir:        #1a1a1a;   /* near-black surface */
+    /* ---------- ONLY 4 BASE COLORS ----------
+       Brand   : #85883c (olive)
+       Hover   : #747740 (olive deep)
+       Muted   : #5b5c3c (olive shadow)
+       Surface : #F7EBEC (blush)
+       Ink     : #1f1f1f (near-black for text)
+       Every other token below is an alias to one of these. */
 
-    /* Rose / blush scale */
-    --rose:        #E0BCC0;   /* borders, soft accents */
-    --rose-soft:   #C99CA2;   /* dividers on dark */
-    --rose-pale:   #ECD4D7;   /* placeholder surfaces */
+    --brand:        #85883c;
+    --brand-hover:  #747740;
+    --brand-muted:  #5b5c3c;
+    --surface:      #F7EBEC;
+    --ink-base:     #1f1f1f;
+    --white:        #ffffff;
 
-    /* Neutrals */
-    --mute:        #6B4046;   /* muted body text */
-    --mute-soft:   #8A5961;   /* lighter muted text */
-    --sand:        #A5978B;   /* footer text */
-    --sand-light:  #C4BBAF;   /* light sand surface */
-    --cream:       #f8f7f5;
-    --cream-border:#e5e2de;
-    --white:       #ffffff;
+    /* ---- Aliases (kept so existing class names keep working) ---- */
+    --wine:        var(--brand);
+    --wine-light:  var(--brand-hover);
+    --wine-muted:  var(--brand-muted);
+    --blush:       var(--surface);
+    --blush-soft:  var(--surface);
+    --ink:         var(--ink-base);
+    --ink-deep:    var(--ink-base);
+    --noir:        var(--ink-base);
+
+    --rose:        var(--brand-muted);
+    --rose-soft:   var(--brand-muted);
+    --rose-pale:   var(--surface);
+
+    --mute:        var(--brand-muted);
+    --mute-soft:   var(--brand-muted);
+    --sand:        var(--brand-muted);
+    --sand-light:  var(--surface);
+    --cream:       var(--surface);
+    --cream-border:var(--brand-muted);
 
     /* ---------- SEMANTIC TOKENS (map roles → palette) ---------- */
     --background:           var(--blush);
