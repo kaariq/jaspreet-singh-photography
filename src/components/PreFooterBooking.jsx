@@ -38,22 +38,22 @@ export default function PreFooterBooking() {
   return (
     <section className="relative bg-white">
       {/* decorative top divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C99CA2] to-transparent"/>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-soft to-transparent"/>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-start">
           {/* Left: copy */}
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8 }} className="lg:col-span-5 lg:sticky lg:top-32">
-            <div className="edit-num text-[#6B4046]">—  30 MINUTES · FREE</div>
-            <h2 className="font-serif-display text-[26px] sm:text-4xl lg:text-6xl leading-[1.02] mt-2 sm:mt-4 text-[#2A0A12]">
-              Book your free <span className="italic text-[#6E0D25]">consultation</span>.
+            <div className="edit-num text-mute">—  30 MINUTES · FREE</div>
+            <h2 className="font-serif-display text-[26px] sm:text-4xl lg:text-6xl leading-[1.02] mt-2 sm:mt-4 text-ink">
+              Book your free <span className="italic text-wine">consultation</span>.
             </h2>
-            <p className="text-[13px] sm:text-[15px] text-[#6B4046] mt-3 sm:mt-5 leading-relaxed max-w-md">
+            <p className="text-[13px] sm:text-[15px] text-mute mt-3 sm:mt-5 leading-relaxed max-w-md">
               Choose a date and time that works for you. Share your number, pick the mode, and our concierge will confirm your slot within 30 minutes.
             </p>
-            <ul className="mt-4 sm:mt-7 space-y-2 sm:space-y-2.5 text-[13px] sm:text-sm text-[#2A0A12]">
-              <li className="flex items-center gap-2.5"><Check className="w-4 h-4 text-[#6E0D25]"/>Free, no obligation</li>
-              <li className="flex items-center gap-2.5"><Check className="w-4 h-4 text-[#6E0D25]"/>Sketches, swatches & pricing shared on call</li>
-              <li className="flex items-center gap-2.5"><Check className="w-4 h-4 text-[#6E0D25]"/>In-studio, at-home, or virtual — your choice</li>
+            <ul className="mt-4 sm:mt-7 space-y-2 sm:space-y-2.5 text-[13px] sm:text-sm text-ink">
+              <li className="flex items-center gap-2.5"><Check className="w-4 h-4 text-wine"/>Free, no obligation</li>
+              <li className="flex items-center gap-2.5"><Check className="w-4 h-4 text-wine"/>Sketches, swatches & pricing shared on call</li>
+              <li className="flex items-center gap-2.5"><Check className="w-4 h-4 text-wine"/>In-studio, at-home, or virtual — your choice</li>
             </ul>
           </motion.div>
 
@@ -61,18 +61,18 @@ export default function PreFooterBooking() {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.9, delay: 0.1 }} className="lg:col-span-7">
             <AnimatePresence mode="wait">
               {!done ? (
-                <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -10 }} className="bg-[#F7EBEC] border border-[#E0BCC0] p-4 sm:p-6 lg:p-10">
+                <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -10 }} className="bg-blush border border-rose p-4 sm:p-6 lg:p-10">
                   {/* Mode toggle */}
                   <div className="flex flex-wrap gap-2">
                     {[{ k: 'Virtual', icon: Video }, { k: 'Studio Visit', icon: MapPin }, { k: 'At Home', icon: Calendar }].map(({ k, icon: I }) => (
-                      <button key={k} onClick={() => setMode(k)} className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase border transition-colors ${mode === k ? 'bg-[#2A0A12] text-white border-[#2A0A12]' : 'border-[#C99CA2] hover:border-[#2A0A12] text-[#2A0A12]'}`}>
+                      <button key={k} onClick={() => setMode(k)} className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase border transition-colors ${mode === k ? 'bg-ink text-white border-ink' : 'border-rose-soft hover:border-ink text-ink'}`}>
                         <I className="w-3 h-3 sm:w-3.5 sm:h-3.5"/>{k}
                       </button>
                     ))}
                   </div>
 
                   {/* Days — native input on mobile, pill scroller on desktop */}
-                  <div className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[#6B4046] mt-5 sm:mt-7 mb-2 sm:mb-3 flex items-center gap-2"><Calendar className="w-3.5 h-3.5"/>Choose a day</div>
+                  <div className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-mute mt-5 sm:mt-7 mb-2 sm:mb-3 flex items-center gap-2"><Calendar className="w-3.5 h-3.5"/>Choose a day</div>
 
                   {/* Mobile native picker */}
                   <input
@@ -81,13 +81,13 @@ export default function PreFooterBooking() {
                     max={maxDate}
                     value={selectedISO}
                     onChange={(e) => onMobileDate(e.target.value)}
-                    className="lg:hidden w-full bg-white border border-[#E0BCC0] p-3 text-sm text-[#2A0A12] focus:outline-none focus:border-[#2A0A12]"
+                    className="lg:hidden w-full bg-white border border-rose p-3 text-sm text-ink focus:outline-none focus:border-ink"
                   />
 
                   {/* Desktop pill scroller */}
                   <div className="hidden lg:flex gap-2 overflow-x-auto no-scrollbar pb-2">
                     {days.map((d, i) => (
-                      <motion.button key={i} whileHover={{ y: -2 }} onClick={() => setSel(i)} className={`shrink-0 w-[70px] py-3 border text-center transition-colors ${sel === i ? 'bg-[#2A0A12] text-white border-[#2A0A12]' : 'bg-white border-[#E0BCC0] hover:border-[#2A0A12] text-[#2A0A12]'}`}>
+                      <motion.button key={i} whileHover={{ y: -2 }} onClick={() => setSel(i)} className={`shrink-0 w-[70px] py-3 border text-center transition-colors ${sel === i ? 'bg-ink text-white border-ink' : 'bg-white border-rose hover:border-ink text-ink'}`}>
                         <div className="text-[10px] tracking-[0.18em] uppercase opacity-80">{d.toLocaleDateString('en-US', { weekday: 'short' })}</div>
                         <div className="font-serif-display text-2xl mt-1">{d.getDate()}</div>
                         <div className="text-[10px] tracking-[0.18em] uppercase opacity-80">{d.toLocaleDateString('en-US', { month: 'short' })}</div>
@@ -96,36 +96,36 @@ export default function PreFooterBooking() {
                   </div>
 
                   {/* Times */}
-                  <div className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[#6B4046] mt-4 sm:mt-6 mb-2 sm:mb-3 flex items-center gap-2"><Clock className="w-3.5 h-3.5"/>Choose a time (IST)</div>
+                  <div className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-mute mt-4 sm:mt-6 mb-2 sm:mb-3 flex items-center gap-2"><Clock className="w-3.5 h-3.5"/>Choose a time (IST)</div>
                   <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
                     {TIMES.map((t) => (
-                      <motion.button key={t} whileHover={{ y: -1 }} onClick={() => setTime(t)} className={`py-1.5 sm:py-2 border text-[12px] sm:text-sm transition-colors ${time === t ? 'bg-[#6E0D25] text-white border-[#6E0D25]' : 'bg-white border-[#E0BCC0] hover:border-[#2A0A12] text-[#2A0A12]'}`}>{t}</motion.button>
+                      <motion.button key={t} whileHover={{ y: -1 }} onClick={() => setTime(t)} className={`py-1.5 sm:py-2 border text-[12px] sm:text-sm transition-colors ${time === t ? 'bg-wine text-white border-wine' : 'bg-white border-rose hover:border-ink text-ink'}`}>{t}</motion.button>
                     ))}
                   </div>
 
                   {/* Inputs */}
                   <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
                     <div>
-                      <label className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[#6B4046]">Your name</label>
-                      <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Aanya Mehta" className="w-full mt-1.5 sm:mt-2 bg-white border border-[#E0BCC0] p-2.5 sm:p-3 text-sm focus:outline-none focus:border-[#2A0A12]"/>
+                      <label className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-mute">Your name</label>
+                      <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Aanya Mehta" className="w-full mt-1.5 sm:mt-2 bg-white border border-rose p-2.5 sm:p-3 text-sm focus:outline-none focus:border-ink"/>
                     </div>
                     <div>
-                      <label className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[#6B4046] flex items-center gap-2"><Phone className="w-3.5 h-3.5"/>Phone number</label>
-                      <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+91 98XXX XXXXX" className="w-full mt-1.5 sm:mt-2 bg-white border border-[#E0BCC0] p-2.5 sm:p-3 text-sm focus:outline-none focus:border-[#2A0A12]"/>
+                      <label className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-mute flex items-center gap-2"><Phone className="w-3.5 h-3.5"/>Phone number</label>
+                      <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+91 98XXX XXXXX" className="w-full mt-1.5 sm:mt-2 bg-white border border-rose p-2.5 sm:p-3 text-sm focus:outline-none focus:border-ink"/>
                     </div>
                   </div>
 
-                  <button onClick={submit} className="mt-5 sm:mt-7 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2A0A12] text-white px-5 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-[#6E0D25] transition-colors">
+                  <button onClick={submit} className="mt-5 sm:mt-7 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ink text-white px-5 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-wine transition-colors">
                     Confirm appointment <ArrowRight className="w-4 h-4"/>
                   </button>
-                  <p className="text-[10px] sm:text-[11px] tracking-[0.16em] uppercase text-[#6B4046] mt-2.5 sm:mt-3">We'll WhatsApp you a confirmation within 30 minutes.</p>
+                  <p className="text-[10px] sm:text-[11px] tracking-[0.16em] uppercase text-mute mt-2.5 sm:mt-3">We'll WhatsApp you a confirmation within 30 minutes.</p>
                 </motion.div>
               ) : (
-                <motion.div key="done" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="bg-[#2A0A12] text-white p-8 sm:p-10 lg:p-14 text-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#6E0D25] mx-auto flex items-center justify-center"><Check className="w-6 h-6 sm:w-7 sm:h-7"/></div>
+                <motion.div key="done" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="bg-ink text-white p-8 sm:p-10 lg:p-14 text-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-wine mx-auto flex items-center justify-center"><Check className="w-6 h-6 sm:w-7 sm:h-7"/></div>
                   <h3 className="font-serif-display text-3xl sm:text-4xl mt-4 sm:mt-5">Confirmed</h3>
                   <p className="text-[13px] sm:text-sm opacity-85 mt-3 max-w-md mx-auto">Thanks {name} — your {mode.toLowerCase()} consultation is booked for {days[sel].toDateString()} at {time}. Look out for a WhatsApp on {phone}.</p>
-                  <button onClick={() => setDone(false)} className="mt-5 sm:mt-7 inline-flex items-center gap-2 border border-white/40 px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-[#2A0A12] transition-colors">Book another</button>
+                  <button onClick={() => setDone(false)} className="mt-5 sm:mt-7 inline-flex items-center gap-2 border border-white/40 px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-ink transition-colors">Book another</button>
                 </motion.div>
               )}
             </AnimatePresence>

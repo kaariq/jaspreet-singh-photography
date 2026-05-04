@@ -55,11 +55,11 @@ export default function Tailoring() {
 
       {/* CTA bar */}
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-12 sm:mt-20">
-        <div className="bg-[#2A0A12] text-[#ffffff] p-6 sm:p-10 lg:p-14 grid lg:grid-cols-3 gap-5 sm:gap-8 items-center">
+        <div className="bg-ink text-white p-6 sm:p-10 lg:p-14 grid lg:grid-cols-3 gap-5 sm:gap-8 items-center">
           <h3 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl lg:col-span-2 leading-tight">Don't see what you have in mind? <span className="italic">We can craft it.</span></h3>
           <div className="flex flex-wrap gap-2 sm:gap-3">
-            <Link to="/booking/book-appointment" className="inline-block bg-[#ffffff] text-[#2A0A12] px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-[#6E0D25] transition-colors">Book Appointment</Link>
-            <Link to="/contact/whatsapp-support" className="inline-block border border-white/40 px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-white hover:text-[#2A0A12] transition-colors">WhatsApp Us</Link>
+            <Link to="/booking/book-appointment" className="inline-block bg-white text-ink px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-wine transition-colors">Book Appointment</Link>
+            <Link to="/contact/whatsapp-support" className="inline-block border border-white/40 px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase hover:bg-white hover:text-ink transition-colors">WhatsApp Us</Link>
           </div>
         </div>
       </section>

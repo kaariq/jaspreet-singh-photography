@@ -51,7 +51,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2A0A12] text-[#ffffff]">
+    <footer className="bg-ink text-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
@@ -59,9 +59,9 @@ export default function Footer() {
             <p className="font-serif-display text-3xl lg:text-4xl mt-6 leading-tight max-w-md">Your fabric, your fit, your story.</p>
             <p className="text-sm opacity-75 mt-4 max-w-md">Bespoke tailoring & boutique. Doorstep measurement, virtual fitting, and master craftsmanship — all in one atelier.</p>
             <div className="flex gap-3 mt-8">
-              <a href="#" aria-label="Instagram" className="w-9 h-9 border border-white/30 hover:bg-white hover:text-[#2A0A12] flex items-center justify-center transition-colors"><Instagram className="w-4 h-4"/></a>
-              <a href="#" aria-label="Facebook" className="w-9 h-9 border border-white/30 hover:bg-white hover:text-[#2A0A12] flex items-center justify-center transition-colors"><Facebook className="w-4 h-4"/></a>
-              <a href="#" aria-label="Youtube" className="w-9 h-9 border border-white/30 hover:bg-white hover:text-[#2A0A12] flex items-center justify-center transition-colors"><Youtube className="w-4 h-4"/></a>
+              <a href="#" aria-label="Instagram" className="w-9 h-9 border border-white/30 hover:bg-white hover:text-ink flex items-center justify-center transition-colors"><Instagram className="w-4 h-4"/></a>
+              <a href="#" aria-label="Facebook" className="w-9 h-9 border border-white/30 hover:bg-white hover:text-ink flex items-center justify-center transition-colors"><Facebook className="w-4 h-4"/></a>
+              <a href="#" aria-label="Youtube" className="w-9 h-9 border border-white/30 hover:bg-white hover:text-ink flex items-center justify-center transition-colors"><Youtube className="w-4 h-4"/></a>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function Footer() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-[#A5978B] hover:text-[#A5978B] transition-colors"
+                  className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-sand hover:text-sand transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
