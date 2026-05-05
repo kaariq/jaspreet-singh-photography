@@ -22,6 +22,8 @@ import Profile from './pages/Profile';
 import RequestContact from './pages/RequestContact';
 import Cart from './pages/Cart';
 import FloatingActions from './components/FloatingActions';
+import CookieConsent from './components/CookieConsent';
+import { PrivacyPolicy, TermsConditions, CookiePolicy } from './pages/PolicyPages';
 import ScrollToTop from './components/ScrollToTop';
 import PreFooterBooking from './components/PreFooterBooking';
 import AdminApp from './admin/AdminApp';
@@ -93,11 +95,15 @@ function App() {
             <Route path="/contact/:slug" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsConditions />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/admin/*" element={<AdminApp />} />
           </Routes>
           <HideOnAuth><PreFooterBooking /></HideOnAuth>
           <FooterChrome />
           <HideOnAdmin><FloatingActions /></HideOnAdmin>
+          <HideOnAdmin><CookieConsent /></HideOnAdmin>
           <Toaster position="bottom-right" />
         </BrowserRouter>
       </AuthProvider>
