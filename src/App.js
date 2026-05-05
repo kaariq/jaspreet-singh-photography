@@ -97,6 +97,7 @@ function App() {
           </Routes>
           <HideOnAuth><PreFooterBooking /></HideOnAuth>
           <FooterChrome />
+          <HideOnAdmin><FloatingActions /></HideOnAdmin>
           <Toaster position="bottom-right" />
         </BrowserRouter>
       </AuthProvider>
