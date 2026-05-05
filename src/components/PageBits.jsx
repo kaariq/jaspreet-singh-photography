@@ -10,12 +10,13 @@ export function PageHero({ tag, title, subtitle, image }) {
   );
 }
 
-export function GarmentCard({ title, image, price, badge, to = "/tailoring" }) {
+export function GarmentCard({ title, image, img, price, badge, to = "/tailoring" }) {
+  const src = image || img;
   return (
     <Link to={to} className="group block">
       <div className="relative aspect-[3/4] overflow-hidden bg-rose-pale">
         <img
-          src={image}
+          src={src}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
         />

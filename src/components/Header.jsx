@@ -35,20 +35,17 @@ export default function Header() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="h-16 lg:h-[72px] flex items-center justify-between gap-4">
             {/* Brand left */}
-         <Link to="/" className="select-none flex items-center gap-3">
-            {/* Logo */}
+         <Link to="/" className="select-none flex items-center gap-2 sm:gap-3 min-w-0">
             <img
-              src="/kaariq.svg" // place inside public folder
-              alt="KAARIQ Logo"
-              className="w-[140px] h-[50px] object-contain"
+              src="/kaariq.svg"
+              alt="KAARIQ"
+              className="h-8 sm:h-10 w-auto object-contain"
             />
-            <div className="hidden lg:block text-[10px] tracking-[0.28em] uppercase text-mute border-l border-rose-soft pl-3">
-             · 
-            </div>
+            <span className="hidden sm:block w-px h-6 bg-rose-soft" aria-hidden="true" />
             <img
-              src="/boutique.svg" // place inside public folder
-              alt="Boutique Logo"
-              className="h-[200px] w-[190px] object-contain"
+              src="/boutique.svg"
+              alt="Boutique"
+              className="h-6 sm:h-8 w-auto object-contain"
             />
           </Link>
             {/* Right icons */}
