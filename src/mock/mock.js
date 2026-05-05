@@ -80,7 +80,7 @@ export const NAV = [
   },
   {
     key: "booking",
-    label: "Booking & Guide",
+    label: "Booking Guide",
     columns: [
       {
         title: "Plan Your Visit",
