@@ -55,7 +55,6 @@ function Studio() {
           <img src={IMAGES.boutique} alt="Atelier" className="w-full h-full object-cover" />
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
-          <Info icon={MapPin} title="Atelier address" body={SITE.address} />
           <Info icon={Phone} title="Phone" body={SITE.phone} />
           <Info icon={Mail} title="Email" body={SITE.email} />
           <Info icon={MessageCircle} title="WhatsApp" body={SITE.whatsapp} />

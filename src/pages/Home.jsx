@@ -345,9 +345,10 @@ function HorizontalProcess() {
           </motion.div>
           <motion.h2
             variants={blurUp}
-            className="font-serif-display text-[28px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.05]"
+            className="text-white font-serif-display text-[28px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.05]"
           >
-            From sketch <span className="italic text-rose-soft">to silhouette,</span> in six steps.
+            From sketch <span className="italic text-rose-soft">to silhouette,</span> in seven
+            steps.
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -383,7 +384,9 @@ function HorizontalProcess() {
                   <span className="font-italiana text-[13px] text-rose-soft">{p.n}</span>
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-serif-display text-[14px] leading-tight">{p.title}</h3>
+                  <h3 className="font-serif-display text-[14px] leading-tight text-white">
+                    {p.title}
+                  </h3>
                   <p className="text-[10.5px] opacity-70 mt-0.5 leading-snug line-clamp-2">
                     {p.desc}
                   </p>
@@ -392,7 +395,10 @@ function HorizontalProcess() {
             ))}
           </div>
 
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-y-12 gap-x-6 relative">
+          <div
+            className="hidden md:grid gap-y-12 gap-x-6 
+  [grid-template-columns:repeat(auto-fit,minmax(140px,1fr))] relative"
+          >
             {PROCESS.map((p, idx) => (
               <motion.div
                 key={p.n}
@@ -413,13 +419,15 @@ function HorizontalProcess() {
                   transition={{ type: "spring", stiffness: 250, damping: 20 }}
                   className="flex flex-col items-start"
                 >
-                  <div className="relative z-10 w-[84px] h-[84px] rounded-full bg-ink border-2 border-white/25 group-hover:border-wine flex items-center justify-center transition-colors">
-                    <span className="font-italiana text-3xl text-rose-soft group-hover:text-wine transition-colors">
+                  <div className="relative z-10 w-[72px] h-[72px] rounded-full bg-ink border-2 border-white/25 group-hover:border-wine flex items-center justify-center transition-colors">
+                    <span className="font-italiana text-2xl text-rose-soft group-hover:text-wine transition-colors">
                       {p.n}
                     </span>
                   </div>
-                  <h3 className="font-serif-display text-2xl mt-5">{p.title}</h3>
-                  <p className="text-[13px] opacity-75 mt-2 leading-relaxed pr-2">{p.desc}</p>
+
+                  <h3 className="text-white font-serif-display text-xl mt-4">{p.title}</h3>
+
+                  <p className="text-[12px] opacity-75 mt-2 leading-relaxed pr-2">{p.desc}</p>
                 </motion.div>
               </motion.div>
             ))}

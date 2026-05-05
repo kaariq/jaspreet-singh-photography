@@ -3,11 +3,10 @@
 export const SITE = {
   brand: "Kaariq",
   tagline: "Your fabric, your fit, your story.",
-  phone: "+91 98000 00000",
-  whatsapp: "+91 98000 00000",
-  email: "hello@kaariq.in",
-  address: "Kaariq Atelier, 12 Heritage Lane, Bandra West, Mumbai 400050",
-  hours: "Mon – Sat · 11:00 – 20:00",
+  phone: "+91 98765 43210",
+  whatsapp: "+91 98765 43210",
+  email: "contact@kaariq.com",
+  hours: "Mon – Sat · 10:00 – 18:00",
 };
 
 export const ANNOUNCEMENTS = [
@@ -209,28 +208,37 @@ export const PROCESS = [
   {
     n: "01",
     title: "Consult",
-    desc: "Tell us your story, occasion, and inspirations — at the studio, your home, or on a video call.",
+    desc: "Tell us your story, occasion, and style — on WhatsApp, at our studio, or at your home. No pressure, just a friendly conversation.",
   },
   {
     n: "02",
-    title: "Measure",
-    desc: "Master tailor records 14 reference measurements and posture notes.",
+    title: "Fabric Pickup",
+    desc: "Hand us your saree, suit length, lehenga, or any fabric — we collect it from your door at a time that suits you.",
   },
   {
     n: "03",
-    title: "Design",
-    desc: "We sketch, swatch and finalise fabric, lining, embroidery and trims.",
+    title: "Measure",
+    desc: "Our expert darzi takes 16 precise measurements and posture notes — at your home or studio — for a perfect fit every time.",
   },
   {
     n: "04",
-    title: "Craft",
-    desc: "Hand-cut, machine and hand-stitched in our atelier — with regular updates.",
+    title: "Design Together",
+    desc: "We sketch your silhouette and finalise details — neckline, sleeves, embroidery, gota work, lining — before we begin stitching.",
   },
-  { n: "05", title: "Fit", desc: "Two rounds of fittings included to perfect every seam." },
+  {
+    n: "05",
+    title: "Craft",
+    desc: "Hand-stitched by skilled karigars in our atelier. We share WhatsApp photos as your outfit takes shape.",
+  },
   {
     n: "06",
+    title: "Fitting",
+    desc: "Two rounds of fittings — we visit your home or you come to us — until every seam and drape is exactly right.",
+  },
+  {
+    n: "07",
     title: "Deliver",
-    desc: "Beautifully packaged and delivered to your door, with a lifetime alteration warranty.",
+    desc: "Your outfit arrives beautifully packaged at your door. Minor alterations are free for 60 days — we stand by our craft.",
   },
 ];
 
