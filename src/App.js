@@ -21,6 +21,7 @@ import Profile from './pages/Profile';
 // import OrderJourney from './pages/OrderJourney';
 import RequestContact from './pages/RequestContact';
 import Cart from './pages/Cart';
+import FloatingActions from './components/FloatingActions';
 import ScrollToTop from './components/ScrollToTop';
 import PreFooterBooking from './components/PreFooterBooking';
 import AdminApp from './admin/AdminApp';
