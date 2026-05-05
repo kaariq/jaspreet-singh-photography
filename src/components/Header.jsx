@@ -73,13 +73,25 @@ export default function Header() {
           </div>
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center justify-center gap-10 pb-3">
-            {NAV.map((n) => (
-              <div key={n.key} onMouseEnter={() => setOpen(n.key)} className="relative">
-                <Link to={parentRoute(n.key)} className={`text-[12px] tracking-[0.22em] uppercase pb-1 border-b ${open === n.key ? 'border-ink' : 'border-transparent'} hover:border-ink transition-colors`}>
-                  {n.label}
-                </Link>
-              </div>
-            ))}
+            {NAV.map((n) => {
+              const onSection = loc.pathname === parentRoute(n.key) || loc.pathname.startsWith(parentRoute(n.key) + '/');
+              const isActive = open === n.key;
+              return (
+                <div
+                  key={n.key}
+                  onMouseEnter={() => !onSection && setOpen(n.key)}
+                  className="relative"
+                >
+                  <Link
+                    to={parentRoute(n.key)}
+                    aria-current={onSection ? 'page' : undefined}
+                    className={`text-[12px] tracking-[0.22em] uppercase pb-1 border-b ${isActive || onSection ? 'border-ink' : 'border-transparent'} hover:border-ink transition-colors`}
+                  >
+                    {n.label}
+                  </Link>
+                </div>
+              );
+            })}
           </nav>
         </div>
         {/* Mega menu */}
