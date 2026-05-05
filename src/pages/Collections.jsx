@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageHero, GarmentCard } from "@/components/PageBits";
+import SubCategoryCarousel from "@/components/SubCategoryCarousel";
 import { IMAGES, COLLECTIONS, NAV } from "@/mock/mock";
 
 const items = [
@@ -27,33 +28,7 @@ export default function Collections() {
         image={IMAGES.lookbook}
       />
 
-      {/* Sticky sub-categories */}
-      <div className="sticky-subnav">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3">
-          <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
-            {sub
-              .flatMap((c) => c.items)
-              .map((it) => {
-                const s = it
-                  .toLowerCase()
-                  .replace(/&/g, "and")
-                  .replace(/[^a-z0-9]+/g, "-")
-                  .replace(/(^-|-$)/g, "");
-                const active = s === slug;
-                return (
-                  <Link
-                    key={it}
-                    to={`/collections/${s}`}
-                    aria-current={active ? "page" : undefined}
-                    className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full whitespace-nowrap transition-colors ${active ? "bg-primary text-primary-foreground border-primary shadow-sm" : "border-border bg-card hover:border-primary hover:text-primary"}`}
-                  >
-                    {it}
-                  </Link>
-                );
-              })}
-          </div>
-        </div>
-      </div>
+      <SubCategoryCarousel basePath="/collections" columns={sub} activeSlug={slug} />
 
       {/* Featured collection mosaic */}
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12">
