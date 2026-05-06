@@ -44,13 +44,7 @@ export default function Tailoring() {
 
   return (
     <main className="pb-12 sm:pb-20">
-      <ServiceIntro
-        eyebrow="— THE KAARIQ ATELIER"
-        title={heading}
-        lead="From the first sketch to the final stitch, every piece is hand-crafted to your measure by our master tailors. Choose a category below to begin."
-      />
-
-      <SubCategoryCarousel basePath="/tailoring" columns={sub} activeSlug={slug} />
+      <SubCategoryCarousel  basePath="/tailoring" columns={sub} activeSlug={slug} />
 
       <WhatWeOffer items={OFFERINGS} />
       <Benefits />

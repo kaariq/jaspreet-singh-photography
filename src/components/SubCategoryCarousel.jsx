@@ -20,14 +20,6 @@ const pickImg = (label) => {
   if (/kurta|anarkali/.test(k)) return IMAGES.women;
   if (/lehenga/.test(k)) return IMAGES.wedding;
   if (/sher|suit|blazer|waist|trouser|men/.test(k)) return IMAGES.men;
-  if (/bottom|salwar/.test(k)) return IMAGES.fabric;
-  if (/casual|daily/.test(k)) return IMAGES.casual;
-  if (/boho|vintage|minimalist|style/.test(k)) return IMAGES.lookbook;
-  if (/summer|winter|monsoon|season/.test(k)) return IMAGES.casual;
-  if (/new|best|featured/.test(k)) return IMAGES.boutique;
-  if (/fabric|dye/.test(k)) return IMAGES.fabric;
-  if (/alter|repair/.test(k)) return IMAGES.consultation;
-  if (/formal|business/.test(k)) return IMAGES.men;
   return IMAGES.boutique;
 };
 
@@ -40,53 +32,55 @@ export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
     setCenter((c) => (c + dir + items.length) % items.length);
   };
 
-  // Inward curve params
-  const SPACING = 180; // horizontal space between cards
-  const CURVE_DEPTH = 220; // how far back outer cards push (z)
-  const ROT = 28; // outward rotation in degrees
+  // 🔥 SPACING FIX CONFIG
+  const MAX_VISIBLE = 7; // 🔥 reduced → prevents overlap
+  const RADIUS = 1200; // 🔥 increased → more spacing
+  const ARC_SPREAD = Math.PI * 0.40; // less than full semicircle → better spacing
 
   return (
-    <section className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-10">
-      <div
-        className="relative h-[420px] sm:h-[500px] lg:h-[580px] flex items-center justify-center overflow-hidden"
-        style={{ perspective: "1600px", perspectiveOrigin: "50% 50%" }}
-      >
-        <div
-          className="relative w-full h-full"
-          style={{ transformStyle: "preserve-3d" }}
-        >
+    <section className="relative max-w-[1400px] mx-auto px-4 mt-5">
+      <div className="relative h-[2490px] flex items-center justify-center overflow-hidden">
+        {/* CARDS */}
+        <div className="absolute inset-0 flex items-center justify-center">
           {items.map((label, i) => {
             let offset = i - center;
+
             if (offset > items.length / 2) offset -= items.length;
             if (offset < -items.length / 2) offset += items.length;
-            const abs = Math.abs(offset);
-            if (abs > 4) return null;
-            const s = slugify(label);
-            const active = s === activeSlug;
-            const isCenter = offset === 0;
 
-            // Inward curve: outer cards rotate outward and push back in z
-            const z = -Math.pow(abs, 2) * (CURVE_DEPTH / 6);
-            const rotateY = -offset * ROT;
-            const scale = 1 - abs * 0.06;
+            if (Math.abs(offset) > Math.floor(MAX_VISIBLE / 2)) return null;
+
+            const visibleIndex = offset + Math.floor(MAX_VISIBLE / 2);
+
+            // 🔥 evenly distributed within controlled arc
+            const angle =
+              -ARC_SPREAD / 2 +
+              (visibleIndex / (MAX_VISIBLE - 1)) * ARC_SPREAD;
+
+            const x = RADIUS * Math.sin(angle);
+            const y = -RADIUS * Math.cos(angle);
+
+            const rotate = (angle * 180) / Math.PI * 0.6;
+
+            const scale = 1 - Math.abs(offset) * 0.08;
+            const opacity = 1 - Math.abs(offset) * 0.2;
+
+            const s = slugify(label);
+            const isCenter = offset === 0;
 
             return (
               <motion.div
                 key={label}
-                className="absolute top-1/2 left-1/2"
+                className="absolute"
                 animate={{
-                  x: `calc(-50% + ${offset * SPACING}px)`,
-                  y: "-50%",
-                  z,
-                  rotateY,
+                  x,
+                  y: y + 200, // pushes arc down
+                  rotate,
                   scale,
-                  opacity: 1 - abs * 0.18,
+                  opacity,
                 }}
-                style={{
-                  transformStyle: "preserve-3d",
-                  zIndex: 20 - abs,
-                }}
-                transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                transition={{ type: "spring", stiffness: 110, damping: 18 }}
+                style={{ zIndex: 50 - Math.abs(offset) }}
               >
                 <Link
                   to={`${basePath}/${s}`}
@@ -96,56 +90,44 @@ export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
                       setCenter(i);
                     }
                   }}
-                  className="block"
                 >
-                  <div
-                    className={`relative w-[200px] sm:w-[260px] lg:w-[300px] aspect-[3/4] overflow-hidden rounded-md shadow-2xl bg-rose-pale ${
-                      active ? "ring-2 ring-wine" : ""
-                    }`}
-                  >
+                  <div className="w-[100px] sm:w-[200px] lg:w-[200px] aspect-[3/4] rounded-xl overflow-hidden shadow-xl bg-white">
                     <img
                       src={pickImg(label)}
                       alt={label}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 text-white">
-                      <h3 className="font-serif-display text-base sm:text-lg lg:text-xl leading-tight">
-                        {label}
-                      </h3>
-                    </div>
-                    {active && (
-                      <span className="absolute top-2 right-2 bg-wine text-white text-[9px] tracking-[0.18em] uppercase px-1.5 py-0.5 rounded-sm">
-                        Now
-                      </span>
-                    )}
                   </div>
                 </Link>
               </motion.div>
             );
           })}
         </div>
-      </div>
 
-      <div className="flex items-center justify-center gap-3 mt-4">
-        <button
-          onClick={() => go(-1)}
-          aria-label="Previous"
-          className="p-2 border border-ink/15 rounded-full hover:bg-ink hover:text-white transition-colors"
-        >
-          <ChevronLeft className="w-4 h-4" />
-        </button>
-        <div className="text-[10px] tracking-[0.2em] uppercase text-mute min-w-[120px] text-center">
-          {items[center]}
+        {/* CENTER CONTENT */}
+        <div className="relative z-50 text-center max-w-l">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <button onClick={() => go(-1)}>
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <h2 className="text-3xl sm:text-4xl font-serif">
+              {items[center]}
+            </h2>
+
+            <button onClick={() => go(1)}>
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          <p className="text-sm text-gray-500 mb-4">
+            Simple moments, captured beautifully — where function meets feeling.
+          </p>
+
+          <button className="px-5 py-2 bg-black text-white rounded-full text-sm">
+            Explore
+          </button>
         </div>
-        <button
-          onClick={() => go(1)}
-          aria-label="Next"
-          className="p-2 border border-ink/15 rounded-full hover:bg-ink hover:text-white transition-colors"
-        >
-          <ChevronRight className="w-4 h-4" />
-        </button>
       </div>
     </section>
   );
