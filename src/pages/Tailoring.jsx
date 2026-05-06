@@ -32,6 +32,18 @@ export default function Tailoring() {
   const heading = slug ? slug.replace(/-/g, " ").replace(/\band\b/g, "&") : "Bespoke Tailoring";
   return (
     <main className="pb-12 sm:pb-20">
+      {/* Intro */}
+      <section className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 pt-10 sm:pt-16 text-center">
+        <div className="edit-num text-[10px] sm:text-xs text-wine">— THE KAARIQ ATELIER</div>
+        <h1 className="font-serif-display text-3xl sm:text-5xl lg:text-6xl text-ink mt-4 leading-[1.05] capitalize">
+          {heading}
+        </h1>
+        <p className="text-ink/70 text-sm sm:text-base lg:text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
+          From the first sketch to the final stitch — every piece is hand-finished by our master tailors.
+          Explore our craft below and choose what to make yours.
+        </p>
+      </section>
+
       <SubCategoryCarousel basePath="/tailoring" columns={sub} activeSlug={slug} />
 
       {/* Grid */}
