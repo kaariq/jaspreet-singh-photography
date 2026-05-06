@@ -105,6 +105,7 @@ function App() {
           <FooterChrome />
           <HideOnAdmin><FloatingActions /></HideOnAdmin>
           <HideOnAdmin><CookieConsent /></HideOnAdmin>
+          <HideOnAdmin><WelcomeModal /></HideOnAdmin>
           <Toaster position="bottom-right" />
         </BrowserRouter>
       </AuthProvider>
