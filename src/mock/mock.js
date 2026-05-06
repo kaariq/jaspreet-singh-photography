@@ -93,7 +93,7 @@ export const NAV = [
     columns: [
       {
         title: "Get In Touch",
-        items: ["Find Our Studio", "WhatsApp Support", "Corporate Inquiries"],
+        items: ["Find Our Boutique", "WhatsApp Support", "Corporate Inquiries"],
       },
     ],
   },
@@ -208,7 +208,7 @@ export const PROCESS = [
   {
     n: "01",
     title: "Consult",
-    desc: "Tell us your story, occasion, and style — on WhatsApp, at our studio, or at your home. No pressure, just a friendly conversation.",
+    desc: "Tell us your story, occasion, and style — on WhatsApp, at our boutique, or at your home. No pressure, just a friendly conversation.",
   },
   {
     n: "02",
@@ -218,7 +218,7 @@ export const PROCESS = [
   {
     n: "03",
     title: "Measure",
-    desc: "Our expert darzi takes 16 precise measurements and posture notes — at your home or studio — for a perfect fit every time.",
+    desc: "Our expert darzi takes 16 precise measurements and posture notes — at your home or boutique — for a perfect fit every time.",
   },
   {
     n: "04",
@@ -228,7 +228,7 @@ export const PROCESS = [
   {
     n: "05",
     title: "Craft",
-    desc: "Hand-stitched by skilled karigars in our atelier. We share WhatsApp photos as your outfit takes shape.",
+    desc: "Hand-stitched by skilled karigars in our boutique. We share WhatsApp photos as your outfit takes shape.",
   },
   {
     n: "06",
@@ -404,9 +404,9 @@ export const BLOG = [
     img: "https://images.pexels.com/photos/13206032/pexels-photo-13206032.jpeg",
   },
   {
-    title: "Inside our atelier: the making of a bridal lehenga",
+    title: "Inside our boutique: the making of a bridal lehenga",
     date: "Mar 06, 2026",
-    tag: "Atelier",
+    tag: "Boutique",
     img: "https://images.pexels.com/photos/2723623/pexels-photo-2723623.jpeg",
   },
 ];

@@ -17,8 +17,8 @@ import { Home as HomeIcon, MapPin, UserCheck, PencilLine } from "lucide-react";
 
 const PLAN_OPTIONS = [
   {
-    id: "visit-atelier",
-    label: "I will visit the atelier",
+    id: "visit-boutique",
+    label: "I will visit the boutique",
     hint: "A master tailor will record measurements on your visit.",
     Icon: MapPin,
   },
@@ -72,7 +72,7 @@ export default function OrderJourney() {
     back: "closed",
     sleeve: "half",
     addons: [],
-    plan: "visit-atelier",
+    plan: "visit-boutique",
     personId: state.people[0]?.id || "",
     measurements: {},
   });
@@ -601,7 +601,7 @@ function MeasurementsStep({ schemaKey, fields, data, setData, state, upsertPerso
 
   // If user picked "I'll visit" or "send a stylist", show an info panel — measurements
   // will be captured later. They can still optionally save a name/profile.
-  const deferred = data.plan === "visit-atelier" || data.plan === "home-pickup";
+  const deferred = data.plan === "visit-boutique" || data.plan === "home-pickup";
 
   if (deferred) {
     const planObj = PLAN_OPTIONS.find((p) => p.id === data.plan);

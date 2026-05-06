@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, MessageCircle, Building2, Send, Check } from "luci
 
 export default function Contact() {
   const { slug } = useParams();
-  const view = slug || "find-our-studio";
+  const view = slug || "find-our-boutique";
   return (
     <main className="pb-12 sm:pb-20">
       <PageHero
@@ -16,13 +16,13 @@ export default function Contact() {
             Let's start a <span className="italic">conversation</span>.
           </>
         }
-        subtitle="Whether it's a quick query or a wedding wardrobe, our concierge will reply within an hour during studio hours."
+        subtitle="Whether it's a quick query or a wedding wardrobe, our concierge will reply within an hour during boutique hours."
         image={IMAGES.boutique}
       />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12 flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar">
         {[
-          ["find-our-studio", "Find Our Studio"],
+          ["find-our-boutique", "Find Our Boutique"],
           ["whatsapp-support", "WhatsApp Support"],
           ["corporate-inquiries", "Corporate Inquiries"],
         ].map(([s, l]) => (
@@ -37,7 +37,7 @@ export default function Contact() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12">
-        {view === "find-our-studio" && <Studio />}
+        {view === "find-our-boutique" && <Boutique />}
         {view === "whatsapp-support" && <Whatsapp />}
         {view === "corporate-inquiries" && <Corporate />}
       </div>
@@ -45,14 +45,14 @@ export default function Contact() {
   );
 }
 
-function Studio() {
+function Boutique() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [done, setDone] = useState(false);
   return (
     <div className="grid lg:grid-cols-12 gap-6 sm:gap-10">
       <div className="lg:col-span-5">
         <div className="aspect-[16/10] sm:aspect-[4/3] overflow-hidden bg-rose-pale">
-          <img src={IMAGES.boutique} alt="Atelier" className="w-full h-full object-cover" />
+          <img src={IMAGES.boutique} alt="Boutique" className="w-full h-full object-cover" />
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
           <Info icon={Phone} title="Phone" body={SITE.phone} />
@@ -111,7 +111,7 @@ function Studio() {
             <Check className="w-7 h-7 text-wine" />
             <div className="font-serif-display text-2xl mt-3">Message received</div>
             <p className="text-[13px] sm:text-sm text-mute mt-1">
-              We'll be in touch within an hour during studio hours.
+              We'll be in touch within an hour during boutique hours.
             </p>
           </div>
         )}
@@ -137,7 +137,7 @@ function Whatsapp() {
       </h2>
       <p className="text-[13px] sm:text-sm opacity-80 mt-2 sm:mt-3 max-w-xl mx-auto">
         Send us inspiration images, ask about pricing, or share your timeline. Our concierge replies
-        within minutes during studio hours.
+        within minutes during boutique hours.
       </p>
       <a
         href={`https://wa.me/${SITE.whatsapp.replace(/\D/g, "")}`}

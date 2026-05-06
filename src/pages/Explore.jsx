@@ -146,7 +146,7 @@ function AITool() {
       <div className="bg-blush border border-rose p-8 lg:p-10">
         <div className="flex items-center gap-2 text-wine">
           <Wand2 className="w-5 h-5" />
-          <span className="edit-num">KAARIQ DESIGN STUDIO</span>
+          <span className="edit-num">KAARIQ DESIGN BOUTIQUE</span>
         </div>
         <h3 className="font-serif-display text-3xl mt-3">Describe your dream outfit.</h3>
         <p className="text-sm text-mute mt-2">

@@ -243,7 +243,7 @@ function TrustStrip() {
     "Free Lifetime Alterations",
     "Worldwide Shipping",
     "Hand Embroidery",
-    "Sustainable Atelier",
+    "Sustainable Boutique",
   ];
   return (
     <div className="border-y border-rose bg-white overflow-hidden">
@@ -617,7 +617,7 @@ function FabricBanner() {
         viewport={{ once: true }}
         transition={{ duration: 1.8, ease }}
         src={IMAGES.craft}
-        alt="Atelier"
+        alt="Boutique"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div
@@ -633,7 +633,7 @@ function FabricBanner() {
       >
         <div className="max-w-3xl text-white">
           <motion.div variants={blurUp} className="edit-num opacity-80">
-            — AT THE ATELIER
+            — AT THE BOUTIQUE
           </motion.div>
           <motion.h2
             variants={blurUp}
@@ -646,14 +646,14 @@ function FabricBanner() {
             className="text-[13px] sm:text-sm opacity-90 mt-3 sm:mt-5 max-w-xl mx-auto"
           >
             Every Kaariq piece passes through 14 hands and 6 quality checks before it leaves the
-            studio.
+            boutique.
           </motion.p>
           <motion.div variants={blurUp}>
             <Link
               to="/explore/gallery-and-lookbook"
               className="inline-flex items-center gap-2 mt-5 sm:mt-8 border border-white px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-ink transition-colors"
             >
-              View the atelier <ArrowRight className="w-4 h-4" />
+              View the boutique <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>
@@ -747,7 +747,7 @@ function MediaTestimonials() {
               chose us to tell it.&rdquo;
             </p>
             <div className="mt-4 sm:mt-6 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase opacity-70">
-              — The Kaariq atelier
+              — The Kaariq boutique
             </div>
           </motion.div>
           <motion.div
@@ -886,7 +886,7 @@ function Journal() {
           variants={blurUp}
           className="lg:col-span-7 font-serif-display text-[22px] sm:text-4xl lg:text-5xl text-ink"
         >
-          Notes from the <span className="italic text-wine">atelier</span>.
+          Notes from the <span className="italic text-wine">boutique</span>.
         </motion.h2>
         <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
           <Link

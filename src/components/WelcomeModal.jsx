@@ -32,7 +32,9 @@ export default function WelcomeModal() {
   }, []);
 
   const close = () => {
-    try { sessionStorage.setItem(KEY, "1"); } catch {}
+    try {
+      sessionStorage.setItem(KEY, "1");
+    } catch {}
     setOpen(false);
   };
 
@@ -42,7 +44,7 @@ export default function WelcomeModal() {
       toast.error("Please share your name and number");
       return;
     }
-    toast.success("Visit confirmed — our atelier will reach out shortly.");
+    toast.success("Visit confirmed — our boutique will reach out shortly.");
     close();
   };
 
@@ -83,16 +85,13 @@ export default function WelcomeModal() {
           <div className="md:col-span-2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
             {step === "intro" ? (
               <div className="animate-in fade-in slide-in-from-right-4">
-                <div className="edit-num text-[10px] sm:text-xs text-wine">
-                  KAARIQ ATELIER
-                </div>
+                <div className="edit-num text-[10px] sm:text-xs text-wine">KAARIQ</div>
                 <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-ink mt-3 leading-[1.05]">
-                  Your tailor is{" "}
-                  <span className="italic">one knock</span> away.
+                  Your tailor is <span className="italic">one knock</span> away.
                 </h2>
                 <p className="text-ink/70 text-sm sm:text-base mt-4 leading-relaxed">
-                  Step into a private fitting at your home or our studio.
-                  Hand-finished garments, made to your measure.
+                  Step into a private fitting at your home or our boutique. Hand-finished garments,
+                  made to your measure.
                 </p>
                 <div className="mt-6 flex flex-col gap-2">
                   <Button size="lg" onClick={() => setStep("form")}>
@@ -111,9 +110,7 @@ export default function WelcomeModal() {
                 onSubmit={submit}
                 className="animate-in fade-in slide-in-from-right-4 space-y-3"
               >
-                <div className="edit-num text-[10px] sm:text-xs text-wine">
-                  BOOK YOUR VISIT
-                </div>
+                <div className="edit-num text-[10px] sm:text-xs text-wine">BOOK YOUR VISIT</div>
                 <h2 className="font-serif-display text-2xl sm:text-3xl text-ink leading-tight">
                   Tell us where to find you
                 </h2>
@@ -136,9 +133,7 @@ export default function WelcomeModal() {
                     rows={2}
                     value={form.location}
                     maxLength={200}
-                    onChange={(e) =>
-                      setForm({ ...form, location: e.target.value })
-                    }
+                    onChange={(e) => setForm({ ...form, location: e.target.value })}
                   />
                 </div>
                 <div className="flex items-center gap-2 pt-2">

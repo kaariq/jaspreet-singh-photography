@@ -27,7 +27,7 @@ export default function BookingGuide() {
             Plan your <span className="italic">visit</span>, your way.
           </>
         }
-        subtitle="In-studio, at-home, or virtual — choose the experience that suits you. Every appointment ends with a personalised quote and timeline."
+        subtitle="In-boutique, at-home, or virtual — choose the experience that suits you. Every appointment ends with a personalised quote and timeline."
         image={IMAGES.consultation}
       />
 
@@ -142,7 +142,7 @@ function BookForm() {
     phone: "",
     email: "",
     service: "Womens Wear",
-    mode: "Studio Visit",
+    mode: "Boutique Visit",
     date: "",
     time: "11:00",
     notes: "",
@@ -177,7 +177,7 @@ function BookForm() {
       <div className="lg:col-span-7">
         <h2 className="font-serif-display text-3xl lg:text-4xl text-ink">Book your appointment.</h2>
         <p className="text-sm text-mute mt-3 max-w-xl">
-          Tell us a few details and we'll confirm within 30 minutes during studio hours.
+          Tell us a few details and we'll confirm within 30 minutes during boutique hours.
         </p>
         <div className="grid sm:grid-cols-2 gap-5 mt-8">
           <Field label="Full name" value={form.name} onChange={onChange("name")} required />
@@ -207,7 +207,7 @@ function BookForm() {
             label="Visit mode"
             value={form.mode}
             onChange={onChange("mode")}
-            options={["Studio Visit", "At-Home Visit", "Virtual"]}
+            options={["Boutique Visit", "At-Home Visit", "Virtual"]}
           />
           <Field
             label="Preferred date"
@@ -244,12 +244,12 @@ function BookForm() {
       <div className="lg:col-span-5 space-y-4">
         <InfoCard
           icon={MapPin}
-          title="Visit our atelier"
+          title="Visit our boutique"
           body="12 Heritage Lane, Bandra West, Mumbai 400050"
         />
         <InfoCard
           icon={Clock}
-          title="Studio hours"
+          title="Boutique hours"
           body={"Mon – Sat · 11:00 – 20:00\nSundays by appointment"}
         />
         <InfoCard

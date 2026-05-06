@@ -154,7 +154,7 @@ export default function Header() {
                   {NAV.find((n) => n.key === open)?.label}
                 </h3>
                 <p className="text-sm text-mute mt-3 leading-relaxed">
-                  Discover bespoke craft, made to your measure — at the atelier or your doorstep.
+                  Discover bespoke craft, made to your measure — at the boutique or your doorstep.
                 </p>
               </div>
               <div className="col-span-7 grid grid-cols-4 gap-8">
