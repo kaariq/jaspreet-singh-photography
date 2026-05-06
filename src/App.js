@@ -23,6 +23,7 @@ import RequestContact from './pages/RequestContact';
 import Cart from './pages/Cart';
 import FloatingActions from './components/FloatingActions';
 import CookieConsent from './components/CookieConsent';
+import WelcomeModal from './components/WelcomeModal';
 import { PrivacyPolicy, TermsConditions, CookiePolicy } from './pages/PolicyPages';
 import ScrollToTop from './components/ScrollToTop';
 import PreFooterBooking from './components/PreFooterBooking';
