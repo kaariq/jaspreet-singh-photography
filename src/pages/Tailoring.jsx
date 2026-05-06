@@ -1,101 +1,67 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { PageHero, GarmentCard } from "@/components/PageBits";
+import { useParams } from "react-router-dom";
 import SubCategoryCarousel from "@/components/SubCategoryCarousel";
-import { IMAGES, NAV } from "@/mock/mock";
+import {
+  ServiceIntro,
+  WhatWeOffer,
+  Benefits,
+  Process,
+  FAQ,
+  CTAStrip,
+} from "@/components/InfoSections";
+import { NAV } from "@/mock/mock";
 
-const womensItems = [
-  {
-    title: "Hand-embroidered Blouse",
-    img: IMAGES.women,
-    hoverImage: IMAGES.embroidery,
-    price: "from ₹4,500",
-    badge: "Bespoke",
-  },
-  {
-    title: "Anarkali Suit",
-    img: IMAGES.embroidery,
-    hoverImage: IMAGES.festive,
-    price: "from ₹18,000",
-    badge: "Heavy work",
-  },
-  {
-    title: "Lehenga Choli",
-    img: IMAGES.wedding,
-    hoverImage: IMAGES.lookbook,
-    price: "from ₹48,000",
-    badge: "Bridal",
-  },
-  { title: "Modern Kurta Set", img: IMAGES.casual, hoverImage: IMAGES.women, price: "from ₹6,800" },
-  {
-    title: "Salwar & Bottoms",
-    img: IMAGES.fabric,
-    hoverImage: IMAGES.casual,
-    price: "from ₹1,800",
-  },
-  {
-    title: "Festive Anarkali",
-    img: IMAGES.festive,
-    hoverImage: IMAGES.embroidery,
-    price: "from ₹14,000",
-    badge: "New",
-  },
+const OFFERINGS = [
+  { title: "Women's Bespoke", desc: "Blouses, kurtas, anarkalis, lehengas and bottoms — cut, draped and embroidered to your measure." },
+  { title: "Men's Tailoring", desc: "Suits, sherwanis, kurta sets, blazers and trousers crafted with hand-finished detailing." },
+  { title: "Custom Embroidery", desc: "Zardozi, aari, thread and sequin work — choose motifs, placement and palette." },
+  { title: "Fabric Sourcing", desc: "Curated silks, linens, cottons and georgettes — or bring your own cloth." },
+  { title: "Alterations & Repairs", desc: "Refit, restyle and restore garments you already love with precision tailoring." },
+  { title: "Wedding & Trousseau", desc: "End-to-end bridal and groom wardrobes with private consultations." },
 ];
-const mensItems = [
-  {
-    title: "Bespoke Suit",
-    img: IMAGES.men,
-    hoverImage: IMAGES.boutique,
-    price: "from ₹28,000",
-    badge: "Premium",
-  },
-  {
-    title: "Wedding Sherwani",
-    img: IMAGES.wedding,
-    hoverImage: IMAGES.men,
-    price: "from ₹32,000",
-    badge: "Bridal",
-  },
-  { title: "Kurta Pyjama", img: IMAGES.consultation, hoverImage: IMAGES.men, price: "from ₹4,200" },
-  { title: "Tailored Blazer", img: IMAGES.boutique, hoverImage: IMAGES.men, price: "from ₹18,000" },
-  {
-    title: "Linen Trousers",
-    img: IMAGES.fabric,
-    hoverImage: IMAGES.consultation,
-    price: "from ₹4,400",
-  },
-  {
-    title: "Embroidered Waistcoat",
-    img: IMAGES.embroidery,
-    hoverImage: IMAGES.men,
-    price: "from ₹6,500",
-  },
+
+const STEPS = [
+  { title: "Consult", desc: "Share your occasion, references and preferences with our stylist." },
+  { title: "Measure", desc: "Doorstep or in-store measurement with our master tailor." },
+  { title: "Craft", desc: "Cutting, stitching and hand-finishing — typically 14–21 days." },
+  { title: "Fit & Deliver", desc: "Trial fitting, fine adjustments and final delivery to your door." },
+];
+
+const FAQS = [
+  { q: "How long does a custom garment take?", a: "Most pieces are ready in 14–21 days. Heavy bridal work can take 4–8 weeks depending on embroidery." },
+  { q: "Can I bring my own fabric?", a: "Absolutely. We're happy to stitch on fabric you already own — bring it in or send it via courier." },
+  { q: "Do you offer doorstep measurement?", a: "Yes — complimentary on orders above ₹5,000 within the city, and on request elsewhere." },
+  { q: "What if the fit isn't right?", a: "We offer free alterations until the fit is perfect. Your satisfaction is part of the price." },
+  { q: "Do you ship outside India?", a: "Yes, we ship worldwide via insured courier. Delivery times vary by destination." },
+  { q: "Can I see designs before stitching?", a: "Our stylist shares sketches, fabric swatches and embroidery samples for approval before we begin." },
 ];
 
 const sub = NAV[0].columns;
 
 export default function Tailoring() {
   const { slug } = useParams();
-  const items =
-    slug && /sherwani|suit|kurta-pyjama|men|trousers|waistcoat/i.test(slug)
-      ? mensItems
-      : womensItems;
   const heading = slug ? slug.replace(/-/g, " ").replace(/\band\b/g, "&") : "Bespoke Tailoring";
+
   return (
     <main className="pb-12 sm:pb-20">
-      {/* Intro */}
-      <section className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 pt-10 sm:pt-16 text-center">
-        <div className="edit-num text-[10px] sm:text-xs text-wine">— THE KAARIQ BOUTIQUE</div>
-        <h1 className="font-serif-display text-3xl sm:text-5xl lg:text-6xl text-ink mt-4 leading-[1.05] capitalize">
-          {heading}
-        </h1>
-        <p className="text-ink/70 text-sm sm:text-base lg:text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
-          From the first sketch to the final stitch — every piece is hand-finished by our master
-          tailors. Explore our craft below and choose what to make yours.
-        </p>
-      </section>
+      <ServiceIntro
+        eyebrow="— THE KAARIQ ATELIER"
+        title={heading}
+        lead="From the first sketch to the final stitch, every piece is hand-crafted to your measure by our master tailors. Choose a category below to begin."
+      />
 
       <SubCategoryCarousel basePath="/tailoring" columns={sub} activeSlug={slug} />
+
+      <WhatWeOffer items={OFFERINGS} />
+      <Benefits />
+      <Process steps={STEPS} />
+      <FAQ items={FAQS} />
+      <CTAStrip
+        title="Ready to be measured?"
+        subtitle="Book a free consultation with our stylist — at home or in our atelier."
+        ctaLabel="Schedule a fitting"
+        to="/request-contact"
+      />
     </main>
   );
 }
