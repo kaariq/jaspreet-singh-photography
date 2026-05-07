@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageHero } from "@/components/PageBits";
 import { IMAGES, GALLERY, BLOG } from "@/mock/mock";
-import { Sparkles, ArrowRight, Wand2, ChevronRight } from "lucide-react";
+import { Sparkles, ArrowRight, Wand2, ChevronRight, Clock, BookOpen } from "lucide-react";
 
 const quizQs = [
   {
