@@ -43,8 +43,14 @@ export default function Tailoring() {
   const heading = slug ? slug.replace(/-/g, " ").replace(/\band\b/g, "&") : "Bespoke Tailoring";
 
   return (
-    <main className="pb-12 sm:pb-20">
-      <SubCategoryCarousel  basePath="/tailoring" columns={sub} activeSlug={slug} />
+    <main className="pb-8 sm:pb-8">
+      <ServiceIntro
+        eyebrow="— THE KAARIQ ATELIER"
+        title={heading}
+        lead="From the first sketch to the final stitch, every piece is hand-crafted to your measure by our master tailors. Choose a category below to begin."
+      />
+
+      <SubCategoryCarousel basePath="/tailoring" columns={sub} activeSlug={slug} />
 
       <WhatWeOffer items={OFFERINGS} />
       <Benefits />

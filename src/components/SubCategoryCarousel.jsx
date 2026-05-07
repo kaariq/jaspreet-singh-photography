@@ -34,12 +34,12 @@ export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
 
   // 🔥 SPACING FIX CONFIG
   const MAX_VISIBLE = 7; // 🔥 reduced → prevents overlap
-  const RADIUS = 1200; // 🔥 increased → more spacing
+  const RADIUS = 1450; // 🔥 increased → more spacing
   const ARC_SPREAD = Math.PI * 0.40; // less than full semicircle → better spacing
 
   return (
-    <section className="relative max-w-[1400px] mx-auto px-4 mt-5">
-      <div className="relative h-[2490px] flex items-center justify-center overflow-hidden">
+    <section className="relative  mx-auto px-4 mt-5">
+      <div className="relative h-[2890px] flex items-center justify-center overflow-hidden">
         {/* CARDS */}
         <div className="absolute inset-0 flex items-center justify-center">
           {items.map((label, i) => {
