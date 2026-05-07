@@ -76,30 +76,7 @@ export default function Explore() {
             ))}
           </div>
         )}
-        {view === "blog-and-fashion-news" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-            {[...BLOG, ...BLOG].map((b, i) => (
-              <article key={i} className="group cursor-pointer">
-                <div className="aspect-[4/5] overflow-hidden bg-rose-pale mb-3 sm:mb-4">
-                  <img
-                    src={b.img}
-                    alt=""
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700"
-                  />
-                </div>
-                <div className="text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-mute">
-                  {b.tag} · {b.date}
-                </div>
-                <h3 className="font-serif-display text-xl sm:text-2xl mt-1.5 sm:mt-2 leading-tight">
-                  {b.title}
-                </h3>
-                <span className="link-underline text-[11px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase mt-2 sm:mt-3 inline-block">
-                  Read article →
-                </span>
-              </article>
-            ))}
-          </div>
-        )}
+        {view === "blog-and-fashion-news" && <Journal />}
         {view === "ai-design-tool" && <AITool />}
         {view === "personal-style-quiz" && <Quiz qs={quizQs} />}
         {view === "customer-showreels" && (
