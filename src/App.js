@@ -48,6 +48,7 @@ function HideOnAuth({ children }) {
     loc.pathname.startsWith('/login') ||
     loc.pathname.startsWith('/profile') ||
     loc.pathname.startsWith('/cart') ||
+    loc.pathname.startsWith('/booking') ||
     loc.pathname.includes('/order/') ||
     isAdminPath(loc.pathname)
   ) return null;

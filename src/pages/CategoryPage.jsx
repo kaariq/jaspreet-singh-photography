@@ -7,6 +7,18 @@ import { DESIGNS } from "@/data/designs";
 import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/measurements";
 import { IMAGES, NAV } from "@/mock/mock";
 
+const HOVER_POOL = [
+  IMAGES.embroidery,
+  IMAGES.festive,
+  IMAGES.wedding,
+  IMAGES.lookbook,
+  IMAGES.fabric,
+  IMAGES.women,
+  IMAGES.casual,
+  IMAGES.craft,
+];
+const pickHover = (d, i) => d.hoverImage || HOVER_POOL[(i + 1) % HOVER_POOL.length];
+
 const tailoringSub = NAV[0].columns;
 
 export default function CategoryPage({ slug: forcedSlug }) {
@@ -77,7 +89,13 @@ export default function CategoryPage({ slug: forcedSlug }) {
                 <img
                   src={d.image}
                   alt={d.label}
-                  className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-[1000ms]"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                />
+                <img
+                  src={pickHover(d, i)}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover scale-105 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
               </div>
               <div className="p-3 sm:p-4">
