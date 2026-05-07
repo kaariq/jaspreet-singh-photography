@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,18 +9,56 @@ import { IMAGES } from "@/mock/mock";
 
 const KEY = "kaariq_welcome_modal_seen";
 
-const SHOTS = [
+const POOL = [
   IMAGES.women,
   IMAGES.embroidery,
   IMAGES.wedding,
   IMAGES.festive,
   IMAGES.lookbook,
   IMAGES.craft,
+  IMAGES.fabric,
+  IMAGES.boutique,
+  IMAGES.casual,
+  IMAGES.consultation,
 ];
+
+// Three columns of repeating images, moving at different speeds & directions
+const COLUMNS = [
+  { imgs: [POOL[0], POOL[3], POOL[6], POOL[9]], dir: -1, dur: 22 },
+  { imgs: [POOL[1], POOL[4], POOL[7], POOL[2]], dir: 1, dur: 28 },
+  { imgs: [POOL[5], POOL[8], POOL[0], POOL[3]], dir: -1, dur: 25 },
+];
+
+function MovingColumn({ imgs, dir, dur }) {
+  const loop = [...imgs, ...imgs]; // duplicate for seamless loop
+  return (
+    <div className="relative h-full overflow-hidden">
+      <motion.div
+        className="flex flex-col gap-2"
+        animate={{ y: dir > 0 ? ["-50%", "0%"] : ["0%", "-50%"] }}
+        transition={{ duration: dur, ease: "linear", repeat: Infinity }}
+      >
+        {loop.map((src, i) => (
+          <div
+            key={i}
+            className="relative w-full aspect-[3/4] overflow-hidden rounded-md bg-rose-pale"
+          >
+            <img
+              src={src}
+              alt=""
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
 
 export default function WelcomeModal() {
   const [open, setOpen] = useState(false);
-  const [step, setStep] = useState("intro"); // intro | form
+  const [step, setStep] = useState("intro");
   const [form, setForm] = useState({ name: "", phone: "", location: "" });
 
   useEffect(() => {
@@ -62,26 +101,15 @@ export default function WelcomeModal() {
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-5">
-          {/* Image collage – ~60% on desktop */}
-          <div className="md:col-span-3 grid grid-cols-3 gap-1 sm:gap-1.5 p-1 sm:p-1.5 bg-rose-pale">
-            {SHOTS.map((src, i) => (
-              <div
-                key={i}
-                className={`relative overflow-hidden ${
-                  i % 3 === 1 ? "aspect-[3/5]" : "aspect-[3/4]"
-                }`}
-              >
-                <img
-                  src={src}
-                  alt=""
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            ))}
+          {/* Vertical 3-column moving carousel */}
+          <div className="md:col-span-3 bg-rose-pale p-2 sm:p-3">
+            <div className="grid grid-cols-3 gap-2 h-[260px] sm:h-[420px] md:h-[520px]">
+              {COLUMNS.map((col, i) => (
+                <MovingColumn key={i} {...col} />
+              ))}
+            </div>
           </div>
 
-          {/* Text / form panel */}
           <div className="md:col-span-2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
             {step === "intro" ? (
               <div className="animate-in fade-in slide-in-from-right-4">
