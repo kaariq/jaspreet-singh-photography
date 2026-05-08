@@ -22,17 +22,37 @@ export const NAV = [
     columns: [
       {
         title: "Women's Wear",
-        items: ["Blouse", "Kurta", "Anarkali", "Lehenga", "Bottoms & Salwars"],
+        items: [
+          "Kurti",
+          "Suits",
+          "Blouse",
+          "Lehengas",
+          "Sharara & Co-ord Sets",
+          "Western Dresses & Jumpsuits",
+          "Shirts & Trousers",
+        ],
       },
       {
         title: "Men's Wear",
-        items: ["Suits & Blazers", "Sherwani", "Kurta Pyjama", "Waistcoats", "Trousers"],
+        items: [
+          "Shirts",
+          "Trousers",
+          "Kurta Pyjama",
+          "Nehru Jackets",
+          "Sherwanis",
+          "Suits & Blazers",
+        ],
       },
       {
         title: "Customizations",
-        items: ["Embroidery & Work", "Neckline Designs", "Sleeve Styles", "Fabric Dyeing"],
+        items: [
+          "Embroidery & Work",
+          "Neckline & Sleeve Designs",
+          "Lace & Patch Work",
+          "Fabric Dyeing",
+          "Fittings & Alterations",
+        ],
       },
-      { title: "Alterations", items: ["Alterations & Repairs"] },
     ],
   },
   {
@@ -40,15 +60,17 @@ export const NAV = [
     label: "Collections",
     columns: [
       {
-        title: "Occasions",
-        items: ["Wedding Edit", "Festive Wear", "Party & Evening", "Formal Business"],
+        title: "Signature Collections",
+        items: ["New Arrivals", "Best Sellers", "Custom Tailoring", "Premium Designs"],
       },
       {
-        title: "Styles",
-        items: ["Casual Daily", "Boho Chic", "Classic Vintage", "Modern Minimalist"],
+        title: "Shop by Occasion",
+        items: ["Wedding Edit", "Festive Wear", "Party Wear", "Office Looks"],
       },
-      { title: "Seasonal", items: ["Summer Breeze", "Winter Velvet", "Monsoon Essentials"] },
-      { title: "Featured", items: ["New Arrivals", "Best Sellers"] },
+      {
+        title: "Trending Styles",
+        items: ["Celebrity Inspired", "Everyday Chic", "Modern Ethnic"],
+      },
     ],
   },
   {
@@ -117,27 +139,39 @@ export const IMAGES = {
 export const SERVICES = [
   {
     title: "Women's Wear",
-    desc: "Blouses, Kurtas, Anarkalis, Lehengas, and bottoms — bespoke from sketch to stitch.",
+    desc: "Elegant ethnic and western tailoring — from kurtis and blouses to lehengas, dresses, and co-ord sets.",
     img: "/cards/womens-wear.png",
     link: "/tailoring/womens-wear",
   },
   {
     title: "Men's Wear",
-    desc: "Suits, Sherwanis, Kurta-pyjamas and waistcoats — tailored to a flawless silhouette.",
+    desc: "Precision-crafted menswear including shirts, trousers, sherwanis, kurtas, suits, and Nehru jackets.",
     img: "/cards/mens-wear.png",
     link: "/tailoring/mens-wear",
   },
   {
     title: "Customizations",
-    desc: "Hand embroidery, necklines, sleeves, and dyeing — make every piece unmistakably yours.",
+    desc: "Personalize every outfit with embroidery, neckline styling, sleeve designs, patch work, dyeing, and fittings.",
     img: "/cards/customizations.png",
     link: "/tailoring/customizations",
   },
   {
-    title: "Alterations & Repairs",
-    desc: "Trusted alterations and restoration for ready-to-wear or beloved heirlooms.",
-    img: "/cards/alterations.png",
-    link: "/tailoring/alterations",
+    title: "Collections",
+    desc: "Discover signature collections, festive edits, wedding wear, premium designs, and trending modern ethnic styles.",
+    img: "/cards/collections.png",
+    link: "/collections",
+  },
+  {
+    title: "Booking Guide",
+    desc: "Book appointments, explore measurement guides, understand our process, or schedule a virtual consultation.",
+    img: "/cards/booking-guide.png",
+    link: "/booking",
+  },
+  {
+    title: "Explore",
+    desc: "Browse lookbooks, customer showreels, fashion blogs, AI design tools, and personalized style inspiration.",
+    img: "/cards/explore.png",
+    link: "/explore",
   },
 ];
 
@@ -182,25 +216,37 @@ export const COLLECTIONS = [
 ];
 
 export const FEATURES = [
-  { title: "Doorstep Measurement", desc: "Our master tailor visits you at home or office." },
   {
-    title: "Virtual Fitting",
-    desc: "Consult with our e-designer over video, anywhere in the world.",
-  },
-  { title: "Expert Craftsmanship", desc: "Hand-finished by artisans with 20+ years of training." },
-  {
-    title: "Perfect Fit Promise",
-    desc: "Three rounds of fittings included on every bespoke order.",
-  },
-  { title: "Eye for Detail", desc: "Curated linings, buttons, threads — nothing left to chance." },
-  { title: "Quick Turnaround", desc: "From sketch to delivery in as little as 14 days." },
-  {
-    title: "Sustainable Practices",
-    desc: "Zero-waste cutting, natural dyes and end-of-life take-back.",
+    title: "Doorstep Measurement",
+    desc: "Get professionally measured at home for a hassle-free tailoring experience.",
   },
   {
-    title: "Timeless Fashion",
-    desc: "Silhouettes that outlast trends — built to be worn for years.",
+    title: "Virtual Consultation",
+    desc: "Connect with our designers online to discuss styles, fabrics, and fittings from anywhere.",
+  },
+  {
+    title: "Perfect Fit Guarantee",
+    desc: "Every outfit is tailored to your exact measurements with fitting support included.",
+  },
+  {
+    title: "Premium Craftsmanship",
+    desc: "Skilled artisans ensure flawless stitching, finishing, and attention to every detail.",
+  },
+  {
+    title: "Fully Customizable Designs",
+    desc: "Choose your preferred necklines, sleeves, embroidery, fabrics, and styling details.",
+  },
+  {
+    title: "Fast & Reliable Delivery",
+    desc: "Timely stitching and delivery without compromising on quality or finishing.",
+  },
+  {
+    title: "Affordable Bespoke Tailoring",
+    desc: "Luxury-style customization and tailoring at transparent, customer-friendly pricing.",
+  },
+  {
+    title: "Trusted Alterations & Support",
+    desc: "Easy post-delivery alterations and dedicated assistance for complete peace of mind.",
   },
 ];
 
@@ -344,21 +390,22 @@ export const HERO_SLIDES = [
       "linear-gradient(270deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)",
   },
 ];
+
 export const TESTIMONIAL_MEDIA = [
   {
     name: "Ananya Mehta",
     role: "Bride, Mumbai",
     quote:
-      "My bridal lehenga felt like a second skin. The Kaariq team understood my brief in a single sitting and delivered the most exquisite hand-zardozi I have seen.",
+      "I was honestly nervous about getting my bridal lehenga stitched, but the fitting and finishing turned out better than I imagined. Everyone kept asking where I got it made.",
     type: "image",
     thumb: "https://images.unsplash.com/photo-1724856604403-60304b28906c",
     src: "https://images.unsplash.com/photo-1724856604403-60304b28906c",
   },
   {
     name: "Rohan Khanna",
-    role: "Groom, Delhi",
+    role: "Delhi",
     quote:
-      "A sherwani that fit perfectly on day one \u2014 without a single follow-up alteration. Effortless, world-class craftsmanship.",
+      "The fit of my sherwani was spot on from the first trial itself. Clean stitching, great fabric suggestions, and the whole process felt very smooth.",
     type: "video",
     thumb: "https://images.pexels.com/photos/6687162/pexels-photo-6687162.jpeg",
     src: "https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1",
@@ -367,7 +414,7 @@ export const TESTIMONIAL_MEDIA = [
     name: "Priya Iyer",
     role: "Bengaluru",
     quote:
-      "I sent my measurements on a Sunday and a kurta set arrived in 12 days. Beautifully finished, packaging like a luxury brand.",
+      "I ordered a kurta set after seeing their work online and was genuinely impressed. The fitting was perfect and even the packaging felt thoughtful.",
     type: "image",
     thumb: "https://images.unsplash.com/photo-1768651925875-d1523ed07cb6",
     src: "https://images.unsplash.com/photo-1768651925875-d1523ed07cb6",
@@ -375,7 +422,8 @@ export const TESTIMONIAL_MEDIA = [
   {
     name: "Arjun Nair",
     role: "Singapore",
-    quote: "Their virtual fitting actually works. Three suits later, I am a customer for life.",
+    quote:
+      "I live outside India, so I was unsure about virtual tailoring, but the team guided me really well. The suits arrived fitting surprisingly well.",
     type: "video",
     thumb: "https://images.unsplash.com/photo-1729347917808-e3e35a462fec",
     src: "https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1",
@@ -386,28 +434,90 @@ export const TESTIMONIALS = TESTIMONIAL_MEDIA;
 
 export const BLOG = [
   {
-    title: "A guide to choosing the right blouse neckline",
-    date: "Apr 18, 2026",
-    tag: "Style",
-    img: "https://images.pexels.com/photos/36435092/pexels-photo-36435092.jpeg",
+    title: "Met Gala 2026 Proved One Thing: Indian Fashion Is Taking Over Globally",
+    slug: "met-gala-2026-indian-fashion-takeover",
+    date: "May 03, 2026",
+    tag: "Trending",
+    img: "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg",
+    excerpt:
+      "From saree-inspired gowns to intricate hand embroidery, Indian craftsmanship dominated global fashion conversations this year.",
+    description:
+      "A deep dive into the biggest Indian-inspired looks from Met Gala 2026 and why global luxury fashion is embracing Indian textiles and tailoring.",
   },
   {
-    title: "Why hand-zardozi is making a comeback",
-    date: "Apr 02, 2026",
-    tag: "Craft",
-    img: "https://images.unsplash.com/photo-1763400126795-d83e07d3449e",
+    title: "5 Fashion Mistakes That Make Expensive Outfits Look Cheap",
+    slug: "fashion-mistakes-style-guide",
+    date: "Apr 28, 2026",
+    tag: "Style Tips",
+    img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
+    excerpt:
+      "Even premium outfits can lose their charm because of poor fitting and styling mistakes.",
+    description:
+      "Learn the most common fashion mistakes people make with ethnic and western wear — and simple tailoring fixes that instantly upgrade your look.",
   },
   {
-    title: "How to take measurements at home",
+    title: "Why Ready-Made Clothes Never Fit Like Tailor-Made Outfits",
+    slug: "ready-made-vs-tailor-made",
+    date: "Apr 22, 2026",
+    tag: "Awareness",
+    img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+    excerpt: "The difference between looking dressed and looking polished often comes down to fit.",
+    description:
+      "Discover how proper tailoring changes posture, comfort, confidence, and the overall appearance of your outfits.",
+  },
+  {
+    title: "Top Bridal Lehenga Trends Every 2026 Bride Is Saving on Pinterest",
+    slug: "bridal-lehenga-trends-2026",
+    date: "Apr 16, 2026",
+    tag: "Bridal Fashion",
+    img: "https://images.pexels.com/photos/291759/pexels-photo-291759.jpeg",
+    excerpt:
+      "Muted tones, heritage embroidery, and modern silhouettes are defining bridal fashion this year.",
+    description:
+      "Explore the bridal lehenga styles trending across weddings, Instagram, and Pinterest in 2026.",
+  },
+  {
+    title: "The Hidden Problem With Fast Fashion Nobody Talks About",
+    slug: "hidden-problem-fast-fashion",
+    date: "Apr 10, 2026",
+    tag: "Awareness",
+    img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+    excerpt:
+      "Cheap fashion often comes with poor quality, wasted fabric, and clothes that barely last a season.",
+    description:
+      "Understand how fast fashion impacts quality, sustainability, and even personal style — and why custom tailoring is making a comeback.",
+  },
+  {
+    title: "How Celebrities Always Look Perfect in Ethnic Wear",
+    slug: "celebrity-ethnic-fashion-secrets",
+    date: "Apr 04, 2026",
+    tag: "Celebrity Style",
+    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b",
+    excerpt:
+      "It’s not just designer labels — tailoring plays a much bigger role than most people realize.",
+    description:
+      "From structured fits to custom drapes and styling tricks, here’s how celebrity ethnic looks are carefully tailored for perfection.",
+  },
+  {
+    title: "Before You Buy Your Wedding Outfit, Read This First",
+    slug: "wedding-outfit-shopping-guide",
+    date: "Mar 29, 2026",
+    tag: "Wedding Guide",
+    img: "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg",
+    excerpt:
+      "Most wedding outfit regrets happen because people focus only on design, not fitting and comfort.",
+    description:
+      "A practical guide to choosing bridal and groom wear that looks luxurious, photographs beautifully, and stays comfortable for long events.",
+  },
+  {
+    title: "The Simple Tailoring Trick That Makes Any Outfit Look Premium",
+    slug: "tailoring-tricks-premium-look",
     date: "Mar 21, 2026",
-    tag: "Guide",
-    img: "https://images.pexels.com/photos/13206032/pexels-photo-13206032.jpeg",
-  },
-  {
-    title: "Inside our boutique: the making of a bridal lehenga",
-    date: "Mar 06, 2026",
-    tag: "Boutique",
-    img: "https://images.pexels.com/photos/2723623/pexels-photo-2723623.jpeg",
+    tag: "Fashion Hacks",
+    img: "https://images.unsplash.com/photo-1445205170230-053b83016050",
+    excerpt: "The secret behind expensive-looking outfits is often surprisingly simple.",
+    description:
+      "Discover how proper sleeve length, shoulder fitting, hemming, and structure can instantly elevate everyday clothing.",
   },
 ];
 
@@ -428,19 +538,43 @@ export const GALLERY = [
 
 export const FAQ = [
   {
-    q: "How long does a bespoke order take?",
-    a: "14–21 days for most garments. Bridal pieces with heavy hand-work take 6–10 weeks.",
+    q: "What if my outfit doesn’t fit properly after delivery?",
+    a: "We provide alteration support for fitting issues. In most cases, minor adjustments can be done quickly to achieve the perfect fit.",
   },
   {
-    q: "Do you ship internationally?",
-    a: "Yes — we ship worldwide via DHL with full insurance. Delivery in 4–7 business days.",
+    q: "I don’t know which design or style will suit me. Can you help?",
+    a: "Yes, our team guides you with design suggestions based on your body type, occasion, comfort, and personal style preferences.",
   },
   {
-    q: "What if the fit isn\u2019t right?",
-    a: "Every bespoke order includes 2 fittings. If the fit is still off, we re-make it on us.",
+    q: "Can you stitch outfits from reference photos or Pinterest designs?",
+    a: "Yes, you can share inspiration images, and we’ll help recreate a similar design tailored to your measurements and preferences.",
   },
   {
-    q: "Can I bring my own fabric?",
-    a: "Absolutely. We charge stitching only — and will advise on lining and trims.",
+    q: "What if I’m unable to visit the boutique in person?",
+    a: "You can book a virtual consultation or doorstep measurement service, making the entire process convenient from home.",
+  },
+  {
+    q: "How many fittings are usually required?",
+    a: "Most outfits require only one fitting, while bridal or heavily customized garments may need additional trials for precision.",
+  },
+  {
+    q: "Can alterations be done on ready-made clothes?",
+    a: "Yes, we alter ready-made ethnic and western wear including dresses, blouses, suits, trousers, and occasion wear.",
+  },
+  {
+    q: "What if I need my outfit urgently for an event or wedding?",
+    a: "Depending on the design and workload, we do accept urgent orders whenever possible. We recommend contacting us early for priority scheduling.",
+  },
+  {
+    q: "Will the final outfit look exactly like the sample or reference image?",
+    a: "We aim to recreate the overall style and detailing closely, while also adapting the design to your fabric, measurements, and finishing preferences.",
+  },
+  {
+    q: "Do you help with fabric selection?",
+    a: "Yes, we guide customers on suitable fabrics based on design, fall, comfort, occasion, and budget.",
+  },
+  {
+    q: "How do I give measurements if I’m ordering online?",
+    a: "We provide a simple measurement guide and can also assist you through video call support for accurate sizing.",
   },
 ];

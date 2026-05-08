@@ -75,7 +75,7 @@ export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
           if (abs > VISIBLE) return null;
 
           // Arc layout
-          const STEP_X = 220; // horizontal spacing
+          const STEP_X = 320; // horizontal spacing
           const ARC_Y = 28; // vertical drop per step
           const ROT = 10; // tilt per step
           const SCALE_STEP = 0.12;
@@ -139,12 +139,25 @@ export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
       </div>
 
       {/* Caption + controls */}
-      <div className="relative z-50 -mt-4 sm:-mt-2 text-center max-w-xl mx-auto">
+      <div className="relative  -mt-4 sm:-mt-2 text-center max-w-xl mx-auto">
         <div className="flex items-center justify-center gap-3 sm:gap-4">
           <button
             onClick={() => go(-1)}
             aria-label="Previous"
-            className="w-9 h-9 rounded-full border border-rose hover:border-ink hover:bg-ink hover:text-white transition-colors flex items-center justify-center"
+            className="
+              absolute left-0 sm:left-4
+              w-10 h-10 sm:w-11 sm:h-11
+              rounded-full
+              border border-rose/70
+              bg-white/80 backdrop-blur
+              flex items-center justify-center
+              text-ink
+              transition-all duration-300
+              hover:bg-ink hover:text-white hover:border-ink
+              hover:scale-105
+              active:scale-95
+              shadow-sm hover:shadow-md
+            "
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -154,8 +167,21 @@ export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
           <button
             onClick={() => go(1)}
             aria-label="Next"
-            className="w-9 h-9 rounded-full border border-rose hover:border-ink hover:bg-ink hover:text-white transition-colors flex items-center justify-center"
-          >
+            className="
+              absolute right-0 sm:right-4
+              w-10 h-10 sm:w-11 sm:h-11
+              rounded-full
+              border border-rose/70
+              bg-white/80 backdrop-blur
+              flex items-center justify-center
+              text-ink
+              transition-all duration-300
+              hover:bg-ink hover:text-white hover:border-ink
+              hover:scale-105
+              active:scale-95
+              shadow-sm hover:shadow-md
+            "
+             >
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
