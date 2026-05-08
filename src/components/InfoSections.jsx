@@ -95,7 +95,7 @@ export function Process({ steps }) {
   );
 }
 
-export function FAQ({ items }) {
+export function FAQ_C({ items }) {
   const [open, setOpen] = useState(0);
   return (
     <section className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-10 mt-16 sm:mt-24">

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import SubCategoryCarousel from "@/components/SubCategoryCarousel";
-import { ServiceIntro, WhatWeOffer, Benefits, FAQ, CTAStrip } from "@/components/InfoSections";
+import { ServiceIntro, WhatWeOffer, Benefits, FAQ_C, CTAStrip } from "@/components/InfoSections";
 import { NAV } from "@/data";
 
 const OFFERINGS = [

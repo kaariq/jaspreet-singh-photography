@@ -1,23 +1,57 @@
-const context = require.context(".", false, /\.js$/);
+// WOMEN
+const womenContext = require.context("./women", false, /\.js$/);
 
-export const SUBITEMS = context
-  .keys()
-  .filter((file) => file !== "./subItems.js")
-  .reduce((acc, file) => {
-    const module = context(file);
+const women = womenContext.keys().reduce((acc, file) => {
+  const mod = womenContext(file);
 
-    const key = file
-      .replace("./", "")
-      .replace(".js", "");
+  const key = file.replace("./", "").replace(".js", "");
 
-    // find exported *_DESIGNS
-    const exportKey = Object.keys(module).find((k) =>
-      k.endsWith("_DESIGNS")
-    );
+  const exportKey = Object.keys(mod).find((k) => k.endsWith("_DESIGNS"));
 
-    if (exportKey) {
-      acc[key] = module[exportKey];
-    }
+  if (exportKey) {
+    acc[key] = mod[exportKey];
+  }
 
-    return acc;
-  }, {});
+  return acc;
+}, {});
+
+// MEN
+const menContext = require.context("./men", false, /\.js$/);
+
+const men = menContext.keys().reduce((acc, file) => {
+  const mod = menContext(file);
+
+  const key = file.replace("./", "").replace(".js", "");
+
+  const exportKey = Object.keys(mod).find((k) => k.endsWith("_DESIGNS"));
+
+  if (exportKey) {
+    acc[key] = mod[exportKey];
+  }
+
+  return acc;
+}, {});
+
+// CUSTOMISATION
+const customContext = require.context("./customisation", false, /\.js$/);
+
+const customisation = customContext.keys().reduce((acc, file) => {
+  const mod = customContext(file);
+
+  const key = file.replace("./", "").replace(".js", "");
+
+  const exportKey = Object.keys(mod).find((k) => k.endsWith("_DESIGNS"));
+
+  if (exportKey) {
+    acc[key] = mod[exportKey];
+  }
+
+  return acc;
+}, {});
+
+// FINAL EXPORT
+export const SUBITEMS = {
+  ...women,
+  ...men,
+  ...customisation,
+};

@@ -8,7 +8,7 @@
         "title": "Women's Wear",
         "items": [
           { "label": "Kurti", "slug": "kurti", "designKey": "kurti", "schemaKey": "kurta" },
-          { "label": "Suits", "slug": "suits", "schemaKey": "kurta" },
+          { "label": "Suits", "slug": "suits", "schemaKey": "suits" },
           { "label": "Blouse", "slug": "blouse", "designKey": "blouse", "schemaKey": "blouse" },
           { "label": "Lehengas", "slug": "lehengas", "designKey": "lehenga", "schemaKey": "lehenga" },
           { "label": "Sharara & Co-ord Sets", "slug": "sharara-and-co-ord-sets", "schemaKey": "kurta" },

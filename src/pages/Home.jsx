@@ -27,6 +27,7 @@ import {
   TESTIMONIALS,
   BLOGS,
   HERO_SLIDES,
+  FAQ,
 } from "@/data";
 
 const featureIcons = [Ruler, Globe, Scissors, Heart, Eye, Clock, Leaf, Sparkles];
@@ -958,34 +959,6 @@ function Journal() {
   );
 }
 
-/* -------------------- FAQ -------------------- */
-const FAQS = [
-  {
-    q: "How long does a bespoke piece take?",
-    a: "Most garments are delivered in 14–21 days. Heavy bridal and embroidered pieces may take 4–6 weeks. We share a clear timeline at consultation.",
-  },
-  {
-    q: "Do you offer doorstep measurement?",
-    a: "Yes — our master tailor visits at home or office across major cities, free of charge. For other locations, a virtual fitting is available.",
-  },
-  {
-    q: "Can I bring my own fabric?",
-    a: "Absolutely. You can supply your own fabric, choose from our curated mill, or have us source something rare — silk, linen, hand-loom or embroidered.",
-  },
-  {
-    q: "What if the fit is not perfect?",
-    a: "Every order includes up to three rounds of fittings, plus a lifetime alteration warranty for size changes within reason.",
-  },
-  {
-    q: "Do you ship worldwide?",
-    a: "Yes. We ship insured, duty-prepaid parcels to 60+ countries with delivery in 4–7 working days post-completion.",
-  },
-  {
-    q: "How is pricing decided?",
-    a: "Pricing depends on the garment, fabric, embroidery and finishing. You receive a transparent quote before we begin — no surprises.",
-  },
-];
-
 function FaqSection() {
   const [open, setOpen] = useState(0);
   return (
@@ -1005,7 +978,7 @@ function FaqSection() {
             </p>
           </motion.div>
           <motion.div variants={fadeUp} className="lg:col-span-8 border-t border-rose-soft">
-            {FAQS.map((f, i) => {
+            {FAQ.map((f, i) => {
               const isOpen = open === i;
               return (
                 <div key={f.q} className="border-b border-rose-soft">

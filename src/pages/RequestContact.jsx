@@ -22,7 +22,7 @@ export default function RequestContact() {
   const { addToCart, cart } = useAuth();
 
   const schemaKey = CATEGORY_TO_SCHEMA[slug];
-  const designs = DESIGNS[schemaKey] || [];
+  const designs = SUBITEMS[schemaKey] || [];
   const isCustom = design === "custom";
   const designObj = isCustom
     ? {

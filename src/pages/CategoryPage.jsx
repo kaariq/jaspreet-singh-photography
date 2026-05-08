@@ -22,10 +22,11 @@ const pickHover = (d, i) => d.hoverImage || HOVER_POOL[(i + 1) % HOVER_POOL.leng
 const tailoringSection = getSection("tailoring");
 
 export default function CategoryPage({ slug: forcedSlug }) {
+  console.log(SUBITEMS, "SUBITEMS");
   const params = useParams();
   const slug = forcedSlug || params.slug;
   const schemaKey = CATEGORY_TO_SCHEMA[slug];
-  const designs = DESIGNS[schemaKey] || DESIGNS[slug] || [];
+  const designs = SUBITEMS[schemaKey] || SUBITEMS[slug] || [];
   const label = CATEGORY_LABELS[schemaKey] || (slug || "").replace(/-/g, " ");
   const nav = useNavigate();
   const heroImg = designs[0]?.image || IMAGES.craft;
@@ -43,34 +44,20 @@ export default function CategoryPage({ slug: forcedSlug }) {
           {tailoringSection.groups.map((g) => {
             const isOpen = openGroup === g.title;
             return (
-              <div key={g.title} className="border-b border-rose/60 last:border-0">
-                <button
-                  onClick={() => setOpenGroup(isOpen ? null : g.title)}
-                  className="w-full flex items-center justify-between py-1.5 sm:py-2 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-mute hover:text-ink transition-colors"
-                  aria-expanded={isOpen}
-                >
-                  <span>{g.title}</span>
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar pb-2 -mx-4 sm:mx-0 px-4 sm:px-0">
-                    {g.items.map((it) => {
-                      const active = it.slug === slug;
-                      return (
-                        <Link
-                          key={it.slug}
-                          to={`/tailoring/${it.slug}`}
-                          aria-current={active ? "page" : undefined}
-                          className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full whitespace-nowrap transition-colors ${active ? "bg-primary text-primary-foreground border-primary shadow-sm" : "border-border bg-card hover:border-primary hover:text-primary"}`}
-                        >
-                          {it.label}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
+              <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar pb-2 -mx-4 sm:mx-0 px-4 sm:px-0">
+                {g.items.map((it) => {
+                  const active = it.slug === slug;
+                  return (
+                    <Link
+                      key={it.slug}
+                      to={`/tailoring/${it.slug}`}
+                      aria-current={active ? "page" : undefined}
+                      className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full whitespace-nowrap transition-colors ${active ? "bg-primary text-primary-foreground border-primary shadow-sm" : "border-border bg-card hover:border-primary hover:text-primary"}`}
+                    >
+                      {it.label}
+                    </Link>
+                  );
+                })}
               </div>
             );
           })}

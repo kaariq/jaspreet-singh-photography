@@ -45,7 +45,7 @@ export default function OrderJourney() {
   const { slug, design } = useParams();
   const schemaKey = CATEGORY_TO_SCHEMA[slug] || "blouse";
   const isCustom = design === "custom";
-  const designObj = !isCustom ? (DESIGNS[schemaKey] || []).find((d) => d.id === design) : null;
+  const designObj = !isCustom ? (SUBITEMS[schemaKey] || []).find((d) => d.id === design) : null;
   const fields = MEASUREMENTS[schemaKey] || MEASUREMENTS.blouse;
   const nav = useNavigate();
   const { isAuthed, state, addOrder, upsertPerson } = useAuth();

@@ -28,7 +28,7 @@ export * as WOMEN_BLOUSE from "./navigation/subItems/women/blouse.js";
 export * as WOMEN_DRESSES from "./navigation/subItems/women/dresses.js";
 export * as WOMEN_KURTI from "./navigation/subItems/women/kurti.js";
 export * as WOMEN_LEHENGAS from "./navigation/subItems/women/lehengas.js";
-export * as WOMEN_SHARARA_COORD from "./navigation/subItems/women/shararaCoord.js";
+export * as WOMEN_SHARARA_COORD from "./navigation/subItems/women/shararaCoords.js";
 export * as WOMEN_SHIRTS_TROUSERS from "./navigation/subItems/women/shirtsTrousers.js";
 export * as WOMEN_SUIT from "./navigation/subItems/women/suits.js";
 

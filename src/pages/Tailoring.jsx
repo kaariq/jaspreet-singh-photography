@@ -6,10 +6,10 @@ import {
   WhatWeOffer,
   Benefits,
   Process,
-  FAQ,
+  FAQ_C,
   CTAStrip,
 } from "@/components/InfoSections";
-import { NAV } from "@/data";
+import { NAV, FAQ } from "@/data";
 
 const OFFERINGS = [
   {
@@ -48,33 +48,6 @@ const STEPS = [
   },
 ];
 
-const FAQS = [
-  {
-    q: "How long does a custom garment take?",
-    a: "Most pieces are ready in 14–21 days. Heavy bridal work can take 4–8 weeks depending on embroidery.",
-  },
-  {
-    q: "Can I bring my own fabric?",
-    a: "Absolutely. We're happy to stitch on fabric you already own — bring it in or send it via courier.",
-  },
-  {
-    q: "Do you offer doorstep measurement?",
-    a: "Yes — complimentary on orders above ₹5,000 within the city, and on request elsewhere.",
-  },
-  {
-    q: "What if the fit isn't right?",
-    a: "We offer free alterations until the fit is perfect. Your satisfaction is part of the price.",
-  },
-  {
-    q: "Do you ship outside India?",
-    a: "Yes, we ship worldwide via insured courier. Delivery times vary by destination.",
-  },
-  {
-    q: "Can I see designs before stitching?",
-    a: "Our stylist shares sketches, fabric swatches and embroidery samples for approval before we begin.",
-  },
-];
-
 const sub = NAV[0].columns;
 
 export default function Tailoring() {
@@ -94,7 +67,7 @@ export default function Tailoring() {
       <WhatWeOffer items={OFFERINGS} />
       <Benefits />
       <Process steps={STEPS} />
-      <FAQ items={FAQS} />
+      <FAQ_C items={FAQ} />
       <CTAStrip
         title="Ready to be measured?"
         subtitle="Book a free consultation with our stylist — at home or in our atelier."
