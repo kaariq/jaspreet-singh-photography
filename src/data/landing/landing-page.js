@@ -1,3 +1,17 @@
+export const QUIZ_DATA = [
+  {
+    q: "How would you describe your everyday style?",
+    a: ["Classic & tailored", "Bohemian & relaxed", "Modern minimal", "Festive & ornate"],
+  },
+  {
+    q: "Which palette pulls you in?",
+    a: ["Ivory & gold", "Earthy neutrals", "Jewel tones", "Pastels"],
+  },
+  {
+    q: "A perfect occasion to dress for?",
+    a: ["Wedding sangeet", "Sunday brunch", "Boardroom meeting", "Diwali night"],
+  },
+];
 
 export const PRICING_GROUPS = [
   {

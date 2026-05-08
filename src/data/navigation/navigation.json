@@ -10,9 +10,22 @@
           { "label": "Kurti", "slug": "kurti", "designKey": "kurti", "schemaKey": "kurta" },
           { "label": "Suits", "slug": "suits", "schemaKey": "suits" },
           { "label": "Blouse", "slug": "blouse", "designKey": "blouse", "schemaKey": "blouse" },
-          { "label": "Lehengas", "slug": "lehengas", "designKey": "lehenga", "schemaKey": "lehenga" },
-          { "label": "Sharara & Co-ord Sets", "slug": "sharara-and-co-ord-sets", "schemaKey": "kurta" },
-          { "label": "Western Dresses & Jumpsuits", "slug": "western-dresses-and-jumpsuits", "schemaKey": "kurta" },
+          {
+            "label": "Lehengas",
+            "slug": "lehengas",
+            "designKey": "lehenga",
+            "schemaKey": "lehenga"
+          },
+          {
+            "label": "Sharara & Co-ord Sets",
+            "slug": "sharara-and-co-ord-sets",
+            "schemaKey": "kurta"
+          },
+          {
+            "label": "Western Dresses & Jumpsuits",
+            "slug": "western-dresses-and-jumpsuits",
+            "schemaKey": "kurta"
+          },
           { "label": "Shirts & Trousers", "slug": "shirts-and-trousers", "schemaKey": "trousers" }
         ]
       },
@@ -21,10 +34,25 @@
         "items": [
           { "label": "Shirts", "slug": "shirts", "schemaKey": "trousers" },
           { "label": "Trousers", "slug": "trousers", "schemaKey": "trousers" },
-          { "label": "Kurta Pyjama", "slug": "kurta-pyjama", "designKey": "kurta-pyjama", "schemaKey": "kurta-pyjama" },
+          {
+            "label": "Kurta Pyjama",
+            "slug": "kurta-pyjama",
+            "designKey": "kurta-pyjama",
+            "schemaKey": "kurta-pyjama"
+          },
           { "label": "Nehru Jackets", "slug": "nehru-jackets", "schemaKey": "waistcoat" },
-          { "label": "Sherwanis", "slug": "sherwanis", "designKey": "sherwani", "schemaKey": "sherwani" },
-          { "label": "Suits & Blazers", "slug": "suits-and-blazers", "designKey": "suit", "schemaKey": "suit" }
+          {
+            "label": "Sherwanis",
+            "slug": "sherwanis",
+            "designKey": "sherwani",
+            "schemaKey": "sherwani"
+          },
+          {
+            "label": "Suits & Blazers",
+            "slug": "suits-and-blazers",
+            "designKey": "suit",
+            "schemaKey": "suit"
+          }
         ]
       },
       {
@@ -99,8 +127,7 @@
           { "label": "Gallery & Lookbook", "slug": "gallery-and-lookbook" },
           { "label": "Blog & Fashion News", "slug": "blog-and-fashion-news" },
           { "label": "AI Design Tool", "slug": "ai-design-tool" },
-          { "label": "Personal Style Quiz", "slug": "personal-style-quiz" },
-          { "label": "Customer Showreels", "slug": "customer-showreels" }
+          { "label": "Personal Style Quiz", "slug": "personal-style-quiz" }
         ]
       }
     ]
