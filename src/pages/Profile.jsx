@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
-import { MEASUREMENT_FIELDS, CATEGORY_LABELS, RELATIONS } from "@/data/measurements";
+import { MEASUREMENTS, CATEGORY_LABELS, RELATIONS } from "@/data/orderCycle/measurements";
 import {
   Plus,
   User,
@@ -323,7 +323,7 @@ function MeasurementsEditor({ personId, onClose }) {
   const { state, setMeasurements } = useAuth();
   const person = state.people.find((p) => p.id === personId);
   const [cat, setCat] = useState(Object.keys(person?.measurements || {})[0] || "blouse");
-  const fields = MEASUREMENT_FIELDS[cat] || [];
+  const fields = MEASUREMENTS[cat] || [];
   const [vals, setVals] = useState(person?.measurements?.[cat] || {});
   const updateCat = (c) => {
     setCat(c);
@@ -345,7 +345,7 @@ function MeasurementsEditor({ personId, onClose }) {
         </button>
       </div>
       <div className="flex gap-2 overflow-x-auto no-scrollbar mt-4 pb-2">
-        {Object.keys(MEASUREMENT_FIELDS).map((c) => (
+        {Object.keys(MEASUREMENTS).map((c) => (
           <button
             key={c}
             onClick={() => updateCat(c)}

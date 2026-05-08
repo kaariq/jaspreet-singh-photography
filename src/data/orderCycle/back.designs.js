@@ -1,4 +1,4 @@
-,.export const BACK_DESIGNS = [
+export const BACK_DESIGNS = [
   {
     id: "closed",
     label: "Closed Back",

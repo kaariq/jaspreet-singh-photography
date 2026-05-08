@@ -24,10 +24,10 @@ import {
   FEATURES,
   COLLECTIONS,
   PROCESS,
-  TESTIMONIAL_MEDIA,
-  BLOG,
+  TESTIMONIALS,
+  BLOGS,
   HERO_SLIDES,
-} from "@/mock/mock";
+} from "@/data";
 
 const featureIcons = [Ruler, Globe, Scissors, Heart, Eye, Clock, Leaf, Sparkles];
 
@@ -714,7 +714,7 @@ function FeaturesSection() {
 /* -------------------- MEDIA TESTIMONIALS — split, dark, auto-scroll -------------------- */
 function MediaTestimonials() {
   const [open, setOpen] = useState(null);
-  const list = [...TESTIMONIAL_MEDIA, ...TESTIMONIAL_MEDIA, ...TESTIMONIAL_MEDIA]; // for seamless loop
+  const list = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]; // for seamless loop
   const [paused, setPaused] = useState(false);
   return (
     <section className="relative bg-ink-deep text-white overflow-hidden">
@@ -900,7 +900,7 @@ function Journal() {
 
       {/* Mobile: ultra-compact list, top 3 only */}
       <Reveal variants={stagger(0.04)} className="lg:hidden border-t border-rose">
-        {BLOG.slice(0, 3).map((b, i) => (
+        {BLOGS.slice(0, 3).map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
             <Link
               to="/explore/blog-and-fashion-news"
@@ -925,7 +925,7 @@ function Journal() {
 
       {/* Desktop: original full row */}
       <Reveal variants={stagger(0.04)} className="hidden lg:block border-t border-rose">
-        {BLOG.map((b, i) => (
+        {BLOGS.map((b, i) => (
           <motion.article key={b.title} custom={i} variants={fadeUp}>
             <Link
               to="/explore/blog-and-fashion-news"

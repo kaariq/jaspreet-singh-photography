@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Sparkles, Upload, ChevronDown } from "lucide-react";
-import { DESIGNS } from "@/data/designs";
-import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/measurements";
-import { IMAGES } from "@/mock/mock";
-import { getSection } from "@/data/navigation";
+import { SUBITEMS } from "@/data";
+import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/orderCycle/measurements";
+import { IMAGES } from "@/data";
+import { getSection } from "@/data/navigation/navigation";
 
 const HOVER_POOL = [
   IMAGES.embroidery,
@@ -50,7 +50,9 @@ export default function CategoryPage({ slug: forcedSlug }) {
                   aria-expanded={isOpen}
                 >
                   <span>{g.title}</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
                 {isOpen && (
                   <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar pb-2 -mx-4 sm:mx-0 px-4 sm:px-0">

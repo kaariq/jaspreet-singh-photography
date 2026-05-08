@@ -3,8 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/PageBits";
 import { Check, ArrowRight } from "lucide-react";
-import { PRICING_GROUPS, PRICING_INCLUDED } from "@/data/pricing-data";
-import { IMAGES } from "@/mock/mock";
+import { PRICING, PRICING_INCLUDED } from "@/data";
+import { IMAGES } from "@/data";
 
 export default function Pricing() {
   const { slug } = useParams();

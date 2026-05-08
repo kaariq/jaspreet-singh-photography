@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { IMAGES } from "@/mock/mock";
+import { IMAGES } from "@/data";
 
 const KEY = "kaariq_welcome_modal_seen";
 

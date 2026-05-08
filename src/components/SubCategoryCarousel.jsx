@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { IMAGES } from "@/mock/mock";
+import { IMAGES } from "@/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slugify = (s) =>
@@ -36,7 +36,10 @@ const blurb = (label) =>
  */
 export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
   const items = columns.flatMap((c) => c.items);
-  const initial = Math.max(0, items.findIndex((l) => slugify(l) === activeSlug));
+  const initial = Math.max(
+    0,
+    items.findIndex((l) => slugify(l) === activeSlug),
+  );
   const [center, setCenter] = useState(initial === -1 ? 0 : initial);
 
   const go = useCallback(
@@ -181,7 +184,7 @@ export default function SubCategoryCarousel({ basePath, columns, activeSlug }) {
               active:scale-95
               shadow-sm hover:shadow-md
             "
-             >
+          >
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>

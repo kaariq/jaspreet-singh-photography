@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageHero } from "@/components/PageBits";
-import { PROCESS, IMAGES, FAQ } from "@/mock/mock";
+import { PROCESS, IMAGES, FAQ } from "@/data";
 import { Calendar as CalIcon, Clock, Video, MapPin, Check, ArrowRight } from "lucide-react";
 
 const measurements = [

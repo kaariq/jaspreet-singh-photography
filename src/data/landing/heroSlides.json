@@ -1,0 +1,62 @@
+[
+  {
+    "id": "fast-home-tailoring",
+    "title": "48-Hour Stitching.\nPickup & Delivery.",
+    "body": "We pick up from your home, stitch in 2 days, and deliver ready to wear.",
+    "cta": { "label": "Book Free Pickup", "to": "/booking/book-appointment" },
+    "image": "/banners/home-tailoring.png",
+    "align": "left",
+    "overlay":
+      "linear-gradient(90deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
+  },
+  {
+    "id": "custom-design",
+    "title": "Send Any Design.\nWe Stitch It for You.",
+    "body": "Pinterest, Instagram, or your idea — we design, stitch, and deliver in 48 hours.",
+    "cta": { "label": "Upload Your Design", "to": "/custom-design" },
+    "image": "/banners/custom-design.png",
+    "align": "right",
+    "overlay":
+      "linear-gradient(270deg, rgba(50,56,43,0.78) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
+  },
+  {
+    "id": "design-help",
+    "title": "No Design?\nWe Help You Choose.",
+    "body": "Get expert advice, design options, and stitching — all handled for you.",
+    "cta": { "label": "Get Style Advice", "to": "/design-consultation" },
+    "image": "/banners/design-help.png",
+    "align": "left",
+    "overlay":
+      "linear-gradient(90deg, rgba(50,56,43,0.78) 0%, rgba(50,56,43,0.35) 50%, rgba(0,0,0,0) 80%)"
+  },
+  {
+    "id": "perfect-fit",
+    "title": "Perfect Fit.\nFree Alterations.",
+    "body": "If it’s not right, we fix it free within 4 days — no extra charges.",
+    "cta": { "label": "Fix My Fit", "to": "/alterations" },
+    "image": "/banners/perfect-fit.png",
+    "align": "right",
+    "overlay":
+      "linear-gradient(270deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.4) 55%, rgba(0,0,0,0) 85%)"
+  },
+  {
+    "id": "custom-work",
+    "title": "Embroidery, Dyeing,\nLacework — Done.",
+    "body": "Custom detailed work, made to your design and finished exactly how you want.",
+    "cta": { "label": "Explore Custom Work", "to": "/custom-work" },
+    "image": "/banners/custom-work.png",
+    "align": "left",
+    "overlay":
+      "linear-gradient(90deg, rgba(50,56,43,0.75) 0%, rgba(50,56,43,0.3) 50%, rgba(0,0,0,0) 80%)"
+  },
+  {
+    "id": "mens-stitching",
+    "title": "Men’s Clothes That Actually Fit.",
+    "body": "Shirts, trousers, kurtas — home measurement, 48-hour stitching, doorstep delivery.",
+    "cta": { "label": "View Men’s Styles", "to": "/mens-stitching" },
+    "image": "/banners/mens-stitching.png",
+    "align": "right",
+    "overlay":
+      "linear-gradient(270deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
+  }
+]

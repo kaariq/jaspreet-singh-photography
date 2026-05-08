@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, ShoppingBag, Phone } from "lucide-react";
-import { DESIGNS } from "@/data/designs";
-import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/measurements";
+import { SUBITEMS } from "@/data";
+import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/orderCycle/measurements";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 

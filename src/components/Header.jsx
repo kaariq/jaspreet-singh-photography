@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ShoppingBag, User, Menu, X, ChevronRight, LogOut } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
-import { NAV, SITE } from "@/mock/mock";
+import { NAV, SITE } from "@/data";
 import { useAuth } from "@/contexts/AuthContext";
 const slug = (s) =>
   s

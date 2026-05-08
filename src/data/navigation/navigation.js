@@ -1,8 +1,8 @@
 // Single source of truth for site navigation.
 // Loaded from src/data/navigation.json and exposes helpers + legacy `NAV` shape.
-import navJson from "@/data/navigation.json";
+import NAVIGATION_JSON from "./navigation.json";
 
-export const NAVIGATION = navJson;
+export const NAVIGATION = NAVIGATION_JSON;
 
 // Legacy `NAV` shape used by Header / SubCategoryCarousel:
 // [{ key, label, columns: [{ title, items: [labelString] }] }]
@@ -25,12 +25,10 @@ export const flatItems = (key) => {
 };
 
 // Look up an item by section key + slug.
-export const findItem = (key, slug) =>
-  flatItems(key).find((i) => i.slug === slug);
+export const findItem = (key, slug) => flatItems(key).find((i) => i.slug === slug);
 
 // Resolve route for an item.
 export const routeForItem = (sectionKey, slug) => `/${sectionKey}/${slug}`;
 
 // Build slug→meta lookup for a section (used by routers).
-export const slugMap = (key) =>
-  Object.fromEntries(flatItems(key).map((i) => [i.slug, i]));
+export const slugMap = (key) => Object.fromEntries(flatItems(key).map((i) => [i.slug, i]));

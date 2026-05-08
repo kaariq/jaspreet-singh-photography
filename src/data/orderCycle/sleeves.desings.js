@@ -1,4 +1,4 @@
-export const SLEEVE_STYLES = [
+export const SLEEVES = [
   {
     id: "sleeveless",
     label: "Sleeveless",

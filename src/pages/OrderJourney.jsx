@@ -3,15 +3,8 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, Check, Upload, Info, X, Plus, Ruler } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import {
-  DESIGNS,
-  NECKLINES,
-  BACK_DESIGNS,
-  SLEEVE_STYLES,
-  ADDONS,
-  HOW_TO_MEASURE,
-} from "@/data/designs";
-import { MEASUREMENT_FIELDS, CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/measurements";
+import { SUBITEMS, NECKLINES, BACK_DESIGNS, SLEEVES, ADDONS, HOW_TO_MEASURE } from "@/data";
+import { MEASUREMENTS, CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/orderCycle/measurements";
 import { NECKLINE_SVGS, BACK_SVGS, SLEEVE_SVGS } from "@/components/DesignSVGs";
 import { Home as HomeIcon, MapPin, UserCheck, PencilLine } from "lucide-react";
 
@@ -53,7 +46,7 @@ export default function OrderJourney() {
   const schemaKey = CATEGORY_TO_SCHEMA[slug] || "blouse";
   const isCustom = design === "custom";
   const designObj = !isCustom ? (DESIGNS[schemaKey] || []).find((d) => d.id === design) : null;
-  const fields = MEASUREMENT_FIELDS[schemaKey] || MEASUREMENT_FIELDS.blouse;
+  const fields = MEASUREMENTS[schemaKey] || MEASUREMENTS.blouse;
   const nav = useNavigate();
   const { isAuthed, state, addOrder, upsertPerson } = useAuth();
 
@@ -226,7 +219,7 @@ export default function OrderJourney() {
                   <OptionStep
                     title="Choose sleeve style"
                     hint="Long, short, puff or off-the-shoulder."
-                    options={SLEEVE_STYLES}
+                    options={SLEEVES}
                     svgMap={SLEEVE_SVGS}
                     value={data.sleeve}
                     onChange={(v) => setData({ ...data, sleeve: v })}
@@ -299,10 +292,7 @@ export default function OrderJourney() {
                   {!isCustom && (
                     <Row k="Back" v={BACK_DESIGNS.find((n) => n.id === data.back)?.label || "—"} />
                   )}
-                  <Row
-                    k="Sleeve"
-                    v={SLEEVE_STYLES.find((n) => n.id === data.sleeve)?.label || "—"}
-                  />
+                  <Row k="Sleeve" v={SLEEVES.find((n) => n.id === data.sleeve)?.label || "—"} />
                   <Row
                     k="Add-ons"
                     v={data.addons.length ? `${data.addons.length} selected` : "—"}
@@ -360,10 +350,7 @@ export default function OrderJourney() {
                   {!isCustom && (
                     <Row k="Back" v={BACK_DESIGNS.find((n) => n.id === data.back)?.label || "—"} />
                   )}
-                  <Row
-                    k="Sleeve"
-                    v={SLEEVE_STYLES.find((n) => n.id === data.sleeve)?.label || "—"}
-                  />
+                  <Row k="Sleeve" v={SLEEVES.find((n) => n.id === data.sleeve)?.label || "—"} />
                   <Row
                     k="Add-ons"
                     v={data.addons.length ? `${data.addons.length} selected` : "—"}
@@ -883,7 +870,7 @@ function ReviewStep({
             <ul className="text-sm space-y-1">
               <li>Neckline — {NECKLINES.find((n) => n.id === data.neckline)?.label}</li>
               <li>Back — {BACK_DESIGNS.find((n) => n.id === data.back)?.label}</li>
-              <li>Sleeve — {SLEEVE_STYLES.find((n) => n.id === data.sleeve)?.label}</li>
+              <li>Sleeve — {SLEEVES.find((n) => n.id === data.sleeve)?.label}</li>
             </ul>
           </Card>
         )}
@@ -912,7 +899,7 @@ function ReviewStep({
           </div>
           <div className="text-sm mt-3">
             {Object.values(data.measurements || {}).filter(Boolean).length} of{" "}
-            {(MEASUREMENT_FIELDS[schemaKey] || []).length} measurements filled
+            {(MEASUREMENTS[schemaKey] || []).length} measurements filled
           </div>
         </Card>
       </div>

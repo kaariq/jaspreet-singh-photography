@@ -1,6 +1,6 @@
 import React from "react";
 import { Phone, MessageCircle } from "lucide-react";
-import { SITE } from "@/mock/mock";
+import { SITE } from "@/data";
 
 const stripPhone = (p) => (p || "").replace(/[^\d+]/g, "");
 

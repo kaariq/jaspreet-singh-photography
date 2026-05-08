@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageHero } from "@/components/PageBits";
-import { SITE, IMAGES } from "@/mock/mock";
+import { SITE, IMAGES } from "@/data";
 import { MapPin, Phone, Mail, MessageCircle, Building2, Send, Check } from "lucide-react";
 
 export default function Contact() {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ANNOUNCEMENTS } from '@/mock/mock';
+import React from "react";
+import { ANNOUNCEMENTS } from "@/data";
 
 export default function AnnouncementBar() {
   const items = [...ANNOUNCEMENTS, ...ANNOUNCEMENTS];
