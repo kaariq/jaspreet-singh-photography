@@ -3,14 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/PageBits";
 import { Check, ArrowRight } from "lucide-react";
-import { PRICING, PRICING_INCLUDED } from "@/data";
+import { PRICING_GROUPS, PRICING_INCLUDED } from "@/data";
 import { IMAGES } from "@/data";
 
 export default function Pricing() {
   const { slug } = useParams();
-  const initial = PRICING.find((g) => slug?.includes(g.id))?.id || "womens";
+  const initial = PRICING_GROUPS.find((g) => slug?.includes(g.id))?.id || "womens";
   const [tab, setTab] = useState(initial);
-  const group = PRICING.find((g) => g.id === tab);
+  const group = PRICING_GROUPS.find((g) => g.id === tab);
 
   return (
     <main className="pb-12 sm:pb-20">
@@ -28,7 +28,7 @@ export default function Pricing() {
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-6 sm:mt-12">
         {/* Tabs — scrollable on mobile */}
         <div className="flex sm:flex-wrap gap-2 border-b border-rose pb-3 overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
-          {PRICING.map((g) => (
+          {PRICING_GROUPS.map((g) => (
             <button
               key={g.id}
               onClick={() => setTab(g.id)}
