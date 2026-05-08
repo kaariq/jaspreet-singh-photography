@@ -1,140 +1,15 @@
-// Mock data for Kaariq Tailoring & Boutique
+// Aggregated mock data — sourced from src/data/*.json (single source of truth).
+import siteJson from "@/data/site.json";
+import announcementsJson from "@/data/announcements.json";
+import imagesJson from "@/data/images.json";
+import { NAV as NAV_FROM_JSON } from "@/data/navigation";
 
-export const SITE = {
-  brand: "Kaariq",
-  tagline: "Your fabric, your fit, your story.",
-  phone: "+91 98765 43210",
-  whatsapp: "+91 98765 43210",
-  email: "contact@kaariq.com",
-  hours: "Mon – Sat · 10:00 – 18:00",
-};
+export const SITE = siteJson;
+export const ANNOUNCEMENTS = announcementsJson;
 
-export const ANNOUNCEMENTS = [
-  "Complimentary doorstep measurement on orders above ₹5,000",
-  "New Wedding Edit · Now Open for Consultations",
-  "Free virtual fitting · Book in 60 seconds",
-];
+export const NAV = NAV_FROM_JSON;
 
-export const NAV = [
-  {
-    key: "tailoring",
-    label: "Tailoring",
-    columns: [
-      {
-        title: "Women's Wear",
-        items: [
-          "Kurti",
-          "Suits",
-          "Blouse",
-          "Lehengas",
-          "Sharara & Co-ord Sets",
-          "Western Dresses & Jumpsuits",
-          "Shirts & Trousers",
-        ],
-      },
-      {
-        title: "Men's Wear",
-        items: [
-          "Shirts",
-          "Trousers",
-          "Kurta Pyjama",
-          "Nehru Jackets",
-          "Sherwanis",
-          "Suits & Blazers",
-        ],
-      },
-      {
-        title: "Customizations",
-        items: [
-          "Embroidery & Work",
-          "Neckline & Sleeve Designs",
-          "Lace & Patch Work",
-          "Fabric Dyeing",
-          "Fittings & Alterations",
-        ],
-      },
-    ],
-  },
-  {
-    key: "collections",
-    label: "Collections",
-    columns: [
-      {
-        title: "Signature Collections",
-        items: ["New Arrivals", "Best Sellers", "Custom Tailoring", "Premium Designs"],
-      },
-      {
-        title: "Shop by Occasion",
-        items: ["Wedding Edit", "Festive Wear", "Party Wear", "Office Looks"],
-      },
-      {
-        title: "Trending Styles",
-        items: ["Celebrity Inspired", "Everyday Chic", "Modern Ethnic"],
-      },
-    ],
-  },
-  {
-    key: "pricing",
-    label: "Pricing",
-    columns: [
-      {
-        title: "Rates",
-        items: ["Standard Rates", "Premium Bespoke", "Alteration Charges", "Bulk Orders"],
-      },
-    ],
-  },
-  {
-    key: "explore",
-    label: "Explore",
-    columns: [
-      {
-        title: "Discover",
-        items: [
-          "Gallery & Lookbook",
-          "Blog & Fashion News",
-          "AI Design Tool",
-          "Personal Style Quiz",
-          "Customer Showreels",
-        ],
-      },
-    ],
-  },
-  {
-    key: "booking",
-    label: "Booking Guide",
-    columns: [
-      {
-        title: "Plan Your Visit",
-        items: ["Our Process", "Measurement Guide", "Book Appointment", "Virtual Consultation"],
-      },
-    ],
-  },
-  {
-    key: "contact",
-    label: "Contact Us",
-    columns: [
-      {
-        title: "Get In Touch",
-        items: ["Find Our Boutique", "WhatsApp Support", "Corporate Inquiries"],
-      },
-    ],
-  },
-];
-
-export const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1746372283841-dbb3838f9935",
-  women: "https://images.pexels.com/photos/2723623/pexels-photo-2723623.jpeg",
-  men: "https://images.pexels.com/photos/6458310/pexels-photo-6458310.jpeg",
-  embroidery: "https://images.unsplash.com/photo-1724856604254-f7cf4e9c8f72",
-  craft: "/longBanner.png",
-  wedding: "https://images.unsplash.com/photo-1724856604403-60304b28906c",
-  festive: "https://images.pexels.com/photos/12100636/pexels-photo-12100636.jpeg",
-  casual: "https://images.unsplash.com/photo-1768651925875-d1523ed07cb6",
-  lookbook: "https://images.unsplash.com/photo-1724433530860-f094e39b64e7",
-  fabric: "https://images.pexels.com/photos/34191411/pexels-photo-34191411.jpeg",
-  consultation: "https://images.unsplash.com/photo-1764298493253-e49696c110e7",
-  boutique: "https://images.pexels.com/photos/6044231/pexels-photo-6044231.jpeg",
-};
+export const IMAGES = imagesJson;
 
 export const SERVICES = [
   {

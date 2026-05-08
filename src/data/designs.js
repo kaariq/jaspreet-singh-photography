@@ -254,6 +254,12 @@ export const DESIGNS = {
   ],
 };
 
+// Aliases so look-ups by either slug or schema key work.
+DESIGNS.kurta = DESIGNS.kurti;
+DESIGNS.lehengas = DESIGNS.lehenga;
+DESIGNS.sherwanis = DESIGNS.sherwani;
+DESIGNS["suits-and-blazers"] = DESIGNS.suit;
+
 // Customisation options used by the order journey
 export const NECKLINES = [
   {
