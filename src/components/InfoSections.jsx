@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Scissors, Ruler, Sparkles, ShieldCheck, Truck, HeartHandshake, Plus, Minus } from "lucide-react";
+import {
+  Scissors,
+  Ruler,
+  Sparkles,
+  ShieldCheck,
+  Truck,
+  HeartHandshake,
+  Plus,
+  Minus,
+} from "lucide-react";
+import { FEATURES } from "@/data";
 
 export function ServiceIntro({ eyebrow, title, lead }) {
   return (
@@ -39,14 +49,14 @@ export function WhatWeOffer({ items }) {
   );
 }
 
-const BENEFITS = [
-  { Icon: Ruler, title: "Tailored to your measure", desc: "Every garment is cut to your exact measurements — no compromises on fit." },
-  { Icon: Scissors, title: "Master craftsmanship", desc: "Hand-finished by tailors with decades of bespoke experience." },
-  { Icon: Sparkles, title: "Premium fabrics", desc: "Hand-picked silks, linens, cottons and weaves sourced across India." },
-  { Icon: ShieldCheck, title: "Fit guarantee", desc: "Free alterations until the fit is right. Your satisfaction is the standard." },
-  { Icon: Truck, title: "Doorstep service", desc: "Complimentary measurement and delivery on orders above ₹5,000." },
-  { Icon: HeartHandshake, title: "Personal stylist", desc: "Guidance on fabric, silhouette and styling — every step of the way." },
-];
+const ICON_MAP = {
+  Scissors,
+  Ruler,
+  Sparkles,
+  ShieldCheck,
+  Truck,
+  HeartHandshake,
+};
 
 export function Benefits() {
   return (
@@ -57,17 +67,24 @@ export function Benefits() {
           The benefits of bespoke
         </h2>
         <p className="text-ink/70 text-sm sm:text-base mt-4 max-w-2xl mx-auto">
-          Off-the-rack ends where we begin. A garment made for you fits, drapes and wears like nothing else.
+          Off-the-rack ends where we begin. A garment made for you fits, drapes and wears like
+          nothing else.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {BENEFITS.map(({ Icon, title, desc }) => (
-          <div key={title} className="p-6 bg-rose-pale/40">
-            <Icon className="w-6 h-6 text-wine" />
-            <h3 className="font-serif-display text-lg text-ink mt-4">{title}</h3>
-            <p className="text-ink/70 text-sm mt-2 leading-relaxed">{desc}</p>
-          </div>
-        ))}
+        {FEATURES.map(({ icon, title, desc }) => {
+          const Icon = ICON_MAP[icon]; // resolve string → component
+
+          return (
+            <div key={title} className="p-6 bg-rose-pale/40">
+              {Icon && <Icon className="w-6 h-6 text-wine" />}
+
+              <h3 className="font-serif-display text-lg text-ink mt-4">{title}</h3>
+
+              <p className="text-ink/70 text-sm mt-2 leading-relaxed">{desc}</p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -85,7 +102,9 @@ export function Process({ steps }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {steps.map((s, i) => (
           <div key={s.title} className="relative p-6 border border-ink/10">
-            <div className="text-wine font-serif-display text-3xl">{String(i + 1).padStart(2, "0")}</div>
+            <div className="text-wine font-serif-display text-3xl">
+              {String(i + 1).padStart(2, "0")}
+            </div>
             <h3 className="font-serif-display text-lg text-ink mt-3">{s.title}</h3>
             <p className="text-ink/70 text-sm mt-2 leading-relaxed">{s.desc}</p>
           </div>
@@ -101,9 +120,7 @@ export function FAQ_C({ items }) {
     <section className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-10 mt-16 sm:mt-24">
       <div className="text-center mb-10">
         <div className="edit-num text-[10px] sm:text-xs text-wine">— FAQ</div>
-        <h2 className="font-serif-display text-2xl sm:text-4xl text-ink mt-3">
-          Frequently asked
-        </h2>
+        <h2 className="font-serif-display text-2xl sm:text-4xl text-ink mt-3">Frequently asked</h2>
       </div>
       <div className="divide-y divide-ink/10 border-y border-ink/10">
         {items.map((it, i) => {
@@ -115,11 +132,13 @@ export function FAQ_C({ items }) {
                 className="w-full flex items-center justify-between gap-4 py-5 text-left"
               >
                 <span className="font-serif-display text-base sm:text-lg text-ink">{it.q}</span>
-                {isOpen ? <Minus className="w-4 h-4 text-wine shrink-0" /> : <Plus className="w-4 h-4 text-wine shrink-0" />}
+                {isOpen ? (
+                  <Minus className="w-4 h-4 text-wine shrink-0" />
+                ) : (
+                  <Plus className="w-4 h-4 text-wine shrink-0" />
+                )}
               </button>
-              {isOpen && (
-                <p className="text-ink/70 text-sm leading-relaxed pb-5 pr-8">{it.a}</p>
-              )}
+              {isOpen && <p className="text-ink/70 text-sm leading-relaxed pb-5 pr-8">{it.a}</p>}
             </div>
           );
         })}
