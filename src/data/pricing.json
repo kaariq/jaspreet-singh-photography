@@ -1,0 +1,39 @@
+[
+  {
+    "plan": "Standard",
+    "headline": "Everyday tailoring, exceptional quality.",
+    "items": [
+      ["Blouse (basic)", "₹1,200"],
+      ["Kurta (women)", "₹1,800"],
+      ["Salwar / Pant", "₹900"],
+      ["Kurta Pyjama (men)", "₹2,200"],
+      ["Trousers", "₹1,400"],
+      ["Waistcoat", "₹1,800"]
+    ]
+  },
+  {
+    "plan": "Premium Bespoke",
+    "headline": "Hand-finished with master artisans.",
+    "featured": true,
+    "items": [
+      ["Bridal Lehenga", "from ₹85,000"],
+      ["Anarkali (heavy work)", "from ₹18,000"],
+      ["Sherwani", "from ₹22,000"],
+      ["Designer Suit (men)", "from ₹28,000"],
+      ["Designer Blouse", "from ₹4,500"],
+      ["Hand Embroidery", "from ₹6,000"]
+    ]
+  },
+  {
+    "plan": "Alterations",
+    "headline": "Bring your wardrobe back to life.",
+    "items": [
+      ["Hem (trouser/kurta)", "₹250"],
+      ["Take in / Let out", "₹400"],
+      ["Zipper Replacement", "₹350"],
+      ["Lining Replacement", "₹900"],
+      ["Blouse refit", "₹600"],
+      ["Bridal restoration", "on quote"]
+    ]
+  }
+]

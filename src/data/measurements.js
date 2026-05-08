@@ -117,20 +117,28 @@ export const MEASUREMENT_FIELDS = {
   ],
 };
 
-// Map slugs / pretty names to schema keys
+// Map slugs / pretty names to schema keys (kept in sync with navigation.json slugs)
 export const CATEGORY_TO_SCHEMA = {
-  'blouse': 'blouse',
-  'kurta': 'kurta',
-  'kurti': 'kurta',
-  'anarkali': 'anarkali',
-  'lehenga': 'lehenga',
+  blouse: 'blouse',
+  kurta: 'kurta',
+  kurti: 'kurta',
+  suits: 'kurta',
+  anarkali: 'anarkali',
+  lehenga: 'lehenga',
+  lehengas: 'lehenga',
+  'sharara-and-co-ord-sets': 'kurta',
+  'western-dresses-and-jumpsuits': 'kurta',
+  'shirts-and-trousers': 'trousers',
   'bottoms-and-salwars': 'bottom',
-  'salwar': 'bottom',
+  salwar: 'bottom',
+  shirts: 'trousers',
+  trousers: 'trousers',
   'suits-and-blazers': 'suit',
-  'sherwani': 'sherwani',
+  sherwani: 'sherwani',
+  sherwanis: 'sherwani',
+  'nehru-jackets': 'waistcoat',
   'kurta-pyjama': 'kurta-pyjama',
-  'trousers': 'trousers',
-  'waistcoats': 'waistcoat',
+  waistcoats: 'waistcoat',
 };
 
 export const CATEGORY_LABELS = {

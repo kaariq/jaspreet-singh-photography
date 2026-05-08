@@ -1,0 +1,39 @@
+[
+  {
+    "tag": "Daily Wear",
+    "title": "Daily Wear",
+    "images": [
+      "/collections/daily/1.png",
+      "/collections/daily/2.png",
+      "/collections/daily/3.png",
+      "/collections/daily/4.png",
+      "/collections/daily/5.png",
+      "/collections/daily/6.png"
+    ],
+    "blurb": "Comfort-first styles for everyday elegance."
+  },
+  {
+    "tag": "Office Wear",
+    "title": "Office Wear",
+    "images": [
+      "/collections/formals/1.png",
+      "/collections/formals/2.png",
+      "/collections/formals/3.png",
+      "/collections/formals/4.png",
+      "/collections/formals/5.png",
+      "/collections/formals/6.png"
+    ],
+    "blurb": "Sharp, confident looks for workdays."
+  },
+  {
+    "tag": "Wedding Edit",
+    "title": "Wedding Edit",
+    "images": [
+      "/collections/wedding/1.png",
+      "/collections/wedding/2.png",
+      "/collections/wedding/3.png",
+      "/collections/wedding/4.png"
+    ],
+    "blurb": "Statement pieces for grand celebrations."
+  }
+]

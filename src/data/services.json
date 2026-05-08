@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Women's Wear",
+    "desc": "Elegant ethnic and western tailoring — from kurtis and blouses to lehengas, dresses, and co-ord sets.",
+    "img": "/cards/womens-wear.png",
+    "link": "/tailoring/womens-wear"
+  },
+  {
+    "title": "Men's Wear",
+    "desc": "Precision-crafted menswear including shirts, trousers, sherwanis, kurtas, suits, and Nehru jackets.",
+    "img": "/cards/mens-wear.png",
+    "link": "/tailoring/mens-wear"
+  },
+  {
+    "title": "Customizations",
+    "desc": "Personalize every outfit with embroidery, neckline styling, sleeve designs, patch work, dyeing, and fittings.",
+    "img": "/cards/customizations.png",
+    "link": "/tailoring/customizations"
+  },
+  {
+    "title": "Collections",
+    "desc": "Discover signature collections, festive edits, wedding wear, premium designs, and trending modern ethnic styles.",
+    "img": "/cards/collections.png",
+    "link": "/collections"
+  },
+  {
+    "title": "Booking Guide",
+    "desc": "Book appointments, explore measurement guides, understand our process, or schedule a virtual consultation.",
+    "img": "/cards/booking-guide.png",
+    "link": "/booking"
+  },
+  {
+    "title": "Explore",
+    "desc": "Browse lookbooks, customer showreels, fashion blogs, AI design tools, and personalized style inspiration.",
+    "img": "/cards/explore.png",
+    "link": "/explore"
+  }
+]
