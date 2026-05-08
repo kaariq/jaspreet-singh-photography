@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Sparkles, Upload } from "lucide-react";
-import { PageHero } from "@/components/PageBits";
+import { ArrowRight, ArrowUpRight, Sparkles, Upload, ChevronDown } from "lucide-react";
 import { DESIGNS } from "@/data/designs";
 import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/measurements";
-import { IMAGES, NAV } from "@/mock/mock";
+import { IMAGES } from "@/mock/mock";
+import { getSection } from "@/data/navigation";
 
 const HOVER_POOL = [
   IMAGES.embroidery,
@@ -19,44 +19,59 @@ const HOVER_POOL = [
 ];
 const pickHover = (d, i) => d.hoverImage || HOVER_POOL[(i + 1) % HOVER_POOL.length];
 
-const tailoringSub = NAV[0].columns;
+const tailoringSection = getSection("tailoring");
 
 export default function CategoryPage({ slug: forcedSlug }) {
   const params = useParams();
   const slug = forcedSlug || params.slug;
   const schemaKey = CATEGORY_TO_SCHEMA[slug];
-  const designs = DESIGNS[schemaKey] || [];
+  const designs = DESIGNS[schemaKey] || DESIGNS[slug] || [];
   const label = CATEGORY_LABELS[schemaKey] || (slug || "").replace(/-/g, " ");
   const nav = useNavigate();
   const heroImg = designs[0]?.image || IMAGES.craft;
 
+  const activeGroupTitle =
+    tailoringSection.groups.find((g) => g.items.some((i) => i.slug === slug))?.title ||
+    tailoringSection.groups[0].title;
+  const [openGroup, setOpenGroup] = useState(activeGroupTitle);
+
   return (
     <main className="pb-12 sm:pb-20">
-      {/* Sticky sub-categories */}
+      {/* Sticky grouped sub-categories (collapse/expand) */}
       <div className="sticky-subnav">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3">
-          <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
-            {tailoringSub
-              .flatMap((c) => c.items)
-              .map((it) => {
-                const s = it
-                  .toLowerCase()
-                  .replace(/&/g, "and")
-                  .replace(/[^a-z0-9]+/g, "-")
-                  .replace(/(^-|-$)/g, "");
-                const active = s === slug;
-                return (
-                  <Link
-                    key={it}
-                    to={`/tailoring/${s}`}
-                    aria-current={active ? "page" : undefined}
-                    className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full whitespace-nowrap transition-colors ${active ? "bg-primary text-primary-foreground border-primary shadow-sm" : "border-border bg-card hover:border-primary hover:text-primary"}`}
-                  >
-                    {it}
-                  </Link>
-                );
-              })}
-          </div>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3 space-y-2">
+          {tailoringSection.groups.map((g) => {
+            const isOpen = openGroup === g.title;
+            return (
+              <div key={g.title} className="border-b border-rose/60 last:border-0">
+                <button
+                  onClick={() => setOpenGroup(isOpen ? null : g.title)}
+                  className="w-full flex items-center justify-between py-1.5 sm:py-2 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-mute hover:text-ink transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <span>{g.title}</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                </button>
+                {isOpen && (
+                  <div className="flex sm:flex-wrap gap-2 overflow-x-auto no-scrollbar pb-2 -mx-4 sm:mx-0 px-4 sm:px-0">
+                    {g.items.map((it) => {
+                      const active = it.slug === slug;
+                      return (
+                        <Link
+                          key={it.slug}
+                          to={`/tailoring/${it.slug}`}
+                          aria-current={active ? "page" : undefined}
+                          className={`shrink-0 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full whitespace-nowrap transition-colors ${active ? "bg-primary text-primary-foreground border-primary shadow-sm" : "border-border bg-card hover:border-primary hover:text-primary"}`}
+                        >
+                          {it.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 
