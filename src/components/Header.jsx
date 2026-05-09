@@ -2,8 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ShoppingBag, User, Menu, X, ChevronRight, LogOut } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
-import { NAV, SITE } from "@/data";
+import { NAV, SITE, SUBITEMS } from "@/data";
 import { useAuth } from "@/contexts/AuthContext";
+
+// Map nav item slug -> SUBITEMS key
+const SUB_KEY_MAP = {
+  kurti: "kurti",
+  blouse: "blouse",
+  lehengas: "lehengas",
+  "sharara-and-co-ord-sets": "shararaCoords",
+  "western-dresses-and-jumpsuits": "dresses",
+  "shirts-and-trousers": "shirtsTrousers",
+  suits: "suits",
+  shirts: "shirts",
+  trousers: "trousers",
+  "kurta-pyjama": "kurtaPyjama",
+  "nehru-jackets": "nehruJackets",
+  sherwanis: "sherwanis",
+  "suits-and-blazers": "suitsBlazers",
+  "embroidery-and-work": "embroidery",
+  "lace-and-patch-work": "lacePatch",
+  "fabric-dyeing": "dyeing",
+  "fittings-and-alterations": "alterations",
+};
+const getSubs = (slug) => {
+  const key = SUB_KEY_MAP[slug];
+  return key && SUBITEMS[key] ? SUBITEMS[key] : null;
+};
 const slug = (s) =>
   s
     .toLowerCase()
@@ -19,6 +44,7 @@ export default function Header() {
   const [mobile, setMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [userMenu, setUserMenu] = useState(false);
+  const [hoverItem, setHoverItem] = useState(null); // { key, slug }
   const loc = useLocation();
   const nav = useNavigate();
   const { isAuthed, user, logout, cart } = useAuth();
@@ -32,6 +58,7 @@ export default function Header() {
 
   useEffect(() => {
     setOpen(null);
+    setHoverItem(null);
     setMobile(false);
   }, [loc.pathname]);
 
@@ -41,7 +68,10 @@ export default function Header() {
       <header className="sticky top-0 z-50">
         <div
           className={`bg-white border-b border-rose transition-shadow ${scrolled ? "shadow-[0_1px_0_rgba(0,0,0,0.04)]" : ""}`}
-          onMouseLeave={() => setOpen(null)}
+          onMouseLeave={() => {
+            setOpen(null);
+            setHoverItem(null);
+          }}
         >
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="h-16 lg:h-[72px] flex items-center justify-between gap-4">
@@ -146,7 +176,7 @@ export default function Header() {
           </div>
           {/* Mega menu */}
           <div
-            className={`hidden lg:block absolute left-0 right-0 top-full bg-blush border-t border-b border-rose overflow-hidden transition-[max-height,opacity] duration-300 ${open ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"}`}
+            className={`hidden lg:block absolute left-0 right-0 top-full bg-blush border-t border-b border-rose overflow-hidden transition-[max-height,opacity] duration-300 ${open ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0"}`}
           >
             <div className="max-w-[1400px] mx-auto px-10 py-10 grid grid-cols-12 gap-10">
               <div className="col-span-3">
@@ -157,7 +187,7 @@ export default function Header() {
                   Discover bespoke craft, made to your measure — at the boutique or your doorstep.
                 </p>
               </div>
-              <div className="col-span-7 grid grid-cols-4 gap-8">
+              <div className="col-span-6 grid grid-cols-3 gap-8" onMouseLeave={() => setHoverItem(null)}>
                 {open &&
                   NAV.find((n) => n.key === open)?.columns.map((col) => (
                     <div key={col.title}>
@@ -165,31 +195,75 @@ export default function Header() {
                         {col.title}
                       </div>
                       <ul className="space-y-2">
-                        {col.items.map((it) => (
-                          <li key={it}>
-                            <Link
-                              to={routeFor(open, it)}
-                              className="link-underline text-[14px] text-ink"
+                        {col.items.map((it) => {
+                          const itemSlug = slug(it);
+                          const hasSubs = !!getSubs(itemSlug);
+                          const isHovered =
+                            hoverItem?.key === open && hoverItem?.slug === itemSlug;
+                          return (
+                            <li
+                              key={it}
+                              onMouseEnter={() =>
+                                hasSubs
+                                  ? setHoverItem({ key: open, slug: itemSlug })
+                                  : setHoverItem(null)
+                              }
                             >
-                              {it}
-                            </Link>
-                          </li>
-                        ))}
+                              <Link
+                                to={routeFor(open, it)}
+                                className={`link-underline text-[14px] ${isHovered ? "text-wine font-medium" : "text-ink"}`}
+                              >
+                                {it}
+                                {hasSubs && (
+                                  <span className="ml-1 text-mute text-[11px]">›</span>
+                                )}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   ))}
               </div>
-              <div className="col-span-2">
-                <div className="aspect-[4/5] overflow-hidden bg-rose-pale">
-                  <img
-                    src="https://images.unsplash.com/photo-1746372283841-dbb3838f9935"
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="text-[11px] tracking-[0.22em] uppercase mt-3 text-ink">
-                  Featured · The Wedding Edit
-                </div>
+              <div className="col-span-3 border-l border-rose pl-8">
+                {(() => {
+                  const subs = hoverItem ? getSubs(hoverItem.slug) : null;
+                  if (subs && subs.length) {
+                    return (
+                      <div>
+                        <div className="text-[11px] tracking-[0.22em] uppercase text-mute mb-3">
+                          {hoverItem.slug.replace(/-/g, " ")} · Styles
+                        </div>
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 max-h-[340px] overflow-y-auto pr-2">
+                          {subs.slice(0, 24).map((s) => (
+                            <li key={s.id}>
+                              <Link
+                                to={`/tailoring/${hoverItem.slug}#${s.id}`}
+                                className="link-underline text-[13px] text-ink"
+                              >
+                                {s.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  }
+                  return (
+                    <>
+                      <div className="aspect-[4/5] overflow-hidden bg-rose-pale">
+                        <img
+                          src="https://images.unsplash.com/photo-1746372283841-dbb3838f9935"
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="text-[11px] tracking-[0.22em] uppercase mt-3 text-ink">
+                        Featured · The Wedding Edit
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           </div>
