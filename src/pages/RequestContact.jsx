@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, ShoppingBag, Phone } from "lucide-react";
 import { SUBITEMS } from "@/data";
-import {  CATEGORY_LABELS } from "@/data/orderCycle/measurements";
+import { CATEGORY_LABELS } from "@/data/orderCycle/measurements";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
@@ -114,7 +114,9 @@ export default function RequestContact() {
               />
             </div>
             <div className="p-5">
-              <div className="edit-num text-wine">— YOUR SELECTION</div>
+              <div className="font-serif tracking-[0.28em] font-medium text-wine">
+                — YOUR SELECTION
+              </div>
               <h2 className="font-serif-display text-2xl text-ink mt-2">{designObj.label}</h2>
               <p className="text-[13px] text-mute mt-2 leading-relaxed">{designObj.blurb}</p>
               <div className="flex items-center justify-between mt-5 pt-4 border-t border-rose">
@@ -132,7 +134,9 @@ export default function RequestContact() {
           <div className="border border-rose bg-white p-6 lg:p-10">
             {!done ? (
               <>
-                <div className="edit-num text-wine">— REQUEST A CALLBACK</div>
+                <div className="font-serif tracking-[0.28em] font-medium text-wine">
+                  — REQUEST A CALLBACK
+                </div>
                 <h1 className="font-serif-display text-3xl lg:text-4xl text-ink mt-2">
                   Leave your details — we’ll handle the rest.
                 </h1>

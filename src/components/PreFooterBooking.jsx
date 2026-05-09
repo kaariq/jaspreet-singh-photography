@@ -51,7 +51,9 @@ export default function PreFooterBooking() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 lg:sticky lg:top-32"
           >
-            <div className="edit-num text-mute">— 30 MINUTES · FREE</div>
+            <div className="font-serif tracking-[0.28em] font-medium text-mute">
+              — 30 MINUTES · FREE
+            </div>
             <h2 className="font-serif-display text-[26px] sm:text-4xl lg:text-6xl leading-[1.02] mt-2 sm:mt-4 text-ink">
               Book your free <span className="italic text-wine">consultation</span>.
             </h2>

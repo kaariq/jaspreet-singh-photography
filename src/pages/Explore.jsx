@@ -102,7 +102,7 @@ function AITool() {
       <div className="bg-blush border border-rose p-8 lg:p-10">
         <div className="flex items-center gap-2 text-wine">
           <Wand2 className="w-5 h-5" />
-          <span className="edit-num">KAARIQ DESIGN BOUTIQUE</span>
+          <span className="font-serif tracking-[0.28em] font-medium">KAARIQ DESIGN BOUTIQUE</span>
         </div>
         <h3 className="font-serif-display text-3xl mt-3">Describe your dream outfit.</h3>
         <p className="text-sm text-mute mt-2">
@@ -170,7 +170,7 @@ function Quiz({ qs }) {
     <div className="max-w-2xl mx-auto bg-blush border border-rose p-8 lg:p-12">
       {!done && (
         <>
-          <div className="edit-num text-mute">
+          <div className="font-serif tracking-[0.28em] font-medium text-mute">
             QUESTION 0{step + 1} / 0{qs.length}
           </div>
           <h3 className="font-serif-display text-3xl mt-2">{qs[step].q}</h3>
@@ -193,7 +193,7 @@ function Quiz({ qs }) {
       {done && (
         <div className="text-center">
           <Sparkles className="w-7 h-7 mx-auto text-wine" />
-          <div className="edit-num text-mute mt-3">YOUR STYLE</div>
+          <div className="font-serif tracking-[0.28em] font-medium text-mute mt-3">YOUR STYLE</div>
           <h3 className="font-serif-display text-4xl mt-2">Modern Heritage</h3>
           <p className="text-sm text-mute mt-3">
             Refined classics with a contemporary edge — crisp tailoring, hand-finished details, and

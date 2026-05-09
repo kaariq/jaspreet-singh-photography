@@ -139,7 +139,9 @@ export default function OrderJourney() {
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-8">
         <div className="hidden lg:flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="edit-num text-mute">— ORDER JOURNEY</div>
+            <div className="font-serif tracking-[0.28em] font-medium text-mute">
+              — ORDER JOURNEY
+            </div>
             <h1 className="font-serif-display text-3xl lg:text-5xl mt-2 text-ink">
               {isCustom ? "Custom Design" : designObj?.label}{" "}
               <span className="italic text-wine">({CATEGORY_LABELS[schemaKey]})</span>
@@ -277,7 +279,9 @@ export default function OrderJourney() {
                 </div>
               )}
               <div className="p-5">
-                <div className="edit-num text-wine">— YOUR ORDER</div>
+                <div className="font-serif tracking-[0.28em] font-medium text-wine">
+                  — YOUR ORDER
+                </div>
                 <div className="font-serif-display text-2xl mt-1">
                   {isCustom ? "Custom Design" : designObj?.label}
                 </div>
@@ -335,7 +339,9 @@ export default function OrderJourney() {
                 <Info className="w-3.5 h-3.5" />
               </button>
               <div className="pointer-events-none absolute bottom-full left-0 mb-3 w-72 sm:w-80 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 transition-all bg-white border border-rose shadow-lg p-4 z-50">
-                <div className="edit-num text-wine mb-2">— YOUR ORDER</div>
+                <div className="font-serif tracking-[0.28em] font-medium text-wine mb-2">
+                  — YOUR ORDER
+                </div>
                 <div className="font-serif-display text-base mb-2 text-ink">
                   {isCustom ? "Custom Design" : designObj?.label}
                 </div>
@@ -784,7 +790,9 @@ function MeasurementsStep({ schemaKey, fields, data, setData, state, upsertPerso
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <div className="edit-num text-wine">— HOW TO MEASURE</div>
+                  <div className="font-serif tracking-[0.28em] font-medium text-wine">
+                    — HOW TO MEASURE
+                  </div>
                   <h3 className="font-serif-display text-3xl mt-2">A short, simple guide.</h3>
                 </div>
                 <button
@@ -924,7 +932,9 @@ function ReviewStep({
 
 const Card = ({ title, children }) => (
   <div className="p-5 border border-rose bg-white">
-    <div className="edit-num text-mute">— {title.toUpperCase()}</div>
+    <div className="font-serif tracking-[0.28em] font-medium text-mute">
+      — {title.toUpperCase()}
+    </div>
     <div className="mt-2">{children}</div>
   </div>
 );

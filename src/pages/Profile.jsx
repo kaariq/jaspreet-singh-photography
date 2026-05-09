@@ -37,7 +37,7 @@ export default function Profile() {
     <main className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-12 pb-20">
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-rose pb-8">
         <div>
-          <div className="edit-num text-mute">— YOUR ACCOUNT</div>
+          <div className="font-serif tracking-[0.28em] font-medium text-mute">— YOUR ACCOUNT</div>
           <h1 className="font-serif-display text-4xl lg:text-5xl mt-3 text-ink">
             Hello, <span className="italic text-wine">{user.name?.split(" ")[0]}</span>.
           </h1>
@@ -130,7 +130,9 @@ function OrdersTab() {
           layout
           className="border border-rose bg-white p-5 lg:p-6 grid lg:grid-cols-12 gap-4 items-center"
         >
-          <div className="lg:col-span-2 edit-num text-wine">#{o.id.slice(-6).toUpperCase()}</div>
+          <div className="lg:col-span-2 font-serif tracking-[0.28em] font-medium text-wine">
+            #{o.id.slice(-6).toUpperCase()}
+          </div>
           <div className="lg:col-span-5">
             <div className="font-serif-display text-xl text-ink capitalize">
               {o.category} · {o.designLabel || o.design}
@@ -600,7 +602,9 @@ function AppointmentsTab() {
           layout
           className="grid lg:grid-cols-12 gap-4 items-center border border-rose bg-white p-5"
         >
-          <div className="lg:col-span-2 edit-num text-wine">{a.mode}</div>
+          <div className="lg:col-span-2 font-serif tracking-[0.28em] font-medium text-wine">
+            {a.mode}
+          </div>
           <div className="lg:col-span-4">
             <div className="font-serif-display text-xl">
               {new Date(a.date).toDateString()} · {a.time}

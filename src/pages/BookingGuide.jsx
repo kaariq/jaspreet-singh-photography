@@ -289,7 +289,9 @@ function VirtualBook() {
   return (
     <div className="grid lg:grid-cols-12 gap-10">
       <div className="lg:col-span-5">
-        <div className="edit-num text-mute">— 30 MIN · GOOGLE MEET</div>
+        <div className="font-serif tracking-[0.28em] font-medium text-mute">
+          — 30 MIN · GOOGLE MEET
+        </div>
         <h2 className="font-serif-display text-4xl lg:text-5xl mt-3 text-ink">
           Book your free virtual consultation.
         </h2>
@@ -395,7 +397,9 @@ function InfoCard({ icon: Icon, title, body }) {
 function FAQSection() {
   return (
     <section className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 mt-12 sm:mt-20">
-      <div className="edit-num text-mute text-center">— FREQUENTLY ASKED</div>
+      <div className="font-serif tracking-[0.28em] font-medium text-mute text-center">
+        — FREQUENTLY ASKED
+      </div>
       <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-ink text-center mt-2 sm:mt-3">
         Good to know.
       </h2>

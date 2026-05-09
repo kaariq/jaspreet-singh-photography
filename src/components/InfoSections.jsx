@@ -14,7 +14,9 @@ import { FEATURES } from "@/data";
 export function ServiceIntro({ eyebrow, title, lead }) {
   return (
     <section className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 pt-10 sm:pt-16 text-center">
-      <div className="edit-num text-[10px] sm:text-xs text-wine">{eyebrow}</div>
+      <div className="font-serif tracking-[0.28em] font-medium text-[10px] sm:text-xs text-wine">
+        {eyebrow}
+      </div>
       <h1 className="font-serif-display text-3xl sm:text-5xl lg:text-6xl text-ink mt-4 leading-[1.05] capitalize">
         {title}
       </h1>
@@ -29,7 +31,9 @@ export function WhatWeOffer({ items }) {
   return (
     <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 mt-16 sm:mt-24">
       <div className="text-center mb-10">
-        <div className="edit-num text-[10px] sm:text-xs text-wine">— WHAT WE OFFER</div>
+        <div className="font-serif tracking-[0.28em] font-medium text-[10px] sm:text-xs text-wine">
+          — WHAT WE OFFER
+        </div>
         <h2 className="font-serif-display text-2xl sm:text-4xl text-ink mt-3">
           A complete bespoke service
         </h2>
@@ -62,7 +66,9 @@ export function Benefits() {
   return (
     <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 mt-16 sm:mt-24">
       <div className="text-center mb-10">
-        <div className="edit-num text-[10px] sm:text-xs text-wine">— WHY CUSTOM STITCHING</div>
+        <div className="font-serif tracking-[0.28em] font-medium text-[10px] sm:text-xs text-wine">
+          — WHY CUSTOM STITCHING
+        </div>
         <h2 className="font-serif-display text-2xl sm:text-4xl text-ink mt-3">
           The benefits of bespoke
         </h2>
@@ -94,7 +100,9 @@ export function Process({ steps }) {
   return (
     <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 mt-16 sm:mt-24">
       <div className="text-center mb-10">
-        <div className="edit-num text-[10px] sm:text-xs text-wine">— THE KAARIQ PROCESS</div>
+        <div className="font-serif tracking-[0.28em] font-medium text-[10px] sm:text-xs text-wine">
+          — THE KAARIQ PROCESS
+        </div>
         <h2 className="font-serif-display text-2xl sm:text-4xl text-ink mt-3">
           From thread to threshold
         </h2>
@@ -119,7 +127,9 @@ export function FAQ_C({ items }) {
   return (
     <section className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-10 mt-16 sm:mt-24">
       <div className="text-center mb-10">
-        <div className="edit-num text-[10px] sm:text-xs text-wine">— FAQ</div>
+        <div className="font-serif tracking-[0.28em] font-medium text-[10px] sm:text-xs text-wine">
+          — FAQ
+        </div>
         <h2 className="font-serif-display text-2xl sm:text-4xl text-ink mt-3">Frequently asked</h2>
       </div>
       <div className="divide-y divide-ink/10 border-y border-ink/10">

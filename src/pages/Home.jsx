@@ -266,7 +266,7 @@ function ServicesGrid() {
         className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16 items-end"
       >
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-mute">— WHAT WE TAILOR</div>
+          <div className="font-serif tracking-[0.28em] font-medium text-mute">— WHAT WE TAILOR</div>
         </motion.div>
         <motion.h2
           variants={blurUp}
@@ -327,7 +327,10 @@ function HorizontalProcess() {
     <section ref={ref} className="bg-ink text-white py-12 sm:py-20 lg:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
         <Reveal variants={stagger(0.05)} className="max-w-3xl mb-8 sm:mb-14 lg:mb-20">
-          <motion.div variants={fadeUp} className="edit-num opacity-70">
+          <motion.div
+            variants={fadeUp}
+            className="font-serif tracking-[0.28em] font-medium opacity-70"
+          >
             — THE KAARIQ PROCESS
           </motion.div>
           <motion.h2
@@ -456,7 +459,9 @@ function CollectionsEditorial() {
         className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-6 lg:mb-10 items-end"
       >
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-mute">— THE COLLECTIONS</div>
+          <div className="font-serif tracking-[0.28em] font-medium text-mute">
+            — THE COLLECTIONS
+          </div>
         </motion.div>
 
         <motion.h2
@@ -499,7 +504,9 @@ function CollectionsEditorial() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
               <div className="absolute left-3 bottom-3 right-3 text-white">
-                <div className="edit-num text-[9px] tracking-[0.2em] opacity-90">{c.tag}</div>
+                <div className="font-serif tracking-[0.28em] font-medium text-[9px] tracking-[0.2em] opacity-90">
+                  {c.tag}
+                </div>
                 <h3 className="font-serif-display text-base mt-1 leading-tight">{c.title}</h3>
               </div>
             </Link>
@@ -611,7 +618,10 @@ function FabricBanner() {
         className="relative h-full flex items-center justify-center text-center px-4 sm:px-6"
       >
         <div className="max-w-3xl text-white">
-          <motion.div variants={blurUp} className="edit-num opacity-80">
+          <motion.div
+            variants={blurUp}
+            className="font-serif tracking-[0.28em] font-medium opacity-80"
+          >
             — AT THE BOUTIQUE
           </motion.div>
           <motion.h2
@@ -649,7 +659,10 @@ function FeaturesSection() {
         variants={stagger(0.05)}
         className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16"
       >
-        <motion.div variants={fadeUp} className="edit-num text-mute">
+        <motion.div
+          variants={fadeUp}
+          className="font-serif tracking-[0.28em] font-medium text-mute"
+        >
           — WHY KAARIQ
         </motion.div>
         <motion.h2
@@ -710,7 +723,10 @@ function MediaTestimonials() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-32 grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
         {/* LEFT — heading + quote */}
         <Reveal variants={stagger(0.1)} className="lg:col-span-5 lg:sticky lg:top-32">
-          <motion.div variants={fadeUp} className="edit-num opacity-70">
+          <motion.div
+            variants={fadeUp}
+            className="font-serif tracking-[0.28em] font-medium opacity-70"
+          >
             — FROM OUR CUSTOMERS
           </motion.div>
           <motion.h2
@@ -859,7 +875,7 @@ function Journal() {
         className="grid lg:grid-cols-12 gap-3 lg:gap-6 items-end mb-4 sm:mb-10 lg:mb-12"
       >
         <motion.div variants={fadeUp} className="lg:col-span-3">
-          <div className="edit-num text-mute">— JOURNAL</div>
+          <div className="font-serif tracking-[0.28em] font-medium text-mute">— JOURNAL</div>
         </motion.div>
         <motion.h2
           variants={blurUp}
@@ -947,7 +963,7 @@ function FaqSection() {
           className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start"
         >
           <motion.div variants={fadeUp} className="lg:col-span-4 lg:sticky lg:top-32">
-            <div className="edit-num text-mute">— FAQ</div>
+            <div className="font-serif tracking-[0.28em] font-medium text-mute">— FAQ</div>
             <h2 className="font-serif-display text-[24px] sm:text-4xl lg:text-[56px] leading-[1.05] mt-2 sm:mt-4 text-ink">
               Questions, <span className="italic text-wine">answered</span>.
             </h2>

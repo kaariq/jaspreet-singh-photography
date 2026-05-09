@@ -43,7 +43,9 @@ export default function Login() {
             KAARIQ
           </Link>
           <div>
-            <div className="edit-num opacity-70">— YOUR BOUTIQUE, IN YOUR POCKET</div>
+            <div className="font-serif tracking-[0.28em] font-medium opacity-70">
+              — YOUR BOUTIQUE, IN YOUR POCKET
+            </div>
             <h2 className="font-serif-display text-5xl mt-4 leading-[1.05]">
               A wardrobe, <span className="italic">crafted to memory.</span>
             </h2>
@@ -63,7 +65,7 @@ export default function Login() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="w-full max-w-md"
         >
-          <div className="edit-num text-mute">— WELCOME</div>
+          <div className="font-serif tracking-[0.28em] font-medium text-mute">— WELCOME</div>
           <h1 className="font-serif-display text-4xl mt-3 text-ink">
             {mode === "login" ? "Sign in" : "Create account"}
           </h1>

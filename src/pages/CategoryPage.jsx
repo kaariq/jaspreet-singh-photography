@@ -67,7 +67,9 @@ export default function CategoryPage({ slug: forcedSlug }) {
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 mt-8 sm:mt-12">
         <div className="flex items-end justify-between gap-3 mb-4 sm:mb-6">
           <div>
-            <div className="edit-num text-mute">— PREDEFINED DESIGNS</div>
+            <div className="font-serif tracking-[0.28em] font-medium text-mute">
+              — PREDEFINED DESIGNS
+            </div>
             <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl mt-1.5 sm:mt-2">
               Pick a starting silhouette.
             </h2>
@@ -157,7 +159,9 @@ export default function CategoryPage({ slug: forcedSlug }) {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="relative overflow-hidden bg-blush border border-rose p-6 sm:p-8 lg:p-12"
           >
-            <div className="edit-num text-wine">— NOT SURE WHAT SUITS YOU?</div>
+            <div className="font-serif tracking-[0.28em] font-medium text-wine">
+              — NOT SURE WHAT SUITS YOU?
+            </div>
             <h3 className="font-serif-display text-2xl sm:text-3xl mt-2 sm:mt-3">
               Talk to a designer.
             </h3>

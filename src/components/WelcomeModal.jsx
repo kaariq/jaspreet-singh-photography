@@ -1,36 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { IMAGES } from "@/data";
 
 const KEY = "kaariq_welcome_modal_seen";
+const COLUMN_DURATION = 24;
 
-const POOL = [
-  IMAGES.women,
-  IMAGES.embroidery,
-  IMAGES.wedding,
-  IMAGES.festive,
-  IMAGES.lookbook,
-  IMAGES.craft,
-  IMAGES.fabric,
-  IMAGES.boutique,
-  IMAGES.casual,
-  IMAGES.consultation,
-];
+const popupImages = Array.from({ length: 11 }, (_, i) => `/popup/${i + 1}.png`);
 
-// Three columns of repeating images, moving at different speeds & directions
-const COLUMNS = [
-  { imgs: [POOL[0], POOL[3], POOL[6], POOL[9]], dir: -1, dur: 22 },
-  { imgs: [POOL[1], POOL[4], POOL[7], POOL[2]], dir: 1, dur: 28 },
-  { imgs: [POOL[5], POOL[8], POOL[0], POOL[3]], dir: -1, dur: 25 },
-];
+const shuffle = (array) => {
+  const copy = [...array];
+
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+
+  return copy;
+};
+
+function buildColumns() {
+  const shuffled = shuffle(popupImages);
+
+  return [
+    {
+      imgs: shuffled.slice(0, 5),
+      dir: -1,
+      dur: COLUMN_DURATION,
+    },
+    {
+      imgs: shuffled.slice(5, 9),
+      dir: 1,
+      dur: COLUMN_DURATION,
+    },
+    {
+      imgs: shuffled.slice(9, 13),
+      dir: -1,
+      dur: COLUMN_DURATION,
+    },
+  ];
+}
 
 function MovingColumn({ imgs, dir, dur }) {
-  const loop = [...imgs, ...imgs]; // duplicate for seamless loop
+  const loop = [...imgs, ...imgs];
+
   return (
     <div className="relative h-full overflow-hidden">
       <motion.div
@@ -40,8 +56,8 @@ function MovingColumn({ imgs, dir, dur }) {
       >
         {loop.map((src, i) => (
           <div
-            key={i}
-            className="relative w-full aspect-[3/4] overflow-hidden rounded-md bg-rose-pale"
+            key={`${src}-${i}`}
+            className="relative w-full aspect-[3/4] overflow-hidden  bg-rose-pale shadow-sm"
           >
             <img
               src={src}
@@ -59,7 +75,14 @@ function MovingColumn({ imgs, dir, dur }) {
 export default function WelcomeModal() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState("intro");
-  const [form, setForm] = useState({ name: "", phone: "", location: "" });
+
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    location: "",
+  });
+
+  const columns = useMemo(() => buildColumns(), []);
 
   useEffect(() => {
     try {
@@ -74,15 +97,18 @@ export default function WelcomeModal() {
     try {
       sessionStorage.setItem(KEY, "1");
     } catch {}
+
     setOpen(false);
   };
 
   const submit = (e) => {
     e.preventDefault();
+
     if (!form.name.trim() || !form.phone.trim()) {
       toast.error("Please share your name and number");
       return;
     }
+
     toast.success("Visit confirmed — our boutique will reach out shortly.");
     close();
   };
@@ -90,46 +116,46 @@ export default function WelcomeModal() {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[80] flex items-center justify-center p-3 sm:p-6 bg-ink/60 backdrop-blur-sm animate-in fade-in">
-      <div className="relative w-full max-w-5xl bg-white shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
+    <div className="fixed inset-0 z-[80] flex items-center justify-center p-3 sm:p-6 bg-black/45 backdrop-blur-sm animate-in fade-in">
+      <div className="relative w-full max-w-6xl bg-white  shadow-[0_30px_100px_rgba(0,0,0,0.35)] ring-1 ring-black/10 overflow-hidden animate-in zoom-in-95 duration-300">
         <button
           onClick={close}
           aria-label="Close"
-          className="absolute top-3 right-3 z-10 p-2 text-ink/70 hover:text-ink bg-white/80 rounded-full"
+          className="absolute top-4 right-4 z-10 p-2 text-ink/70 hover:text-ink bg-white/90 rounded-full shadow-md"
         >
           <X className="w-4 h-4" />
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-5">
-          {/* Vertical 3-column moving carousel */}
           <div className="md:col-span-3 bg-rose-pale p-2 sm:p-3">
-            <div className="grid grid-cols-3 gap-2 h-[260px] sm:h-[420px] md:h-[520px]">
-              {COLUMNS.map((col, i) => (
+            <div className="grid grid-cols-3 gap-2 h-[340px] sm:h-[520px] md:h-[640px]">
+              {columns.map((col, i) => (
                 <MovingColumn key={i} {...col} />
               ))}
             </div>
           </div>
 
-          <div className="md:col-span-2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+          <div className="md:col-span-2 p-7 sm:p-10 lg:p-12 flex flex-col justify-center">
             {step === "intro" ? (
               <div className="animate-in fade-in slide-in-from-right-4">
-                <div className="edit-num text-[10px] sm:text-xs text-wine">KAARIQ</div>
                 <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-ink mt-3 leading-[1.05]">
                   Your tailor is <span className="italic">one knock</span> away.
                 </h2>
+
                 <p className="text-ink/70 text-sm sm:text-base mt-4 leading-relaxed">
-                  Step into a private fitting at your home or our boutique. Hand-finished garments,
-                  made to your measure.
+                  Step into something perfectly fitted without ever stepping out of your home.
                 </p>
-                <div className="mt-6 flex flex-col gap-2">
+
+                <div className="mt-7 flex flex-col gap-2">
                   <Button size="lg" onClick={() => setStep("form")}>
-                    Schedule a visit
+                    Schedule My Fitting
                   </Button>
+
                   <button
                     onClick={close}
-                    className="text-xs tracking-[0.2em] uppercase text-ink/60 hover:text-ink mt-1"
+                    className="text-xs tracking-[0.2em] text-ink/60 hover:text-ink mt-1"
                   >
-                    Maybe later
+                    Not Today
                   </button>
                 </div>
               </div>
@@ -138,10 +164,12 @@ export default function WelcomeModal() {
                 onSubmit={submit}
                 className="animate-in fade-in slide-in-from-right-4 space-y-3"
               >
-                <div className="edit-num text-[10px] sm:text-xs text-wine">BOOK YOUR VISIT</div>
+                <div className="font-serif tracking-[0.28em] font-medium text-[10px] sm:text-xs text-wine">BOOK YOUR VISIT</div>
+
                 <h2 className="font-serif-display text-2xl sm:text-3xl text-ink leading-tight">
                   Tell us where to find you
                 </h2>
+
                 <div className="space-y-2.5 pt-2">
                   <Input
                     placeholder="Full name"
@@ -149,6 +177,7 @@ export default function WelcomeModal() {
                     maxLength={80}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                   />
+
                   <Input
                     placeholder="Phone number"
                     type="tel"
@@ -156,6 +185,7 @@ export default function WelcomeModal() {
                     maxLength={20}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   />
+
                   <Textarea
                     placeholder="City / area / address"
                     rows={2}
@@ -164,10 +194,12 @@ export default function WelcomeModal() {
                     onChange={(e) => setForm({ ...form, location: e.target.value })}
                   />
                 </div>
+
                 <div className="flex items-center gap-2 pt-2">
                   <Button type="submit" size="lg" className="flex-1">
                     Book
                   </Button>
+
                   <Button
                     type="button"
                     variant="outline"

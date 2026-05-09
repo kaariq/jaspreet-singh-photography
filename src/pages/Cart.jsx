@@ -34,7 +34,7 @@ export default function Cart() {
           <div className="w-14 h-14 mx-auto rounded-full bg-wine text-white flex items-center justify-center">
             <Check className="w-7 h-7" />
           </div>
-          <div className="edit-num text-wine mt-4">
+          <div className="font-serif tracking-[0.28em] font-medium text-wine mt-4">
             — ORDER #{submitted.id.slice(-6).toUpperCase()}
           </div>
           <h1 className="font-serif-display text-3xl sm:text-4xl text-ink mt-2">
@@ -70,7 +70,7 @@ export default function Cart() {
       <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 mt-4">
         <div className="flex items-end justify-between mb-6">
           <div>
-            <div className="edit-num text-mute">— YOUR CART</div>
+            <div className="font-serif tracking-[0.28em] font-medium text-mute">— YOUR CART</div>
             <h1 className="font-serif-display text-3xl sm:text-4xl text-ink mt-1">
               Selected designs
             </h1>
@@ -184,7 +184,9 @@ export default function Cart() {
 
             {/* Summary / contact */}
             <aside className="border border-rose bg-white p-5 lg:p-6 h-fit lg:sticky lg:top-28">
-              <div className="edit-num text-wine">— ORDER SUMMARY</div>
+              <div className="font-serif tracking-[0.28em] font-medium text-wine">
+                — ORDER SUMMARY
+              </div>
               <h2 className="font-serif-display text-2xl text-ink mt-2">Request callback</h2>
               <p className="text-[12px] text-mute mt-2 leading-relaxed">
                 All designs above will be grouped under one parent order. Each one is processed

@@ -4,7 +4,7 @@
    via Tailwind tokens (e.g. text-primary, bg-background).
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Italiana&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Italiana&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,33 +25,33 @@
        Ink     : #1f1f1f (near-black for text)
        Every other token below is an alias to one of these. */
 
-    --brand:        #9a9c69;
-    --brand-hover:  #747740;
-    --brand-muted:  #9b9c82;
-    --surface:      #ffffff;
-    --ink-base:     #43442b;
-    --white:        #ffffff;
+    --brand: #9a9c69;
+    --brand-hover: #747740;
+    --brand-muted: #9b9c82;
+    --surface: #ffffff;
+    --ink-base: #43442b;
+    --white: #ffffff;
 
     /* ---- Aliases (kept so existing class names keep working) ---- */
-    --wine:        var(--brand);
-    --wine-light:  var(--brand-hover);
-    --wine-muted:  var(--brand-muted);
-    --blush:       var(--surface);
-    --blush-soft:  var(--surface);
-    --ink:         var(--ink-base);
-    --ink-deep:    var(--ink-base);
-    --noir:        var(--ink-base);
+    --wine: var(--brand);
+    --wine-light: var(--brand-hover);
+    --wine-muted: var(--brand-muted);
+    --blush: var(--surface);
+    --blush-soft: var(--surface);
+    --ink: var(--ink-base);
+    --ink-deep: var(--ink-base);
+    --noir: var(--ink-base);
 
-    --rose:        var(--brand-muted);
-    --rose-soft:   var(--brand-muted);
-    --rose-pale:   var(--surface);
+    --rose: var(--brand-muted);
+    --rose-soft: var(--brand-muted);
+    --rose-pale: var(--surface);
 
-    --mute:        var(--brand-muted);
-    --mute-soft:   var(--brand-muted);
-    --sand:        var(--brand-muted);
-    --sand-light:  var(--surface);
-    --cream:       var(--surface);
-    --cream-border:var(--brand-muted);
+    --mute: var(--brand-muted);
+    --mute-soft: var(--brand-muted);
+    --sand: var(--brand-muted);
+    --sand-light: var(--surface);
+    --cream: var(--surface);
+    --cream-border: var(--brand-muted);
 
     /* --wine:        #6E0D25;  
     --wine-light:  #8B1A30;  
@@ -72,61 +72,60 @@
     --cream-border:#e5e2de;
     --white:       #ffffff; */
 
+    --background: var(--blush);
+    --foreground: var(--ink);
 
-    --background:           var(--blush);
-    --foreground:           var(--ink);
+    --card: var(--white);
+    --card-foreground: var(--ink);
 
-    --card:                 var(--white);
-    --card-foreground:      var(--ink);
+    --popover: var(--white);
+    --popover-foreground: var(--ink);
 
-    --popover:              var(--white);
-    --popover-foreground:   var(--ink);
+    --primary: var(--wine);
+    --primary-foreground: var(--blush);
 
-    --primary:              var(--wine);
-    --primary-foreground:   var(--blush);
-
-    --secondary:            var(--blush-soft);
+    --secondary: var(--blush-soft);
     --secondary-foreground: var(--ink);
 
-    --muted:                var(--rose-pale);
-    --muted-foreground:     var(--mute-soft);
+    --muted: var(--rose-pale);
+    --muted-foreground: var(--mute-soft);
 
-    --accent:               var(--wine);
-    --accent-foreground:    var(--white);
+    --accent: var(--wine);
+    --accent-foreground: var(--white);
 
-    --destructive:          #b3261e;
+    --destructive: #b3261e;
     --destructive-foreground: var(--white);
 
-    --border:               var(--rose);
-    --input:                var(--rose);
-    --ring:                 var(--wine);
+    --border: var(--rose);
+    --input: var(--rose);
+    --ring: var(--wine);
 
-    --gold:                 var(--wine);
+    --gold: var(--wine);
 
     /* ---------- RADIUS & ELEVATION ---------- */
     --radius: 0.25rem;
-    --shadow-sm: 0 1px 2px rgba(42,10,18,0.06);
-    --shadow-md: 0 4px 12px rgba(42,10,18,0.08);
-    --shadow-lg: 0 16px 40px rgba(42,10,18,0.14);
+    --shadow-sm: 0 1px 2px rgba(42, 10, 18, 0.06);
+    --shadow-md: 0 4px 12px rgba(42, 10, 18, 0.08);
+    --shadow-lg: 0 16px 40px rgba(42, 10, 18, 0.14);
 
     /* ---------- TYPOGRAPHY ---------- */
-    --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
-    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-accent:  'Italiana', serif;
+    --font-display: "Cormorant Garamond", "Times New Roman", serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-accent: "Italiana", serif;
 
-    --fs-xs:   0.75rem;
-    --fs-sm:   0.875rem;
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
     --fs-base: 1rem;
-    --fs-lg:   1.125rem;
-    --fs-xl:   1.25rem;
-    --fs-2xl:  clamp(1.5rem,  2.5vw, 1.875rem);
-    --fs-3xl:  clamp(1.875rem, 3vw,  2.5rem);
-    --fs-4xl:  clamp(2.25rem, 4vw,   3.25rem);
-    --fs-5xl:  clamp(2.75rem, 5.5vw, 4.5rem);
-    --fs-6xl:  clamp(3.5rem,  7vw,   6rem);
+    --fs-lg: 1.125rem;
+    --fs-xl: 1.25rem;
+    --fs-2xl: clamp(1.5rem, 2.5vw, 1.875rem);
+    --fs-3xl: clamp(1.875rem, 3vw, 2.5rem);
+    --fs-4xl: clamp(2.25rem, 4vw, 3.25rem);
+    --fs-5xl: clamp(2.75rem, 5.5vw, 4.5rem);
+    --fs-6xl: clamp(3.5rem, 7vw, 6rem);
 
     --space-section: clamp(3rem, 8vw, 6rem);
-    --space-block:   clamp(1.5rem, 4vw, 2.5rem);
+    --space-block: clamp(1.5rem, 4vw, 2.5rem);
 
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --dur-fast: 180ms;
@@ -134,15 +133,18 @@
     --dur-slow: 600ms;
 
     /* sticky offsets */
-    --header-h: 112px;       /* nav (no announcement) */
+    --header-h: 112px; /* nav (no announcement) */
     --header-h-mobile: 64px;
   }
 }
 
 @layer base {
-  * { border-color: var(--border); }
+  * {
+    border-color: var(--border);
+  }
 
-  html, body {
+  html,
+  body {
     margin: 0;
     background: var(--background);
     color: var(--foreground);
@@ -153,25 +155,51 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.01em;
     line-height: 1.15;
     color: var(--foreground);
   }
-  h1 { font-size: var(--fs-5xl); }
-  h2 { font-size: var(--fs-4xl); }
-  h3 { font-size: var(--fs-3xl); }
-  h4 { font-size: var(--fs-2xl); }
-  h5 { font-size: var(--fs-xl); }
+  h1 {
+    font-size: var(--fs-5xl);
+  }
+  h2 {
+    font-size: var(--fs-4xl);
+  }
+  h3 {
+    font-size: var(--fs-3xl);
+  }
+  h4 {
+    font-size: var(--fs-2xl);
+  }
+  h5 {
+    font-size: var(--fs-xl);
+  }
 
-  ::selection { background: var(--primary); color: var(--primary-foreground); }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
 }
 
-.font-serif-display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; }
-.font-italiana       { font-family: var(--font-accent); letter-spacing: 0.02em; }
-.font-body           { font-family: var(--font-body); }
+.font-serif-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.font-italiana {
+  font-family: var(--font-accent);
+  letter-spacing: 0.02em;
+}
+.font-body {
+  font-family: var(--font-body);
+}
 
 .text-eyebrow {
   font-family: var(--font-accent);
@@ -181,10 +209,21 @@
   color: var(--muted-foreground);
 }
 
-.edit-num { font-family: var(--font-accent); font-size: 0.75rem; letter-spacing: 0.3em; }
+.font-serif tracking-[0.28em] font-medium {
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+}
 
-.container-page { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
-.section-y     { padding-block: var(--space-section); }
+.container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+.section-y {
+  padding-block: var(--space-section);
+}
 
 .surface-card {
   background: var(--card);
@@ -194,25 +233,65 @@
   box-shadow: var(--shadow-sm);
 }
 
-.divider-soft { height: 1px; background: var(--border); width: 100%; }
+.divider-soft {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
 
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.marquee-track { animation: marquee 40s linear infinite; }
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
 
-@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-.fade-up { animation: fadeUp 0.9s var(--ease-out) both; }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.9s var(--ease-out) both;
+}
 
-.link-underline { position: relative; display: inline-block; }
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
 .link-underline::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
-  height: 1px; background: currentColor;
-  transform-origin: left; transform: scaleX(0);
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transform: scaleX(0);
   transition: transform var(--dur-base) var(--ease-out);
 }
-.link-underline:hover::after { transform: scaleX(1); }
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
 
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* Sticky sub-category tabs (used on Tailoring / Collections / etc) */
 .sticky-subnav {
@@ -224,5 +303,7 @@
   backdrop-filter: saturate(140%) blur(6px);
 }
 @media (min-width: 1024px) {
-  .sticky-subnav { top: var(--header-h); }
+  .sticky-subnav {
+    top: var(--header-h);
+  }
 }

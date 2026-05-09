@@ -50,7 +50,9 @@ export default function Pricing() {
           >
             <div className="grid lg:grid-cols-12 gap-6 sm:gap-10">
               <div className="lg:col-span-4">
-                <div className="edit-num text-mute">— {group.label.toUpperCase()}</div>
+                <div className="font-serif tracking-[0.28em] font-medium text-mute">
+                  — {group.label.toUpperCase()}
+                </div>
                 <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl mt-2 sm:mt-3 text-ink">
                   Pricing for {group.label}.
                 </h2>
@@ -102,7 +104,9 @@ export default function Pricing() {
         {/* Always included */}
         <div className="mt-10 sm:mt-16 grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           <div className="p-6 sm:p-8 lg:p-10 bg-ink text-white">
-            <div className="edit-num opacity-70">— ALWAYS INCLUDED</div>
+            <div className="font-serif tracking-[0.28em] font-medium opacity-70">
+              — ALWAYS INCLUDED
+            </div>
             <ul className="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] sm:text-sm">
               {PRICING_INCLUDED.map((x) => (
                 <li key={x} className="flex items-center gap-2">
@@ -116,7 +120,9 @@ export default function Pricing() {
             </p>
           </div>
           <div className="p-6 sm:p-8 lg:p-10 bg-blush border border-rose">
-            <div className="edit-num text-mute">— CORPORATE & WEDDING PARTIES</div>
+            <div className="font-serif tracking-[0.28em] font-medium text-mute">
+              — CORPORATE & WEDDING PARTIES
+            </div>
             <h3 className="font-serif-display text-2xl sm:text-3xl mt-2">Need 10+ pieces?</h3>
             <p className="text-[13px] sm:text-sm text-mute mt-2">
               Unlock priority production, dedicated stylist, and up to 18% wholesale discount.
