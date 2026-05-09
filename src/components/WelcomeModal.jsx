@@ -9,7 +9,7 @@ import { toast } from "sonner";
 const KEY = "kaariq_welcome_modal_seen";
 const COLUMN_DURATION = 24;
 
-const popupImages = Array.from({ length: 11 }, (_, i) => `/popup/${i + 1}.png`);
+const popupImages = Array.from({ length: 10 }, (_, i) => `/popup/${i + 1}.png`);
 
 const shuffle = (array) => {
   const copy = [...array];
@@ -27,17 +27,17 @@ function buildColumns() {
 
   return [
     {
-      imgs: shuffled.slice(0, 5),
+      imgs: shuffled.slice(0, 3),
       dir: -1,
       dur: COLUMN_DURATION,
     },
     {
-      imgs: shuffled.slice(5, 9),
+      imgs: shuffled.slice(3, 7),
       dir: 1,
       dur: COLUMN_DURATION,
     },
     {
-      imgs: shuffled.slice(9, 13),
+      imgs: shuffled.slice(7, 10),
       dir: -1,
       dur: COLUMN_DURATION,
     },
@@ -138,7 +138,7 @@ export default function WelcomeModal() {
           <div className="md:col-span-2 p-7 sm:p-10 lg:p-12 flex flex-col justify-center">
             {step === "intro" ? (
               <div className="animate-in fade-in slide-in-from-right-4">
-                <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-ink mt-3 leading-[1.05]">
+                <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-6xl text-ink mt-3 leading-[1.05]">
                   Your tailor is <span className="italic">one knock</span> away.
                 </h2>
 
