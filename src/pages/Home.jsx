@@ -504,10 +504,8 @@ function CollectionsEditorial() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
               <div className="absolute left-3 bottom-3 right-3 text-white">
-                <div className="font-serif tracking-[0.28em] font-medium text-[9px] tracking-[0.2em] opacity-90">
-                  {c.tag}
-                </div>
-                <h3 className="font-serif-display text-base mt-1 leading-tight">{c.title}</h3>
+              
+                <h3 className="text-white font-serif-display text-base mt-1 leading-tight">{c.title}</h3>
               </div>
             </Link>
           </motion.div>

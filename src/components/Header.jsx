@@ -89,7 +89,7 @@ export default function Header() {
                 <img
                   src="/logo.png"
                   alt="KAARIQ"
-                  className="h-[42px] sm:h-[50px] lg:h-[58px] w-auto object-contain"
+                  className="h-[30px] sm:h-[45px] lg:h-[53px] w-auto object-contain"
                 />
               </Link>
 
@@ -215,7 +215,6 @@ export default function Header() {
                       Custom-crafted outfits made to flatter, fit, and feel effortless.
                     </p>
                   </div>
-
                   <div className="col-span-7 grid grid-cols-4 gap-8">
                     {activeNav?.columns.map((col) => (
                       <div key={col.title}>
@@ -262,12 +261,18 @@ export default function Header() {
                         </ul>
                       </div>
                     ))}
-                  </div>
-
-                  <div className="col-span-3">
-                    <div className="aspect-[4/5] overflow-hidden bg-rose-pale">
-                      <img src="/navigation.png" alt="" className="w-full h-full object-cover" />
+                  </div>{" "}
+                  <div className="col-span-3 flex flex-col items-center p-4">
+                    <div className="aspect-[4/5] w-[85%] overflow-hidden bg-rose-pale">
+                      <img
+                        src="/navigation.png"
+                        alt=""
+                        className="h-full w-full object-cover opacity-75"
+                      />
                     </div>
+                    {/* <p className="uppercase mt-4 w-[95%] text-sm text-black/40 text-center">
+                      Tailored for every celebration.
+                    </p> */}
                   </div>
                 </div>
               ) : (
