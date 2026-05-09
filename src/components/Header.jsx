@@ -43,6 +43,7 @@ export default function Header() {
   const [open, setOpen] = useState(null);
   const [mobile, setMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [userMenu, setUserMenu] = useState(false);
   const [hoverItem, setHoverItem] = useState(null); // { key, slug }
   const loc = useLocation();
   const nav = useNavigate();
