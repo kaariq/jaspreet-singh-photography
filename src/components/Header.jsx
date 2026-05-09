@@ -58,6 +58,7 @@ export default function Header() {
 
   useEffect(() => {
     setOpen(null);
+    setHoverItem(null);
     setMobile(false);
   }, [loc.pathname]);
 
