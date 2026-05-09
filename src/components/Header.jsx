@@ -68,7 +68,10 @@ export default function Header() {
       <header className="sticky top-0 z-50">
         <div
           className={`bg-white border-b border-rose transition-shadow ${scrolled ? "shadow-[0_1px_0_rgba(0,0,0,0.04)]" : ""}`}
-          onMouseLeave={() => setOpen(null)}
+          onMouseLeave={() => {
+            setOpen(null);
+            setHoverItem(null);
+          }}
         >
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="h-16 lg:h-[72px] flex items-center justify-between gap-4">
