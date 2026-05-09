@@ -187,7 +187,7 @@ export default function Header() {
                   Discover bespoke craft, made to your measure — at the boutique or your doorstep.
                 </p>
               </div>
-              <div className="col-span-7 grid grid-cols-4 gap-8">
+              <div className="col-span-6 grid grid-cols-3 gap-8" onMouseLeave={() => setHoverItem(null)}>
                 {open &&
                   NAV.find((n) => n.key === open)?.columns.map((col) => (
                     <div key={col.title}>
@@ -195,31 +195,75 @@ export default function Header() {
                         {col.title}
                       </div>
                       <ul className="space-y-2">
-                        {col.items.map((it) => (
-                          <li key={it}>
-                            <Link
-                              to={routeFor(open, it)}
-                              className="link-underline text-[14px] text-ink"
+                        {col.items.map((it) => {
+                          const itemSlug = slug(it);
+                          const hasSubs = !!getSubs(itemSlug);
+                          const isHovered =
+                            hoverItem?.key === open && hoverItem?.slug === itemSlug;
+                          return (
+                            <li
+                              key={it}
+                              onMouseEnter={() =>
+                                hasSubs
+                                  ? setHoverItem({ key: open, slug: itemSlug })
+                                  : setHoverItem(null)
+                              }
                             >
-                              {it}
-                            </Link>
-                          </li>
-                        ))}
+                              <Link
+                                to={routeFor(open, it)}
+                                className={`link-underline text-[14px] ${isHovered ? "text-wine font-medium" : "text-ink"}`}
+                              >
+                                {it}
+                                {hasSubs && (
+                                  <span className="ml-1 text-mute text-[11px]">›</span>
+                                )}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   ))}
               </div>
-              <div className="col-span-2">
-                <div className="aspect-[4/5] overflow-hidden bg-rose-pale">
-                  <img
-                    src="https://images.unsplash.com/photo-1746372283841-dbb3838f9935"
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="text-[11px] tracking-[0.22em] uppercase mt-3 text-ink">
-                  Featured · The Wedding Edit
-                </div>
+              <div className="col-span-3 border-l border-rose pl-8">
+                {(() => {
+                  const subs = hoverItem ? getSubs(hoverItem.slug) : null;
+                  if (subs && subs.length) {
+                    return (
+                      <div>
+                        <div className="text-[11px] tracking-[0.22em] uppercase text-mute mb-3">
+                          {hoverItem.slug.replace(/-/g, " ")} · Styles
+                        </div>
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 max-h-[340px] overflow-y-auto pr-2">
+                          {subs.slice(0, 24).map((s) => (
+                            <li key={s.id}>
+                              <Link
+                                to={`/tailoring/${hoverItem.slug}#${s.id}`}
+                                className="link-underline text-[13px] text-ink"
+                              >
+                                {s.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  }
+                  return (
+                    <>
+                      <div className="aspect-[4/5] overflow-hidden bg-rose-pale">
+                        <img
+                          src="https://images.unsplash.com/photo-1746372283841-dbb3838f9935"
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="text-[11px] tracking-[0.22em] uppercase mt-3 text-ink">
+                        Featured · The Wedding Edit
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           </div>
