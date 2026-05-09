@@ -176,7 +176,7 @@ export default function Header() {
           </div>
           {/* Mega menu */}
           <div
-            className={`hidden lg:block absolute left-0 right-0 top-full bg-blush border-t border-b border-rose overflow-hidden transition-[max-height,opacity] duration-300 ${open ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"}`}
+            className={`hidden lg:block absolute left-0 right-0 top-full bg-blush border-t border-b border-rose overflow-hidden transition-[max-height,opacity] duration-300 ${open ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0"}`}
           >
             <div className="max-w-[1400px] mx-auto px-10 py-10 grid grid-cols-12 gap-10">
               <div className="col-span-3">
