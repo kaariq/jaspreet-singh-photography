@@ -1,117 +1,117 @@
 [
   {
-    "key": "tailoring",
-    "label": "Tailoring",
-    "route": "/tailoring",
+    "key": "Women",
+    "label": "women",
+    "route": "/women",
     "groups": [
       {
-        "title": "Women's Wear",
+        "title": "Ethnic Wear",
         "items": [
-          { "label": "Kurti", "slug": "kurti", "designKey": "kurti", "schemaKey": "kurta" },
-          { "label": "Suits", "slug": "suits", "schemaKey": "suits" },
-          { "label": "Blouse", "slug": "blouse", "designKey": "blouse", "schemaKey": "blouse" },
-          {
-            "label": "Lehengas",
-            "slug": "lehengas",
-            "designKey": "lehenga",
-            "schemaKey": "lehenga"
-          },
-          {
-            "label": "Sharara & Co-ord Sets",
-            "slug": "sharara-and-co-ord-sets",
-            "schemaKey": "kurta"
-          },
-          {
-            "label": "Western Dresses & Jumpsuits",
-            "slug": "western-dresses-and-jumpsuits",
-            "schemaKey": "kurta"
-          },
-          { "label": "Shirts & Trousers", "slug": "shirts-and-trousers", "schemaKey": "trousers" }
+          { "label": "Kurti", "slug": "kurti", "schemaKey": "upper" },
+          { "label": "Suit", "slug": "suit", "schemaKey": "upper" },
+          { "label": "Blouse", "slug": "blouse", "schemaKey": "upper" },
+          { "label": "Lehenga", "slug": "lehenga", "schemaKey": "upper" },
+          { "label": "Sharara Set", "slug": "sharara", "schemaKey": "upper" },
+          { "label": "Co-ord Set", "slug": "coord", "schemaKey": "upper" }
         ]
       },
       {
-        "title": "Men's Wear",
+        "title": "Western Wear",
         "items": [
-          { "label": "Shirts", "slug": "shirts", "schemaKey": "trousers" },
-          { "label": "Trousers", "slug": "trousers", "schemaKey": "trousers" },
-          {
-            "label": "Kurta Pyjama",
-            "slug": "kurta-pyjama",
-            "designKey": "kurta-pyjama",
-            "schemaKey": "kurta-pyjama"
-          },
-          { "label": "Nehru Jackets", "slug": "nehru-jackets", "schemaKey": "waistcoat" },
-          {
-            "label": "Sherwanis",
-            "slug": "sherwanis",
-            "designKey": "sherwani",
-            "schemaKey": "sherwani"
-          },
-          {
-            "label": "Suits & Blazers",
-            "slug": "suits-and-blazers",
-            "designKey": "suit",
-            "schemaKey": "suit"
-          }
+          { "label": "Dresses", "slug": "dresses", "schemaKey": "upper" },
+          { "label": "Jumpsuit", "slug": "jumpsuit", "schemaKey": "upper" },
+          { "label": "Waistcoat", "slug": "waistcoat", "schemaKey": "upper" },
+          { "label": "Shirt", "slug": "shirt", "schemaKey": "upper" },
+          { "label": "Corset", "slug": "corset", "schemaKey": "upper" },
+          { "label": "Blazer", "slug": "blazer", "schemaKey": "upper" }
         ]
       },
+      {
+        "title": "Traditional Bottoms",
+        "items": [
+          { "label": "Salwar", "slug": "salwar", "schemaKey": "bottoms" },
+          { "label": "Palazzo", "slug": "palazzo", "schemaKey": "bottoms" },
+          { "label": "Churidar", "slug": "churidar", "schemaKey": "bottoms" },
+          { "label": "Gharara", "slug": "gharara", "schemaKey": "bottoms" }
+        ]
+      },
+      {
+        "title": "Everyday Bottoms",
+        "items": [
+          { "label": "Trouser", "slug": "trouser", "schemaKey": "bottoms" },
+          { "label": "Pants", "slug": "pants", "schemaKey": "bottoms" },
+          { "label": "Shorts", "slug": "shorts", "schemaKey": "bottoms" },
+          { "label": "Mini/Midi/Long Skirts", "slug": "skirts", "schemaKey": "bottoms" }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "Men",
+    "label": "men",
+    "route": "/men",
+    "groups": [
+      {
+        "title": "Ethnic Wear",
+        "items": [
+          { "label": "Kurta Pyjama", "slug": "kurtaPyjama", "schemaKey": "upper" },
+          { "label": "Pathani Set", "slug": "pathaniSet", "schemaKey": "upper" },
+          { "label": "Nehru Jacket", "slug": "nehruJacket", "schemaKey": "upper" },
+          { "label": "Bandhgala", "slug": "bandhgala", "schemaKey": "upper" },
+          { "label": "Sherwani", "slug": "sherwani", "schemaKey": "upper" }
+        ]
+      },
+      {
+        "title": "Western Wear",
+        "items": [
+          { "label": "Shirt", "slug": "shirt", "schemaKey": "upper" },
+          { "label": "Blazer", "slug": "blazer", "schemaKey": "upper" },
+          { "label": "Two/Three Piece Suit", "slug": "pieceSuit", "schemaKey": "upper" },
+          { "label": "Waistcoat", "slug": "waistcoat", "schemaKey": "upper" },
+          { "label": "Jacket", "slug": "jacket", "schemaKey": "upper" },
+          { "label": "Co-ord Set", "slug": "menCoordSet", "schemaKey": "upper" }
+        ]
+      },
+      {
+        "title": "Traditional Bottoms",
+        "items": [
+          { "label": "Dhoti Pants", "slug": "dhotiPants", "schemaKey": "bottoms" },
+          { "label": "Pathani Salwar", "slug": "menSalwars", "schemaKey": "bottoms" },
+          { "label": "Trouser", "slug": "trousers", "schemaKey": "bottoms" },
+          { "label": "Pants", "slug": "pants", "schemaKey": "bottoms" },
+          { "label": "Shorts", "slug": "shorts", "schemaKey": "bottoms" }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "label": "Customize",
+    "route": "/customize",
+    "groups": [
       {
         "title": "Customizations",
         "items": [
-          { "label": "Embroidery & Work", "slug": "embroidery-and-work" },
-          { "label": "Neckline & Sleeve Designs", "slug": "neckline-and-sleeve-designs" },
-          { "label": "Lace & Patch Work", "slug": "lace-and-patch-work" },
-          { "label": "Fabric Dyeing", "slug": "fabric-dyeing" },
-          { "label": "Fittings & Alterations", "slug": "fittings-and-alterations" }
-        ]
-      }
-    ]
-  },
-  {
-    "key": "collections",
-    "label": "Collections",
-    "route": "/collections",
-    "groups": [
-      {
-        "title": "Signature Collections",
-        "items": [
-          { "label": "New Arrivals", "slug": "new-arrivals" },
-          { "label": "Best Sellers", "slug": "best-sellers" },
-          { "label": "Custom Tailoring", "slug": "custom-tailoring" },
-          { "label": "Premium Designs", "slug": "premium-designs" }
-        ]
-      },
-      {
-        "title": "Shop by Occasion",
-        "items": [
-          { "label": "Wedding Edit", "slug": "wedding-edit" },
-          { "label": "Festive Wear", "slug": "festive-wear" },
-          { "label": "Party Wear", "slug": "party-wear" },
-          { "label": "Office Looks", "slug": "office-looks" }
-        ]
-      },
-      {
-        "title": "Trending Styles",
-        "items": [
-          { "label": "Celebrity Inspired", "slug": "celebrity-inspired" },
-          { "label": "Everyday Chic", "slug": "everyday-chic" },
-          { "label": "Modern Ethnic", "slug": "modern-ethnic" }
-        ]
-      }
-    ]
-  },
-  {
-    "key": "pricing",
-    "label": "Pricing",
-    "route": "/pricing",
-    "groups": [
-      {
-        "title": "Rates",
-        "items": [
-          { "label": "Standard Rates", "slug": "standard-rates" },
-          { "label": "Premium Bespoke", "slug": "premium-bespoke" },
-          { "label": "Alteration Charges", "slug": "alteration-charges" },
-          { "label": "Bulk Orders", "slug": "bulk-orders" }
+          {
+            "label": "Embroidery & Handwork",
+            "slug": "embroidery-and-handwork"
+          },
+          {
+            "label": "Collar & Cuff Designs",
+            "slug": "collar-and-cuff-designs"
+          },
+          {
+            "label": "Neckline & Sleeves",
+            "slug": "neckline-and-sleeves"
+          },
+          {
+            "label": "Fabric Customization",
+            "slug": "fabric-customization"
+          },
+          {
+            "label": "Fittings & Alterations",
+            "slug": "fittings-and-alterations"
+          }
         ]
       }
     ]
@@ -122,12 +122,12 @@
     "route": "/explore",
     "groups": [
       {
-        "title": "Discover",
+        "title": "Explore",
         "items": [
-          { "label": "Gallery & Lookbook", "slug": "gallery-and-lookbook" },
-          { "label": "Blog & Fashion News", "slug": "blog-and-fashion-news" },
-          { "label": "AI Design Tool", "slug": "ai-design-tool" },
-          { "label": "Personal Style Quiz", "slug": "personal-style-quiz" }
+          { "label": "Our Designs", "slug": "gallery-and-lookbook" },
+          { "label": "Style Journal", "slug": "blog-and-fashion-news" },
+          { "label": "Design Studio", "slug": "ai-design-tool" },
+          { "label": "Find Your Style", "slug": "personal-style-quiz" }
         ]
       }
     ]
@@ -141,24 +141,24 @@
         "title": "Plan Your Visit",
         "items": [
           { "label": "Our Process", "slug": "our-process" },
-          { "label": "Measurement Guide", "slug": "measurement-guide" },
+          { "label": "Size Guide", "slug": "measurement-guide" },
           { "label": "Book Appointment", "slug": "book-appointment" },
-          { "label": "Virtual Consultation", "slug": "virtual-consultation" }
+          { "label": "Online Consultation", "slug": "virtual-consultation" }
         ]
       }
     ]
   },
   {
     "key": "contact",
-    "label": "Contact Us",
+    "label": "Contact",
     "route": "/contact",
     "groups": [
       {
         "title": "Get In Touch",
         "items": [
-          { "label": "Find Our Boutique", "slug": "find-our-boutique" },
-          { "label": "WhatsApp Support", "slug": "whatsapp-support" },
-          { "label": "Corporate Inquiries", "slug": "corporate-inquiries" }
+          { "label": "Visit Us", "slug": "find-our-boutique" },
+          { "label": "WhatsApp", "slug": "whatsapp-support" },
+          { "label": "Business Inquiries", "slug": "corporate-inquiries" }
         ]
       }
     ]

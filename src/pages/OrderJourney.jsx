@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, Check, Upload, Info, X, Plus, Ruler } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { SUBITEMS, NECKLINES, BACK_DESIGNS, SLEEVES, ADDONS, HOW_TO_MEASURE } from "@/data";
-import { MEASUREMENTS, CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/orderCycle/measurements";
+import { MEASUREMENTS, CATEGORY_LABELS } from "@/data/orderCycle/measurements";
 import { NECKLINE_SVGS, BACK_SVGS, SLEEVE_SVGS } from "@/components/DesignSVGs";
 import { Home as HomeIcon, MapPin, UserCheck, PencilLine } from "lucide-react";
 
@@ -43,7 +43,7 @@ const slideX = {
 
 export default function OrderJourney() {
   const { slug, design } = useParams();
-  const schemaKey = CATEGORY_TO_SCHEMA[slug] || "blouse";
+  const schemaKey = [slug];
   const isCustom = design === "custom";
   const designObj = !isCustom ? (SUBITEMS[schemaKey] || []).find((d) => d.id === design) : null;
   const fields = MEASUREMENTS[schemaKey] || MEASUREMENTS.blouse;

@@ -29,14 +29,13 @@ import ScrollToTop from "./components/ScrollToTop";
 import PreFooterBooking from "./components/PreFooterBooking";
 import AdminApp from "./admin/AdminApp";
 import { AuthProvider } from "./contexts/AuthContext";
-import { CATEGORY_TO_SCHEMA } from "./data/orderCycle/measurements";
 import { Toaster } from "./components/ui/sonner";
 // import  BookingSection from './components/booking-section';
 
 function TailoringRouter() {
   const loc = useLocation();
   const slug = loc.pathname.split("/").filter(Boolean)[1];
-  if (slug && CATEGORY_TO_SCHEMA[slug]) return <CategoryPage slug={slug} />;
+  if (slug) return <CategoryPage slug={slug} />;
   return <Tailoring />;
 }
 

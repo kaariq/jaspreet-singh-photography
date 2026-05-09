@@ -2,7 +2,7 @@ import { IMAGES } from "@/data";
 
 const _i = IMAGES;
 
-export const SHARARA_COORD_DESIGNS = [
+export const COORD_DESIGNS = [
   {
     id: "classic-sharara",
     label: "Classic Sharara Set",

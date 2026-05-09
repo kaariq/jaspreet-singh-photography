@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Sparkles, Upload, ChevronDown } from "lucide-react";
 import { SUBITEMS } from "@/data";
-import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/orderCycle/measurements";
+import { CATEGORY_LABELS } from "@/data/orderCycle/measurements";
 import { IMAGES } from "@/data";
 import { getSection } from "@/data/navigation/navigation";
 
@@ -25,7 +25,7 @@ export default function CategoryPage({ slug: forcedSlug }) {
   console.log(SUBITEMS, "SUBITEMS");
   const params = useParams();
   const slug = forcedSlug || params.slug;
-  const schemaKey = CATEGORY_TO_SCHEMA[slug];
+  const schemaKey = slug;
   const designs = SUBITEMS[schemaKey] || SUBITEMS[slug] || [];
   const label = CATEGORY_LABELS[schemaKey] || (slug || "").replace(/-/g, " ");
   const nav = useNavigate();

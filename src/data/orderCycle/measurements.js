@@ -117,24 +117,6 @@ export const MEASUREMENTS = {
   ],
 };
 
-// Map slugs / pretty names to schema keys (kept in sync with navigation.json slugs)
-export const CATEGORY_TO_SCHEMA = {
-  kurti: "kurti",
-  suits: "suits",
-  blouse: "blouse",
-  suits: "kurta",
-  lehengas: "lehenga",
-  "sharara-and-co-ord-sets": "shararaCoords",
-  "western-dresses-and-jumpsuits": "dresses",
-  "shirts-and-trousers": "shirtsTrousers",
-  shirts: "shirts",
-  trousers: "trousers",
-  "kurta-pyjama": "kurtaPyjama",
-  "nehru-jackets": "nehruJackets",
-  sherwanis: "sherwanis",
-  "suits-and-blazers": "suitsBlazers",
-};
-
 export const CATEGORY_LABELS = {
   blouse: "Blouse",
   kurta: "Kurta / Kurti",

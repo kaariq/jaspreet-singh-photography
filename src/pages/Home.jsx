@@ -91,7 +91,7 @@ export default function Home() {
   return (
     <main>
       <HeroCarousel />
-      <TrustStrip />
+      {/* <TrustStrip /> */}
       <ServicesGrid />
       <HorizontalProcess />
       <CollectionsEditorial />
@@ -111,7 +111,7 @@ function HeroCarousel() {
   const total = HERO_SLIDES.length;
   useEffect(() => {
     if (hover) return;
-    const t = setInterval(() => setI((p) => (p + 1) % total), 5500);
+    const t = setInterval(() => setI((p) => (p + 1) % total), 8500);
     return () => clearInterval(t);
   }, [hover, total]);
   const go = (d) => setI((p) => (p + d + total) % total);
@@ -172,7 +172,7 @@ function HeroCarousel() {
             >
               <motion.h1
                 variants={blurUp}
-                className=" text-white font-serif-display mt-3 sm:mt-5 text-[32px] sm:text-[56px] lg:text-[78px] leading-[1] sm:leading-[0.98] whitespace-pre-line"
+                className=" text-white font-serif-display mt-3 sm:mt-5 text-[22px] sm:text-[36px] lg:text-[48px] leading-[1] sm:leading-[0.98] whitespace-pre-line"
               >
                 {slide.title}
               </motion.h1>
@@ -192,12 +192,6 @@ function HeroCarousel() {
                 >
                   {slide.cta.label}{" "}
                   <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  to="/booking/book-appointment"
-                  className="inline-flex items-center gap-2 border border-white/70 px-4 sm:px-7 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-white hover:bg-white hover:text-ink transition-colors"
-                >
-                  Book Appointment
                 </Link>
               </motion.div>
             </motion.div>
@@ -276,20 +270,12 @@ function ServicesGrid() {
         </motion.div>
         <motion.h2
           variants={blurUp}
-          className="lg:col-span-7 font-serif-display text-[28px] sm:text-4xl lg:text-[64px] leading-[1.05] text-ink"
+          className="lg:col-span-7 font-serif-display text-[28px] sm:text-6xl lg:text-[64px] leading-[1.05] text-ink"
         >
           Tailoring,
           <span className="italic text-wine"> re-imagined</span>
           <br className="hidden lg:block" /> for the modern wardrobe.
         </motion.h2>
-        <motion.div variants={fadeUp} className="lg:col-span-2 lg:text-right">
-          <Link
-            to="/tailoring"
-            className="link-underline text-[11px] sm:text-[12px] tracking-[0.22em] uppercase"
-          >
-            View all services →
-          </Link>
-        </motion.div>
       </Reveal>
 
       <Reveal
@@ -348,14 +334,15 @@ function HorizontalProcess() {
             variants={blurUp}
             className="text-white font-serif-display text-[28px] sm:text-4xl lg:text-6xl mt-3 sm:mt-4 leading-[1.05]"
           >
-            From sketch <span className="italic text-rose-soft">to silhouette,</span> in seven
-            steps.
+            From idea <span className="italic text-rose-soft">to final outfit,</span> in seven
+            simple steps.
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-[13px] sm:text-sm opacity-75 mt-3 sm:mt-5 max-w-xl leading-relaxed"
           >
-            A calm, considered process — designed to put you at the centre of every decision.
+            A thoughtful process designed around you — with care, detail, and precision at every
+            stage.
           </motion.p>
         </Reveal>
 
@@ -434,15 +421,6 @@ function HorizontalProcess() {
             ))}
           </div>
         </div>
-
-        <Reveal className="mt-10 sm:mt-16 lg:mt-20">
-          <Link
-            to="/booking/our-process"
-            className="inline-flex items-center gap-2 border border-white/40 px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-ink transition-colors"
-          >
-            Read full process <ArrowRight className="w-4 h-4" />
-          </Link>
-        </Reveal>
       </div>
     </section>
   );
@@ -654,7 +632,7 @@ function FabricBanner() {
               to="/explore/gallery-and-lookbook"
               className="inline-flex items-center gap-2 mt-5 sm:mt-8 border border-white px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase hover:bg-white hover:text-ink transition-colors"
             >
-              View the boutique <ArrowRight className="w-4 h-4" />
+              Our Designs & Details <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>

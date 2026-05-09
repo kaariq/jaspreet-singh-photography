@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, ShoppingBag, Phone } from "lucide-react";
 import { SUBITEMS } from "@/data";
-import { CATEGORY_TO_SCHEMA, CATEGORY_LABELS } from "@/data/orderCycle/measurements";
+import {  CATEGORY_LABELS } from "@/data/orderCycle/measurements";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
@@ -21,7 +21,7 @@ export default function RequestContact() {
   const loc = useLocation();
   const { addToCart, cart } = useAuth();
 
-  const schemaKey = CATEGORY_TO_SCHEMA[slug];
+  const schemaKey = [slug];
   const designs = SUBITEMS[schemaKey] || [];
   const isCustom = design === "custom";
   const designObj = isCustom

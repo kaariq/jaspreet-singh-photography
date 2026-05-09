@@ -2,7 +2,7 @@ import { IMAGES } from "@/data";
 
 const _i = IMAGES;
 
-export const SHIRTS_TROUSERS_DESIGNS = [
+export const TROUSER_DESIGNS = [
   {
     id: "formal-shirt",
     label: "Formal Shirt",
