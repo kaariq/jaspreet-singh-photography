@@ -2,8 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ShoppingBag, User, Menu, X, ChevronRight, LogOut } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
-import { NAV, SITE } from "@/data";
+import { NAV, SITE, SUBITEMS } from "@/data";
 import { useAuth } from "@/contexts/AuthContext";
+
+// Map nav item slug -> SUBITEMS key
+const SUB_KEY_MAP = {
+  kurti: "kurti",
+  blouse: "blouse",
+  lehengas: "lehengas",
+  "sharara-and-co-ord-sets": "shararaCoords",
+  "western-dresses-and-jumpsuits": "dresses",
+  "shirts-and-trousers": "shirtsTrousers",
+  suits: "suits",
+  shirts: "shirts",
+  trousers: "trousers",
+  "kurta-pyjama": "kurtaPyjama",
+  "nehru-jackets": "nehruJackets",
+  sherwanis: "sherwanis",
+  "suits-and-blazers": "suitsBlazers",
+  "embroidery-and-work": "embroidery",
+  "lace-and-patch-work": "lacePatch",
+  "fabric-dyeing": "dyeing",
+  "fittings-and-alterations": "alterations",
+};
+const getSubs = (slug) => {
+  const key = SUB_KEY_MAP[slug];
+  return key && SUBITEMS[key] ? SUBITEMS[key] : null;
+};
 const slug = (s) =>
   s
     .toLowerCase()
