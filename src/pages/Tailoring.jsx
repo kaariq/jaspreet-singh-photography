@@ -11,20 +11,21 @@ import {
 } from "@/components/InfoSections";
 import { NAV, FAQ, PROCESS } from "@/data";
 
-const sub = NAV[0].columns;
-
-export default function Tailoring() {
-  const { slug } = useParams();
-  const heading = slug ? slug.replace(/-/g, " ").replace(/\band\b/g, "&") : "Bespoke Tailoring";
-
+export default function Tailoring({ category = "" }) {
+  const sub = NAV.find((s) => s.key === category)?.columns || [];
+  const heading = category ? `${category}'s Tailoring` : "Bespoke Tailoring";
   return (
     <main className="pb-8 sm:pb-8">
       <ServiceIntro
-        eyebrow="— THE KAARIQ ATELIER"
+        eyebrow=""
         title={heading}
         lead="From the first sketch to the final stitch, every piece is hand-crafted to your measure by our master tailors. Choose a category below to begin."
       />
-      <SubCategoryCarousel basePath="/tailoring" columns={sub} activeSlug={slug} />
+      <SubCategoryCarousel
+        basePath={`/${category}`}
+        columns={sub}
+        activeSlug={category}
+      />
       <Process steps={PROCESS} />
       <CTAStrip
         title="Ready to be measured?"

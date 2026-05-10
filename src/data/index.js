@@ -16,7 +16,11 @@ export { default as IMAGES } from "./landing/images.json";
 export { default as FAQ } from "./landing/faq.json";
 export { default as GALLERY } from "./landing/gallery.json";
 // navigation
-export { QUIZ_DATA, PRICING_GROUPS, PRICING_INCLUDED } from "./landing/landing-page";
+export {
+  QUIZ_DATA,
+  PRICING_GROUPS,
+  PRICING_INCLUDED,
+} from "./landing/landing-page";
 
 export { NAV } from "./navigation/navigation.js";
 export { default as NAVIGATION_JSON } from "./navigation/navigation.json";

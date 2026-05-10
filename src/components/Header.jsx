@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ShoppingBag, User, Menu, X, ChevronRight, ChevronLeft, LogOut } from "lucide-react";
+import {
+  ShoppingBag,
+  User,
+  Menu,
+  X,
+  ChevronRight,
+  ChevronLeft,
+  LogOut,
+} from "lucide-react";
 
 import AnnouncementBar from "./AnnouncementBar";
 import { NAV, SITE, SUBITEMS } from "@/data";
@@ -18,22 +26,8 @@ const slug = (s) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-const routeFor = (key, item) =>
-  `/${
-    key === "tailoring"
-      ? "tailoring"
-      : key === "collections"
-        ? "collections"
-        : key === "pricing"
-          ? "pricing"
-          : key === "explore"
-            ? "explore"
-            : key === "booking"
-              ? "booking"
-              : "contact"
-  }/${slug(item)}`;
-
-const parentRoute = (key) => `/${key === "booking" ? "booking" : key}`;
+const sectionRoute = (n) => n?.route || `/${n?.key}`;
+const routeFor = (n, item) => `${sectionRoute(n)}/${slug(item)}`;
 
 export default function Header() {
   const [open, setOpen] = useState(null);
@@ -97,8 +91,8 @@ export default function Header() {
               <nav className="hidden lg:flex items-center justify-center flex-1 gap-6 xl:gap-8 min-w-0">
                 {NAV.map((n) => {
                   const onSection =
-                    loc.pathname === parentRoute(n.key) ||
-                    loc.pathname.startsWith(parentRoute(n.key) + "/");
+                    loc.pathname === sectionRoute(n) ||
+                    loc.pathname.startsWith(sectionRoute(n) + "/");
 
                   const isActive = open === n.key;
 
@@ -112,10 +106,12 @@ export default function Header() {
                       className="relative shrink-0"
                     >
                       <Link
-                        to={parentRoute(n.key)}
+                        to={sectionRoute(n)}
                         aria-current={onSection ? "page" : undefined}
                         className={`text-[11px] xl:text-[12px] tracking-[0.18em] uppercase whitespace-nowrap pb-1 border-b ${
-                          isActive || onSection ? "border-ink" : "border-transparent"
+                          isActive || onSection
+                            ? "border-ink"
+                            : "border-transparent"
                         } hover:border-ink transition-colors`}
                       >
                         {n.label}
@@ -136,7 +132,9 @@ export default function Header() {
 
                 <div className="relative">
                   <button
-                    onClick={() => (isAuthed ? setUserMenu((v) => !v) : nav("/login"))}
+                    onClick={() =>
+                      isAuthed ? setUserMenu((v) => !v) : nav("/login")
+                    }
                     aria-label="Account"
                     className="hover:opacity-70 flex items-center gap-2"
                   >
@@ -182,7 +180,11 @@ export default function Header() {
                   )}
                 </div>
 
-                <Link to="/cart" aria-label="Cart" className="relative hover:opacity-70">
+                <Link
+                  to="/cart"
+                  aria-label="Cart"
+                  className="relative hover:opacity-70"
+                >
                   <ShoppingBag className="w-[18px] h-[18px]" />
 
                   <span className="absolute -top-2 -right-2 text-[10px] bg-wine text-white rounded-full min-w-4 h-4 px-1 flex items-center justify-center">
@@ -208,124 +210,67 @@ export default function Header() {
             }`}
           >
             <div className="max-w-[1400px] mx-auto px-10 py-10">
-              {!subPage ? (
-                <div className="grid grid-cols-12 gap-10">
-                  <div className="col-span-2">
-                    <p className="text-sm text-mute mt-3 leading-relaxed">
-                      Custom-crafted outfits made to flatter, fit, and feel effortless.
-                    </p>
-                  </div>
-                  <div className="col-span-7 grid grid-cols-4 gap-8">
-                    {activeNav?.columns.map((col) => (
-                      <div key={col.title}>
-                        <div className="text-[11px] tracking-[0.22em] uppercase text-mute mb-3">
-                          {col.title}
-                        </div>
-
-                        <ul className="space-y-2">
-                          {col.items.map((it) => {
-                            const itemSlug = slug(it);
-                            console.log("ITEM SLUG", itemSlug);
-                            const subs = getSubs(itemSlug);
-                            const hasSubs = !!subs?.length;
-
-                            return (
-                              <li key={it.label}>
-                                {hasSubs ? (
-                                  <button
-                                    type="button"
-                                    onClick={() =>
-                                      setSubPage({
-                                        navKey: open,
-                                        label: it.label,
-                                        slug: itemSlug,
-                                        subs,
-                                      })
-                                    }
-                                    className="link-underline text-[14px] text-ink text-left"
-                                  >
-                                    {it.label}
-                                    <span className="ml-1 text-mute text-[11px]">›</span>
-                                  </button>
-                                ) : (
-                                  <Link
-                                    to={routeFor(open, it.label)}
-                                    onClick={closeMenu}
-                                    className="link-underline text-[14px] text-ink"
-                                  >
-                                    {it.label}
-                                  </Link>
-                                )}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>{" "}
-                  <div className="col-span-3 flex flex-col items-center p-4">
-                    <div className="aspect-[4/5] w-[85%] overflow-hidden bg-rose-pale">
-                      <img
-                        src="/navigation.png"
-                        alt=""
-                        className="h-full w-full object-cover opacity-75"
-                      />
-                    </div>
-                    {/* <p className="uppercase mt-4 w-[95%] text-sm text-black/40 text-center">
-                      Tailored for every celebration.
-                    </p> */}
-                  </div>
+              <div className="grid grid-cols-12 gap-10">
+                <div className="col-span-2">
+                  <p className="text-sm text-mute mt-3 leading-relaxed">
+                    Custom-crafted outfits made to flatter, fit, and feel
+                    effortless.
+                  </p>
                 </div>
-              ) : (
-                <div className="min-h-[420px]">
-                  <button
-                    type="button"
-                    onClick={() => setSubPage(null)}
-                    className="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-mute hover:text-ink transition-colors mb-8"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                    Back to menu
-                  </button>
-
-                  <div className="grid grid-cols-12 gap-10">
-                    <div className="col-span-3">
+                <div className="col-span-7 grid grid-cols-4 gap-8">
+                  {activeNav?.columns.map((col) => (
+                    <div key={col.title}>
                       <div className="text-[11px] tracking-[0.22em] uppercase text-mute mb-3">
-                        {activeNav?.label}
+                        {col.title}
                       </div>
 
-                      <h3 className="font-serif-display text-3xl text-ink">{subPage.label}</h3>
+                      <ul className="space-y-2">
+                        {col.items.map((it) => {
+                          const itemSlug = slug(it);
+                          console.log("ITEM SLUG", itemSlug);
+                          const subs = getSubs(itemSlug);
+                          const hasSubs = !!subs?.length;
 
-                      <p className="text-sm text-mute mt-3 leading-relaxed">
-                        Select a style to explore detailing, finishing and customization choices.
-                      </p>
-
-                      <Link
-                        to={routeFor(subPage.navKey, subPage.label)}
-                        onClick={closeMenu}
-                        className="inline-flex mt-6 text-[11px] tracking-[0.22em] uppercase border border-ink/70 px-5 py-3 hover:bg-ink hover:text-white transition-colors"
-                      >
-                        View all
-                      </Link>
-                    </div>
-
-                    <div className="col-span-9">
-                      <ul className="grid grid-cols-4 gap-x-8 gap-y-2 max-h-[390px] overflow-y-auto pr-3">
-                        {subPage.subs.map((s) => (
-                          <li key={s.id}>
-                            <Link
-                              to={`/${subPage.navKey}/${subPage.slug}#${s.id}`}
-                              onClick={closeMenu}
-                              className="link-underline text-[14px] text-ink"
-                            >
-                              {s.label}
-                            </Link>
-                          </li>
-                        ))}
+                          return (
+                            <li key={it.label}>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setSubPage({
+                                    navKey: open,
+                                    navRoute: sectionRoute(activeNav),
+                                    label: it.label,
+                                    slug: itemSlug,
+                                    subs,
+                                  })
+                                }
+                                className="link-underline text-[14px] text-ink text-left"
+                              >
+                                <Link
+                                  to={routeFor(activeNav, it)}
+                                  onClick={closeMenu}
+                                  className="link-underline text-[14px] text-ink"
+                                >
+                                  {it.label}
+                                </Link>
+                              </button>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
+                  ))}
+                </div>{" "}
+                <div className="col-span-3 flex flex-col items-center p-4">
+                  <div className="aspect-[4/5] w-[85%] overflow-hidden bg-rose-pale">
+                    <img
+                      src="/navigation.png"
+                      alt=""
+                      className="h-full w-full object-cover opacity-75"
+                    />
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
@@ -341,7 +286,9 @@ export default function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-8">
-                <span className="font-italiana text-xl tracking-[0.3em]">KAARIQ</span>
+                <span className="font-italiana text-xl tracking-[0.3em]">
+                  KAARIQ
+                </span>
 
                 <button onClick={() => setMobile(false)} aria-label="Close">
                   <X className="w-5 h-5" />
@@ -353,7 +300,9 @@ export default function Header() {
                   <li key={n.key}>
                     <details className="group border-b border-rose">
                       <summary className="flex items-center justify-between py-3 cursor-pointer list-none">
-                        <span className="text-[13px] tracking-[0.22em] uppercase">{n.label}</span>
+                        <span className="text-[13px] tracking-[0.22em] uppercase">
+                          {n.label}
+                        </span>
 
                         <ChevronRight className="w-4 h-4 group-open:rotate-90 transition-transform" />
                       </summary>
@@ -373,7 +322,10 @@ export default function Header() {
 
                                 return (
                                   <li key={it.label}>
-                                    <Link to={routeFor(n.key, it.label)} className="text-[14px]">
+                                    <Link
+                                      to={routeFor(n, it.label)}
+                                      className="text-[14px]"
+                                    >
                                       {it.label}
                                       {subs?.length ? " ›" : ""}
                                     </Link>
@@ -389,7 +341,9 @@ export default function Header() {
                 ))}
               </ul>
 
-              <div className="mt-8 text-[12px] tracking-[0.18em] uppercase">{SITE.phone}</div>
+              <div className="mt-8 text-[12px] tracking-[0.18em] uppercase">
+                {SITE.phone}
+              </div>
             </div>
           </div>
         )}

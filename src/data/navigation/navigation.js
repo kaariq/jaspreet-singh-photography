@@ -9,6 +9,8 @@ export const NAVIGATION = NAVIGATION_JSON;
 export const NAV = NAVIGATION.map((n) => ({
   key: n.key,
   label: n.label,
+  route: n.route,
+  heading: n.heading,
   columns: n.groups.map((g) => ({
     title: g.title,
     items: g.items.map((it) => ({
@@ -28,10 +30,12 @@ export const flatItems = (key) => {
 };
 
 // Look up an item by section key + slug.
-export const findItem = (key, slug) => flatItems(key).find((i) => i.slug === slug);
+export const findItem = (key, slug) =>
+  flatItems(key).find((i) => i.slug === slug);
 
 // Resolve route for an item.
 export const routeForItem = (sectionKey, slug) => `/${sectionKey}/${slug}`;
 
 // Build slug→meta lookup for a section (used by routers).
-export const slugMap = (key) => Object.fromEntries(flatItems(key).map((i) => [i.slug, i]));
+export const slugMap = (key) =>
+  Object.fromEntries(flatItems(key).map((i) => [i.slug, i]));

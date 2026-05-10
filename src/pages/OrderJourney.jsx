@@ -89,7 +89,7 @@ export default function OrderJourney() {
 
   const placeOrder = () => {
     if (!isAuthed) {
-      nav(`/login?next=/tailoring/${slug}/order/${design}`);
+      nav(`/login?next=/women/${slug}/order/${design}`);
       return;
     }
     const order = addOrder({

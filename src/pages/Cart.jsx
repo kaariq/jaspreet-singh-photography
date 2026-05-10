@@ -54,7 +54,7 @@ export default function Cart() {
               View my orders <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              to="/tailoring"
+              to="/women"
               className="inline-flex items-center justify-center gap-2 border border-ink text-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-ink hover:text-white"
             >
               Continue browsing
@@ -88,10 +88,10 @@ export default function Cart() {
               Browse designs and add them to your cart to request a custom order.
             </p>
             <Link
-              to="/tailoring"
+              to="/women"
               className="inline-flex items-center gap-2 mt-5 bg-wine text-white px-6 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-wine-light"
             >
-              Explore tailoring <ArrowRight className="w-4 h-4" />
+              Explore women's designs <ArrowRight className="w-4 h-4" />
             </Link>
 
             {parentOrders?.length > 0 && (
@@ -175,7 +175,7 @@ export default function Cart() {
               ))}
 
               <Link
-                to="/tailoring"
+                to="/women"
                 className="inline-flex items-center gap-2 mt-2 text-[11px] tracking-[0.22em] uppercase text-wine hover:underline"
               >
                 <Plus className="w-3.5 h-3.5" /> Add another design

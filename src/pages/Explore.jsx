@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageHero } from "@/components/PageBits";
 import { IMAGES, GALLERY, BLOGS, QUIZ_DATA } from "@/data";
-import { Sparkles, ArrowRight, Wand2, ChevronRight, Clock, BookOpen } from "lucide-react";
+import {
+  Sparkles,
+  ArrowRight,
+  Wand2,
+  ChevronRight,
+  Clock,
+  BookOpen,
+} from "lucide-react";
 
 export default function Explore() {
   const { slug } = useParams();
@@ -102,12 +109,16 @@ function AITool() {
       <div className="bg-blush border border-rose p-8 lg:p-10">
         <div className="flex items-center gap-2 text-wine">
           <Wand2 className="w-5 h-5" />
-          <span className="font-serif tracking-[0.28em] font-medium">KAARIQ DESIGN BOUTIQUE</span>
+          <span className="font-serif tracking-[0.28em] font-medium">
+            KAARIQ DESIGN BOUTIQUE
+          </span>
         </div>
-        <h3 className="font-serif-display text-3xl mt-3">Describe your dream outfit.</h3>
+        <h3 className="font-serif-display text-3xl mt-3">
+          Describe your dream outfit.
+        </h3>
         <p className="text-sm text-mute mt-2">
-          Our AI will sketch a moodboard and recommend fabrics, embroideries, and an estimated
-          price.
+          Our AI will sketch a moodboard and recommend fabrics, embroideries,
+          and an estimated price.
         </p>
         <textarea
           value={prompt}
@@ -130,23 +141,41 @@ function AITool() {
           <div className="h-full flex items-center justify-center text-center min-h-[280px]">
             <div>
               <Sparkles className="w-7 h-7 mx-auto text-wine" />
-              <div className="text-sm text-mute mt-3">Your moodboard will appear here.</div>
+              <div className="text-sm text-mute mt-3">
+                Your moodboard will appear here.
+              </div>
             </div>
           </div>
         )}
         {result && (
           <div>
             <div className="grid grid-cols-2 gap-2">
-              <img src={IMAGES.embroidery} alt="" className="aspect-square object-cover" />
-              <img src={IMAGES.festive} alt="" className="aspect-square object-cover" />
-              <img src={IMAGES.fabric} alt="" className="aspect-square object-cover" />
-              <img src={IMAGES.women} alt="" className="aspect-square object-cover" />
+              <img
+                src={IMAGES.embroidery}
+                alt=""
+                className="aspect-square object-cover"
+              />
+              <img
+                src={IMAGES.festive}
+                alt=""
+                className="aspect-square object-cover"
+              />
+              <img
+                src={IMAGES.fabric}
+                alt=""
+                className="aspect-square object-cover"
+              />
+              <img
+                src={IMAGES.women}
+                alt=""
+                className="aspect-square object-cover"
+              />
             </div>
             <div className="mt-5">
               <div className="font-serif-display text-2xl">Suggested look</div>
               <p className="text-sm text-mute mt-1">
-                Pastel pista anarkali · organza dupatta · floral resham work · estimate ₹16,500 –
-                ₹22,000.
+                Pastel pista anarkali · organza dupatta · floral resham work ·
+                estimate ₹16,500 – ₹22,000.
               </p>
               <Link
                 to="/booking/book-appointment"
@@ -193,14 +222,16 @@ function Quiz({ qs }) {
       {done && (
         <div className="text-center">
           <Sparkles className="w-7 h-7 mx-auto text-wine" />
-          <div className="font-serif tracking-[0.28em] font-medium text-mute mt-3">YOUR STYLE</div>
+          <div className="font-serif tracking-[0.28em] font-medium text-mute mt-3">
+            YOUR STYLE
+          </div>
           <h3 className="font-serif-display text-4xl mt-2">Modern Heritage</h3>
           <p className="text-sm text-mute mt-3">
-            Refined classics with a contemporary edge — crisp tailoring, hand-finished details, and
-            a calm palette.
+            Refined classics with a contemporary edge — crisp tailoring,
+            hand-finished details, and a calm palette.
           </p>
           <Link
-            to="/collections/modern-minimalist"
+            to="/women"
             className="inline-flex items-center gap-2 mt-6 bg-ink text-white px-6 py-3 text-[12px] tracking-[0.22em] uppercase hover:bg-wine transition-colors"
           >
             See your edit <ArrowRight className="w-4 h-4" />

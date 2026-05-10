@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Tailoring from "./pages/Tailoring";
 import CategoryPage from "./pages/CategoryPage";
-import Collections from "./pages/Collections";
 import Pricing from "./pages/Pricing";
 import Explore from "./pages/Explore";
 import BookingGuide from "./pages/BookingGuide";
@@ -24,7 +23,11 @@ import Cart from "./pages/Cart";
 import FloatingActions from "./components/FloatingActions";
 import CookieConsent from "./components/CookieConsent";
 import WelcomeModal from "./components/WelcomeModal";
-import { PrivacyPolicy, TermsConditions, CookiePolicy } from "./pages/PolicyPages";
+import {
+  PrivacyPolicy,
+  TermsConditions,
+  CookiePolicy,
+} from "./pages/PolicyPages";
 import ScrollToTop from "./components/ScrollToTop";
 import PreFooterBooking from "./components/PreFooterBooking";
 import AdminApp from "./admin/AdminApp";
@@ -88,15 +91,18 @@ function App() {
           <Chrome />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/tailoring" element={<Tailoring />} />
-            <Route path="/tailoring/:slug" element={<TailoringRouter />} />
+            <Route path="/women" element={<Tailoring category="women" />} />
+            <Route path="/women/:slug" element={<TailoringRouter />} />
+            <Route path="/men" element={<Tailoring category="men" />} />
+            <Route path="/men/:slug" element={<TailoringRouter />} />
             {/* OrderJourney route is paused — routed to RequestContact instead.
                 Original route kept as comment so we can restore it later:
-                <Route path="/tailoring/:slug/order/:design" element={<OrderJourney />} /> */}
-            <Route path="/tailoring/:slug/order/:design" element={<RequestContact />} />
+                <Route path="/women/:slug/order/:design" element={<OrderJourney />} /> */}
+            <Route
+              path="/women/:slug/order/:design"
+              element={<RequestContact />}
+            />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/collections" element={<Collections />} />
-            <Route path="/collections/:slug" element={<Collections />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/pricing/:slug" element={<Pricing />} />
             <Route path="/explore" element={<Explore />} />

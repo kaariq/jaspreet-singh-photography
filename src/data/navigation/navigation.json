@@ -1,7 +1,8 @@
 [
   {
-    "key": "Women",
-    "label": "women",
+    "key": "women",
+    "label": "Women",
+    "heading": "Women's tailoring",
     "route": "/women",
     "groups": [
       {
@@ -41,22 +42,38 @@
           { "label": "Trouser", "slug": "trouser", "schemaKey": "bottoms" },
           { "label": "Pants", "slug": "pants", "schemaKey": "bottoms" },
           { "label": "Shorts", "slug": "shorts", "schemaKey": "bottoms" },
-          { "label": "Mini/Midi/Long Skirts", "slug": "skirts", "schemaKey": "bottoms" }
+          {
+            "label": "Mini/Midi/Long Skirts",
+            "slug": "skirts",
+            "schemaKey": "bottoms"
+          }
         ]
       }
     ]
   },
   {
-    "key": "Men",
-    "label": "men",
+    "key": "men",
+    "label": "Men",
     "route": "/men",
     "groups": [
       {
         "title": "Ethnic Wear",
         "items": [
-          { "label": "Kurta Pyjama", "slug": "kurtaPyjama", "schemaKey": "upper" },
-          { "label": "Pathani Set", "slug": "pathaniSet", "schemaKey": "upper" },
-          { "label": "Nehru Jacket", "slug": "nehruJacket", "schemaKey": "upper" },
+          {
+            "label": "Kurta Pyjama",
+            "slug": "kurtaPyjama",
+            "schemaKey": "upper"
+          },
+          {
+            "label": "Pathani Set",
+            "slug": "pathaniSet",
+            "schemaKey": "upper"
+          },
+          {
+            "label": "Nehru Jacket",
+            "slug": "nehruJacket",
+            "schemaKey": "upper"
+          },
           { "label": "Bandhgala", "slug": "bandhgala", "schemaKey": "upper" },
           { "label": "Sherwani", "slug": "sherwani", "schemaKey": "upper" }
         ]
@@ -66,16 +83,32 @@
         "items": [
           { "label": "Shirt", "slug": "mensShirt", "schemaKey": "upper" },
           { "label": "Blazer", "slug": "mensBlazer", "schemaKey": "upper" },
-          { "label": "Two/Three Piece Suit", "slug": "pieceSuit", "schemaKey": "upper" },
-          { "label": "Waistcoat", "slug": "mensWaistcoat", "schemaKey": "upper" },
+          {
+            "label": "Two/Three Piece Suit",
+            "slug": "pieceSuit",
+            "schemaKey": "upper"
+          },
+          {
+            "label": "Waistcoat",
+            "slug": "mensWaistcoat",
+            "schemaKey": "upper"
+          },
           { "label": "Co-ord Set", "slug": "mensCoord", "schemaKey": "upper" }
         ]
       },
       {
         "title": "Traditional Bottoms",
         "items": [
-          { "label": "Dhoti Pants", "slug": "dhotiPants", "schemaKey": "bottoms" },
-          { "label": "Pathani Salwar", "slug": "menSalwar", "schemaKey": "bottoms" },
+          {
+            "label": "Dhoti Pants",
+            "slug": "dhotiPants",
+            "schemaKey": "bottoms"
+          },
+          {
+            "label": "Pathani Salwar",
+            "slug": "menSalwar",
+            "schemaKey": "bottoms"
+          },
           { "label": "Trouser", "slug": "mensTrouser", "schemaKey": "bottoms" },
           { "label": "Pants", "slug": "mensPants", "schemaKey": "bottoms" },
           { "label": "Shorts", "slug": "mensShorts", "schemaKey": "bottoms" }

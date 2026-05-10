@@ -68,7 +68,6 @@ export default function BookingSection() {
     <section className="py-20 lg:py-28 bg-noir text-white">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
           {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -118,7 +117,6 @@ export default function BookingSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="bg-white text-foreground p-6">
-
               {/* Meeting Info */}
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 bg-cream flex items-center justify-center">
@@ -165,7 +163,6 @@ export default function BookingSection() {
 
               {/* ✅ DESKTOP CALENDAR */}
               <div className="hidden lg:block border-t border-cream-border pt-5">
-                
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-sm font-medium">
                     {monthNames[displayDate.getMonth()]}{" "}

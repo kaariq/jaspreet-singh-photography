@@ -119,7 +119,7 @@ function OrdersTab() {
         title="No orders yet"
         subtitle="Your bespoke orders will appear here."
         cta="Browse tailoring"
-        to="/tailoring"
+        to="/women"
       />
     );
   return (

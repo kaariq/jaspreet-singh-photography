@@ -1,62 +1,74 @@
 [
   {
     "id": "fast-home-tailoring",
-    "title": "48-Hour Stitching.\nPickup & Delivery.",
-    "body": "We pick up from your home, stitch in 2 days, and deliver ready to wear.",
-    "cta": { "label": "Book Free Pickup", "to": "/booking/book-appointment" },
+    "title": "Your garment is ready\nin 48 hours.",
+    "body": "No stepping out. No waiting.\nWe come to your home, take careful measurements, and deliver something made only for you — in just two days.",
+    "cta": {
+      "label": "Book My Doorstep Visit",
+      "to": "/booking/book-appointment"
+    },
     "image": "/banners/home-tailoring.png",
     "align": "left",
-    "overlay":
-      "linear-gradient(90deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
+    "overlay": "linear-gradient(90deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
   },
   {
     "id": "custom-design",
-    "title": "Send Any Design.\nWe Stitch It for You.",
-    "body": "Pinterest, Instagram, or your idea — we design, stitch, and deliver in 48 hours.",
-    "cta": { "label": "Upload Your Design", "to": "/custom-design" },
+    "title": "See it on Pinterest.\nWear it by Thursday.",
+    "body": "Whatever you save, screenshot, or pin — send it to us.\nWe will craft it exactly for you and deliver it to your doorstep in 48 hours.\nBecause the feeling of ‘I wish I could wear that’ should never go to waste.",
+    "cta": {
+      "label": "Upload Your Design",
+      "to": "/custom-design"
+    },
     "image": "/banners/custom-design.png",
     "align": "right",
-    "overlay":
-      "linear-gradient(270deg, rgba(50,56,43,0.78) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
+    "overlay": "linear-gradient(270deg, rgba(50,56,43,0.78) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
   },
   {
     "id": "design-help",
-    "title": "No Design?\nWe Help You Choose.",
-    "body": "Get expert advice, design options, and stitching — all handled for you.",
-    "cta": { "label": "Get Style Advice", "to": "/design-consultation" },
+    "title": "Not sure what you want?\nThat is exactly where we begin.",
+    "body": "Your personal KAARIQ tailor comes home with design ideas and honest advice — helping you find what always felt right for you.\nNo pressure. Just great craft, made personal.",
+    "cta": {
+      "label": "Get Style Advice",
+      "to": "/design-consultation"
+    },
     "image": "/banners/design-help.png",
     "align": "left",
-    "overlay":
-      "linear-gradient(90deg, rgba(50,56,43,0.78) 0%, rgba(50,56,43,0.35) 50%, rgba(0,0,0,0) 80%)"
+    "overlay": "linear-gradient(90deg, rgba(50,56,43,0.78) 0%, rgba(50,56,43,0.35) 50%, rgba(0,0,0,0) 80%)"
   },
   {
     "id": "perfect-fit",
-    "title": "Perfect Fit.\nFree Alterations.",
-    "body": "If it’s not right, we fix it free within 4 days — no extra charges.",
-    "cta": { "label": "Fix My Fit", "to": "/alterations" },
+    "title": "Made to fit you perfectly.\nFree Alterations.",
+    "body": "We do not stop until it fits the way it was always meant to.\nIf it is not perfect, we come back.\nNo questions. No extra charges. That is our promise.",
+    "cta": {
+      "label": "Get it fitted perfectly",
+      "to": "/alterations"
+    },
     "image": "/banners/perfect-fit.png",
     "align": "right",
-    "overlay":
-      "linear-gradient(270deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.4) 55%, rgba(0,0,0,0) 85%)"
+    "overlay": "linear-gradient(270deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.4) 55%, rgba(0,0,0,0) 85%)"
   },
   {
     "id": "custom-work",
-    "title": "Embroidery, Dyeing,\nLacework — Done.",
-    "body": "Custom detailed work, made to your design and finished exactly how you want.",
-    "cta": { "label": "Explore Custom Work", "to": "/custom-work" },
+    "title": "You dreamed it.\nWe craft every detail of it.",
+    "body": "Embroidery, lacework, and hand detailing — whatever your vision carries, we bring it to life exactly as you imagined.\nNothing less.",
+    "cta": {
+      "label": "Explore Custom Work",
+      "to": "/custom-work"
+    },
     "image": "/banners/custom-work.png",
     "align": "left",
-    "overlay":
-      "linear-gradient(90deg, rgba(50,56,43,0.75) 0%, rgba(50,56,43,0.3) 50%, rgba(0,0,0,0) 80%)"
+    "overlay": "linear-gradient(90deg, rgba(50,56,43,0.75) 0%, rgba(50,56,43,0.3) 50%, rgba(0,0,0,0) 80%)"
   },
   {
     "id": "mens-stitching",
-    "title": "Men’s Clothes That Actually Fit.",
-    "body": "Shirts, trousers, kurtas — home measurement, 48-hour stitching, doorstep delivery.",
-    "cta": { "label": "View Men’s Styles", "to": "/mens-stitching" },
+    "title": "A man's wardrobe should be\nbuilt around him.",
+    "body": "Not the other way around.\nKurtas, shirts, and trousers — measured at your home, crafted to your body, and delivered in 48 hours.",
+    "cta": {
+      "label": "Build My Wardrobe",
+      "to": "/mens-stitching"
+    },
     "image": "/banners/mens-stitching.png",
     "align": "right",
-    "overlay":
-      "linear-gradient(270deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
+    "overlay": "linear-gradient(270deg, rgba(50,56,43,0.8) 0%, rgba(50,56,43,0.35) 55%, rgba(0,0,0,0) 85%)"
   }
 ]

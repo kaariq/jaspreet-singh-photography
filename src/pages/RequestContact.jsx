@@ -42,7 +42,8 @@ export default function RequestContact() {
 
   const validate = () => {
     if (!name.trim() || name.trim().length < 2) return "Please enter your name";
-    if (!/^[+\d][\d\s-]{6,15}$/.test(phone.trim())) return "Please enter a valid phone number";
+    if (!/^[+\d][\d\s-]{6,15}$/.test(phone.trim()))
+      return "Please enter a valid phone number";
     return null;
   };
 
@@ -92,8 +93,8 @@ export default function RequestContact() {
       <main className="min-h-[60vh] flex items-center justify-center">
         <p className="text-mute">
           Design not found.{" "}
-          <Link to="/tailoring" className="underline">
-            Browse tailoring
+          <Link to="/women" className="underline">
+            Browse Women's Collection
           </Link>
         </p>
       </main>
@@ -117,14 +118,20 @@ export default function RequestContact() {
               <div className="font-serif tracking-[0.28em] font-medium text-wine">
                 — YOUR SELECTION
               </div>
-              <h2 className="font-serif-display text-2xl text-ink mt-2">{designObj.label}</h2>
-              <p className="text-[13px] text-mute mt-2 leading-relaxed">{designObj.blurb}</p>
+              <h2 className="font-serif-display text-2xl text-ink mt-2">
+                {designObj.label}
+              </h2>
+              <p className="text-[13px] text-mute mt-2 leading-relaxed">
+                {designObj.blurb}
+              </p>
               <div className="flex items-center justify-between mt-5 pt-4 border-t border-rose">
                 <span className="text-[10px] tracking-[0.22em] uppercase text-mute">
                   Starting at
                 </span>
                 <span className="font-serif-display text-xl text-ink">
-                  {designObj.basePrice ? `₹${designObj.basePrice.toLocaleString("en-IN")}` : "—"}
+                  {designObj.basePrice
+                    ? `₹${designObj.basePrice.toLocaleString("en-IN")}`
+                    : "—"}
                 </span>
               </div>
             </div>
@@ -141,9 +148,9 @@ export default function RequestContact() {
                   Leave your details — we’ll handle the rest.
                 </h1>
                 <p className="text-[14px] text-mute mt-3 leading-relaxed max-w-lg">
-                  Our design team will call you to discuss measurements, fabric, customisations and
-                  pricing. You can also queue more designs into your cart and we’ll discuss them all
-                  together.
+                  Our design team will call you to discuss measurements, fabric,
+                  customisations and pricing. You can also queue more designs
+                  into your cart and we’ll discuss them all together.
                 </p>
 
                 <div className="mt-6 space-y-4 max-w-lg">
@@ -206,13 +213,15 @@ export default function RequestContact() {
                     onClick={handleAddToCart}
                     className="inline-flex items-center justify-center gap-2 border border-ink text-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-ink hover:text-white transition-colors"
                   >
-                    <ShoppingBag className="w-4 h-4" /> Add to cart & keep browsing
+                    <ShoppingBag className="w-4 h-4" /> Add to cart & keep
+                    browsing
                   </button>
                 </div>
 
                 {cart.length > 0 && (
                   <div className="mt-6 text-[12px] text-mute">
-                    You already have <span className="text-ink font-medium">{cart.length}</span>{" "}
+                    You already have{" "}
+                    <span className="text-ink font-medium">{cart.length}</span>{" "}
                     design{cart.length > 1 ? "s" : ""} in your cart.{" "}
                     <Link to="/cart" className="underline text-wine">
                       View cart
@@ -225,10 +234,13 @@ export default function RequestContact() {
                 <div className="w-12 h-12 rounded-full bg-wine text-white flex items-center justify-center">
                   <Check className="w-6 h-6" />
                 </div>
-                <h2 className="font-serif-display text-3xl text-ink mt-4">Request received.</h2>
+                <h2 className="font-serif-display text-3xl text-ink mt-4">
+                  Request received.
+                </h2>
                 <p className="text-[14px] text-mute mt-2 max-w-lg leading-relaxed">
                   Thanks {name.split(" ")[0]} — our team will call you on{" "}
-                  <span className="text-ink">{phone}</span> within 24 hours to walk you through your{" "}
+                  <span className="text-ink">{phone}</span> within 24 hours to
+                  walk you through your{" "}
                   <span className="text-ink">{designObj.label}</span> order.
                 </p>
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
@@ -240,7 +252,7 @@ export default function RequestContact() {
                     View cart
                   </Link>
                   <Link
-                    to="/tailoring"
+                    to="/women"
                     className="inline-flex items-center gap-2 border border-ink text-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-ink hover:text-white"
                   >
                     <ArrowLeft className="w-4 h-4" />
