@@ -2,7 +2,7 @@
   {
     "id": "fast-home-tailoring",
     "title": "Your garment is ready\nin 48 hours.",
-    "body": "No stepping out. No waiting.\nWe come to your home, take careful measurements, and deliver something made only for you — in just two days.",
+    "body": "No stepping out. No waiting.\nWe come to your home, take careful measurements, and deliver something made only for you",
     "cta": {
       "label": "Book My Doorstep Visit",
       "to": "/booking/book-appointment"
@@ -14,7 +14,7 @@
   {
     "id": "custom-design",
     "title": "See it on Pinterest.\nWear it by Thursday.",
-    "body": "Whatever you save, screenshot, or pin — send it to us.\nWe will craft it exactly for you and deliver it to your doorstep in 48 hours.\nBecause the feeling of ‘I wish I could wear that’ should never go to waste.",
+    "body": "Save it, screenshot it, or pin it — we will craft it just for you.\nBecause ‘I wish I could wear that’ should never go to waste.",
     "cta": {
       "label": "Upload Your Design",
       "to": "/custom-design"
@@ -26,7 +26,7 @@
   {
     "id": "design-help",
     "title": "Not sure what you want?\nThat is exactly where we begin.",
-    "body": "Your personal KAARIQ tailor comes home with design ideas and honest advice — helping you find what always felt right for you.\nNo pressure. Just great craft, made personal.",
+    "body": "Your personal KAARIQ tailor comes home with design ideas and honest advice — helping you find what always felt right for you.",
     "cta": {
       "label": "Get Style Advice",
       "to": "/design-consultation"
@@ -38,7 +38,7 @@
   {
     "id": "perfect-fit",
     "title": "Made to fit you perfectly.\nFree Alterations.",
-    "body": "We do not stop until it fits the way it was always meant to.\nIf it is not perfect, we come back.\nNo questions. No extra charges. That is our promise.",
+    "body": "We do not stop until it fits the way it was always meant to.\nIf it is not perfect, we come back.",
     "cta": {
       "label": "Get it fitted perfectly",
       "to": "/alterations"
