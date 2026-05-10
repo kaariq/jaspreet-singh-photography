@@ -9,7 +9,7 @@ const women = womenContext.keys().reduce((acc, file) => {
   const exportKey = Object.keys(mod).find((k) => k.endsWith("_DESIGNS"));
 
   if (exportKey) {
-    acc[key] = mod[exportKey];
+    acc[key.toLowerCase()] = mod[exportKey];
   }
 
   return acc;
@@ -26,7 +26,7 @@ const men = menContext.keys().reduce((acc, file) => {
   const exportKey = Object.keys(mod).find((k) => k.endsWith("_DESIGNS"));
 
   if (exportKey) {
-    acc[key] = mod[exportKey];
+    acc[key.toLowerCase()] = mod[exportKey];
   }
 
   return acc;
@@ -43,7 +43,7 @@ const customisation = customContext.keys().reduce((acc, file) => {
   const exportKey = Object.keys(mod).find((k) => k.endsWith("_DESIGNS"));
 
   if (exportKey) {
-    acc[key] = mod[exportKey];
+    acc[key.toLowerCase()] = mod[exportKey];
   }
 
   return acc;

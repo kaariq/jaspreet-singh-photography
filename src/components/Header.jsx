@@ -12,8 +12,8 @@ const getSubs = (itemSlug) => {
 };
 
 const slug = (s) =>
-  s
-    .toLowerCase()
+  s?.slug
+    ?.toLowerCase()
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
@@ -225,34 +225,35 @@ export default function Header() {
                         <ul className="space-y-2">
                           {col.items.map((it) => {
                             const itemSlug = slug(it);
+                            console.log("ITEM SLUG", itemSlug);
                             const subs = getSubs(itemSlug);
                             const hasSubs = !!subs?.length;
 
                             return (
-                              <li key={it}>
+                              <li key={it.label}>
                                 {hasSubs ? (
                                   <button
                                     type="button"
                                     onClick={() =>
                                       setSubPage({
                                         navKey: open,
-                                        label: it,
+                                        label: it.label,
                                         slug: itemSlug,
                                         subs,
                                       })
                                     }
                                     className="link-underline text-[14px] text-ink text-left"
                                   >
-                                    {it}
+                                    {it.label}
                                     <span className="ml-1 text-mute text-[11px]">›</span>
                                   </button>
                                 ) : (
                                   <Link
-                                    to={routeFor(open, it)}
+                                    to={routeFor(open, it.label)}
                                     onClick={closeMenu}
                                     className="link-underline text-[14px] text-ink"
                                   >
-                                    {it}
+                                    {it.label}
                                   </Link>
                                 )}
                               </li>
@@ -367,12 +368,13 @@ export default function Header() {
                             <ul className="space-y-1">
                               {c.items.map((it) => {
                                 const itemSlug = slug(it);
+                                console.log("ITEM SLUG", itemSlug);
                                 const subs = getSubs(itemSlug);
 
                                 return (
-                                  <li key={it}>
-                                    <Link to={routeFor(n.key, it)} className="text-[14px]">
-                                      {it}
+                                  <li key={it.label}>
+                                    <Link to={routeFor(n.key, it.label)} className="text-[14px]">
+                                      {it.label}
                                       {subs?.length ? " ›" : ""}
                                     </Link>
                                   </li>

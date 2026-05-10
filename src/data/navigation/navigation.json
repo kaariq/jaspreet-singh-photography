@@ -64,33 +64,33 @@
       {
         "title": "Western Wear",
         "items": [
-          { "label": "Shirt", "slug": "shirt", "schemaKey": "upper" },
-          { "label": "Blazer", "slug": "blazer", "schemaKey": "upper" },
+          { "label": "Shirt", "slug": "mensShirt", "schemaKey": "upper" },
+          { "label": "Blazer", "slug": "mensBlazer", "schemaKey": "upper" },
           { "label": "Two/Three Piece Suit", "slug": "pieceSuit", "schemaKey": "upper" },
-          { "label": "Waistcoat", "slug": "waistcoat", "schemaKey": "upper" },
-          { "label": "Jacket", "slug": "jacket", "schemaKey": "upper" },
-          { "label": "Co-ord Set", "slug": "menCoordSet", "schemaKey": "upper" }
+          { "label": "Waistcoat", "slug": "mensWaistcoat", "schemaKey": "upper" },
+          { "label": "Co-ord Set", "slug": "mensCoord", "schemaKey": "upper" }
         ]
       },
       {
         "title": "Traditional Bottoms",
         "items": [
           { "label": "Dhoti Pants", "slug": "dhotiPants", "schemaKey": "bottoms" },
-          { "label": "Pathani Salwar", "slug": "menSalwars", "schemaKey": "bottoms" },
-          { "label": "Trouser", "slug": "trousers", "schemaKey": "bottoms" },
-          { "label": "Pants", "slug": "pants", "schemaKey": "bottoms" },
-          { "label": "Shorts", "slug": "shorts", "schemaKey": "bottoms" }
+          { "label": "Pathani Salwar", "slug": "menSalwar", "schemaKey": "bottoms" },
+          { "label": "Trouser", "slug": "mensTrouser", "schemaKey": "bottoms" },
+          { "label": "Pants", "slug": "mensPants", "schemaKey": "bottoms" },
+          { "label": "Shorts", "slug": "mensShorts", "schemaKey": "bottoms" }
         ]
       }
     ]
   },
+
   {
     "key": "customize",
     "label": "Customize",
     "route": "/customize",
     "groups": [
       {
-        "title": "Customizations",
+        "title": "Design Customization",
         "items": [
           {
             "label": "Embroidery & Handwork",
@@ -122,43 +122,46 @@
     "route": "/explore",
     "groups": [
       {
-        "title": "Explore",
+        "title": "Style Experience",
         "items": [
-          { "label": "Our Designs", "slug": "gallery-and-lookbook" },
-          { "label": "Style Journal", "slug": "blog-and-fashion-news" },
-          { "label": "Design Studio", "slug": "ai-design-tool" },
-          { "label": "Find Your Style", "slug": "personal-style-quiz" }
+          { "label": "Personal Styling", "slug": "styling-advisory" },
+          { "label": "Fabric & Color Guide", "slug": "fabric-and-color-guide" },
+          { "label": "Size & Measurement Guide", "slug": "measurement-guide" },
+          { "label": "Discover Your Style", "slug": "personal-style-quiz" }
+        ]
+      },
+      {
+        "title": "Design Inspiration",
+        "items": [
+          { "label": "Lookbook", "slug": "gallery-and-lookbook" },
+          { "label": "Create Your Design", "slug": "ai-design-tool" },
+          { "label": "Fashion Stories", "slug": "blog-and-fashion-news" }
         ]
       }
     ]
   },
   {
-    "key": "booking",
-    "label": "Booking Guide",
-    "route": "/booking",
+    "key": "discover",
+    "label": "Discover",
+    "route": "/discover",
     "groups": [
       {
-        "title": "Plan Your Visit",
+        "title": "About The Brand",
         "items": [
-          { "label": "Our Process", "slug": "our-process" },
-          { "label": "Size Guide", "slug": "measurement-guide" },
-          { "label": "Book Appointment", "slug": "book-appointment" },
-          { "label": "Online Consultation", "slug": "virtual-consultation" }
+          { "label": "About Us", "slug": "about-us" },
+          {
+            "label": "Our Craft & Team",
+            "slug": "craftsmanship-and-team"
+          }
         ]
-      }
-    ]
-  },
-  {
-    "key": "contact",
-    "label": "Contact",
-    "route": "/contact",
-    "groups": [
+      },
       {
-        "title": "Get In Touch",
+        "title": "Contact & Support",
         "items": [
-          { "label": "Visit Us", "slug": "find-our-boutique" },
-          { "label": "WhatsApp", "slug": "whatsapp-support" },
-          { "label": "Business Inquiries", "slug": "corporate-inquiries" }
+          { "label": "Contact Us", "slug": "contact-us" },
+          { "label": "WhatsApp Support", "slug": "whatsapp-support" },
+          { "label": "Business Inquiries", "slug": "corporate-inquiries" },
+          { "label": "FAQs", "slug": "faqs" }
         ]
       }
     ]

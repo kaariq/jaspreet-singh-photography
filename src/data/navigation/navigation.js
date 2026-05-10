@@ -11,7 +11,10 @@ export const NAV = NAVIGATION.map((n) => ({
   label: n.label,
   columns: n.groups.map((g) => ({
     title: g.title,
-    items: g.items.map((it) => it.label),
+    items: g.items.map((it) => ({
+      label: it.label,
+      slug: it.slug,
+    })),
   })),
 }));
 
