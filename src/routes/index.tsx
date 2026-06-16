@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "f
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollRibbon } from "@/components/ScrollRibbon";
 import { HoverImageTrail } from "@/components/HoverImageTrail";
+import { Partners } from "@/components/Partners";
+import { ScrollTextReveal } from "@/components/ScrollTextReveal";
 import heroVideo from "@/assets/hero.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -421,8 +423,10 @@ function Index() {
           <ScrollRibbon />
           <Nav />
           <Hero />
-          <VideoReveal />
+          <Partners />
+          <ScrollTextReveal />
           <Marquee />
+          <VideoReveal />
           <Work />
           <Footer />
         </>
