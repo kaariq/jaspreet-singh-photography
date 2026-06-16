@@ -65,23 +65,22 @@ export function ScrollRibbon() {
           </filter>
         </defs>
 
-        {/* Thin mustard line */}
+        {/* Thin mustard line — kept very subtle */}
         <path
           d={d}
           fill="none"
           stroke="var(--mustard)"
-          strokeWidth="1.5"
-          opacity="0.9"
-          filter="url(#ribbonShadow)"
+          strokeWidth="1"
+          opacity="0.22"
         />
 
         {/* Tagline text along the curve */}
         <text
           fontFamily="Inter Tight, sans-serif"
           fontWeight="600"
-          fontSize="11"
+          fontSize="10"
           letterSpacing="3"
-          fill="oklch(0.13 0 0 / 0.55)"
+          fill="oklch(0.13 0 0 / 0.12)"
         >
           <textPath href="#ribbonPath" startOffset="0">
             {repeated}
