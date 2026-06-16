@@ -93,53 +93,71 @@ function Hero() {
       <motion.div
         initial={{ y: 14, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-        className="absolute left-1/2 top-28 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/70 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-black/70 backdrop-blur-md"
-        style={{ boxShadow: "0 10px 30px -10px rgba(0,0,0,0.18)" }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+        className="absolute left-1/2 top-24 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/5 bg-white/60 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.22em] text-black/65 backdrop-blur-md"
+        style={{ boxShadow: "0 10px 30px -12px rgba(0,0,0,0.15)" }}
       >
         <span
-          className="h-1.5 w-1.5 rounded-full"
+          className="h-1.5 w-1.5 animate-pulse rounded-full"
           style={{ backgroundColor: "var(--tomato)" }}
         />
         Now booking · Sept – Dec '26
       </motion.div>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center text-center">
-        <motion.h1
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
-          className="font-display text-[clamp(3rem,11vw,10.5rem)] font-black leading-[0.92] tracking-[-0.05em]"
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mb-7 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.34em] text-black/45"
         >
-          through my{" "}
-          <span
-            className="italic font-light"
-            style={{ color: "var(--tomato)" }}
+          <span className="h-px w-8 bg-black/25" />
+          Photography Studio · Est. 2014
+          <span className="h-px w-8 bg-black/25" />
+        </motion.p>
+
+        <h1 className="font-display font-black leading-[0.9] tracking-[-0.05em]">
+          <motion.span
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
+            className="block text-[clamp(2.7rem,9.5vw,9rem)]"
           >
-            lens.
-          </span>
-        </motion.h1>
+            through my
+          </motion.span>
+          <motion.span
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.78, ease: [0.2, 0.7, 0.2, 1] }}
+            className="block text-[clamp(2.7rem,9.5vw,9rem)]"
+          >
+            <span className="font-serif italic font-light" style={{ color: "var(--tomato)" }}>
+              lens
+            </span>
+            <span className="text-black/25">.</span>
+          </motion.span>
+        </h1>
 
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.95 }}
-          className="mt-7 max-w-xl text-base leading-relaxed text-black/60 md:text-lg"
+          className="mt-9 max-w-lg text-base leading-relaxed text-black/55 md:text-lg"
         >
-          A small photography studio crafting quietly cinematic portraits,
-          editorial stories, and brand campaigns — composed to age well.
+          A small studio crafting quietly cinematic portraits, editorial
+          stories, and brand campaigns — composed to age well.
         </motion.p>
 
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.9, delay: 1.15 }}
-          className="mt-10 flex items-center gap-3"
+          className="mt-11 flex items-center gap-3"
         >
           <a
             href="#book"
             className="group inline-flex items-center gap-3 rounded-full bg-black py-2 pl-6 pr-2 text-white transition hover:bg-black/85"
-            style={{ boxShadow: "0 18px 40px -15px rgba(0,0,0,0.45)" }}
+            style={{ boxShadow: "0 18px 40px -18px rgba(0,0,0,0.5)" }}
           >
             <span className="text-sm font-medium">Book a call</span>
             <span
@@ -151,8 +169,7 @@ function Hero() {
           </a>
           <a
             href="#work"
-            className="rounded-full bg-white/70 px-5 py-3 text-sm font-medium text-black/80 backdrop-blur-md transition hover:bg-white"
-            style={{ boxShadow: "0 12px 30px -15px rgba(0,0,0,0.25)" }}
+            className="rounded-full border border-black/10 bg-white/60 px-6 py-3 text-sm font-medium text-black/80 backdrop-blur-md transition hover:bg-white"
           >
             View work
           </a>
@@ -162,7 +179,7 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 1.4 }}
-          className="mt-14 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-black/55"
+          className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-black/45"
         >
           {["Portrait", "Editorial", "Brand", "Wedding"].map((t) => (
             <li key={t} className="flex items-center gap-2">
@@ -175,6 +192,7 @@ function Hero() {
           ))}
         </motion.ul>
       </div>
+
     </section>
   );
 }
