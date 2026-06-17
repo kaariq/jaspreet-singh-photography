@@ -52,6 +52,7 @@ export function SiteNav() {
               <li key={l.label}>
                 <Link
                   to={l.to}
+                  hash={l.hash}
                   className="rounded-full px-3.5 py-1.5 text-[12px] text-white/75 transition hover:bg-white/10 hover:text-white"
                   activeProps={{ className: "bg-white/10 text-white" }}
                 >
