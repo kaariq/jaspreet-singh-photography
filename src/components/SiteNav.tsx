@@ -105,6 +105,7 @@ export function SiteNav() {
                 <Link
                   key={l.label}
                   to={l.to}
+                  hash={l.hash}
                   className="block rounded-2xl px-4 py-3.5 text-lg font-display font-semibold tracking-tight text-white/85 transition hover:bg-white/10"
                 >
                   {l.label}
