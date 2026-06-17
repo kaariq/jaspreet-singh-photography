@@ -32,6 +32,7 @@
   --color-tomato: var(--tomato);
   --font-display: "Inter Tight", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
 }
 
 :root {

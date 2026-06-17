@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Camera, Asterisk } from "lucide-react";
+import { ArrowUpRight, Asterisk } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { CustomCursor } from "@/components/CustomCursor";
-import { ScrollRibbon } from "@/components/ScrollRibbon";
 import { HoverImageTrail } from "@/components/HoverImageTrail";
+import { SiteNav } from "@/components/SiteNav";
 import { Partners } from "@/components/Partners";
 import { ScrollTextReveal } from "@/components/ScrollTextReveal";
 import { VideoReveal } from "@/components/VideoReveal";
@@ -19,13 +19,13 @@ import { SectionFade } from "@/components/SectionFade";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Photography Studio" },
+      { title: "JS Lens Studio — Photography" },
       {
         name: "description",
         content:
-          "A photography studio crafting portraits, editorial, and brand stories — through a singular lens.",
+          "A photography studio crafting portraits, editorial, and brand stories — through a singular, quietly cinematic lens.",
       },
-      { property: "og:title", content: "Photography Studio" },
+      { property: "og:title", content: "JS Lens Studio — Photography" },
       {
         property: "og:description",
         content: "Photography that tells your story. Book a session today.",
@@ -34,55 +34,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-/* ---------------- Nav ---------------- */
-function Nav() {
-  const links = ["Work", "Approach", "Journal", "Questions"];
-  return (
-    <motion.nav
-      initial={{ y: -30, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.1, ease: [0.2, 0.7, 0.2, 1] }}
-      className="fixed left-1/2 top-5 z-40 -translate-x-1/2"
-    >
-      <div
-        className="flex items-center gap-1 rounded-full px-2 py-2 backdrop-blur-xl"
-        style={{
-          backgroundColor: "rgba(0,0,0,0.78)",
-          boxShadow:
-            "0 20px 50px -20px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.08) inset",
-        }}
-      >
-        <div className="flex items-center gap-2 pl-3 pr-5 text-white">
-          <span
-            className="grid h-7 w-7 place-items-center rounded-md"
-            style={{ backgroundColor: "var(--mustard)" }}
-          >
-            <Camera className="h-4 w-4 text-black" />
-          </span>
-        </div>
-        <ul className="hidden items-center gap-0.5 md:flex">
-          {links.map((l) => (
-            <li key={l}>
-              <a
-                href={`#${l.toLowerCase()}`}
-                className="rounded-full px-3.5 py-1.5 text-[13px] text-white/75 transition hover:bg-white/10 hover:text-white"
-              >
-                {l}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a
-          href="#book"
-          className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-white px-4 py-1.5 text-[13px] font-medium text-black transition hover:bg-white/90"
-        >
-          Let's Talk
-        </a>
-      </div>
-    </motion.nav>
-  );
-}
 
 /* ---------------- Hero ---------------- */
 function Hero() {
@@ -99,7 +50,7 @@ function Hero() {
         initial={{ y: 14, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.4 }}
-        className="absolute left-1/2 top-24 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/5 bg-white/60 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.22em] text-black/65 backdrop-blur-md"
+        className="absolute left-1/2 top-24 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/5 bg-white/60 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.22em] text-black/65 backdrop-blur-md"
         style={{ boxShadow: "0 10px 30px -12px rgba(0,0,0,0.15)" }}
       >
         <span
@@ -123,10 +74,10 @@ function Hero() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.78, ease: [0.2, 0.7, 0.2, 1] }}
-            className="block text-[clamp(2.7rem,9.5vw,9rem)]"
+            className="block text-[clamp(2.9rem,10vw,9.5rem)]"
           >
-            <span className="font-serif italic font-light" style={{ color: "var(--tomato)" }}>
-              A Photograph
+            <span className="font-serif italic font-normal" style={{ color: "var(--tomato)" }}>
+              a Photograph
             </span>
             <span className="text-black/25">.</span>
           </motion.span>
@@ -136,23 +87,25 @@ function Hero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.95 }}
-          className="mt-9 max-w-lg text-base leading-relaxed text-black/55 md:text-lg"
+          className="mt-9 max-w-md text-[14px] leading-relaxed text-black/55 md:text-[15px]"
         >
-         Photography has always been my way of holding onto moments. Through light, emotion, and human connection, I create images that feel as meaningful years from now as they do today.
+          Photography has always been my way of holding onto moments. Through
+          light, emotion, and human connection, I create images that feel as
+          meaningful years from now as they do today.
         </motion.p>
 
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.9, delay: 1.15 }}
-          className="mt-11 flex items-center gap-3"
+          className="mt-10 flex items-center gap-3"
         >
           <a
-            href="#book"
+            href="/contact"
             className="group inline-flex items-center gap-3 rounded-full bg-black py-2 pl-6 pr-2 text-white transition hover:bg-black/85"
             style={{ boxShadow: "0 18px 40px -18px rgba(0,0,0,0.5)" }}
           >
-            <span className="text-sm font-medium">Start Your Story</span>
+            <span className="text-[13px] font-medium">Start Your Story</span>
             <span
               className="inline-flex h-10 w-10 items-center justify-center rounded-full text-black transition group-hover:rotate-45"
               style={{ backgroundColor: "var(--mustard)" }}
@@ -161,8 +114,8 @@ function Hero() {
             </span>
           </a>
           <a
-            href="#work"
-            className="rounded-full border border-black/10 bg-white/60 px-6 py-3 text-sm font-medium text-black/80 backdrop-blur-md transition hover:bg-white"
+            href="/work"
+            className="rounded-full border border-black/10 bg-white/60 px-6 py-3 text-[13px] font-medium text-black/80 backdrop-blur-md transition hover:bg-white"
           >
             See Recent Work
           </a>
@@ -172,7 +125,7 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 1.4 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-black/45"
+          className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-black/45"
         >
           {["Portrait", "Editorial", "Brand", "Wedding"].map((t) => (
             <li key={t} className="flex items-center gap-2">
@@ -200,8 +153,7 @@ function Index() {
       {revealed && (
         <>
           <div className="canvas-grid" />
-          <ScrollRibbon />
-          <Nav />
+          <SiteNav />
           <Hero />
           <Partners />
           <ScrollTextReveal />
@@ -209,11 +161,10 @@ function Index() {
           <GearsCarousel />
           <SelectedWork />
           <ServicesStack />
-          <SectionFade from="oklch(0.99 0 0)" to="oklch(0.13 0 0)" />
           <Testimonials />
-          <SectionFade from="oklch(0.13 0 0)" to="oklch(0.99 0 0)" />
+          <SectionFade from="oklch(0.11 0 0)" to="oklch(0.99 0 0)" height={90} />
           <FaqFloating />
-          <SectionFade from="oklch(0.99 0 0)" to="oklch(0.11 0 0)" />
+          <SectionFade from="oklch(0.99 0 0)" to="oklch(0.11 0 0)" height={90} />
           <SiteFooter />
         </>
       )}
