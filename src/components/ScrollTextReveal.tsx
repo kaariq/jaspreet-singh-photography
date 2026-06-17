@@ -26,9 +26,10 @@ export function ScrollTextReveal({
   return (
     <section className="relative z-10 overflow-hidden px-6 py-32 md:py-48">
       {/* ribbon backdrop */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-90">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-60">
         <ScrollRibbon />
       </div>
+
 
       <div ref={ref} className="relative z-10 mx-auto max-w-3xl">
         <motion.p
