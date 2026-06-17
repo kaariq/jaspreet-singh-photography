@@ -1,17 +1,15 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { ScrollRibbon } from "@/components/ScrollRibbon";
 
 /**
  * A long line of copy that "reads itself" as you scroll: each word starts
  * dim, light, and slightly blurred, then snaps into focus + full ink as the
- * scroll progress sweeps across it — like a reading spotlight.
+ * scroll progress sweeps across it — like a reading spotlight. The animated
+ * ribbon sits behind the copy as a quiet backdrop.
  */
 export function ScrollTextReveal({
-  text = `Photography taught me to notice.
-          The way light falls across a room.
-          The glance that lasts half a second longer.
- The moments people don't realize are important until years later.
-                  That's what I'm drawn to—creating images that feel honest today and meaningful decades from now.`,
+  text = `Photography taught me to notice — the way light falls across a room, the glance that lasts half a second longer, the moments people don't realize matter until years later. I'm drawn to making images that feel honest today and meaningful decades from now.`,
   eyebrow = "Behind The Camera",
 }: {
   text?: string;
@@ -26,14 +24,19 @@ export function ScrollTextReveal({
   const words = text.split(" ");
 
   return (
-    <section className="relative z-10 px-6 py-32 md:py-48">
-      <div ref={ref} className="mx-auto max-w-4xl">
+    <section className="relative z-10 overflow-hidden px-6 py-32 md:py-48">
+      {/* ribbon backdrop */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-90">
+        <ScrollRibbon />
+      </div>
+
+      <div ref={ref} className="relative z-10 mx-auto max-w-3xl">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-10 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-black/45"
+          className="mb-10 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45"
         >
           <span
             className="h-1.5 w-1.5 rounded-full"
@@ -42,7 +45,7 @@ export function ScrollTextReveal({
           {eyebrow}
         </motion.p>
 
-        <p className="font-display text-3xl font-semibold leading-[1.25] tracking-tight md:text-5xl md:leading-[1.2]">
+        <p className="font-serif text-3xl font-normal leading-[1.3] tracking-tight md:text-[2.6rem] md:leading-[1.3]">
           {words.map((word, i) => {
             const start = i / words.length;
             const end = start + 1 / words.length;
@@ -67,12 +70,12 @@ function Word({
   progress: MotionValue<number>;
   range: [number, number];
 }) {
-  const opacity = useTransform(progress, range, [0.15, 1]);
+  const opacity = useTransform(progress, range, [0.14, 1]);
   const blur = useTransform(progress, range, [6, 0]);
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
 
   return (
-    <span className="relative mr-[0.28em] inline-block">
+    <span className="relative mr-[0.26em] inline-block">
       <motion.span style={{ opacity, filter }}>{children}</motion.span>
     </span>
   );
