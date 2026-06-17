@@ -94,7 +94,11 @@ export function Testimonials() {
   // white → black inversion as you scroll in
   const bg = useTransform(scrollYProgress, [0, 0.32], ["#ffffff", "#0b0b0b"]);
   const titleColor = useTransform(scrollYProgress, [0, 0.32], ["#0b0b0b", "#ffffff"]);
-  const subColor = useTransform(scrollYProgress, [0, 0.32], ["#0b0b0b80", "#ffffff80"]);
+  const subColor = useTransform(
+    scrollYProgress,
+    [0, 0.32],
+    ["rgba(11,11,11,0.5)", "rgba(255,255,255,0.5)"],
+  );
 
   return (
     <section id="words" ref={ref} className="relative z-10" style={{ height: "260vh" }}>
