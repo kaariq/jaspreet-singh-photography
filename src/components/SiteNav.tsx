@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Camera, Menu, X } from "lucide-react";
 
 const LINKS = [
-  { label: "Work", to: "/work" },
-  { label: "About", to: "/about" },
-  { label: "Journal", to: "/journal" },
-  { label: "Questions", to: "/#faq" },
+  { label: "Work", to: "/work", hash: undefined },
+  { label: "About", to: "/about", hash: undefined },
+  { label: "Journal", to: "/journal", hash: undefined },
+  { label: "Questions", to: "/", hash: "faq" },
 ] as const;
 
 export function SiteNav() {
