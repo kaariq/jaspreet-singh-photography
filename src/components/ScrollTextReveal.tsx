@@ -7,8 +7,12 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
  * scroll progress sweeps across it — like a reading spotlight.
  */
 export function ScrollTextReveal({
-  text = "We photograph quietly. We wait for the light, the small gestures, the in-between moments — and we keep only the frames that still feel honest a decade from now.",
-  eyebrow = "Our philosophy",
+  text = `Photography taught me to notice.
+          The way light falls across a room.
+          The glance that lasts half a second longer.
+ The moments people don't realize are important until years later.
+                  That's what I'm drawn to—creating images that feel honest today and meaningful decades from now.`,
+  eyebrow = "Behind The Camera",
 }: {
   text?: string;
   eyebrow?: string;

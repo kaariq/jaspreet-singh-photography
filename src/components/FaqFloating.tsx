@@ -4,24 +4,24 @@ import { Plus } from "lucide-react";
 
 const FAQS = [
   {
-    q: "How far in advance should I book?",
-    a: "For portraits, 2–3 weeks is comfortable. Editorial and weddings book up months ahead, so reach out as early as you can and I'll hold a tentative date.",
+    q: "Do you help with posing?",
+    a: "Absolutely. I'll guide when needed and step back when the moment is already speaking for itself.",
   },
   {
-    q: "What's included in a session?",
-    a: "Pre-shoot planning, the shoot itself, a curated gallery, and hand-finished retouching on every selected frame. Print and album add-ons are optional.",
+    q: "We're awkward in front of cameras. Is that okay?",
+    a: "Most people feel that way. My job is creating an environment where you can forget the camera is there.",
   },
   {
     q: "Do you travel?",
-    a: "Always. Travel within the city is included; anything further is billed at cost. Some of my favourite work has happened on the road.",
+    a: "Yes. Whether it's local or somewhere new, I'm always open to hearing about the story you want to tell.",
   },
   {
-    q: "How long until I get my photos?",
-    a: "A teaser set within 48 hours, and the full edited gallery in 2–3 weeks depending on scope. Weddings can take a little longer.",
+    q: "How long until we receive our photos?",
+    a: "Turnaround depends on the project, but quality always comes before speed.",
   },
   {
-    q: "Can we shoot on film?",
-    a: "Yes — I shoot 35mm and medium format alongside digital. We can go fully analogue or blend both for a richer look.",
+    q: "Can we customize coverage?",
+    a: "Always. Every story is different, and coverage should reflect that.",
   },
 ];
 
@@ -32,19 +32,15 @@ export function FaqFloating() {
     <section id="faq" className="relative z-10 px-6 py-28 md:py-36">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[0.8fr_1.2fr]">
         <div className="md:sticky md:top-32 md:self-start">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.34em] text-black/45">
-            Good to know
-          </p>
           <h2 className="font-display text-5xl font-black tracking-tight md:text-6xl">
-            frequently
+            Still wondering about
             <br />
             <span className="font-serif italic font-light" style={{ color: "var(--tomato)" }}>
-              asked.
+              something ?
             </span>
           </h2>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-black/55">
-            Still wondering about something? Drop me a line and I'll get back to
-            you within a day.
+            Drop me a line and I'll get back to you within a day.
           </p>
         </div>
 

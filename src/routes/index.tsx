@@ -19,13 +19,13 @@ import { SectionFade } from "@/components/SectionFade";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JS Lens — Photography Studio" },
+      { title: "Photography Studio" },
       {
         name: "description",
         content:
           "A photography studio crafting portraits, editorial, and brand stories — through a singular lens.",
       },
-      { property: "og:title", content: "JS Lens — Photography Studio" },
+      { property: "og:title", content: "Photography Studio" },
       {
         property: "og:description",
         content: "Photography that tells your story. Book a session today.",
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
 
 /* ---------------- Nav ---------------- */
 function Nav() {
-  const links = ["Work", "Services", "Words", "FAQ"];
+  const links = ["Work", "Approach", "Journal", "Questions"];
   return (
     <motion.nav
       initial={{ y: -30, opacity: 0 }}
@@ -60,9 +60,6 @@ function Nav() {
           >
             <Camera className="h-4 w-4 text-black" />
           </span>
-          <span className="font-display text-base font-semibold tracking-tight">
-            JS Lens
-          </span>
         </div>
         <ul className="hidden items-center gap-0.5 md:flex">
           {links.map((l) => (
@@ -80,7 +77,7 @@ function Nav() {
           href="#book"
           className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-white px-4 py-1.5 text-[13px] font-medium text-black transition hover:bg-white/90"
         >
-          Book a Call
+          Let's Talk
         </a>
       </div>
     </motion.nav>
@@ -113,17 +110,6 @@ function Hero() {
       </motion.div>
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-center text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-7 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.34em] text-black/45"
-        >
-          <span className="h-px w-8 bg-black/25" />
-          Photography Studio · Est. 2014
-          <span className="h-px w-8 bg-black/25" />
-        </motion.p>
-
         <h1 className="font-display font-black leading-[0.9] tracking-[-0.05em]">
           <motion.span
             initial={{ y: 50, opacity: 0 }}
@@ -131,7 +117,7 @@ function Hero() {
             transition={{ duration: 1, delay: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
             className="block text-[clamp(2.7rem,9.5vw,9rem)]"
           >
-            through my
+            More Than
           </motion.span>
           <motion.span
             initial={{ y: 50, opacity: 0 }}
@@ -140,7 +126,7 @@ function Hero() {
             className="block text-[clamp(2.7rem,9.5vw,9rem)]"
           >
             <span className="font-serif italic font-light" style={{ color: "var(--tomato)" }}>
-              lens
+              A Photograph
             </span>
             <span className="text-black/25">.</span>
           </motion.span>
@@ -152,8 +138,7 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.95 }}
           className="mt-9 max-w-lg text-base leading-relaxed text-black/55 md:text-lg"
         >
-          A small studio crafting quietly cinematic portraits, editorial
-          stories, and brand campaigns — composed to age well.
+         Photography has always been my way of holding onto moments. Through light, emotion, and human connection, I create images that feel as meaningful years from now as they do today.
         </motion.p>
 
         <motion.div
@@ -167,7 +152,7 @@ function Hero() {
             className="group inline-flex items-center gap-3 rounded-full bg-black py-2 pl-6 pr-2 text-white transition hover:bg-black/85"
             style={{ boxShadow: "0 18px 40px -18px rgba(0,0,0,0.5)" }}
           >
-            <span className="text-sm font-medium">Book a call</span>
+            <span className="text-sm font-medium">Start Your Story</span>
             <span
               className="inline-flex h-10 w-10 items-center justify-center rounded-full text-black transition group-hover:rotate-45"
               style={{ backgroundColor: "var(--mustard)" }}
@@ -179,7 +164,7 @@ function Hero() {
             href="#work"
             className="rounded-full border border-black/10 bg-white/60 px-6 py-3 text-sm font-medium text-black/80 backdrop-blur-md transition hover:bg-white"
           >
-            View work
+            See Recent Work
           </a>
         </motion.div>
 

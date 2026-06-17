@@ -3,26 +3,26 @@ import { motion } from "framer-motion";
 const SERVICES = [
   {
     n: "01",
-    title: "Portrait Sessions",
-    desc: "Unhurried, conversational shoots that look like you on your best, most honest day. Studio or on-location.",
+    title: "Weddings",
+    desc: "Real moments, quiet emotions, and celebrations remembered exactly as they felt.",
     tags: ["Studio", "On-location", "Retouched"],
   },
   {
     n: "02",
-    title: "Editorial & Story",
-    desc: "Concept-led shoots for magazines and independent publications — moodboard to final grade, art-directed in-house.",
+    title: "Portraits",
+    desc: "Natural portraits with personality, confidence, and room to simply be yourself.",
     tags: ["Concept", "Art direction", "35mm"],
   },
   {
     n: "03",
-    title: "Brand & Product",
-    desc: "Campaign and catalogue imagery with a consistent visual language so every frame feels unmistakably yours.",
+    title: "Editorial",
+    desc: "Visual stories shaped through mood, light, and thoughtful direction.",
     tags: ["Campaign", "Catalogue", "Motion"],
   },
   {
     n: "04",
-    title: "Weddings & Events",
-    desc: "Quiet documentary coverage — the glances, the in-between moments, the light at the end of the night.",
+    title: "Brands",
+    desc: "Imagery that feels human, intentional, and aligned with your story.",
     tags: ["Documentary", "Full-day", "Album"],
   },
 ];
@@ -36,21 +36,17 @@ export function ServicesStack() {
     <section className="relative z-10 px-6 py-28 md:py-36">
       <div className="mx-auto max-w-5xl">
         <div className="mb-16 text-center">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.34em] text-black/45">
-            What I offer
-          </p>
-          <h2 className="font-display text-5xl font-black tracking-tight md:text-7xl">
-            services, <span className="font-serif italic font-light" style={{ color: "var(--tomato)" }}>stacked.</span>
-          </h2>
+          <h3 className="font-display text-5xl font-black tracking-tight md:text-7xl">
+            WHAT I{" "}
+            <span className="font-serif italic font-light" style={{ color: "var(--tomato)" }}>
+              PHOTOGRAPH.
+            </span>
+          </h3>
         </div>
 
         <div>
           {SERVICES.map((s, i) => (
-            <div
-              key={s.n}
-              className="sticky"
-              style={{ top: `calc(18vh + ${i * 28}px)` }}
-            >
+            <div key={s.n} className="sticky" style={{ top: `calc(18vh + ${i * 28}px)` }}>
               <motion.article
                 initial={{ y: 90, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
