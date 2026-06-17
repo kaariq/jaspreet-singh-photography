@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Camera, Asterisk } from "lucide-react";
+import { ArrowUpRight, Asterisk } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { CustomCursor } from "@/components/CustomCursor";
