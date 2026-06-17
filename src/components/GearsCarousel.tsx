@@ -12,9 +12,8 @@ const GEAR = [
 ];
 
 /**
- * Auto-scrolling "gear" strip. The row is wider than the viewport, fades at
- * the edges and is given a slight perspective so the ends look stretched. A
- * big "My Gears" headline floats over the top.
+ * Two marquee rows that slide in opposite directions but in perfect sync
+ * (same scroll-driven speed). A tidy header block sits above the rows.
  */
 export function GearsCarousel() {
   const ref = useRef<HTMLElement>(null);
@@ -22,64 +21,85 @@ export function GearsCarousel() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["6%", "-26%"]);
-  const titleY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const xLeft = useTransform(scrollYProgress, [0, 1], ["4%", "-22%"]);
+  const xRight = useTransform(scrollYProgress, [0, 1], ["-22%", "4%"]);
 
-  const row = [...GEAR, ...GEAR];
+  const rowA = [...GEAR, ...GEAR];
+  const rowB = [...[...GEAR].reverse(), ...[...GEAR].reverse()];
 
   return (
-    <section
-      ref={ref}
-      className="relative z-10 overflow-hidden py-28 md:py-36"
-      style={{ perspective: "1400px" }}
-    >
-      <motion.div
-        style={{ y: titleY }}
-        className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center text-center"
-      >
-        <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.34em] text-black/45">
-          The kit behind the frames
+    <section ref={ref} className="relative z-10 overflow-hidden py-24 md:py-32">
+      {/* header */}
+      <div className="mx-auto mb-12 flex max-w-7xl flex-col items-start gap-3 px-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45">
+            The kit behind the frames
+          </p>
+          <h2 className="font-display text-5xl font-black leading-[0.9] tracking-tight md:text-7xl">
+            my{" "}
+            <span className="font-serif italic font-normal" style={{ color: "var(--tomato)" }}>
+              gears
+            </span>
+          </h2>
+        </div>
+        <p className="max-w-xs text-[13px] leading-relaxed text-black/55 md:text-right">
+          Tools I trust on every shoot — bodies, glass and light, chosen for
+          how they handle quiet moments.
         </p>
-        <h2 className="font-display text-[clamp(3rem,12vw,11rem)] font-black leading-[0.85] tracking-tight text-black/90 mix-blend-multiply">
-          my <span className="font-serif italic font-light" style={{ color: "var(--tomato)" }}>gears</span>
-        </h2>
-      </motion.div>
+      </div>
 
+      {/* row 1 */}
       <motion.div
         style={{
-          x,
+          x: xLeft,
           maskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
           WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
         }}
-        className="flex w-max items-center gap-6"
+        className="flex w-max items-center gap-5"
       >
-        {row.map((g, i) => {
-          // ends of the visible band get a stretch / lean
-          const lean = i % row.length === 0 ? -8 : 0;
-          return (
-            <figure
-              key={`${g.label}-${i}`}
-              className="group relative h-[44vh] w-[26vw] min-w-[280px] shrink-0 overflow-hidden rounded-3xl bg-black/5"
-              style={{
-                transform: `rotateY(${lean}deg)`,
-                boxShadow: "0 40px 80px -40px rgba(0,0,0,0.35)",
-              }}
-            >
-              <img
-                src={g.src}
-                alt={g.label}
-                loading="lazy"
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <figcaption className="absolute bottom-4 left-4 rounded-full bg-white/85 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-black backdrop-blur">
-                {g.label}
-              </figcaption>
-            </figure>
-          );
-        })}
+        {rowA.map((g, i) => (
+          <GearCard key={`a-${g.label}-${i}`} {...g} />
+        ))}
+      </motion.div>
+
+      {/* row 2 — opposite direction */}
+      <motion.div
+        style={{
+          x: xRight,
+          maskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        }}
+        className="mt-5 flex w-max items-center gap-5"
+      >
+        {rowB.map((g, i) => (
+          <GearCard key={`b-${g.label}-${i}`} {...g} small />
+        ))}
       </motion.div>
     </section>
+  );
+}
+
+function GearCard({ src, label, small }: { src: string; label: string; small?: boolean }) {
+  return (
+    <figure
+      className={`group relative shrink-0 overflow-hidden rounded-3xl bg-black/5 ${
+        small ? "h-[26vh] w-[20vw] min-w-[220px]" : "h-[34vh] w-[24vw] min-w-[260px]"
+      }`}
+      style={{ boxShadow: "0 40px 80px -45px rgba(0,0,0,0.35)" }}
+    >
+      <img
+        src={src}
+        alt={label}
+        loading="lazy"
+        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+      />
+      <figcaption className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-black backdrop-blur">
+        {label}
+      </figcaption>
+    </figure>
   );
 }
