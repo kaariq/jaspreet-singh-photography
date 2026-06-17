@@ -29,7 +29,7 @@ export function FaqFloating() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative z-10 px-6 py-28 md:py-36">
+    <section id="faq" className="relative z-10 px-6 py-20 md:py-24">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[0.8fr_1.2fr]">
         <div className="md:sticky md:top-32 md:self-start">
           <h2 className="font-display text-5xl font-black tracking-tight md:text-6xl">

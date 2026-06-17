@@ -8,13 +8,13 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — JS Lens Studio" },
+      { title: "Contact — Jaspreet Singh Photography" },
       {
         name: "description",
         content:
-          "Let's talk about your story. Book a call or send a note to start a photography project with JS Lens Studio.",
+          "Let's talk about your story. Book a call or send a note to start a photography project with Jaspreet Singh Photography.",
       },
-      { property: "og:title", content: "Contact — JS Lens Studio" },
+      { property: "og:title", content: "Contact — Jaspreet Singh Photography" },
       {
         property: "og:description",
         content: "Let's talk about your story. Book a call or send a note.",

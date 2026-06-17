@@ -24,12 +24,20 @@ export function ScrollTextReveal({
   const words = text.split(" ");
 
   return (
-    <section className="relative z-10 overflow-hidden px-6 py-32 md:py-48">
-      {/* ribbon backdrop */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-60">
+    <section className="relative px-6 py-32 md:py-48">
+      <div
+        className="
+      pointer-events-none
+      absolute
+      left-0
+      top-1/2
+      w-full
+      -translate-y-1/2
+      overflow-visible
+    "
+      >
         <ScrollRibbon />
       </div>
-
 
       <div ref={ref} className="relative z-10 mx-auto max-w-3xl">
         <motion.p
@@ -46,17 +54,32 @@ export function ScrollTextReveal({
           {eyebrow}
         </motion.p>
 
-        <p className="font-serif text-3xl font-normal leading-[1.3] tracking-tight md:text-[2.6rem] md:leading-[1.3]">
-          {words.map((word, i) => {
-            const start = i / words.length;
-            const end = start + 1 / words.length;
-            return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
-                {word}
-              </Word>
-            );
-          })}
-        </p>
+        <div
+          className="
+    mx-auto
+    w-[min(60vw,900px)]
+    rounded-[36px]
+    bg-[#fbfbfb]
+    backdrop-blur-xl
+    px-[100px]
+    py-[40px]
+    ring-1 ring-black/[0.03]
+    shadow-[0_24px_100px_rgba(0,0,0,0.06)]
+  "
+        >
+          <p className="font-serif text-3xl font-normal leading-[1.3] tracking-tight md:text-[2.6rem] md:leading-[1.3]">
+            {words.map((word, i) => {
+              const start = i / words.length;
+              const end = start + 1 / words.length;
+
+              return (
+                <Word key={i} progress={scrollYProgress} range={[start, end]}>
+                  {word}
+                </Word>
+              );
+            })}
+          </p>
+        </div>
       </div>
     </section>
   );

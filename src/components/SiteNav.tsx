@@ -4,10 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Camera, Menu, X } from "lucide-react";
 
 const LINKS = [
+  { label: "Home", to: "/", hash: undefined },
   { label: "Work", to: "/work", hash: undefined },
   { label: "About", to: "/about", hash: undefined },
   { label: "Journal", to: "/journal", hash: undefined },
-  { label: "Questions", to: "/", hash: "faq" },
+  { label: "Approach", to: "/approach", hash: "faq" },
 ] as const;
 
 export function SiteNav() {
@@ -31,19 +32,15 @@ export function SiteNav() {
           className="flex items-center justify-between rounded-full px-2 py-1.5 backdrop-blur-xl"
           style={{
             backgroundColor: "rgba(0,0,0,0.8)",
-            boxShadow:
-              "0 20px 50px -20px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.08) inset",
+            boxShadow: "0 20px 50px -20px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.08) inset",
           }}
         >
-          <Link to="/" className="flex items-center gap-2 pl-2 pr-3 text-white">
+          <Link to="/" className="flex items-center pl-1 pr-1 text-white">
             <span
               className="grid h-7 w-7 place-items-center rounded-md"
               style={{ backgroundColor: "var(--mustard)" }}
             >
               <Camera className="h-4 w-4 text-black" />
-            </span>
-            <span className="font-display text-[13px] font-semibold tracking-tight">
-              JS Lens
             </span>
           </Link>
 

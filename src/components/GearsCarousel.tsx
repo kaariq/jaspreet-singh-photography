@@ -28,7 +28,7 @@ export function GearsCarousel() {
   const rowB = [...[...GEAR].reverse(), ...[...GEAR].reverse()];
 
   return (
-    <section ref={ref} className="relative z-10 overflow-hidden py-24 md:py-32">
+    <section ref={ref} className="relative z-10 overflow-hidden py-16 md:py-20">
       {/* header */}
       <div className="mx-auto mb-12 flex max-w-7xl flex-col items-start gap-3 px-6 md:flex-row md:items-end md:justify-between">
         <div>

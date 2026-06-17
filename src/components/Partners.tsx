@@ -16,7 +16,7 @@ const PARTNERS = [
  */
 export function Partners() {
   return (
-    <section className="relative z-10 border-y border-black/10 bg-white/55 px-6 py-16 backdrop-blur-sm">
+    <section className="relative z-10 border-y border-black/10 bg-white/55 px-6 py-10 backdrop-blur-sm">
       <div className="mx-auto max-w-6xl">
         <motion.p
           initial={{ opacity: 0 }}

@@ -8,51 +8,53 @@ export function ScrollRibbon() {
 
   const startOffset = useTransform(time, [0, 30000], ["0%", "-100%"]);
 
-  const text = "SOCIAL MEDIA MANAGEMENT • SHORT FORM CONTENT • INFLUENCER MARKETING • ";
+  const text = "PHOTOGRAPHY • MEMORY • LIGHT • EMOTION • STORYTELLING • HUMAN CONNECTION • ";
 
   return (
     <div
-      className="absolute left-0 top-[55%] w-full pointer-events-none z-0"
+      className="absolute left-0 top-[58%] w-full"
       style={{
-        transform: "translateY(-50%)",
+        transform: "translateY(20px)",
       }}
     >
       <svg
-        width="100%"
-        viewBox="-10 -30 1565 410"
-        preserveAspectRatio="none"
-        className="overflow-visible"
+        className="w-full h-auto overflow-visible"
+        viewBox="0 0 1565 410"
+        preserveAspectRatio="xMidYMid meet"
       >
         <defs>
           <path
             id={id}
             d="
-              M12.8 194.6
-              C12.8 194.6 111.5 356.7 371.3 334.1
-              C705.3 305.0 906.8 -8.7 1201.3 16.4
-              C1405.0 33.8 1537.3 189.6 1537.3 189.6
+              M20 220
+              C180 360 420 340 620 240
+              C850 120 980 20 1180 40
+              C1380 60 1490 180 1540 220
             "
           />
         </defs>
 
         <path
           d="
-            M12.8 194.6
-            C12.8 194.6 111.5 356.7 371.3 334.1
-            C705.3 305.0 906.8 -8.7 1201.3 16.4
-            C1405.0 33.8 1537.3 189.6 1537.3 189.6
+            M20 220
+            C180 360 420 340 620 240
+            C850 120 980 20 1180 40
+            C1380 60 1490 180 1540 220
           "
           fill="none"
           stroke="#F7A8E8"
-          strokeWidth="32"
+          strokeWidth="22"
           strokeLinecap="round"
+          opacity="0.85"
         />
 
+        {/* Moving text */}
         <motion.text
           fontSize="12"
           fontWeight="700"
-          letterSpacing="0.08em"
+          letterSpacing="0.12em"
           fill="#1c1917"
+          opacity="0.7"
           style={{
             fontFamily: '"Open Sauce One", "Space Grotesk", sans-serif',
           }}

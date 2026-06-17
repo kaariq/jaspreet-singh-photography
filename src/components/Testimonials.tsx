@@ -26,7 +26,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Creative Director, FRAME",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80",
     thread: ["He sees the frame", "before it happens ✨"],
-    x: 10, size: 96, range: [0.28, 0.62],
+    x: 10, size: 96, range: [0.18, 0.42],
     caption: [
       "We brought him in for a 3-day campaign with almost no brief.",
       "By day one the whole team trusted his eye completely.",
@@ -38,7 +38,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Founder",
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&q=80",
     thread: ["Calm on set", "surgical in the edit"],
-    x: 64, size: 84, range: [0.34, 0.7],
+    x: 64, size: 84, range: [0.22, 0.46],
     caption: [
       "Our product launch lived or died on the imagery.",
       "He delivered a visual language we still use today.",
@@ -50,7 +50,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Bride, June '25",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80",
     thread: ["I cried", "looking at the gallery 🥹"],
-    x: 36, size: 116, range: [0.3, 0.66],
+    x: 36, size: 116, range: [0.2, 0.44],
     caption: [
       "He caught the moments we didn't even know happened.",
       "It feels less like photos and more like memory.",
@@ -62,7 +62,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Editor, Cereal",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80",
     thread: ["Light is", "his first language"],
-    x: 80, size: 80, range: [0.4, 0.74],
+    x: 80, size: 80, range: [0.26, 0.5],
     caption: [
       "Few understand restraint the way he does.",
       "Nothing is loud — everything is intentional.",
@@ -74,7 +74,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Stylist",
     avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&q=80",
     thread: ["Effortless", "to collaborate with"],
-    x: 22, size: 92, range: [0.38, 0.72],
+    x: 22, size: 92, range: [0.24, 0.48],
     caption: [
       "He makes space for everyone's craft on set.",
       "The clothes, the light, the subject — all in balance.",
@@ -92,16 +92,16 @@ export function Testimonials() {
   });
 
   // white → black inversion as you scroll in
-  const bg = useTransform(scrollYProgress, [0, 0.32], ["#ffffff", "#0b0b0b"]);
-  const titleColor = useTransform(scrollYProgress, [0, 0.32], ["#0b0b0b", "#ffffff"]);
+  const bg = useTransform(scrollYProgress, [0, 0.18], ["#ffffff", "#0b0b0b"]);
+  const titleColor = useTransform(scrollYProgress, [0, 0.18], ["#0b0b0b", "#ffffff"]);
   const subColor = useTransform(
     scrollYProgress,
-    [0, 0.32],
+    [0, 0.18],
     ["rgba(11,11,11,0.5)", "rgba(255,255,255,0.5)"],
   );
 
   return (
-    <section id="words" ref={ref} className="relative z-10" style={{ height: "260vh" }}>
+    <section id="words" ref={ref} className="relative z-10" style={{ height: "360vh" }}>
       <motion.div
         style={{ backgroundColor: bg }}
         className="sticky top-0 h-screen overflow-hidden"

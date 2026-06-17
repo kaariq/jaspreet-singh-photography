@@ -33,7 +33,7 @@ const SERVICES = [
  */
 export function ServicesStack() {
   return (
-    <section className="relative z-10 px-6 py-28 md:py-36">
+    <section className="relative z-10 px-6 py-20 md:py-24">
       <div className="mx-auto max-w-5xl">
         <div className="mb-16 text-center">
           <h3 className="font-display text-5xl font-black tracking-tight md:text-7xl">
