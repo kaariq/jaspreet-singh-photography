@@ -78,7 +78,7 @@
   --ring: oklch(0.13 0 0);
 
   --mustard: oklch(0.82 0.17 85);
-  --tomato:  oklch(0.52 0.06 192); /* elegant teal (#387D7A) — replaces previous red accent */
+  --tomato:  oklch(53.606% 0.21019 30.769); /* elegant teal (#387D7A) — replaces previous red accent */
 }
 
 @layer base {

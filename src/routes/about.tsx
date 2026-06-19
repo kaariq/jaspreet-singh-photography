@@ -28,6 +28,14 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
+const BELIEFS = [
+  "Perfect is overrated.",
+  "People matter more than poses.",
+  "The edit shouldfeel invisible.",
+  "Film teaches patience.",
+  "A photograph should feel like a memory.",
+];
+
 const PIECES = [
   {
     n: "01",
@@ -56,11 +64,6 @@ const PIECES = [
   },
   {
     n: "06",
-    title: "Still on the Horizon",
-    body: "Iceland in winter, a book with my name on the spine, and one really still morning by the sea.",
-  },
-  {
-    n: "07",
     title: "If You Had to Know One Thing",
     body: "I'd rather feel something honest for a second than something perfect for an hour.",
   },
@@ -72,134 +75,48 @@ function AboutPage() {
       <CustomCursor />
       <div className="canvas-grid" />
       <SiteNav />
-
       {/* intro */}
-      <header className="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.1fr_0.9fr] md:pt-36">
-        <div>
-          <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45">
-            About me
-          </p>
-          <h1 className="font-serif text-[clamp(2.6rem,6vw,4.8rem)] leading-[0.95]">
-            I make pictures that{" "}
-            <span className="italic" style={{ color: "var(--tomato)" }}>
-              remember.
-            </span>
-          </h1>
-          <p className="mt-5 max-w-lg text-[13px] leading-relaxed text-black/60">
-            I'm a photographer drawn to the in-between moments — the breath before
-            a vow, the laugh that escapes mid-sentence, the light that only lasts
-            a minute. My work lives somewhere between documentary honesty and
-            quiet, cinematic restraint.
-          </p>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.2, 0.7, 0.2, 1] }}
-          className="overflow-hidden bg-black/5"
-          style={{ boxShadow: "0 40px 90px -50px rgba(0,0,0,0.45)" }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=900&q=80"
-            alt="Portrait of the photographer"
-            className="aspect-[4/5] w-full object-cover"
-          />
-        </motion.div>
-      </header>
+      <header className="relative h-[100svh] overflow-hidden">
+        <video className="absolute inset-0 h-full w-full object-cover" autoPlay loop playsInline>
+          <source src="src/assets/intro.mp4" type="video/mp4" />
+        </video>
 
-      {/* monologue video */}
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        <div className="mb-6 flex items-end justify-between gap-6">
-          <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45">
-              A short monologue
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/45" />
+
+        {/* Grain */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: "url('https://www.transparenttextures.com/patterns/asfalt-light.png')",
+          }}
+        />
+
+        <div className="relative z-10 flex h-full items-center justify-center text-center">
+          <div className="px-6">
+            <p className="mb-6 text-[11px] uppercase tracking-[0.45em] text-white/70">About</p>
+
+            <h1 className="font-serif text-[clamp(4rem,10vw,10rem)] leading-[0.88] text-white">
+              I make
+              <br />
+              pictures that
+              <br />
+              <span className="italic">remember.</span>
+            </h1>
+
+            <p className="mx-auto mt-10 max-w-lg text-lg leading-relaxed text-white/75">
+              Documentary honesty. Quiet cinema.
+              <br />
+              Moments that feel lived rather than staged.
             </p>
-            <h2 className="mt-2 font-serif text-[clamp(1.8rem,4vw,2.8rem)] leading-tight">
-              In my own{" "}
-              <span className="italic" style={{ color: "var(--tomato)" }}>
-                words.
-              </span>
-            </h2>
           </div>
-          <span className="hidden text-[10px] uppercase tracking-[0.22em] text-black/40 md:block">
-            01:42
-          </span>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="group relative aspect-video w-full overflow-hidden bg-black"
-          style={{ boxShadow: "0 50px 100px -55px rgba(0,0,0,0.5)" }}
-        >
-          <video
-            className="absolute inset-0 h-full w-full object-cover opacity-80"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1400&q=80"
-          >
-            <source
-              src="https://cdn.coverr.co/videos/coverr-walking-with-a-camera-7388/1080p.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <button className="grid h-16 w-16 place-items-center bg-white text-black transition group-hover:scale-110">
-              <Play className="h-5 w-5 fill-current" />
-            </button>
-          </div>
-          <p className="absolute bottom-4 left-4 max-w-md font-serif text-base italic text-white/90 md:text-lg">
-            "I don't make pictures to remember what people looked like — I make
-            them to remember what it felt like to stand there."
-          </p>
-        </motion.div>
-      </section>
 
-      {/* Story 1 — Why */}
-      <StorySection
-        eyebrow="Chapter one"
-        title="Why I love"
-        accent="photography"
-        body={[
-          "Photography is the closest thing I've found to slowing time. A single frame can hold a feeling long after the day has blurred into the next.",
-          "I love that a photograph asks nothing of the moment except to be noticed. The held breath, the soft glance, the half-smile someone didn't even realise they made — these are the things I keep returning for.",
-          "Years later, those frames give everything back. That's the quiet contract I make with every shoot: notice well now, so it can be felt again later.",
-        ]}
-        image="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1200&q=80"
-        flip={false}
-      />
-
-      {/* Story 2 — How */}
-      <StorySection
-        eyebrow="Chapter two"
-        title="How I"
-        accent="started"
-        body={[
-          "It began with a borrowed film camera and a roll I was too nervous to finish. I shot mostly empty streets and my mother's plants for a month before I worked up the courage to point it at a person.",
-          "The first time I saw a developed frame that actually felt like something, I was hooked. I spent the next few years assisting older photographers on weekends — carrying lights, watching how they spoke to people, learning the slow way.",
-          "Most of what I know about light, I learned by being wrong about it first. That's still true today.",
-        ]}
-        image="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1200&q=80"
-        flip
-      />
-
-      {/* Story 3 — Where */}
-      <StorySection
-        eyebrow="Chapter three"
-        title="Where I am"
-        accent="now"
-        body={[
-          "Today I work with couples, brands, and magazines who want images that feel human rather than staged. I'm based in Toronto, but the work takes me wherever the story is.",
-          "I shoot a mix of digital and 35mm film, depending on what the moment is asking for. I edit my own work — every frame, every time — because the edit is just as much the photograph as the shutter.",
-          "Every new project still feels a little like that first roll: a little nervous, a lot in love with the craft.",
-        ]}
-        image="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80"
-        flip={false}
-      />
-
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <div className="h-12 w-[1px] bg-white/40" />
+        </div>
+      </header>
       {/* Pieces of Me */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="mb-12 max-w-2xl">
@@ -213,8 +130,8 @@ function AboutPage() {
             </span>
           </h2>
           <p className="mt-4 text-[13px] leading-relaxed text-black/55">
-            Seven small things that have very little to do with photography and
-            everything to do with the way I see.
+            Seven small things that have very little to do with photography and everything to do
+            with the way I see.
           </p>
         </div>
 
@@ -234,12 +151,8 @@ function AboutPage() {
               >
                 {p.n}
               </span>
-              <h3 className="mt-3 font-serif text-[1.35rem] leading-tight">
-                {p.title}
-              </h3>
-              <p className="mt-2.5 text-[12.5px] leading-relaxed text-black/55">
-                {p.body}
-              </p>
+              <h3 className="mt-3 font-serif text-[1.35rem] leading-tight">{p.title}</h3>
+              <p className="mt-2.5 text-[12.5px] leading-relaxed text-black/55">{p.body}</p>
             </motion.div>
           ))}
         </div>
@@ -303,11 +216,7 @@ function StorySection({
           className={`overflow-hidden bg-black/5 ${flip ? "md:order-1" : ""}`}
           style={{ boxShadow: "0 40px 90px -55px rgba(0,0,0,0.4)" }}
         >
-          <img
-            src={image}
-            alt=""
-            className="aspect-[4/5] w-full object-cover"
-          />
+          <img src={image} alt="" className="aspect-[4/5] w-full object-cover" />
         </motion.div>
       </div>
     </section>

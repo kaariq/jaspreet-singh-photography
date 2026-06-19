@@ -25,8 +25,6 @@ export function VideoReveal() {
 
   const height = useTransform(scrollYProgress, [0.2, 0.45], [58, 100]);
 
-  const radius = useTransform(scrollYProgress, [0.2, 0.45], [24, 0]);
-
   const frameScale = useTransform(scrollYProgress, [0, 0.2], [0.9, 1]);
 
   const frameOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
@@ -45,7 +43,6 @@ export function VideoReveal() {
 
   const sWidth = useSpring(width, spring);
   const sHeight = useSpring(height, spring);
-  const sRadius = useSpring(radius, spring);
   const sScale = useSpring(frameScale, spring);
 
   return (
@@ -66,7 +63,6 @@ export function VideoReveal() {
               scale: sScale,
               width: useMotionTemplate`${sWidth}vw`,
               height: useMotionTemplate`${sHeight}vh`,
-              borderRadius: useMotionTemplate`${sRadius}px`,
               boxShadow: "0 50px 120px -40px rgba(0,0,0,0.55)",
             }}
           >
@@ -89,29 +85,10 @@ export function VideoReveal() {
               }}
             />
 
-            <motion.div style={{ opacity: overlayOpacity }} className="absolute left-7 top-7">
-              <span
-                className="rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-black"
-                style={{
-                  backgroundColor: "var(--mustard)",
-                }}
-              >
-                Reel ’26
-              </span>
-            </motion.div>
-
             <motion.div
               style={{ opacity: overlayOpacity }}
               className="absolute bottom-8 left-8 right-8 flex items-end justify-between text-white"
             >
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/65">
-                  Featured Film
-                </p>
-
-                <p className="font-serif text-3xl italic md:text-5xl">Quiet Interiors — a reel</p>
-              </div>
-
               <p className="hidden text-right text-[11px] text-white/55 md:block">
                 Shot on 35mm
                 <br />

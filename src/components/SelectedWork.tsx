@@ -177,7 +177,7 @@ function Card({
         filter: offset === 0 ? "blur(0px)" : "blur(2px)",
       }}
       transition={{ type: "spring", stiffness: 180, damping: 26 }}
-      className="absolute inset-0 cursor-grab overflow-hidden rounded-[2rem] active:cursor-grabbing"
+      className="absolute inset-0 cursor-grab overflow-hidden  active:cursor-grabbing"
     >
       <img
         src={project.src}
@@ -197,14 +197,6 @@ function Card({
         {String(i + 1).padStart(2, "0")} / {project.cat}
       </div>
       <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between text-white">
-        <div>
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/60">
-            {project.year}
-          </p>
-          <h3 className="font-serif text-4xl italic tracking-tight md:text-6xl">
-            {project.title}
-          </h3>
-        </div>
         <span
           className="grid h-14 w-14 place-items-center rounded-full text-black"
           style={{ backgroundColor: "var(--mustard)" }}
