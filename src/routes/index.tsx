@@ -179,16 +179,24 @@ function Index() {
           ease: [0.22, 1, 0.36, 1],
         }}
       />
-        <Hero />
+      <Hero />
+      <div className="my-20">
         <Partners />
-          <ScrollTextReveal />
-          <VideoReveal />
-          <GearsCarousel />
-          <SelectedWork />
-          <ServicesStack />
-          <Testimonials />
-          <FaqFloating />
-          <SiteFooter />
+      </div>
+      <VideoReveal />
+      <div className="my-56">
+        <ScrollTextReveal />
+      </div>
+      <div className="my-106">
+        <SelectedWork />
+      </div>
+      <GearsCarousel />
+      <div className="my-36">
+        <ServicesStack />
+      </div>
+      <Testimonials />
+      <FaqFloating />
+      <SiteFooter />
     </main>
   );
 }

@@ -88,7 +88,14 @@ export function SelectedWork() {
         <div className="relative flex flex-1 items-center justify-center px-6">
           <div className="relative h-[62vh] w-full max-w-5xl" style={{ perspective: 1600 }}>
             {PROJECTS.map((p, i) => (
-              <Card key={p.title} project={p} i={i} active={index} total={PROJECTS.length} onSwipe={go} />
+              <Card
+                key={p.title}
+                project={p}
+                i={i}
+                active={index}
+                total={PROJECTS.length}
+                onSwipe={go}
+              />
             ))}
           </div>
 
@@ -189,8 +196,7 @@ function Card({
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.15) 45%, transparent)",
+          background: "linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.15) 45%, transparent)",
         }}
       />
       <div className="absolute left-6 top-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">

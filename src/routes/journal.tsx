@@ -74,7 +74,7 @@ function JournalPage() {
         </h1>
       </header>
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-28 md:grid-cols-2">
+      <section className="relative z-10 mx-auto grid max-w-6xl gap-8 px-6 pb-28 md:grid-cols-2">
         {POSTS.map((p, i) => (
           <motion.article
             key={p.title}
@@ -82,7 +82,7 @@ function JournalPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.55, delay: (i % 2) * 0.08 }}
-            className="group overflow-hidden rounded-[1.75rem] border border-black/10 bg-white"
+            className="group overflow-hidden  border border-black/10 bg-white"
           >
             <div className="relative aspect-[16/10] overflow-hidden">
               <img

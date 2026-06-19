@@ -25,7 +25,7 @@ export function ScrollTextReveal({
 
   return (
     <section className="relative z-10 w-full bg-white px-6 py-32 md:py-44">
-      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40">
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-80 mt-50">
         <ScrollRibbon />
       </div>
 
@@ -41,7 +41,7 @@ export function ScrollTextReveal({
             className="h-1.5 w-1.5 rounded-full"
             style={{ backgroundColor: "var(--mustard)" }}
           />
-          {eyebrow}
+          8 {eyebrow}
         </motion.p>
 
         <p className="text-center font-serif text-3xl font-light leading-[1.35] tracking-tight text-black md:text-[2.75rem] md:leading-[1.3]">

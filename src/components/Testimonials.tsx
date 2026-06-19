@@ -1,180 +1,281 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-type Message = {
+type Testimonial = {
   name: string;
   role: string;
   avatar: string;
   message: string;
-  accent: string;
-  side: "left" | "right";
+  x: number;
+  y: number;
+  size: number;
+  color: string;
+  textColor?: string;
+  bubbleSide?: "right" | "left";
 };
 
-const MESSAGES: Message[] = [
+const TESTIMONIALS: Testimonial[] = [
   {
     name: "Amara Nwosu",
     role: "Creative Director · FRAME",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
     message:
       "He sees the frame before it even happens. Every shot already belonged in the magazine.",
-    accent: "var(--tomato)",
-    side: "left",
+    x: -12,
+    y: 18,
+    size: 170,
+    color: "#fbc95e",
+    textColor: "#fff",
+    bubbleSide: "right",
   },
   {
     name: "Leo Marchetti",
     role: "Founder · Northbound",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80",
     message:
       "Calm on set, surgical in the edit. He delivered a visual language we still use today.",
-    accent: "var(--mustard)",
-    side: "right",
+    x: 80,
+    y: 26,
+    size: 130,
+    color: "#fbc95e",
+    textColor: "#fff",
+    bubbleSide: "right",
   },
   {
     name: "Sana Kapoor",
     role: "Bride · June '25",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
     message: "I cried looking at the gallery. Less like photographs, more like memory itself.",
-    accent: "var(--tomato)",
-    side: "left",
+    x: 48,
+    y: 58,
+    size: 210,
+    color: "#fbc95e",
+    textColor: "#fff",
+    bubbleSide: "right",
   },
   {
     name: "Diego Reyes",
     role: "Editor · Cereal",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
     message: "Light is his first language. Nothing loud — everything intentional.",
-    accent: "var(--mustard)",
-    side: "right",
+    x: 110,
+    y: 90,
+    size: 140,
+    color: "#fbc95e",
+    textColor: "#fff",
+    bubbleSide: "left",
   },
   {
     name: "Mira Volkov",
     role: "Stylist",
-    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80",
     message: "Effortless to collaborate with. I book him every chance I get.",
-    accent: "var(--tomato)",
-    side: "left",
-  },
-  {
-    name: "Theo Laurent",
-    role: "Art Director · MONOCLE",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-    message: "Quiet, precise, generous. The kind of eye you build a brand around.",
-    accent: "var(--mustard)",
-    side: "right",
+    x: -10,
+    y: 64,
+    size: 150,
+    color: "#fbc95e",
+    textColor: "#fff",
+    bubbleSide: "right",
   },
 ];
 
-const LOOP_DURATION = 26; // seconds for a full pass
+function initials(name: string) {
+  return name
+    .split(" ")
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
 
 export function Testimonials() {
-  // duplicate the list so the upward stream is always populated
-  const stream = [...MESSAGES, ...MESSAGES];
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"],
+  });
+
+  const bg = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    ["#ffffff", "#0a0a0a", "#0a0a0a", "#ffffff"],
+  );
+
+  const titleColor = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    ["#0a0a0a", "#ffffff", "#ffffff", "#0a0a0a"],
+  );
+
+  const subColor = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    ["rgba(10,10,10,.55)", "rgba(255,255,255,.55)", "rgba(255,255,255,.55)", "rgba(10,10,10,.55)"],
+  );
 
   return (
-    <section id="words" className="relative z-10 overflow-hidden bg-[#0a0a0a] py-28 md:py-36">
-      {/* heading */}
-      <div className="relative z-20 mx-auto mb-4 max-w-3xl px-6 text-center">
-        <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/40">
-          In their words
-        </p>
-        <h2 className="font-display text-5xl font-black tracking-tight text-white md:text-7xl">
-          kind{" "}
-          <span className="font-serif font-normal italic" style={{ color: "var(--mustard)" }}>
-            words.
-          </span>
-        </h2>
-        <p className="mt-4 text-[13px] leading-relaxed text-white/45">
-          A conversation that never really ends.
-        </p>
-      </div>
-
-      {/* conversation stream */}
-      <div className="relative mx-auto h-[640px] max-w-2xl px-6 md:h-[680px]">
-        {/* fade masks top & bottom */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-40 bg-gradient-to-b from-[#0a0a0a] to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
-
-        <div className="absolute inset-0 overflow-hidden px-6">
-          {stream.map((m, i) => {
-            const count = stream.length;
-            // even spread of negative delays so bubbles pre-fill the column
-            const delay = -(i * LOOP_DURATION) / count;
-            // gentle per-bubble speed variation
-            const duration = LOOP_DURATION + (i % 3) * 3;
-
-            return <FloatingBubble key={i} m={m} delay={delay} duration={duration} />;
-          })}
+    <section id="words" ref={ref} className="relative z-10" style={{ height: "260vh" }}>
+      {/* Turned container element to a motion component to support background inversion updates */}
+      <motion.div
+        className="sticky top-0 h-screen w-full overflow-hidden"
+        style={{ backgroundColor: bg }}
+      >
+        {/* Dynamic Header Block */}
+        <div className="relative z-10 mx-auto max-w-3xl px-6 pt-16 text-center md:pt-20">
+          <motion.p
+            className="mb-3 text-[10px] font-semibold uppercase tracking-[0.34em]"
+            style={{ color: subColor }}
+          >
+            In their words
+          </motion.p>
+          <motion.h2
+            className="font-serif text-[clamp(3rem,7vw,5.5rem)] font-light tracking-tight"
+            style={{ color: titleColor }}
+          >
+            kind{" "}
+            <span className="italic" style={{ color: "var(--tomato, #e11d48)" }}>
+              words.
+            </span>
+          </motion.h2>
         </div>
-      </div>
+
+        {/* Dynamic Field Context Canvas */}
+        <div className="relative mx-auto h-[72vh] w-full max-w-6xl px-6">
+          {TESTIMONIALS.map((t, i) => (
+            <BubbleCluster
+              key={t.name}
+              t={t}
+              index={i}
+              progress={scrollYProgress}
+              cardBg={titleColor}
+              cardText={bg}
+              subText={subColor}
+            />
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
 
-function FloatingBubble({
-  m,
-  delay,
-  duration,
+function BubbleCluster({
+  t,
+  index,
+  progress,
+  cardBg,
+  cardText,
+  subText,
 }: {
-  m: Message;
-  delay: number;
-  duration: number;
+  t: Testimonial;
+  index: number;
+  progress: any;
+  cardBg: any; // Passes transformation variants downstream
+  cardText: any;
+  subText: any;
 }) {
-  const isRight = m.side === "right";
-  // slight horizontal drift for organic motion
-  const drift = isRight ? [0, 14, -6, 0] : [0, -14, 6, 0];
+  const start = 0.04 + index * 0.05;
+  const end = start + 0.28;
+
+  const y = useTransform(progress, [start, end], [120, -30]);
+  const opacity = useTransform(progress, [start, start + 0.06], [0, 1]);
+  const float = useTransform(progress, [0, 1], [0, -40]);
+
+  const pfpSize = Math.round(t.size * 0.42);
+  const side = t.bubbleSide ?? "right";
+  const bubbleW = 320;
 
   return (
     <motion.div
-      initial={false}
-      animate={{
-        y: ["115%", "-40%"],
-        x: drift,
-        opacity: [0, 1, 1, 0],
+      style={{
+        left: `${t.x}%`,
+        top: `${t.y}%`,
+        y,
+        opacity,
+        width: t.size,
+        height: t.size,
       }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "linear",
-        times: [0, 0.12, 0.85, 1],
-        x: {
-          duration,
-          delay,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-      className={`absolute w-[min(82%,360px)] ${isRight ? "right-0" : "left-0"}`}
+      className="absolute -translate-x-1/2 -translate-y-1/2 font-sans antialiased"
     >
-      <div className={`flex items-end gap-2.5 ${isRight ? "flex-row-reverse" : ""}`}>
-        <img
-          src={m.avatar}
-          alt={m.name}
-          className="h-9 w-9 shrink-0 rounded-full object-cover ring-2 ring-white/15"
-        />
+      <motion.div style={{ y: float }} className="relative h-full w-full">
+        {/* Initials Container Bubble */}
         <div
-          className={`rounded-[20px] px-4 py-3 ${
-            isRight
-              ? "rounded-br-md bg-white text-black"
-              : "rounded-bl-md bg-white/[0.08] text-white backdrop-blur-md"
-          }`}
-          style={
-            isRight
-              ? { boxShadow: "0 20px 50px -28px rgba(0,0,0,0.6)" }
-              : { boxShadow: "0 20px 50px -28px rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.08)" }
-          }
+          className="absolute inset-0 flex items-center justify-center rounded-full transition-transform duration-300 hover:scale-[1.02]"
+          style={{
+            backgroundColor: t.color,
+            color: t.textColor ?? "#fff",
+            boxShadow: "0 20px 50px -15px rgba(0,0,0,0.18)",
+          }}
         >
-          <p className="font-serif text-[14.5px] leading-[1.5]">{m.message}</p>
-          <div className="mt-2 flex items-center gap-1.5">
-            <span className="h-1 w-1 rounded-full" style={{ backgroundColor: m.accent }} />
-            <span
-              className={`text-[9.5px] font-semibold uppercase tracking-[0.18em] ${
-                isRight ? "text-black/40" : "text-white/40"
-              }`}
-            >
-              {m.name} · {m.role}
-            </span>
-          </div>
+          <span className="font-bold tracking-tight" style={{ fontSize: t.size * 0.22 }}>
+            {initials(t.name)}
+          </span>
         </div>
-      </div>
+
+        {/* Avatar badge outline remains clean white to pop out from colored backdrops */}
+        <div
+          className="absolute overflow-hidden rounded-full bg-white"
+          style={{
+            width: pfpSize,
+            height: pfpSize,
+            top: "-4px",
+            ...(side === "right" ? { left: "-8px" } : { right: "-8px" }),
+            zIndex: 30,
+            boxShadow: "0 8px 20px rgba(0,0,0,0.15), 0 0 0 3.5px white",
+          }}
+        >
+          <img src={t.avatar} alt={t.name} loading="lazy" className="h-full w-full object-cover" />
+        </div>
+
+        {/* Message Card Layer */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 10 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.45, delay: 0.1 + index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute top-[-14px] z-10"
+          style={{
+            width: bubbleW,
+            ...(side === "right" ? { left: t.size + 24 } : { right: t.size + 24 }),
+          }}
+        >
+          {/* Flipped card background and tracking variables to follow scroll transformation */}
+          <motion.div
+            style={{ backgroundColor: cardBg, color: cardText }}
+            className={`relative px-5 py-4 shadow-[0_25px_55px_-15px_rgba(0,0,0,0.2)] border border-transparent
+              ${
+                side === "right"
+                  ? "rounded-[22px] rounded-tl-[4px]"
+                  : "rounded-[22px] rounded-tr-[4px]"
+              }`}
+          >
+            {/* The Integrated Dynamic Message Pointer Beak */}
+            <motion.div
+              aria-hidden
+              style={{ backgroundColor: cardBg }}
+              className={`absolute top-0 w-3.5 h-3.5 pointer-events-none
+                ${
+                  side === "right"
+                    ? "right-full -mr-[1px] [clip-path:polygon(100%_0,0_0,100%_100%)]"
+                    : "left-full -ml-[1px] [clip-path:polygon(0_0,0_100%,100%_0)]"
+                }`}
+            />
+
+            <p className="text-[14px] font-normal leading-relaxed tracking-tight opacity-95">
+              "{t.message}"
+            </p>
+
+            <div className="mt-2.5 flex items-center justify-between">
+              <motion.p
+                style={{ color: subText }}
+                className="text-[10px] font-bold uppercase tracking-[0.2em]"
+              >
+                {t.name} &middot; <span className="font-medium opacity-85">{t.role}</span>
+              </motion.p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 }

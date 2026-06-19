@@ -69,7 +69,6 @@ export function VideoReveal() {
             <motion.video
               src={heroVideo.url}
               autoPlay
-              muted
               loop
               playsInline
               className="h-full w-full object-cover"

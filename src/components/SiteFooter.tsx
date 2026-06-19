@@ -1,6 +1,6 @@
-import { Instagram, Youtube, Dribbble, Mail, ArrowUpRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { Instagram, Youtube, Dribbble, Mail, ChevronUp, ChevronDown } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const SOCIAL = [
   { label: "Instagram", href: "#", Icon: Instagram },
@@ -9,116 +9,110 @@ const SOCIAL = [
   { label: "Email", href: "mailto:hello@jslens.studio", Icon: Mail },
 ];
 
-const ease = [0.22, 1, 0.36, 1] as const;
-
 export function SiteFooter() {
+  const [isOpen, setIsOpen] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // 1. Scroll Progress for Reveal Effects
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const yTransform = useTransform(scrollYProgress, [0, 1], [40, 0]);
+  const scaleTransform = useTransform(scrollYProgress, [0, 1], [0.97, 1]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.75], [0, 1]);
+
+  const y = useSpring(yTransform, { stiffness: 100, damping: 22 });
+  const scale = useSpring(scaleTransform, { stiffness: 100, damping: 22 });
+  const opacity = useSpring(opacityTransform, { stiffness: 100, damping: 22 });
+
   return (
-    <footer
-      id="book"
-      className="relative z-10 overflow-hidden bg-[#0a0a0a] px-6 pb-9 pt-20 text-white md:px-10 md:pb-12 md:pt-28"
-    >
-      <div className="relative mx-auto max-w-[1400px]">
-        {/* invitation row */}
-        <div className="flex flex-col gap-10 border-b border-white/10 pb-12 md:flex-row md:items-end md:justify-between md:pb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease }}
-            className="max-w-xl"
-          >
-            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/40">
-              Currently booking 2026
-            </p>
-            <p className="font-serif text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-[1.2]">
-              From quiet portraits to bold editorial covers — there's a frame here for{" "}
-              <span className="italic" style={{ color: "var(--mustard)" }}>
-                every story.
-              </span>
-            </p>
-          </motion.div>
+    <div ref={containerRef} className="bg-[#0A0A0A] text-white overflow-hidden">
+      {/* Hide/Show Toggle Action Button */}
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: 0.1, ease }}
-          >
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 rounded-full border border-white/20 py-3 pl-6 pr-3 text-[13px] transition hover:border-[var(--mustard)]"
-            >
-              Let's make something
-              <span
-                className="grid h-8 w-8 place-items-center rounded-full text-black transition-transform duration-300 group-hover:rotate-45"
-                style={{ backgroundColor: "var(--mustard)" }}
-              >
-                <ArrowUpRight className="h-4 w-4" />
-              </span>
-            </Link>
-          </motion.div>
-        </div>
+      {/* Kinetic Height Frame: 
+        Starts initially at 75% viewport height ('75vh') when loading, 
+        then collapses down smoothly to 'auto' for crisp text containment.
+      */}
+      <motion.footer
+        id="book"
+        initial={{ height: "75vh" }}
+        animate={{
+          height: isOpen ? "auto" : 0,
+        }}
+        viewport={{ once: true }}
+        whileInView={isOpen ? { height: "auto" } : {}}
+        transition={{
+          height: {
+            duration: 1.4,
+            ease: [0.25, 1, 0.5, 1], // Custom sophisticated deceleration curve
+            delay: 0.1,
+          },
+        }}
+        className="relative z-10 w-full flex flex-col justify-end"
+      >
+        {/* Parallax Content Wrapper */}
+        <motion.div
+          style={{ y, scale, opacity }}
+          className="mx-auto max-w-[1600px] w-full px-6 pb-12 pt-8 md:px-16 md:pb-16 md:pt-12"
+        >
+          {/* Main Content Row */}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+            {/* Left Box: Text Quote (62% width) & Hyperlink */}
+            <div className="flex flex-col gap-6">
+              <p className="w-full font-sans text-[2.5rem] font-medium leading-[0.95] tracking-[-0.03em] uppercase sm:text-[3.8rem] md:text-[4.5rem] lg:text-[4.8rem]">
+                From quiet portraits
+                <br />
+                to bold editorial covers,
+                <br />
+                there's a frame here for every story.
+              </p>
 
-        {/* giant wordmark */}
-        <div className="mt-14 flex flex-col items-start gap-10 md:mt-20 md:flex-row md:items-end md:justify-between">
-          <h2 className="font-serif leading-[0.82] tracking-[-0.05em]">
-            {"jaspreet".split("").map((ch, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.05, ease }}
-                className="inline-block text-[clamp(4rem,15vw,11rem)] font-normal"
-              >
-                {ch}
-              </motion.span>
-            ))}
-            <br />
-            {"singh.".split("").map((ch, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: 0.4 + i * 0.05, ease }}
-                className="inline-block text-[clamp(4rem,15vw,11rem)] italic"
-                style={{ color: "var(--mustard)" }}
-              >
-                {ch}
-              </motion.span>
-            ))}
-          </h2>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6, delay: 0.8, ease }}
-            className="flex items-center gap-5 pb-3"
-          >
-            {SOCIAL.map(({ label, href, Icon }) => (
               <a
-                key={label}
-                href={href}
-                aria-label={label}
-                className="text-white/70 transition hover:-translate-y-0.5 hover:text-[var(--mustard)]"
+                href="mailto:hello@jslens.studio"
+                className="font-sans text-xs tracking-widest text-white/80 transition hover:text-[var(--mustard,#eab308)] uppercase md:text-sm w-fit"
               >
-                <Icon className="h-5 w-5" strokeWidth={1.8} />
+                hello@jslens.studio
               </a>
-            ))}
-          </motion.div>
-        </div>
+            </div>
 
-        {/* legal row */}
-        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-[10.5px] uppercase tracking-[0.24em] text-white/40 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} — jaspreet singh photography</p>
-          <p>Toronto · worldwide</p>
-          <a href="mailto:hello@jslens.studio" className="transition hover:text-white">
-            hello@jslens.studio
-          </a>
-        </div>
-      </div>
-    </footer>
+            {/* Right Box: Branded Wordmark Accent */}
+            <div className="flex lg:justify-end">
+              <h2 className="font-serif text-[4rem] font-bold leading-none tracking-tight lowercase sm:text-[5rem] md:text-[6.5rem]">
+                jaspreet
+                <span className="font-serif italic" style={{ color: "var(--mustard)" }}>
+                  singh.
+                </span>
+              </h2>
+            </div>
+          </div>
+
+          {/* Bottom Layout Row */}
+          <div className="mt-20 flex flex-col-reverse gap-8 md:mt-32 md:flex-row md:items-center md:justify-between">
+            {/* Social Icons Mapping */}
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {SOCIAL.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  aria-label={item.label}
+                  className="flex items-center justify-center text-white/70 transition hover:text-[var(--mustard,#eab308)]"
+                >
+                  <item.Icon className="h-5 w-5" strokeWidth={1.5} />
+                </a>
+              ))}
+            </div>
+
+            {/* Metadata Statements */}
+            <div className="flex flex-col gap-2 font-sans text-xs tracking-wider text-white/45 sm:flex-row sm:gap-6 md:text-sm">
+              <p>© jaspreet singh photography {new Date().getFullYear()}</p>
+              <p className="hidden sm:inline">·</p>
+              <p className="uppercase">Toronto · worldwide</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.footer>
+    </div>
   );
 }
