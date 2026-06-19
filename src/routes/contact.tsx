@@ -71,21 +71,38 @@ function ContactPage() {
       <div className="canvas-grid" />
       <SiteNav />
 
-      <header className="mx-auto max-w-5xl px-6 pb-10 pt-28 md:pt-36">
-        <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45">
-          Let's talk
-        </p>
-        <h1 className="font-serif text-[clamp(2.8rem,7vw,5.6rem)] leading-[0.92]">
-          Start your{" "}
+      <header className="mx-auto max-w-3xl px-6 pb-14 pt-32 text-center md:pb-20 md:pt-44">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.34em] text-black/45"
+        >
+          <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--mustard)" }} />
+          Say hello
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="font-serif text-[clamp(2.8rem,8vw,6rem)] font-light leading-[0.94]"
+        >
+          Let's make something
+          <br />
           <span className="italic" style={{ color: "var(--tomato)" }}>
-            story.
+            worth remembering.
           </span>
-        </h1>
-        <p className="mt-5 max-w-xl text-[13.5px] leading-relaxed text-black/60">
-          Tell me a little about what you're planning. I reply to every note
-          within a day, and the first call is always a relaxed conversation —
-          no pressure.
-        </p>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="mx-auto mt-7 max-w-md text-[14px] leading-[1.85] text-black/60"
+        >
+          Tell me a little about what you're planning. I read every note myself,
+          reply within a day, and the first call is always a relaxed
+          conversation — no pressure, no scripts.
+        </motion.p>
       </header>
 
       <section className="mx-auto grid max-w-6xl gap-14 px-6 pb-20 md:grid-cols-[0.9fr_1.1fr]">
