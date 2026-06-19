@@ -135,7 +135,7 @@ function AboutHero() {
         playsInline
         poster="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600&q=80"
       >
-        <source src="/intro.mp4" type="video/mp4" />
+        <source src={heroVideo.url} type="video/mp4" />
       </video>
 
       {/* cinematic grade */}
