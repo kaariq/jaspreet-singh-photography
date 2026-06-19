@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
 import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import heroVideo from "@/assets/hero.mp4.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
