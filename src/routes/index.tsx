@@ -161,7 +161,7 @@ function Index() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+    <main className="relative min-h-screen overflow-x-clip bg-background text-foreground">
       <CustomCursor />
       <div className="canvas-grid" />
       <SiteNav />

@@ -24,28 +24,18 @@ export function ScrollTextReveal({
   const words = text.split(" ");
 
   return (
-    <section className="relative px-6 py-32 md:py-48">
-      <div
-        className="
-      pointer-events-none
-      absolute
-      left-0
-      top-1/2
-      w-full
-      -translate-y-1/2
-      overflow-visible
-    "
-      >
+    <section className="relative z-10 w-full bg-white px-6 py-32 md:py-44">
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40">
         <ScrollRibbon />
       </div>
 
-      <div ref={ref} className="relative z-10 mx-auto max-w-3xl">
+      <div ref={ref} className="relative z-10 mx-auto max-w-4xl">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-10 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45"
+          className="mb-12 flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45"
         >
           <span
             className="h-1.5 w-1.5 rounded-full"
@@ -54,32 +44,17 @@ export function ScrollTextReveal({
           {eyebrow}
         </motion.p>
 
-        <div
-          className="
-    mx-auto
-    w-[min(60vw,900px)]
-    rounded-[36px]
-    bg-[#fbfbfb]
-    backdrop-blur-xl
-    px-[100px]
-    py-[40px]
-    ring-1 ring-black/[0.03]
-    shadow-[0_24px_100px_rgba(0,0,0,0.06)]
-  "
-        >
-          <p className="font-serif text-3xl font-normal leading-[1.3] tracking-tight md:text-[2.6rem] md:leading-[1.3]">
-            {words.map((word, i) => {
-              const start = i / words.length;
-              const end = start + 1 / words.length;
-
-              return (
-                <Word key={i} progress={scrollYProgress} range={[start, end]}>
-                  {word}
-                </Word>
-              );
-            })}
-          </p>
-        </div>
+        <p className="text-center font-serif text-3xl font-light leading-[1.35] tracking-tight text-black md:text-[2.75rem] md:leading-[1.3]">
+          {words.map((word, i) => {
+            const start = i / words.length;
+            const end = start + 1 / words.length;
+            return (
+              <Word key={i} progress={scrollYProgress} range={[start, end]}>
+                {word}
+              </Word>
+            );
+          })}
+        </p>
       </div>
     </section>
   );

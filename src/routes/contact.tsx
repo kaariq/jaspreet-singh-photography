@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { z } from "zod";
+import { Mail, Phone, MapPin, ArrowUpRight, Instagram } from "lucide-react";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -8,16 +10,16 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Jaspreet Singh Photography" },
+      { title: "Let's talk — Jaspreet Singh Photography" },
       {
         name: "description",
         content:
-          "Let's talk about your story. Book a call or send a note to start a photography project with Jaspreet Singh Photography.",
+          "Tell me about what you're planning. Based in Toronto, available worldwide. I reply to every note within a day.",
       },
-      { property: "og:title", content: "Contact — Jaspreet Singh Photography" },
+      { property: "og:title", content: "Let's talk — Jaspreet Singh Photography" },
       {
         property: "og:description",
-        content: "Let's talk about your story. Book a call or send a note.",
+        content: "Based in Toronto, available worldwide. I reply within a day.",
       },
     ],
   }),
@@ -26,84 +28,171 @@ export const Route = createFileRoute("/contact")({
 
 const DETAILS = [
   { Icon: Mail, label: "Email", value: "hello@jslens.studio", href: "mailto:hello@jslens.studio" },
-  { Icon: Phone, label: "Phone", value: "+1 (555) 010-2026", href: "tel:+15550102026" },
-  { Icon: MapPin, label: "Studio", value: "Lisbon · travelling worldwide", href: "#" },
+  { Icon: Phone, label: "Phone", value: "+1 (416) 555-0126", href: "tel:+14165550126" },
+  { Icon: MapPin, label: "Studio", value: "Toronto, Canada · travelling worldwide", href: "#map" },
+  { Icon: Instagram, label: "Instagram", value: "@jaspreetsingh.photo", href: "#" },
 ];
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Please add your name").max(100),
+  email: z.string().trim().email("That doesn't look like a valid email").max(255),
+  subject: z.string().trim().min(1, "What are you planning?").max(160),
+  message: z.string().trim().min(1, "Add a few words").max(1500),
+});
+
 function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const parsed = contactSchema.safeParse({
+      name: fd.get("name"),
+      email: fd.get("email"),
+      subject: fd.get("subject"),
+      message: fd.get("message"),
+    });
+    if (!parsed.success) {
+      const errs: Record<string, string> = {};
+      parsed.error.issues.forEach((i) => (errs[i.path[0] as string] = i.message));
+      setErrors(errs);
+      setStatus("error");
+      return;
+    }
+    setErrors({});
+    setStatus("sent");
+    e.currentTarget.reset();
+  }
+
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <CustomCursor />
+      <div className="canvas-grid" />
       <SiteNav />
 
-      <section className="mx-auto grid max-w-6xl gap-14 px-6 pb-28 pt-32 md:grid-cols-[1fr_1fr] md:pt-44">
-        <div>
-          <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.34em] text-black/45">
-            Let's talk
-          </p>
-          <h1 className="font-display text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-            start your{" "}
-            <span className="font-serif italic font-normal" style={{ color: "var(--tomato)" }}>
-              story.
-            </span>
-          </h1>
-          <p className="mt-6 max-w-md text-[14px] leading-relaxed text-black/60">
-            Tell me a little about what you're planning. I reply to every note
-            within a day, and the first call is always a relaxed conversation —
-            no pressure.
-          </p>
+      <header className="mx-auto max-w-5xl px-6 pb-10 pt-28 md:pt-36">
+        <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45">
+          Let's talk
+        </p>
+        <h1 className="font-serif text-[clamp(2.8rem,7vw,5.6rem)] leading-[0.92]">
+          Start your{" "}
+          <span className="italic" style={{ color: "var(--tomato)" }}>
+            story.
+          </span>
+        </h1>
+        <p className="mt-5 max-w-xl text-[13.5px] leading-relaxed text-black/60">
+          Tell me a little about what you're planning. I reply to every note
+          within a day, and the first call is always a relaxed conversation —
+          no pressure.
+        </p>
+      </header>
 
-          <div className="mt-10 space-y-4">
+      <section className="mx-auto grid max-w-6xl gap-14 px-6 pb-20 md:grid-cols-[0.9fr_1.1fr]">
+        {/* Left: details */}
+        <div>
+          <div className="space-y-5">
             {DETAILS.map(({ Icon, label, value, href }) => (
-              <a key={label} href={href} className="group flex items-center gap-4">
-                <span className="grid h-11 w-11 place-items-center rounded-full border border-black/10 text-black/70 transition group-hover:border-black/30">
-                  <Icon className="h-[18px] w-[18px]" />
+              <a key={label} href={href} className="group flex items-start gap-4">
+                <span className="grid h-10 w-10 shrink-0 place-items-center border border-black/15 text-black/70 transition group-hover:border-black group-hover:text-black">
+                  <Icon className="h-[16px] w-[16px]" />
                 </span>
                 <span className="flex flex-col">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black/40">
                     {label}
                   </span>
-                  <span className="font-serif text-lg italic">{value}</span>
+                  <span className="font-serif text-[1.1rem] leading-tight">{value}</span>
                 </span>
               </a>
             ))}
           </div>
+
+          {/* Toronto map */}
+          <div
+            id="map"
+            className="mt-10 overflow-hidden border border-black/10"
+            style={{ boxShadow: "0 30px 70px -50px rgba(0,0,0,0.35)" }}
+          >
+            <iframe
+              title="Toronto studio location"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-79.4585%2C43.6354%2C-79.3267%2C43.7034&layer=mapnik&marker=43.6532%2C-79.3832"
+              className="h-[260px] w-full"
+              loading="lazy"
+            />
+            <div className="flex items-center justify-between bg-white px-4 py-3 text-[11px] uppercase tracking-[0.22em] text-black/55">
+              <span>Toronto · 43.65°N, 79.38°W</span>
+              <a
+                href="https://www.openstreetmap.org/?mlat=43.6532&mlon=-79.3832#map=12/43.6532/-79.3832"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-black"
+              >
+                Open map ↗
+              </a>
+            </div>
+          </div>
         </div>
 
+        {/* Right: form */}
         <motion.form
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          onSubmit={(e) => e.preventDefault()}
-          className="rounded-[2rem] border border-black/10 bg-white p-7 md:p-9"
+          onSubmit={handleSubmit}
+          noValidate
+          className="border border-black/10 bg-white p-7 md:p-9"
           style={{ boxShadow: "0 50px 100px -55px rgba(0,0,0,0.4)" }}
         >
           <div className="grid gap-5">
-            <Field label="Your name" placeholder="Jane Doe" />
-            <Field label="Email" placeholder="jane@email.com" type="email" />
-            <Field label="What are you planning?" placeholder="Wedding · June 2026" />
+            <Field name="name" label="Your name" placeholder="Jane Doe" error={errors.name} />
+            <Field
+              name="email"
+              type="email"
+              label="Email"
+              placeholder="jane@email.com"
+              error={errors.email}
+            />
+            <Field
+              name="subject"
+              label="What are you planning?"
+              placeholder="Wedding · June 2026"
+              error={errors.subject}
+            />
             <div>
-              <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-black/50">
+              <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.2em] text-black/50">
                 Message
               </label>
               <textarea
-                rows={4}
+                name="message"
+                rows={5}
                 placeholder="Tell me about your story…"
-                className="w-full resize-none rounded-2xl border border-black/10 bg-secondary px-4 py-3 text-[14px] outline-none transition focus:border-black/30"
+                className="w-full resize-none border border-black/15 bg-[oklch(0.98_0_0)] px-4 py-3 text-[13px] outline-none transition focus:border-black"
               />
+              {errors.message && (
+                <p className="mt-1 text-[11px]" style={{ color: "#A71D31" }}>
+                  {errors.message}
+                </p>
+              )}
             </div>
+
             <button
               type="submit"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-black py-3 pl-6 pr-2 text-white transition hover:bg-black/85"
+              className="group mt-2 inline-flex items-center justify-center gap-3 bg-black py-3 pl-6 pr-2 text-white transition hover:bg-black/85"
             >
-              <span className="text-[13px] font-medium">Send message</span>
+              <span className="text-[12px] font-medium">Send message</span>
               <span
-                className="grid h-9 w-9 place-items-center rounded-full text-black transition group-hover:rotate-45"
+                className="grid h-9 w-9 place-items-center text-black transition group-hover:rotate-45"
                 style={{ backgroundColor: "var(--mustard)" }}
               >
                 <ArrowUpRight className="h-4 w-4" />
               </span>
             </button>
+
+            {status === "sent" && (
+              <p className="text-[12px] text-black/60">
+                Thanks — your note is on its way. I'll reply within a day.
+              </p>
+            )}
           </div>
         </motion.form>
       </section>
@@ -114,24 +203,34 @@ function ContactPage() {
 }
 
 function Field({
+  name,
   label,
   placeholder,
   type = "text",
+  error,
 }: {
+  name: string;
   label: string;
   placeholder: string;
   type?: string;
+  error?: string;
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-black/50">
+      <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.2em] text-black/50">
         {label}
       </label>
       <input
+        name={name}
         type={type}
         placeholder={placeholder}
-        className="w-full rounded-2xl border border-black/10 bg-secondary px-4 py-3 text-[14px] outline-none transition focus:border-black/30"
+        className="w-full border border-black/15 bg-[oklch(0.98_0_0)] px-4 py-3 text-[13px] outline-none transition focus:border-black"
       />
+      {error && (
+        <p className="mt-1 text-[11px]" style={{ color: "#A71D31" }}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

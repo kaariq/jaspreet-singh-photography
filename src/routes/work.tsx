@@ -31,6 +31,7 @@ function WorkPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <CustomCursor />
+      <div className="canvas-grid" />
       <SiteNav />
 
       <header className="mx-auto max-w-7xl px-6 pb-12 pt-32 md:pt-40">

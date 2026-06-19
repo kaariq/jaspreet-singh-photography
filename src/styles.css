@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -30,13 +30,33 @@
   --color-ring: var(--ring);
   --color-mustard: var(--mustard);
   --color-tomato: var(--tomato);
-  --font-display: "Inter Tight", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-display: var(--font-family-display);
+  --font-sans: var(--font-family-sans);
+  --font-serif: var(--font-family-serif);
 }
 
 :root {
-  --radius: 1rem;
+  /* ============ GLOBAL TYPOGRAPHY (edit here, affects entire site) ============ */
+  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-family-display: "Inter Tight", system-ui, sans-serif;
+  --font-family-serif: "Instrument Serif", Georgia, serif;
+
+  --font-size-base: 13px;          /* base body size */
+  --font-size-xs: 9px;
+  --font-size-sm: 11px;
+  --font-size-md: 13px;
+  --font-size-lg: 15px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-display: clamp(2.4rem, 6.4vw, 5.6rem);
+
+  --line-height-base: 1.55;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-wide: 0.18em;
+  /* ============================================================================ */
+
+  --radius: 0;
   --background: oklch(0.99 0 0);
   --foreground: oklch(0.13 0 0);
   --card: oklch(1 0 0);
@@ -58,7 +78,7 @@
   --ring: oklch(0.13 0 0);
 
   --mustard: oklch(0.82 0.17 85);
-  --tomato:  oklch(0.62 0.22 28);
+  --tomato:  oklch(0.52 0.06 192); /* elegant teal (#387D7A) — replaces previous red accent */
 }
 
 @layer base {
@@ -67,7 +87,20 @@
   html, body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-serif);
+    letter-spacing: var(--letter-spacing-tight);
+    font-weight: 300;
+  }
+
+  p, span, a, li, button, input, textarea, label {
+    font-size: inherit;
   }
 
   @media (pointer: fine) {
@@ -76,8 +109,8 @@
 }
 
 @utility font-display {
-  font-family: var(--font-display);
-  letter-spacing: -0.04em;
+  font-family: var(--font-family-display);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 /* ---------- Canvas grid background ---------- */
@@ -131,7 +164,6 @@
   width: 140px;
   height: 180px;
   object-fit: cover;
-  border-radius: 10px;
   transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) scale(0.7);
   opacity: 0;
   pointer-events: none;

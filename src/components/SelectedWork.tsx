@@ -1,174 +1,217 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const PROJECTS = [
   {
-    src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1400&q=80",
+    src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=80",
     title: "Quiet Interiors",
     cat: "Editorial",
     year: "'26",
   },
   {
-    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1400&q=80",
+    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1600&q=80",
     title: "Maren",
     cat: "Portrait",
     year: "'26",
   },
   {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80",
+    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80",
     title: "Vows in June",
     cat: "Wedding",
     year: "'25",
   },
   {
-    src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&q=80",
+    src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80",
     title: "Atelier No. 4",
     cat: "Brand",
     year: "'25",
   },
   {
-    src: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1400&q=80",
+    src: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1600&q=80",
     title: "Northbound",
     cat: "Travel",
     year: "'24",
   },
 ];
 
-function StackCard({
-  project,
-  index,
-  total,
-  progress,
-}: {
-  project: (typeof PROJECTS)[0];
-  index: number;
-  total: number;
-  progress: any;
-}) {
-  const start = index / total;
-  const end = (index + 1) / total;
-
-  const y = useTransform(progress, [start, end], [0, -window.innerHeight * 1.2]);
-
-  const rotate = useTransform(progress, [start, end], [0, -10]);
-
-  return (
-    <motion.article
-      style={{
-        y,
-        rotate,
-        zIndex: total - index,
-        x: -index * 40,
-        scale: 1 - index * 0.05,
-      }}
-      className="absolute inset-0 overflow-hidden rounded-[2rem]"
-    >
-      <div
-        className="absolute inset-0"
-        style={{
-          boxShadow: "0 60px 120px -40px rgba(0,0,0,0.35)",
-        }}
-      />
-
-      <img src={project.src} alt={project.title} className="h-full w-full object-cover" />
-
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.18) 40%, transparent)",
-        }}
-      />
-
-      <div className="absolute left-6 top-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">
-        {String(index + 1).padStart(2, "0")} / {project.cat}
-      </div>
-
-      <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between text-white">
-        <div>
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/60">
-            {project.year}
-          </p>
-
-          <h3 className="font-serif text-4xl italic tracking-tight md:text-6xl">{project.title}</h3>
-        </div>
-
-        <span
-          className="grid h-14 w-14 place-items-center rounded-full text-black"
-          style={{
-            backgroundColor: "var(--mustard)",
-          }}
-        >
-          <ArrowUpRight className="h-5 w-5" />
-        </span>
-      </div>
-    </motion.article>
-  );
-}
-
 export function SelectedWork() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
+  const [index, setIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
   });
 
+  // drive index from scroll, but allow manual override via swipe/buttons
+  const scrollIndex = useTransform(scrollYProgress, (v) => {
+    const i = Math.round(v * (PROJECTS.length - 1));
+    return Math.min(PROJECTS.length - 1, Math.max(0, i));
+  });
+
+  useEffect(() => {
+    return scrollIndex.on("change", (v) => setIndex(v));
+  }, [scrollIndex]);
+
+  const go = (dir: 1 | -1) => {
+    setIndex((p) => Math.min(PROJECTS.length - 1, Math.max(0, p + dir)));
+  };
+
   return (
     <section
       id="work"
       ref={ref}
       className="relative"
-      style={{
-        height: `${PROJECTS.length * 100}vh`,
-      }}
+      style={{ height: `${PROJECTS.length * 90}vh` }}
     >
-      <div className="mx-auto max-w-6xl px-6 pt-24">
-        <div className="mb-16 flex items-end justify-between gap-6">
-          <div>
-            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45">
-              Archive · 2024 — 2026
+      <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
+        <div className="mx-auto w-full max-w-6xl px-6 pt-16 md:pt-20">
+          <div className="mb-6 flex items-end justify-between gap-6">
+            <div>
+              <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.32em] text-black/45">
+                Archive · 2024 — 2026
+              </p>
+              <h2 className="font-serif text-4xl font-light leading-[1.02] tracking-tight md:text-6xl">
+                selected{" "}
+                <span className="italic" style={{ color: "var(--tomato)" }}>
+                  work
+                </span>
+              </h2>
+            </div>
+            <p className="hidden text-right text-[12px] text-black/55 md:block">
+              {String(index + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
             </p>
+          </div>
+        </div>
 
-            <h2 className="font-serif text-5xl font-light leading-[1.02] tracking-tight md:text-7xl">
-              selected{" "}
-              <span
-                className="italic"
-                style={{
-                  color: "var(--tomato)",
-                  fontFamily: "var(--font-script)",
-                }}
-              >
-                work
-              </span>
-            </h2>
+        <div className="relative flex flex-1 items-center justify-center px-6">
+          <div className="relative h-[62vh] w-full max-w-5xl" style={{ perspective: 1600 }}>
+            {PROJECTS.map((p, i) => (
+              <Card key={p.title} project={p} i={i} active={index} total={PROJECTS.length} onSwipe={go} />
+            ))}
           </div>
 
-          <p className="hidden max-w-xs text-right text-[13px] leading-relaxed text-black/55 md:block">
-            A few favourites — stitched, lit and graded by hand.
-          </p>
+          {/* controls */}
+          <button
+            aria-label="Previous"
+            onClick={() => go(-1)}
+            disabled={index === 0}
+            className="absolute left-4 top-1/2 z-30 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-black/10 bg-white/80 text-black backdrop-blur-md transition hover:bg-white disabled:opacity-30 md:left-10"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            aria-label="Next"
+            onClick={() => go(1)}
+            disabled={index === PROJECTS.length - 1}
+            className="absolute right-4 top-1/2 z-30 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-black/10 bg-white/80 text-black backdrop-blur-md transition hover:bg-white disabled:opacity-30 md:right-10"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
         </div>
-      </div>
 
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
-        <div
-          className="relative h-[72vh] w-[88vw] max-w-6xl"
-          style={{
-            perspective: "1400px",
-            transformStyle: "preserve-3d",
-          }}
-        >
-          {PROJECTS.map((project, index) => (
-            <StackCard
-              key={project.title}
-              project={project}
-              index={index}
-              total={PROJECTS.length}
-              progress={scrollYProgress}
+        {/* dots */}
+        <div className="mb-8 flex items-center justify-center gap-2">
+          {PROJECTS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Go to ${i + 1}`}
+              className="h-1.5 rounded-full transition-all"
+              style={{
+                width: i === index ? 28 : 8,
+                backgroundColor: i === index ? "var(--tomato)" : "rgba(0,0,0,0.2)",
+              }}
             />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function Card({
+  project,
+  i,
+  active,
+  total,
+  onSwipe,
+}: {
+  project: (typeof PROJECTS)[0];
+  i: number;
+  active: number;
+  total: number;
+  onSwipe: (d: 1 | -1) => void;
+}) {
+  const offset = i - active;
+  const x = useMotionValue(0);
+
+  // settle whenever active changes
+  useEffect(() => {
+    const c = animate(x, 0, { type: "spring", stiffness: 220, damping: 28 });
+    return () => c.stop();
+  }, [active, x]);
+
+  const visible = Math.abs(offset) <= 2;
+
+  return (
+    <motion.article
+      drag={offset === 0 ? "x" : false}
+      dragConstraints={{ left: 0, right: 0 }}
+      dragElastic={0.25}
+      onDragEnd={(_, info) => {
+        if (info.offset.x < -80 || info.velocity.x < -400) onSwipe(1);
+        else if (info.offset.x > 80 || info.velocity.x > 400) onSwipe(-1);
+      }}
+      style={{
+        x,
+        zIndex: total - Math.abs(offset),
+        pointerEvents: offset === 0 ? "auto" : "none",
+      }}
+      animate={{
+        x: offset * 60,
+        scale: 1 - Math.abs(offset) * 0.06,
+        rotateY: offset * -6,
+        opacity: visible ? (offset === 0 ? 1 : 0.55) : 0,
+        filter: offset === 0 ? "blur(0px)" : "blur(2px)",
+      }}
+      transition={{ type: "spring", stiffness: 180, damping: 26 }}
+      className="absolute inset-0 cursor-grab overflow-hidden rounded-[2rem] active:cursor-grabbing"
+    >
+      <img
+        src={project.src}
+        alt={project.title}
+        loading="lazy"
+        className="h-full w-full object-cover"
+        draggable={false}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.15) 45%, transparent)",
+        }}
+      />
+      <div className="absolute left-6 top-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">
+        {String(i + 1).padStart(2, "0")} / {project.cat}
+      </div>
+      <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between text-white">
+        <div>
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/60">
+            {project.year}
+          </p>
+          <h3 className="font-serif text-4xl italic tracking-tight md:text-6xl">
+            {project.title}
+          </h3>
+        </div>
+        <span
+          className="grid h-14 w-14 place-items-center rounded-full text-black"
+          style={{ backgroundColor: "var(--mustard)" }}
+        >
+          <ArrowUpRight className="h-5 w-5" />
+        </span>
+      </div>
+    </motion.article>
   );
 }

@@ -1,5 +1,5 @@
-import { Instagram, Youtube, Dribbble, Mail, ArrowUpRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Instagram, Youtube, Dribbble, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 const SOCIAL = [
   { label: "Instagram", href: "#", Icon: Instagram },
@@ -8,62 +8,90 @@ const SOCIAL = [
   { label: "Email", href: "mailto:hello@jslens.studio", Icon: Mail },
 ];
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export function SiteFooter() {
   return (
     <footer
       id="book"
-      className="relative z-10 overflow-hidden bg-[oklch(0.11_0_0)] px-6 pb-8 pt-16 text-white"
+      className="relative z-10 overflow-hidden bg-[#0a0a0a] px-6 pb-8 pt-12 text-white md:px-10 md:pb-10 md:pt-16"
     >
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-10 md:flex-row md:items-end">
-        <div>
-          <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/45">
-            Now booking · Sept – Dec '26
-          </p>
-          <h2 className="font-display text-4xl font-black leading-[0.95] tracking-tight md:text-6xl">
-            book my{" "}
-            <span className="font-serif italic font-normal" style={{ color: "var(--mustard)" }}>
-              call.
-            </span>
+      <div className="relative mx-auto max-w-[1400px]">
+        {/* top tagline row */}
+        <div className="flex justify-end">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease }}
+            className="max-w-md text-right font-serif text-[15px] leading-snug text-white/90 md:text-[18px]"
+          >
+            From quiet portraits to bold editorial covers,
+            <br />
+            there's a frame here for every story.
+          </motion.p>
+        </div>
+
+        {/* wordmark + socials row */}
+        <div className="mt-10 flex flex-col items-start gap-8 md:mt-14 md:flex-row md:items-end md:justify-between">
+          <h2 className="font-serif leading-[0.85] tracking-[-0.05em]">
+            {"jaspreet".split("").map((ch, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: i * 0.05, ease }}
+                className="inline-block text-[clamp(4rem,15vw,11rem)] font-normal"
+              >
+                {ch}
+              </motion.span>
+            ))}
+            <br />
+            {"singh.".split("").map((ch, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: 0.4 + i * 0.05, ease }}
+                className="inline-block text-[clamp(4rem,15vw,11rem)] italic"
+                style={{ color: "var(--mustard)" }}
+              >
+                {ch}
+              </motion.span>
+            ))}
           </h2>
-          <Link
-            to="/contact"
-            className="group mt-6 inline-flex items-center gap-2.5 rounded-full bg-white py-1.5 pl-5 pr-1.5 text-black transition hover:bg-white/90"
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.8, ease }}
+            className="flex items-center gap-5 pb-3"
           >
-            <span className="text-[13px] font-medium">Start a project</span>
-            <span
-              className="grid h-9 w-9 place-items-center rounded-full text-black transition group-hover:rotate-45"
-              style={{ backgroundColor: "var(--mustard)" }}
-            >
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
-          </Link>
+            {SOCIAL.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="text-white/85 transition hover:text-[var(--mustard)]"
+              >
+                <Icon className="h-5 w-5" strokeWidth={1.8} />
+              </a>
+            ))}
+          </motion.div>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          {SOCIAL.map(({ label, href, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition hover:border-white/40 hover:text-white"
-            >
-              <Icon className="h-[18px] w-[18px]" />
-            </a>
-          ))}
-        </div>
-      </div>
+        {/* divider */}
+        <div className="mt-10 h-px w-full bg-white/15" />
 
-      <div className="mx-auto mt-10 flex max-w-6xl flex-col gap-3 border-t border-white/10 pt-6 text-[11px] text-white/40 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-2">
-          <span
-            className="grid h-6 w-6 place-items-center rounded-md font-display text-[11px] font-black text-black"
-            style={{ backgroundColor: "var(--mustard)" }}
-          >
-            JS
-          </span>
-          <span className="text-white/70">JS Lens Studio</span>
+        {/* legal row */}
+        <div className="mt-5 flex flex-col gap-2 text-[11px] uppercase tracking-[0.2em] text-white/45 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} — jaspreet singh photography</p>
+          <p>Toronto · worldwide</p>
+          <p>hello@jslens.studio</p>
         </div>
-        <p>© {new Date().getFullYear()} JS Lens Studio — all frames reserved.</p>
       </div>
     </footer>
   );
