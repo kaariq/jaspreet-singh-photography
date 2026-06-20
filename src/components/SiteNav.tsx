@@ -37,7 +37,7 @@ export function SiteNav() {
         >
           <Link to="/" className="flex items-center pl-1 pr-1 text-white">
             <span
-              className="grid h-7 w-7 place-items-center rounded-md"
+              className="grid h-7 w-7 place-items-center rounded-full"
               style={{ backgroundColor: "var(--mustard)" }}
             >
               <Camera className="h-4 w-4 text-black" />
