@@ -24,20 +24,9 @@ export function GearsCarousel() {
   const xLeft = useTransform(scrollYProgress, [0, 1], ["4%", "-22%"]);
   const xRight = useTransform(scrollYProgress, [0, 1], ["-22%", "4%"]);
 
-  const shuffle = <T,>(array: T[]) => {
-    const arr = [...array];
+  const rowA = GEAR;
+  const rowB = [...GEAR.slice(3), ...GEAR.slice(0, 3), ...GEAR];
 
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-
-    return arr;
-  };
-
-  const rowA = shuffle(GEAR);
-  const rowB = [...shuffle(GEAR), ...shuffle(GEAR)];
   return (
     <section ref={ref} className="relative z-10 overflow-hidden py-16 md:py-20">
       {/* header */}
