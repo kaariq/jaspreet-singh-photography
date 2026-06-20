@@ -1,10 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import heroVideo from "@/assets/hero.mp4.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -18,7 +22,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About — Jaspreet Singh Photography" },
       {
         property: "og:description",
-        content: "The story behind the lens — and the small pieces that make me, me.",
+        content:
+          "The story behind the lens — and the small pieces that make me, me.",
       },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "/about" },
@@ -104,14 +109,18 @@ function AboutPage() {
             Pieces of{" "}
             <span
               className="italic lowercase"
-              style={{ color: "var(--tomato)", fontFamily: "var(--font-family-sans)", fontWeight: 300 }}
+              style={{
+                color: "var(--tomato)",
+                fontFamily: "var(--font-family-sans)",
+                fontWeight: 300,
+              }}
             >
               me.
             </span>
           </h2>
           <p className="mt-6 max-w-md text-[15px] leading-[1.8] text-black/55">
-            Six small things that have very little to do with photography and everything to do with
-            the way I see.
+            Six small things that have very little to do with photography and
+            everything to do with the way I see.
           </p>
         </div>
 
@@ -122,19 +131,31 @@ function AboutPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.7,
+                delay: (i % 3) * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="group bg-background p-8 transition-colors duration-500 hover:bg-[oklch(0.975_0_0)] md:p-10"
             >
-              <span className="font-display text-2xl" style={{ color: "var(--tomato)" }}>
+              <span
+                className="font-display text-2xl"
+                style={{ color: "var(--tomato)" }}
+              >
                 {p.n}
               </span>
               <h3
                 className="mt-4 text-[1.35rem] font-bold leading-[1.2]"
-                style={{ fontFamily: "var(--font-family-sans)", letterSpacing: "-0.01em" }}
+                style={{
+                  fontFamily: "var(--font-family-sans)",
+                  letterSpacing: "-0.01em",
+                }}
               >
                 {p.title}
               </h3>
-              <p className="mt-3 text-[14px] leading-[1.8] text-black/55">{p.body}</p>
+              <p className="mt-3 text-[14px] leading-[1.8] text-black/55">
+                {p.body}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -173,9 +194,8 @@ function AboutHero() {
         loop
         muted
         playsInline
-        poster="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600&q=80"
       >
-        <source src={heroVideo.url} type="video/mp4" />
+        <source src="src/assets/intro.mp4" type="video/mp4" />
       </motion.video>
 
       {/* cinematic grade */}
@@ -203,7 +223,11 @@ function AboutHero() {
                   <motion.span
                     initial={{ y: "110%" }}
                     animate={{ y: "0%" }}
-                    transition={{ duration: 1, delay: 0.35 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{
+                      duration: 1,
+                      delay: 0.35 + i * 0.07,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                     className="inline-block text-[clamp(4.5rem,18vw,15rem)]"
                   >
                     {ch}
@@ -219,7 +243,8 @@ function AboutHero() {
             transition={{ duration: 0.8, delay: 1 }}
             className="mt-8 max-w-md text-[15px] leading-[1.9] text-white/70"
           >
-            We capture the things we are too quiet to say, and trust the frame to hold them still.
+            We capture the things we are too quiet to say, and trust the frame
+            to hold them still.
           </motion.p>
         </div>
       </motion.div>
@@ -255,19 +280,29 @@ function StoryIntro() {
   return (
     <section className="relative z-10 bg-background px-6 py-32 md:py-48">
       <div ref={ref} className="mx-auto max-w-5xl">
-        <RevealLine progress={scrollYProgress} range={[0.0, 0.12]} className="mb-16">
+        <RevealLine
+          progress={scrollYProgress}
+          range={[0.0, 0.12]}
+          className="mb-16"
+        >
           <p
             className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-light leading-[1.5] text-black"
             style={{ fontFamily: "var(--font-family-sans)" }}
           >
             My name is{" "}
-            <span className="font-display text-[1.1em] align-baseline" style={{ color: "var(--tomato)" }}>
+            <span
+              className="font-display text-[1.1em] align-baseline"
+              style={{ color: "var(--tomato)" }}
+            >
               Jaspreet.
             </span>
           </p>
         </RevealLine>
 
-        <div className="space-y-10 select-none" style={{ fontFamily: "var(--font-family-sans)" }}>
+        <div
+          className="space-y-10 select-none"
+          style={{ fontFamily: "var(--font-family-sans)" }}
+        >
           <RevealLine progress={scrollYProgress} range={[0.1, 0.26]}>
             <p className="text-[clamp(1.7rem,3.2vw,2.8rem)] font-bold leading-[1.25] tracking-[-0.02em] text-black">
               I used to think important moments would announce themselves.
@@ -280,7 +315,10 @@ function StoryIntro() {
             </p>
           </RevealLine>
 
-          <div className="border-l-2 pl-8 md:pl-12 space-y-5" style={{ borderColor: "var(--tomato)" }}>
+          <div
+            className="border-l-2 pl-8 md:pl-12 space-y-5"
+            style={{ borderColor: "var(--tomato)" }}
+          >
             <RevealLine progress={scrollYProgress} range={[0.4, 0.54]}>
               <p className="text-[clamp(1.5rem,2.8vw,2.4rem)] font-bold leading-[1.25] tracking-[-0.02em] text-black">
                 The important moments arrive quietly.
@@ -306,7 +344,11 @@ function StoryIntro() {
             </RevealLine>
           </div>
 
-          <RevealLine progress={scrollYProgress} range={[0.82, 1.0]} className="pt-6">
+          <RevealLine
+            progress={scrollYProgress}
+            range={[0.82, 1.0]}
+            className="pt-6"
+          >
             <p className="text-[clamp(1.8rem,4vw,3.2rem)] font-bold leading-[1.2] tracking-[-0.02em] text-black">
               Photography became my way of{" "}
               <span
@@ -337,7 +379,10 @@ function StoryOutro() {
 
   return (
     <>
-      <section ref={ref} className="relative z-10 w-full bg-[#0a0a0a] px-6 py-44 text-white md:py-64">
+      <section
+        ref={ref}
+        className="relative z-10 w-full bg-[#0a0a0a] px-6 py-44 text-white md:py-64"
+      >
         <div className="mx-auto w-full max-w-4xl text-center">
           <div
             className="space-y-12 select-none tracking-[-0.01em]"
@@ -349,7 +394,11 @@ function StoryOutro() {
               </p>
             </RevealLine>
 
-            <RevealLine progress={scrollYProgress} range={[0.12, 0.26]} className="pb-6">
+            <RevealLine
+              progress={scrollYProgress}
+              range={[0.12, 0.26]}
+              className="pb-6"
+            >
               <p className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.95] text-white">
                 thank you for being curious.
               </p>
@@ -367,16 +416,28 @@ function StoryOutro() {
               </p>
             </RevealLine>
 
-            <RevealLine progress={scrollYProgress} range={[0.58, 0.72]} className="pb-6">
+            <RevealLine
+              progress={scrollYProgress}
+              range={[0.58, 0.72]}
+              className="pb-6"
+            >
               <p className="mx-auto max-w-2xl text-[clamp(1.3rem,2.4vw,1.9rem)] font-light leading-[1.6] text-white/60">
-                I still get excited when a photograph becomes more than a photograph.
+                I still get excited when a photograph becomes more than a
+                photograph.
               </p>
             </RevealLine>
 
             <RevealLine progress={scrollYProgress} range={[0.74, 0.95]}>
               <p className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.95] text-white">
                 Maybe we'll make something worth remembering{" "}
-                <span className="italic lowercase" style={{ color: "var(--mustard)", fontFamily: "var(--font-family-sans)", fontWeight: 300 }}>
+                <span
+                  className="italic lowercase"
+                  style={{
+                    color: "var(--mustard)",
+                    fontFamily: "var(--font-family-sans)",
+                    fontWeight: 300,
+                  }}
+                >
                   together.
                 </span>
               </p>

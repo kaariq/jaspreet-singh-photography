@@ -19,7 +19,10 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jaspreet Singh — Toronto Portrait, Wedding & Editorial Photographer" },
+      {
+        title:
+          "Jaspreet Singh — Toronto Portrait, Wedding & Editorial Photographer",
+      },
       {
         name: "description",
         content:
@@ -30,7 +33,10 @@ export const Route = createFileRoute("/")({
         content:
           "Toronto photographer, wedding photographer Toronto, portrait photographer, editorial photography, brand photography, Jaspreet Singh",
       },
-      { property: "og:title", content: "Jaspreet Singh — Toronto Photographer" },
+      {
+        property: "og:title",
+        content: "Jaspreet Singh — Toronto Photographer",
+      },
       {
         property: "og:description",
         content:
@@ -38,10 +44,14 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
-      { name: "twitter:title", content: "Jaspreet Singh — Toronto Photographer" },
+      {
+        name: "twitter:title",
+        content: "Jaspreet Singh — Toronto Photographer",
+      },
       {
         name: "twitter:description",
-        content: "Portrait, wedding, editorial and brand stories — Toronto, worldwide.",
+        content:
+          "Portrait, wedding, editorial and brand stories — Toronto, worldwide.",
       },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -148,8 +158,9 @@ function Hero() {
           transition={{ duration: 0.8, delay: 1 }}
           className="mt-8 max-w-lg text-[15px] leading-[1.9] text-black/60"
         >
-          Photography has always been my way of holding onto moments. Through light, emotion, and
-          human connection, I create images that feel as meaningful years from now as they do today.
+          Photography has always been my way of holding onto moments. Through
+          light, emotion, and human connection, I create images that feel as
+          meaningful years from now as they do today.
         </motion.p>
 
         <motion.div
@@ -162,7 +173,9 @@ function Hero() {
             href="/contact"
             className="group inline-flex items-center gap-3 rounded-full bg-black py-2 pl-6 pr-2 text-white transition hover:bg-black/85"
           >
-            <span className="text-[13px] font-medium tracking-wide">Start your story</span>
+            <span className="text-[13px] font-medium tracking-wide">
+              Start your story
+            </span>
 
             <span
               className="inline-flex h-9 w-9 items-center justify-center rounded-full text-black transition group-hover:rotate-45"
@@ -188,7 +201,10 @@ function Hero() {
         >
           {["Portrait", "Editorial", "Brand", "Wedding"].map((t) => (
             <li key={t} className="flex items-center gap-2">
-              <Asterisk className="h-3 w-3" style={{ color: "var(--mustard)" }} />
+              <Asterisk
+                className="h-3 w-3"
+                style={{ color: "var(--mustard)" }}
+              />
               {t}
             </li>
           ))}
