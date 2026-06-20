@@ -10,7 +10,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Let's talk — Jaspreet Singh Photography" },
+      { title: "Contact — Book a Toronto Photographer | Jaspreet Singh" },
       {
         name: "description",
         content:
@@ -20,6 +20,33 @@ export const Route = createFileRoute("/contact")({
       {
         property: "og:description",
         content: "Based in Toronto, available worldwide. I reply within a day.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/contact" },
+      { name: "twitter:title", content: "Contact — Jaspreet Singh Photography" },
+      { name: "twitter:description", content: "Based in Toronto, available worldwide." },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact Jaspreet Singh Photography",
+          url: "/contact",
+          mainEntity: {
+            "@id": "/#person",
+            email: "hello@jslens.studio",
+            telephone: "+1-416-555-0126",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Toronto",
+              addressRegion: "ON",
+              addressCountry: "CA",
+            },
+          },
+        }),
       },
     ],
   }),

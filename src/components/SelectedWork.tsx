@@ -61,7 +61,7 @@ export function SelectedWork() {
   return (
     <section
       id="images"
- jpg     ref={ref}
+ ref={ref}
       className="relative"
       style={{ height: `${PROJECTS.length * 90}vh` }}
     >

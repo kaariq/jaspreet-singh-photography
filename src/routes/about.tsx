@@ -9,20 +9,36 @@ import heroVideo from "@/assets/hero.mp4.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Jaspreet Singh Photography" },
+      { title: "About Jaspreet Singh — Toronto Photographer's Story" },
       {
         name: "description",
         content:
-          "The story behind the lens — why I fell for photography, how I started, where I am now, and the small pieces that make me, me.",
+          "The story behind the lens — why I fell for photography, how I started, where I am now, and the small pieces that make me, me. Based in Toronto.",
       },
       { property: "og:title", content: "About — Jaspreet Singh Photography" },
       {
         property: "og:description",
         content: "The story behind the lens — and the small pieces that make me, me.",
       },
+      { property: "og:type", content: "profile" },
+      { property: "og:url", content: "/about" },
+      { name: "twitter:title", content: "About — Jaspreet Singh Photography" },
       {
-        property: "og:image",
-        content: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1200&q=80",
+        name: "twitter:description",
+        content: "The story behind the lens.",
+      },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Jaspreet Singh",
+          url: "/about",
+          mainEntity: { "@id": "/#person" },
+        }),
       },
     ],
   }),

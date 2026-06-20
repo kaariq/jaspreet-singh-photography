@@ -77,14 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Jaspreet Singh Photography — Toronto Portrait, Wedding & Editorial Photographer" },
+      {
+        name: "description",
+        content:
+          "Jaspreet Singh is a Toronto-based photographer crafting portrait, wedding, editorial and brand stories through a quietly cinematic lens. Available worldwide.",
+      },
+      { name: "author", content: "Jaspreet Singh" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "theme-color", content: "#ffffff" },
+      { name: "format-detection", content: "telephone=no" },
+      { property: "og:site_name", content: "Jaspreet Singh Photography" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:locale", content: "en_CA" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:creator", content: "@jaspreetsingh.photo" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -93,9 +100,52 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700;800&display=swap",
       },
+      { rel: "stylesheet", href: appCss },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "/#website",
+              name: "Jaspreet Singh Photography",
+              description:
+                "Toronto-based photographer — portrait, wedding, editorial and brand stories.",
+              inLanguage: "en-CA",
+              publisher: { "@id": "/#person" },
+            },
+            {
+              "@type": ["Person", "ProfessionalService"],
+              "@id": "/#person",
+              name: "Jaspreet Singh",
+              jobTitle: "Photographer",
+              description:
+                "Portrait, wedding, editorial and brand photographer based in Toronto, Canada.",
+              url: "/",
+              areaServed: ["Toronto", "Canada", "Worldwide"],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Toronto",
+                addressRegion: "ON",
+                addressCountry: "CA",
+              },
+              email: "hello@jslens.studio",
+              telephone: "+1-416-555-0126",
+              sameAs: [
+                "https://instagram.com/jaspreetsingh.photo",
+              ],
+              knowsAbout: [
+                "Portrait Photography",
+                "Wedding Photography",
+                "Editorial Photography",
+                "Brand Photography",
+              ],
+            },
+          ],
+        }),
       },
     ],
   }),

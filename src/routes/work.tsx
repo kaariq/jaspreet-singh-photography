@@ -7,20 +7,33 @@ import { WorkGallery } from "@/components/WorkGallery";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — JS Lens Studio" },
+      { title: "Selected Work — Portrait, Wedding & Editorial Gallery" },
       {
         name: "description",
         content:
           "A gallery of selected photography work — portraits, weddings, editorial and brand stories shot through a single, quiet lens.",
       },
-      { property: "og:title", content: "Work — JS Lens Studio" },
+      { property: "og:title", content: "Work — Jaspreet Singh Photography" },
       {
         property: "og:description",
         content: "Selected photography — portraits, weddings, editorial and brand stories.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/work" },
+      { name: "twitter:title", content: "Work — Jaspreet Singh Photography" },
+      { name: "twitter:description", content: "Selected portraits, weddings & editorial." },
+    ],
+    links: [{ rel: "canonical", href: "/work" }],
+    scripts: [
       {
-        property: "og:image",
-        content: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "Selected Work — Jaspreet Singh Photography",
+          url: "/work",
+          author: { "@id": "/#person" },
+        }),
       },
     ],
   }),

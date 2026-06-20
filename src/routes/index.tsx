@@ -19,11 +19,55 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JS Lens Studio — Photography" },
+      { title: "Jaspreet Singh — Toronto Portrait, Wedding & Editorial Photographer" },
       {
         name: "description",
         content:
-          "A photography studio crafting portraits, editorial, and brand stories — through a singular, quietly cinematic lens.",
+          "Toronto-based photographer crafting portrait, wedding, editorial and brand stories through a quietly cinematic lens. View selected work and get in touch.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Toronto photographer, wedding photographer Toronto, portrait photographer, editorial photography, brand photography, Jaspreet Singh",
+      },
+      { property: "og:title", content: "Jaspreet Singh — Toronto Photographer" },
+      {
+        property: "og:description",
+        content:
+          "Portrait, wedding, editorial and brand stories — through a singular, quietly cinematic lens.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:title", content: "Jaspreet Singh — Toronto Photographer" },
+      {
+        name: "twitter:description",
+        content: "Portrait, wedding, editorial and brand stories — Toronto, worldwide.",
+      },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Jaspreet Singh Photography",
+          image: "/og-home.jpg",
+          priceRange: "$$$",
+          areaServed: ["Toronto", "Canada", "Worldwide"],
+          serviceType: [
+            "Wedding Photography",
+            "Portrait Photography",
+            "Editorial Photography",
+            "Brand Photography",
+          ],
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Toronto",
+            addressRegion: "ON",
+            addressCountry: "CA",
+          },
+        }),
       },
     ],
   }),

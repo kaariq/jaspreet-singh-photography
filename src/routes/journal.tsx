@@ -8,16 +8,33 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/journal")({
   head: () => ({
     meta: [
-      { title: "Journal — JS Lens Studio" },
+      { title: "Journal — Field Notes from a Toronto Photographer" },
       {
         name: "description",
         content:
           "Notes from behind the lens — field stories, gear thoughts and lessons from a decade of making photographs.",
       },
-      { property: "og:title", content: "Journal — JS Lens Studio" },
+      { property: "og:title", content: "Journal — Jaspreet Singh Photography" },
       {
         property: "og:description",
         content: "Notes from behind the lens — field stories and lessons.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/journal" },
+      { name: "twitter:title", content: "Journal — Jaspreet Singh Photography" },
+      { name: "twitter:description", content: "Field notes from behind the lens." },
+    ],
+    links: [{ rel: "canonical", href: "/journal" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Journal — Jaspreet Singh Photography",
+          url: "/journal",
+          author: { "@id": "/#person" },
+        }),
       },
     ],
   }),
