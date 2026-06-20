@@ -1,5 +1,11 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useMotionTemplate,
+} from "framer-motion";
 
 import heroVideo from "@/assets/hero.mp4.asset.json";
 
@@ -31,7 +37,11 @@ export function VideoReveal() {
 
   const videoScale = useTransform(scrollYProgress, [0.45, 1], [1, 1.08]);
 
-  const overlayOpacity = useTransform(scrollYProgress, [0.3, 0.45, 0.85, 1], [0, 1, 1, 0]);
+  const overlayOpacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.45, 0.85, 1],
+    [0, 1, 1, 0],
+  );
 
   const introOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
 
@@ -81,7 +91,8 @@ export function VideoReveal() {
             <div
               className="pointer-events-none absolute inset-0"
               style={{
-                background: "linear-gradient(to top, rgba(0,0,0,0.55), transparent 45%)",
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.55), transparent 45%)",
               }}
             />
 

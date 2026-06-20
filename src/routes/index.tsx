@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Asterisk } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-
 import { CustomCursor } from "@/components/CustomCursor";
 import { HoverImageTrail } from "@/components/HoverImageTrail";
 import { SiteNav } from "@/components/SiteNav";

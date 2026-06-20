@@ -45,7 +45,7 @@ export function SiteNav() {
               style={{ backgroundColor: "var(--mustard)" }}
             >
               {/* Larger logo icon (h-7 w-7) */}
-              <img src="src/assets/logo.svg" alt="Camera" className="h-9 w-9" />
+              <img src="@/assets/logo.svg" alt="Camera" className="h-9 w-9" />
             </span>
           </Link>
 

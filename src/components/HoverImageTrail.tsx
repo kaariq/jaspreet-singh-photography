@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 
 const IMAGES = [
-  "src/assets/images/1.jpg",
-  "src/assets/images/2.jpg",
-  "src/assets/images/3.jpg",
-  "src/assets/images/4.jpg",
-  "src/assets/images/5.jpg",
-  "src/assets/images/6.jpg",
-  "src/assets/images/7.jpg",
+  "@/assets/images/1.jpg",
+  "@/assets/images/2.jpg",
+  "@/assets/images/3.jpg",
+  "@/assets/images/4.jpg",
+  "@/assets/images/5.jpg",
+  "@/assets/images/6.jpg",
+  "@/assets/images/7.jpg",
 ];
 export function HoverImageTrail({
   targetRef,

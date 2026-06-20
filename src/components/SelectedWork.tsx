@@ -1,34 +1,40 @@
-import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValue,
+  animate,
+} from "framer-motion";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const PROJECTS = [
   {
-    src: "src/assets/images/1.jpg",
+    src: "@/assets/images/1.jpg",
     title: "Quiet Interiors",
     cat: "Editorial",
     year: "'26",
   },
   {
-    src: "src/assets/images/2.jpg",
+    src: "@/assets/images/2.jpg",
     title: "Maren",
     cat: "Portrait",
     year: "'26",
   },
   {
-    src: "src/assets/images/3.jpg",
+    src: "@/assets/images/3.jpg",
     title: "Vows in June",
     cat: "Wedding",
     year: "'25",
   },
   {
-    src: "src/assets/images/4jpg.",
+    src: "@/assets/images/4jpg.",
     title: "Atelier No. 4",
     cat: "Brand",
     year: "'25",
   },
   {
-    src: "src/assets/images/5.jpg",
+    src: "@/assets/images/5.jpg",
     title: "Northbound",
     cat: "Travel",
     year: "'24",
@@ -61,7 +67,7 @@ export function SelectedWork() {
   return (
     <section
       id="images"
- ref={ref}
+      ref={ref}
       className="relative"
       style={{ height: `${PROJECTS.length * 90}vh` }}
     >
@@ -75,18 +81,22 @@ export function SelectedWork() {
               <h2 className="font-serif text-4xl font-light leading-[1.02] tracking-tight md:text-6xl">
                 selected{" "}
                 <span className="italic" style={{ color: "var(--tomato)" }}>
-                  images
-  jpg              </span>
+                  images jpg{" "}
+                </span>
               </h2>
             </div>
             <p className="hidden text-right text-[12px] text-black/55 md:block">
-              {String(index + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
+              {String(index + 1).padStart(2, "0")} /{" "}
+              {String(PROJECTS.length).padStart(2, "0")}
             </p>
           </div>
         </div>
 
         <div className="relative flex flex-1 items-center justify-center px-6">
-          <div className="relative h-[62vh] w-full max-w-5xl" style={{ perspective: 1600 }}>
+          <div
+            className="relative h-[62vh] w-full max-w-5xl"
+            style={{ perspective: 1600 }}
+          >
             {PROJECTS.map((p, i) => (
               <Card
                 key={p.title}
@@ -128,7 +138,8 @@ export function SelectedWork() {
               className="h-1.5 rounded-full transition-all"
               style={{
                 width: i === index ? 28 : 8,
-                backgroundColor: i === index ? "var(--tomato)" : "rgba(0,0,0,0.2)",
+                backgroundColor:
+                  i === index ? "var(--tomato)" : "rgba(0,0,0,0.2)",
               }}
             />
           ))}
@@ -196,7 +207,8 @@ function Card({
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.15) 45%, transparent)",
+          background:
+            "linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.15) 45%, transparent)",
         }}
       />
       <div className="absolute left-6 top-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">

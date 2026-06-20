@@ -195,7 +195,7 @@ function AboutHero() {
         muted
         playsInline
       >
-        <source src="src/assets/intro.mp4" type="video/mp4" />
+        <source src="@/assets/intro.mp4" type="video/mp4" />
       </motion.video>
 
       {/* cinematic grade */}
