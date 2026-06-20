@@ -60,7 +60,7 @@ function Hero() {
         ref={contentRef}
         className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center"
       >
-        <h1 className="font-serif font-light leading-[0.88] tracking-[-0.04em]">
+        <h1 className="font-display uppercase leading-[0.85] tracking-tight">
           <motion.span
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ function Hero() {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="block text-[clamp(4rem,10vw,9rem)]"
+            className="block text-[clamp(3.4rem,9vw,8rem)]"
           >
             More than
           </motion.span>
@@ -82,9 +82,12 @@ function Hero() {
               delay: 0.7,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="block text-[clamp(4.2rem,10vw,9.5rem)]"
+            className="block text-[clamp(3.6rem,9vw,8.5rem)]"
           >
-            <span className="italic" style={{ color: "var(--tomato)" }}>
+            <span
+              className="italic lowercase"
+              style={{ color: "var(--tomato)", fontFamily: "var(--font-family-sans)", fontWeight: 300 }}
+            >
               a photograph
             </span>
             <span className="text-black/25">.</span>
