@@ -36,23 +36,26 @@
 }
 
 :root {
-  /* ============ GLOBAL TYPOGRAPHY (edit here, affects entire site) ============ */
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-display: "Inter Tight", system-ui, sans-serif;
-  --font-family-serif: "Instrument Serif", Georgia, serif;
+  /* ============ GLOBAL TYPOGRAPHY — only TWO fonts site-wide ============ */
+  /* Display / headings — Anton (bold, high-impact) */
+  /* Body / UI / everything else — Manrope */
+  --font-family-sans: "Manrope", system-ui, sans-serif;
+  --font-family-display: "Anton", system-ui, sans-serif;
+  --font-family-serif: "Manrope", system-ui, sans-serif;
 
-  --font-size-base: 13px;          /* base body size */
-  --font-size-xs: 9px;
-  --font-size-sm: 11px;
-  --font-size-md: 13px;
-  --font-size-lg: 15px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 24px;
-  --font-size-3xl: 32px;
-  --font-size-display: clamp(2.4rem, 6.4vw, 5.6rem);
+  /* Standard, readable type scale */
+  --font-size-base: 16px;          /* base body size */
+  --font-size-xs: 11px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 38px;
+  --font-size-display: clamp(2.8rem, 7vw, 6.5rem);
 
-  --line-height-base: 1.55;
-  --letter-spacing-tight: -0.02em;
+  --line-height-base: 1.6;
+  --letter-spacing-tight: -0.01em;
   --letter-spacing-wide: 0.18em;
   /* ============================================================================ */
 
@@ -100,11 +103,15 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-serif);
+    font-family: var(--font-family-display);
     letter-spacing: var(--letter-spacing-tight);
-    font-weight: 300;
+    font-weight: 400;
+    line-height: 0.98;
     text-wrap: balance;
   }
+
+  /* Manrope-driven elegant accents inside headings keep their weight */
+  .font-serif { font-family: var(--font-family-sans) !important; }
 
   p {
     text-wrap: pretty;

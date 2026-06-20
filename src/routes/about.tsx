@@ -9,7 +9,7 @@ import heroVideo from "@/assets/hero.mp4.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About  — Jaspreet Singh Photography" },
+      { title: "About — Jaspreet Singh Photography" },
       {
         name: "description",
         content:
@@ -64,7 +64,7 @@ const PIECES = [
 
 function AboutPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+    <main className="relative min-h-screen overflow-x-clip bg-background text-foreground">
       <CustomCursor />
       <div className="canvas-grid" />
       <SiteNav />
@@ -73,20 +73,29 @@ function AboutPage() {
       <StoryIntro />
 
       {/* Pieces of Me */}
-      <section className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <div className="mb-14 max-w-2xl">
-          <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.34em] text-black/40">
+      <section className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+        <div className="mb-16 max-w-2xl">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-5 text-[12px] font-semibold uppercase tracking-[0.34em] text-black/40"
+          >
             Off camera
-          </p>
-          <h2 className="font-serif text-[clamp(2.2rem,5vw,3.6rem)] leading-[0.98]">
+          </motion.p>
+          <h2 className="font-display text-[clamp(2.6rem,7vw,5.5rem)] uppercase leading-[0.9] tracking-tight">
             Pieces of{" "}
-            <span className="italic" style={{ color: "var(--tomato)" }}>
+            <span
+              className="italic lowercase"
+              style={{ color: "var(--tomato)", fontFamily: "var(--font-family-sans)", fontWeight: 300 }}
+            >
               me.
             </span>
           </h2>
-          <p className="mt-5 max-w-md text-[13.5px] leading-[1.8] text-black/55">
-            Seven small things that have very little to do with photography and everything to do
-            with the way I see.
+          <p className="mt-6 max-w-md text-[15px] leading-[1.8] text-black/55">
+            Six small things that have very little to do with photography and everything to do with
+            the way I see.
           </p>
         </div>
 
@@ -94,20 +103,22 @@ function AboutPage() {
           {PIECES.map((p, i) => (
             <motion.div
               key={p.n}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="group bg-background p-7 transition-colors duration-500 hover:bg-[oklch(0.975_0_0)] md:p-9"
+              transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group bg-background p-8 transition-colors duration-500 hover:bg-[oklch(0.975_0_0)] md:p-10"
             >
-              <span
-                className="font-display text-[10px] font-semibold tracking-[0.24em]"
-                style={{ color: "var(--tomato)" }}
-              >
+              <span className="font-display text-2xl" style={{ color: "var(--tomato)" }}>
                 {p.n}
               </span>
-              <h3 className="mt-4 font-serif text-[1.5rem] leading-[1.15]">{p.title}</h3>
-              <p className="mt-3 text-[12.5px] leading-[1.8] text-black/55">{p.body}</p>
+              <h3
+                className="mt-4 text-[1.35rem] font-bold leading-[1.2]"
+                style={{ fontFamily: "var(--font-family-sans)", letterSpacing: "-0.01em" }}
+              >
+                {p.title}
+              </h3>
+              <p className="mt-3 text-[14px] leading-[1.8] text-black/55">{p.body}</p>
             </motion.div>
           ))}
         </div>
@@ -121,58 +132,87 @@ function AboutPage() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Hero — balanced lower-left composition over a quiet looping video   */
+/* Hero — bold, balanced, cinematic                                    */
 /* ------------------------------------------------------------------ */
 
 function AboutHero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  const word = "ABOUT";
+
   return (
-    <header className="relative h-[100svh] overflow-hidden">
-      <video
+    <header ref={ref} className="relative h-[100svh] overflow-hidden">
+      <motion.video
+        style={{ scale: videoScale }}
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         loop
+        muted
         playsInline
         poster="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600&q=80"
       >
-        <source src="src/assets/intro.mp4" type="video/mp4" />
-      </video>
+        <source src={heroVideo.url} type="video/mp4" />
+      </motion.video>
 
       {/* cinematic grade */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/40" />
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "url('https://www.transparenttextures.com/patterns/asfalt-light.png')",
-        }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/45" />
 
-      <div className="relative z-10 flex h-full flex-col justify-end">
+      <motion.div
+        style={{ y: titleY, opacity: titleOpacity }}
+        className="relative z-10 flex h-full flex-col justify-end"
+      >
         <div className="mx-auto w-full max-w-6xl px-6 pb-16 md:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mb-6 text-[10px] font-semibold uppercase tracking-[0.42em] text-white/65"
+            className="mb-6 text-[11px] font-semibold uppercase tracking-[0.42em] text-white/65"
           >
-            About Me — Jaspreet Singh
+            Jaspreet Singh — Photographer
           </motion.p>
+
+          {/* Giant Anton word, masked rise */}
+          <h1 className="font-display uppercase leading-[0.82] tracking-tight text-white">
+            <span className="flex flex-wrap">
+              {word.split("").map((ch, i) => (
+                <span key={`${ch}-${i}`} className="overflow-hidden">
+                  <motion.span
+                    initial={{ y: "110%" }}
+                    animate={{ y: "0%" }}
+                    transition={{ duration: 1, delay: 0.35 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                    className="inline-block text-[clamp(4.5rem,18vw,15rem)]"
+                  >
+                    {ch}
+                  </motion.span>
+                </span>
+              ))}
+            </span>
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-8 max-w-md text-[14px] leading-[1.85] text-white/70"
+            transition={{ duration: 0.8, delay: 1 }}
+            className="mt-8 max-w-md text-[15px] leading-[1.9] text-white/70"
           >
             We capture the things we are too quiet to say, and trust the frame to hold them still.
           </motion.p>
         </div>
-      </div>
+      </motion.div>
 
       {/* scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
         className="absolute bottom-10 right-6 hidden flex-col items-center gap-3 md:flex md:right-10"
       >
         <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-white/55 [writing-mode:vertical-rl]">
@@ -185,7 +225,7 @@ function AboutHero() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Story Intro — True Multi-Column Bold Editorial Layout with Blur Reveal */
+/* Story Intro — narrative blur-reveal, balanced editorial spread      */
 /* ------------------------------------------------------------------ */
 
 function StoryIntro() {
@@ -193,74 +233,82 @@ function StoryIntro() {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.85", "end 0.35"],
+    offset: ["start 0.9", "end 0.4"],
   });
 
   return (
-    <section className="relative z-10 bg-background px-6 py-32 md:py-52">
-      <div ref={ref} className="mx-auto max-w-6xl">
-        {/* Modern Multi-Column Reading Grid Spread */}
-        <div className="grid gap-12 md:grid-cols-2 md:gap-24 items-start font-sans select-none">
-          {/* Column One: The Set Up */}
-          <div className="space-y-12">
-            <RevealLine progress={scrollYProgress} range={[0.0, 0.18]}>
-              <p className="text-[clamp(1.6rem,2.8vw,2.3rem)] font-extrabold tracking-[-0.03em] leading-[1.3] text-black">
-                I used to think important moments would announce themselves.
-              </p>
-            </RevealLine>
-
-            <RevealLine progress={scrollYProgress} range={[0.18, 0.35]}>
-              <p className="text-[clamp(1.6rem,2.8vw,2.3rem)] font-light italic font-serif text-black/25 leading-none tracking-tight">
-                They never do.
-              </p>
-            </RevealLine>
-          </div>
-
-          {/* Column Two: The Fragment Observations & Climax */}
-          <div className="space-y-12">
-            {/* Fragmented block list with an intense bold left border */}
-            <div className="border-l-4 border-black pl-8 space-y-6 md:my-2">
-              <RevealLine progress={scrollYProgress} range={[0.35, 0.52]}>
-                <p className="text-[clamp(1.6rem,2.8vw,2.3rem)] font-extrabold tracking-[-0.03em] leading-[1.3] text-black">
-                  The important moments arrive quietly.
-                </p>
-              </RevealLine>
-              <RevealLine progress={scrollYProgress} range={[0.52, 0.64]}>
-                <p className="text-[clamp(1.35rem,2.3vw,1.85rem)] font-bold tracking-[-0.02em] leading-none text-black/50">
-                  A hand on a shoulder.
-                </p>
-              </RevealLine>
-
-              <RevealLine progress={scrollYProgress} range={[0.62, 0.74]}>
-                <p className="text-[clamp(1.35rem,2.3vw,1.85rem)] font-bold tracking-[-0.02em] leading-none text-black/50">
-                  A laugh that escapes too early.
-                </p>
-              </RevealLine>
-
-              <RevealLine progress={scrollYProgress} range={[0.72, 0.84]}>
-                <p className="text-[clamp(1.35rem,2.3vw,1.85rem)] font-bold tracking-[-0.02em] leading-[1.3] text-black/50">
-                  Someone looking away before they realise they're being seen.
-                </p>
-              </RevealLine>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center justify-center">
-        <RevealLine progress={scrollYProgress} range={[0.84, 1.0]}>
-          <p className="pt-4 text-[clamp(1.6rem,2.8vw,2.3rem)] font-extrabold tracking-[-0.03em] leading-[1.3] text-black">
-            Photography became my way of{" "}
-            <span className="italic font-serif font-light" style={{ color: "var(--tomato)" }}>
-              paying attention.
+    <section className="relative z-10 bg-background px-6 py-32 md:py-48">
+      <div ref={ref} className="mx-auto max-w-5xl">
+        <RevealLine progress={scrollYProgress} range={[0.0, 0.12]} className="mb-16">
+          <p
+            className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-light leading-[1.5] text-black"
+            style={{ fontFamily: "var(--font-family-sans)" }}
+          >
+            My name is{" "}
+            <span className="font-display text-[1.1em] align-baseline" style={{ color: "var(--tomato)" }}>
+              Jaspreet.
             </span>
           </p>
         </RevealLine>
+
+        <div className="space-y-10 select-none" style={{ fontFamily: "var(--font-family-sans)" }}>
+          <RevealLine progress={scrollYProgress} range={[0.1, 0.26]}>
+            <p className="text-[clamp(1.7rem,3.2vw,2.8rem)] font-bold leading-[1.25] tracking-[-0.02em] text-black">
+              I used to think important moments would announce themselves.
+            </p>
+          </RevealLine>
+
+          <RevealLine progress={scrollYProgress} range={[0.26, 0.38]}>
+            <p className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.95] text-black/15">
+              They never do.
+            </p>
+          </RevealLine>
+
+          <div className="border-l-2 pl-8 md:pl-12 space-y-5" style={{ borderColor: "var(--tomato)" }}>
+            <RevealLine progress={scrollYProgress} range={[0.4, 0.54]}>
+              <p className="text-[clamp(1.5rem,2.8vw,2.4rem)] font-bold leading-[1.25] tracking-[-0.02em] text-black">
+                The important moments arrive quietly.
+              </p>
+            </RevealLine>
+
+            <RevealLine progress={scrollYProgress} range={[0.52, 0.62]}>
+              <p className="text-[clamp(1.1rem,1.9vw,1.6rem)] font-medium leading-[1.4] text-black/50">
+                A hand on a shoulder.
+              </p>
+            </RevealLine>
+
+            <RevealLine progress={scrollYProgress} range={[0.6, 0.7]}>
+              <p className="text-[clamp(1.1rem,1.9vw,1.6rem)] font-medium leading-[1.4] text-black/50">
+                A laugh that escapes too early.
+              </p>
+            </RevealLine>
+
+            <RevealLine progress={scrollYProgress} range={[0.68, 0.8]}>
+              <p className="text-[clamp(1.1rem,1.9vw,1.6rem)] font-medium leading-[1.4] text-black/50">
+                Someone looking away before they realise they're being seen.
+              </p>
+            </RevealLine>
+          </div>
+
+          <RevealLine progress={scrollYProgress} range={[0.82, 1.0]} className="pt-6">
+            <p className="text-[clamp(1.8rem,4vw,3.2rem)] font-bold leading-[1.2] tracking-[-0.02em] text-black">
+              Photography became my way of{" "}
+              <span
+                className="italic font-light"
+                style={{ color: "var(--tomato)", fontWeight: 300 }}
+              >
+                paying attention.
+              </span>
+            </p>
+          </RevealLine>
+        </div>
       </div>
     </section>
   );
 }
+
 /* ------------------------------------------------------------------ */
-/* Story Outro — 100% Full Width Clean Sans-Serif Lyrics Reveal       */
+/* Story Outro — dark cinematic lyric reveal + bold CTA               */
 /* ------------------------------------------------------------------ */
 
 function StoryOutro() {
@@ -268,74 +316,77 @@ function StoryOutro() {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.85", "end 0.25"],
+    offset: ["start 0.85", "end 0.3"],
   });
 
   return (
     <>
-      {/* Lyrics Section */}
-      <section
-        ref={ref}
-        className="relative z-10 w-full bg-[#0a0a0a] px-6 py-40 text-white md:py-60"
-      >
+      <section ref={ref} className="relative z-10 w-full bg-[#0a0a0a] px-6 py-44 text-white md:py-64">
         <div className="mx-auto w-full max-w-4xl text-center">
-          {/* Clean Sans-Serif Lyric Stack (Arial inspired) */}
-          <div className="space-y-10 font-sans select-none tracking-[-0.02em]">
-            <RevealLine progress={scrollYProgress} range={[0.0, 0.15]}>
-              <p className="text-[clamp(1.6rem,3.2vw,2.5rem)] font-light text-white/40">
+          <div
+            className="space-y-12 select-none tracking-[-0.01em]"
+            style={{ fontFamily: "var(--font-family-sans)" }}
+          >
+            <RevealLine progress={scrollYProgress} range={[0.0, 0.14]}>
+              <p className="text-[clamp(1.4rem,3vw,2.4rem)] font-light text-white/45">
                 And if you've made it this far,
               </p>
             </RevealLine>
 
-            <RevealLine progress={scrollYProgress} range={[0.15, 0.3]} className="pb-8">
-              <p className="text-[clamp(1.6rem,3.2vw,2.5rem)] font-normal text-white/95">
+            <RevealLine progress={scrollYProgress} range={[0.12, 0.26]} className="pb-6">
+              <p className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.95] text-white">
                 thank you for being curious.
               </p>
             </RevealLine>
 
-            <RevealLine progress={scrollYProgress} range={[0.3, 0.45]}>
-              <p className="text-[clamp(1.4rem,2.5vw,1.95rem)] font-light text-white/60 max-w-2xl mx-auto leading-[1.6]">
+            <RevealLine progress={scrollYProgress} range={[0.3, 0.44]}>
+              <p className="mx-auto max-w-2xl text-[clamp(1.3rem,2.4vw,1.9rem)] font-light leading-[1.6] text-white/60">
                 The truth is, I still feel nervous before every shoot.
               </p>
             </RevealLine>
 
-            <RevealLine progress={scrollYProgress} range={[0.45, 0.6]}>
-              <p className="text-[clamp(1.4rem,2.5vw,1.95rem)] font-light text-white/60 max-w-2xl mx-auto leading-[1.6]">
+            <RevealLine progress={scrollYProgress} range={[0.44, 0.58]}>
+              <p className="mx-auto max-w-2xl text-[clamp(1.3rem,2.4vw,1.9rem)] font-light leading-[1.6] text-white/60">
                 I still wonder if the light will show up.
               </p>
             </RevealLine>
 
-            <RevealLine progress={scrollYProgress} range={[0.6, 0.75]} className="pb-8">
-              <p className="text-[clamp(1.4rem,2.5vw,1.95rem)] font-light text-white/60 max-w-2xl mx-auto leading-[1.6]">
+            <RevealLine progress={scrollYProgress} range={[0.58, 0.72]} className="pb-6">
+              <p className="mx-auto max-w-2xl text-[clamp(1.3rem,2.4vw,1.9rem)] font-light leading-[1.6] text-white/60">
                 I still get excited when a photograph becomes more than a photograph.
               </p>
             </RevealLine>
 
-            <RevealLine progress={scrollYProgress} range={[0.75, 0.95]}>
-              <p className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-normal text-white tracking-[-0.03em] leading-[1.3]">
+            <RevealLine progress={scrollYProgress} range={[0.74, 0.95]}>
+              <p className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.95] text-white">
                 Maybe we'll make something worth remembering{" "}
-                <span style={{ color: "var(--mustard)" }}>together.</span>
+                <span className="italic lowercase" style={{ color: "var(--mustard)", fontFamily: "var(--font-family-sans)", fontWeight: 300 }}>
+                  together.
+                </span>
               </p>
             </RevealLine>
           </div>
         </div>
       </section>
 
-      {/* Separate Section: Bold Let's Talk CTA */}
-      <section className="relative z-10 w-full bg-background px-6 py-20 border-t border-black/[0.06] flex ">
+      {/* Bold Let's Talk CTA */}
+      <section className="relative z-10 flex w-full justify-center border-t border-black/[0.06] bg-background px-6 py-24">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full max-w-md"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-xl text-center"
         >
+          <p className="mb-8 text-[15px] leading-relaxed text-black/55">
+            If you've read this far, we probably already get along.
+          </p>
           <Link
             to="/contact"
-            className="group flex w-full items-center justify-between bg-black px-8 py-5 text-[14px] font-bold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:bg-black/90 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-black/5"
+            className="group inline-flex w-full max-w-md items-center justify-between bg-black px-9 py-6 font-display text-2xl uppercase tracking-tight text-white transition-all duration-300 hover:bg-black/90"
           >
             <span>Let's Talk</span>
-            <span className="text-xl transition-transform duration-300 group-hover:translate-x-1.5">
+            <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">
               →
             </span>
           </Link>
@@ -344,8 +395,9 @@ function StoryOutro() {
     </>
   );
 }
+
 /* ------------------------------------------------------------------ */
-/* Refined Deep Blur Reveal Helper                                    */
+/* Blur Reveal Helper                                                  */
 /* ------------------------------------------------------------------ */
 
 function RevealLine({
@@ -359,11 +411,10 @@ function RevealLine({
   className?: string;
   children: React.ReactNode;
 }) {
-  // Starts out at a high 12px blur + very light visibility, then transitions into razor sharp dark focus
   const opacity = useTransform(progress, range, [0.08, 1]);
   const blurVal = useTransform(progress, range, [12, 0]);
   const filter = useTransform(blurVal, (b) => `blur(${b}px)`);
-  const y = useTransform(progress, range, [6, 0]);
+  const y = useTransform(progress, range, [10, 0]);
 
   return (
     <motion.div style={{ opacity, filter, y }} className={className}>
