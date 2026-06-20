@@ -2,13 +2,15 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const GEAR = [
-  { src: "src/assets/gears/camera.jpg", label: "Sony Leica M6" },
-  { src: "src/assets/gears/drone.jpg", label: "DJI Mavic" },
-  { src: "src/assets/gears/editing.jpg", label: "Da Vinci B10" },
-  { src: "src/assets/gears/gimbal.jpg", label: "DJI Ronin" },
-  { src: "src/assets/gears/lens.jpg", label: "85mm f/1.4" },
-  { src: "src/assets/gears/lights.jpg", label: "100FQ Reflector" },
-  { src: "src/assets/gears/lens50.jpg", label: "85mm f/1.4" },
+  { src: "src/assets/gears/camera.png", label: "Sony Leica M6" },
+  { src: "src/assets/gears/drone.png", label: "DJI Mavic" },
+  { src: "src/assets/gears/editing.png", label: "Da Vinci B10" },
+  { src: "src/assets/gears/gimbal.png", label: "DJI Ronin" },
+  { src: "src/assets/gears/lens.png", label: "85mm f/1.4" },
+  { src: "src/assets/gears/lights.png", label: "100FQ Reflector" },
+  { src: "src/assets/gears/lens50.png", label: "85mm f/1.4" },
+  { src: "src/assets/gears/tripod.png", label: "100FQ Reflector" },
+  { src: "src/assets/gears/battery.png", label: "85mm f/1.4" },
 ];
 
 /**

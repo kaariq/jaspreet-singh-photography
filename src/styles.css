@@ -39,9 +39,9 @@
   /* ============ GLOBAL TYPOGRAPHY — only TWO fonts site-wide ============ */
   /* Display / headings — Anton (bold, high-impact) */
   /* Body / UI / everything else — Manrope */
-  --font-family-sans: "Manrope", system-ui, sans-serif;
-  --font-family-display: "Anton", system-ui, sans-serif;
-  --font-family-serif: "Manrope", system-ui, sans-serif;
+  --font-family-sans:  Arial, Helvetica, sans-serif;
+--font-family-display:  Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-family-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Standard, readable type scale */
   --font-size-base: 16px;          /* base body size */

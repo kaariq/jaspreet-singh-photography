@@ -4,31 +4,31 @@ import { useEffect, useRef, useState } from "react";
 
 const PROJECTS = [
   {
-    src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=80",
+    src: "src/assets/images/1.jpg",
     title: "Quiet Interiors",
     cat: "Editorial",
     year: "'26",
   },
   {
-    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1600&q=80",
+    src: "src/assets/images/2.jpg",
     title: "Maren",
     cat: "Portrait",
     year: "'26",
   },
   {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80",
+    src: "src/assets/images/3.jpg",
     title: "Vows in June",
     cat: "Wedding",
     year: "'25",
   },
   {
-    src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80",
+    src: "src/assets/images/4jpg.",
     title: "Atelier No. 4",
     cat: "Brand",
     year: "'25",
   },
   {
-    src: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1600&q=80",
+    src: "src/assets/images/5.jpg",
     title: "Northbound",
     cat: "Travel",
     year: "'24",
@@ -60,8 +60,8 @@ export function SelectedWork() {
 
   return (
     <section
-      id="work"
-      ref={ref}
+      id="images"
+ jpg     ref={ref}
       className="relative"
       style={{ height: `${PROJECTS.length * 90}vh` }}
     >
@@ -75,8 +75,8 @@ export function SelectedWork() {
               <h2 className="font-serif text-4xl font-light leading-[1.02] tracking-tight md:text-6xl">
                 selected{" "}
                 <span className="italic" style={{ color: "var(--tomato)" }}>
-                  work
-                </span>
+                  images
+  jpg              </span>
               </h2>
             </div>
             <p className="hidden text-right text-[12px] text-black/55 md:block">

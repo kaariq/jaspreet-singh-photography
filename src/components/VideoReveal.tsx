@@ -70,6 +70,7 @@ export function VideoReveal() {
               src={heroVideo.url}
               autoPlay
               loop
+              muted
               playsInline
               className="h-full w-full object-cover"
               style={{

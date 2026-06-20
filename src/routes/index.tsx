@@ -86,7 +86,11 @@ function Hero() {
           >
             <span
               className="italic lowercase"
-              style={{ color: "var(--tomato)", fontFamily: "var(--font-family-sans)", fontWeight: 300 }}
+              style={{
+                color: "var(--tomato)",
+                fontFamily: "var(--font-family-sans)",
+                fontWeight: 300,
+              }}
             >
               a photograph
             </span>
@@ -190,13 +194,11 @@ function Index() {
       <div className="my-56">
         <ScrollTextReveal />
       </div>
-      <div className="my-106">
+      <div className="my-76">
         <SelectedWork />
       </div>
       <GearsCarousel />
-      <div className="my-36">
-        <ServicesStack />
-      </div>
+      <ServicesStack />
       <Testimonials />
       <FaqFloating />
       <SiteFooter />

@@ -37,28 +37,15 @@ export function ServicesStack() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative z-10 px-6 py-24 md:py-32">
+    <section className="relative z-10 px-6 py-14 md:py-32">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-14 max-w-4xl">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-5 text-[12px] font-semibold uppercase tracking-[0.34em] text-black/40"
-          >
-            What I photograph
-          </motion.p>
-
+        <div className="mb-12 max-w-4xl">
           <h3 className="font-display text-[clamp(2.6rem,8vw,6rem)] uppercase leading-[0.92] tracking-tight">
             <RevealWords text="Four ways" />
             <br />
-            <span className="text-black/30">to </span>
-            <span style={{ color: "var(--tomato)" }}>
-              <RevealWords text="tell a story" delay={0.25} />
-            </span>
-          </h3>
+            <span className="text-black">What I photograph </span>
+         </h3>
         </div>
 
         {/* Expanding panels — desktop */}
@@ -95,7 +82,11 @@ export function ServicesStack() {
                 {/* Expanded content */}
                 <motion.div
                   animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 30 }}
-                  transition={{ duration: 0.7, delay: isActive ? 0.25 : 0, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    duration: 0.7,
+                    delay: isActive ? 0.25 : 0,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                   className="absolute inset-0 flex flex-col justify-between p-8 lg:p-10"
                 >
                   <div className="flex items-start justify-between">
@@ -135,7 +126,11 @@ export function ServicesStack() {
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="relative aspect-[4/5] overflow-hidden bg-black"
             >
-              <img src={s.image} alt={s.title} className="absolute inset-0 h-full w-full object-cover" />
+              <img
+                src={s.image}
+                alt={s.title}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-between p-6">
                 <span className="font-display text-5xl text-white/90">{s.n}</span>
