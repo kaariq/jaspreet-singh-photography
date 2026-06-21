@@ -129,6 +129,14 @@
   @media (pointer: fine) {
     html, body, * { cursor: none !important; }
   }
+  /* Admin & login pages keep the native OS cursor */
+  .admin-shell, .admin-shell *,
+  body.admin-shell, body.admin-shell * { cursor: auto !important; }
+  .admin-shell button, .admin-shell button *,
+  .admin-shell a, .admin-shell a *,
+  .admin-shell [role="button"], .admin-shell [role="tab"] { cursor: pointer !important; }
+  .admin-shell input, .admin-shell textarea { cursor: text !important; }
+
 }
 
 @utility font-display {

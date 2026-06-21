@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "badge": "Now booking · Sept – Dec '26",
+    "titleLine1": "More than",
+    "titleAccent": "a photograph",
+    "subtitle": "Photography has always been my way of holding onto moments. Through light, emotion, and human connection, I create images that feel as meaningful years from now as they do today.",
+    "primaryCtaLabel": "Start your story",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "See recent work",
+    "secondaryCtaHref": "/work",
+    "tags": ["Portrait", "Editorial", "Brand", "Wedding"]
+  }
+}

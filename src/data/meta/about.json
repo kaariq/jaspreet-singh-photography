@@ -1,0 +1,22 @@
+{
+  "title": "About Jaspreet Singh — Toronto Photographer's Story",
+  "description": "The story behind the lens — why I fell for photography, how I started, where I am now, and the small pieces that make me, me. Based in Toronto.",
+  "keywords": "about Jaspreet Singh, Toronto photographer story, photographer biography",
+  "canonical": "/about",
+  "ogTitle": "About — Jaspreet Singh Photography",
+  "ogDescription": "The story behind the lens — and the small pieces that make me, me.",
+  "ogType": "profile",
+  "ogUrl": "/about",
+  "ogImage": "",
+  "twitterTitle": "About — Jaspreet Singh Photography",
+  "twitterDescription": "The story behind the lens.",
+  "twitterCard": "summary_large_image",
+  "robots": "index, follow",
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Jaspreet Singh",
+    "url": "/about",
+    "mainEntity": { "@id": "/#person" }
+  }
+}

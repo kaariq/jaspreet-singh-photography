@@ -1,0 +1,9 @@
+export { default as camera } from "./camera.png";
+export { default as drone } from "./drone.png";
+export { default as editing } from "./editing.png";
+export { default as gimbal } from "./gimbal.png";
+export { default as lens } from "./lens.png";
+export { default as lights } from "./lights.png";
+export { default as lens50 } from "./lens50.png";
+export { default as tripod } from "./tripod.png";
+export { default as battery } from "./battery.png";

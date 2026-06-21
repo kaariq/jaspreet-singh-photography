@@ -5,45 +5,14 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FaqFloating } from "@/components/FaqFloating";
+import meta from "@/data/meta/approach.json";
+import { buildHead } from "@/lib/meta";
 
 export const Route = createFileRoute("/approach")({
-  head: () => ({
-    meta: [
-      { title: "Approach & Process — How I Shoot Weddings & Editorials" },
-      {
-        name: "description",
-        content:
-          "How I work, the process I follow, how I help, and how I shoot weddings — a quiet, considered way of making pictures in Toronto and worldwide.",
-      },
-      { property: "og:title", content: "Approach — Jaspreet Singh Photography" },
-      {
-        property: "og:description",
-        content: "How I work, the process I follow, and how I shoot weddings.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/approach" },
-      { name: "twitter:title", content: "Approach — Jaspreet Singh Photography" },
-      { name: "twitter:description", content: "How I work, and how I shoot weddings." },
-    ],
-    links: [{ rel: "canonical", href: "/approach" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Wedding & Portrait Photography",
-          provider: { "@id": "/#person" },
-          areaServed: ["Toronto", "Canada", "Worldwide"],
-          serviceType: "Photography",
-          description:
-            "A considered, documentary-led approach to weddings, portraits and editorial photography.",
-        }),
-      },
-    ],
-  }),
+  head: () => buildHead(meta),
   component: ApproachPage,
 });
+
 
 const PROCESS = [
   {

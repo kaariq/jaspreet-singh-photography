@@ -1,0 +1,29 @@
+{
+  "name": "Jaspreet Singh Photography",
+  "shortName": "Jaspreet Singh",
+  "tagline": "Toronto Portrait, Wedding & Editorial Photographer",
+  "baseUrl": "/",
+  "location": {
+    "city": "Toronto",
+    "region": "ON",
+    "country": "CA",
+    "label": "Toronto, Canada · travelling worldwide"
+  },
+  "contact": {
+    "email": "hello@jslens.studio",
+    "phone": "+1 (416) 555-0126",
+    "phoneHref": "tel:+14165550126",
+    "instagram": "@jaspreetsingh.photo",
+    "instagramUrl": "#"
+  },
+  "nav": [
+    { "label": "Work", "to": "/work" },
+    { "label": "About", "to": "/about" },
+    { "label": "Approach", "to": "/approach" },
+    { "label": "Journal", "to": "/journal" },
+    { "label": "Contact", "to": "/contact" }
+  ],
+  "footer": {
+    "rights": "© 2026 Jaspreet Singh. All rights reserved."
+  }
+}

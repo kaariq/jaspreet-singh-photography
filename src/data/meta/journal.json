@@ -1,0 +1,22 @@
+{
+  "title": "Journal — Field Notes from a Toronto Photographer",
+  "description": "Notes from behind the lens — field stories, gear thoughts and lessons from a decade of making photographs.",
+  "keywords": "photography journal, photographer blog, field notes, photography lessons",
+  "canonical": "/journal",
+  "ogTitle": "Journal — Jaspreet Singh Photography",
+  "ogDescription": "Notes from behind the lens — field stories and lessons.",
+  "ogType": "website",
+  "ogUrl": "/journal",
+  "ogImage": "",
+  "twitterTitle": "Journal — Jaspreet Singh Photography",
+  "twitterDescription": "Field notes from behind the lens.",
+  "twitterCard": "summary_large_image",
+  "robots": "index, follow",
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Journal — Jaspreet Singh Photography",
+    "url": "/journal",
+    "author": { "@id": "/#person" }
+  }
+}

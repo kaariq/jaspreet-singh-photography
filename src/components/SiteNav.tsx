@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { logo } from "@/assets";
 
 const LINKS = [
   { label: "Home", to: "/", hash: undefined },
@@ -34,8 +35,7 @@ export function SiteNav() {
           className="flex items-center justify-between rounded-full px-2 py-1.5 backdrop-blur-xl"
           style={{
             backgroundColor: "rgba(0,0,0,0.8)",
-            boxShadow:
-              "0 20px 50px -20px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.08) inset",
+            boxShadow: "0 20px 50px -20px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.08) inset",
           }}
         >
           <Link to="/" className="flex items-center pl-1 pr-1 text-white">
@@ -45,7 +45,7 @@ export function SiteNav() {
               style={{ backgroundColor: "var(--mustard)" }}
             >
               {/* Larger logo icon (h-7 w-7) */}
-              <img src="@/assets/logo.svg" alt="Camera" className="h-9 w-9" />
+              <img src={logo} alt="Camera" className="h-9 w-9" />
             </span>
           </Link>
 

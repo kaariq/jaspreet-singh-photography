@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "How I work",
+    "titlePrefix": "A quiet,",
+    "titleAccent": "considered",
+    "titleSuffix": "way of making pictures.",
+    "subtitle": "From the first hello to the final delivered gallery — here's how we work together."
+  },
+  "processIntro": {
+    "eyebrow": "The Process",
+    "title": "How we move from idea to image."
+  },
+  "process": [
+    { "n": "01", "title": "We talk first", "body": "Before anything else, a slow conversation — over a call or coffee — about who you are and what this moment actually means to you." },
+    { "n": "02", "title": "We shape the day", "body": "I send a simple plan: timing, light, locations, the small details that quietly make or break a shoot. You stay in charge; I stay prepared." },
+    { "n": "03", "title": "We shoot, gently", "body": "On the day I'm calm, kind, and slightly invisible. I direct only when you need it — the rest is observed, never forced." },
+    { "n": "04", "title": "We edit with intention", "body": "Every image is hand-edited in a consistent, timeless tone. No filters, no trends — just frames that should age well." },
+    { "n": "05", "title": "We deliver, beautifully", "body": "A private online gallery within 3–5 weeks, plus print-ready files and a thoughtfully prepared keepsake set." }
+  ],
+  "weddings": {
+    "eyebrow": "How I shoot weddings",
+    "title": "Documentary-first, never disruptive.",
+    "body": "A wedding is a long, emotional, unrepeatable day. My job is to hold it gently — to be everywhere the moments are and nowhere the moments aren't. I shoot with two cameras, three lenses, almost always available light, and a quiet presence that lets the day stay yours."
+  },
+  "help": {
+    "eyebrow": "How I help",
+    "items": [
+      "I plan the photography timeline with you so the day flows.",
+      "I scout light and locations in advance — never on the fly.",
+      "I direct softly when needed, observe quietly when not.",
+      "I deliver fast: sneak peeks within a week, full gallery in 3–5."
+    ]
+  },
+  "cta": {
+    "text": "If this sounds like the way you'd like to be photographed,",
+    "label": "Start a conversation",
+    "href": "/contact"
+  }
+}

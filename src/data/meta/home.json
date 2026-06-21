@@ -1,0 +1,35 @@
+{
+  "title": "Jaspreet Singh — Toronto Portrait, Wedding & Editorial Photographer",
+  "description": "Toronto-based photographer crafting portrait, wedding, editorial and brand stories through a quietly cinematic lens. View selected work and get in touch.",
+  "keywords": "Toronto photographer, wedding photographer Toronto, portrait photographer, editorial photography, brand photography, Jaspreet Singh",
+  "canonical": "/",
+  "ogTitle": "Jaspreet Singh — Toronto Photographer",
+  "ogDescription": "Portrait, wedding, editorial and brand stories — through a singular, quietly cinematic lens.",
+  "ogType": "website",
+  "ogUrl": "/",
+  "ogImage": "/og-home.jpg",
+  "twitterTitle": "Jaspreet Singh — Toronto Photographer",
+  "twitterDescription": "Portrait, wedding, editorial and brand stories — Toronto, worldwide.",
+  "twitterCard": "summary_large_image",
+  "robots": "index, follow",
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Jaspreet Singh Photography",
+    "image": "/og-home.jpg",
+    "priceRange": "$$$",
+    "areaServed": ["Toronto", "Canada", "Worldwide"],
+    "serviceType": [
+      "Wedding Photography",
+      "Portrait Photography",
+      "Editorial Photography",
+      "Brand Photography"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Toronto",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    }
+  }
+}

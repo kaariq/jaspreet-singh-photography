@@ -17,6 +17,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const protocol = host?.includes("localhost") ? "http" : "https";
 
         const BASE_URL = `${protocol}://${host}`;
+        const today = new Date().toISOString().slice(0, 10);
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0", lastmod: today },
           { path: "/work", changefreq: "weekly", priority: "0.9", lastmod: today },

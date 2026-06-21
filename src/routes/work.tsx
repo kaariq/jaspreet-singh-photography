@@ -3,42 +3,14 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WorkGallery } from "@/components/WorkGallery";
+import meta from "@/data/meta/work.json";
+import { buildHead } from "@/lib/meta";
 
 export const Route = createFileRoute("/work")({
-  head: () => ({
-    meta: [
-      { title: "Selected Work — Portrait, Wedding & Editorial Gallery" },
-      {
-        name: "description",
-        content:
-          "A gallery of selected photography work — portraits, weddings, editorial and brand stories shot through a single, quiet lens.",
-      },
-      { property: "og:title", content: "Work — Jaspreet Singh Photography" },
-      {
-        property: "og:description",
-        content: "Selected photography — portraits, weddings, editorial and brand stories.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/work" },
-      { name: "twitter:title", content: "Work — Jaspreet Singh Photography" },
-      { name: "twitter:description", content: "Selected portraits, weddings & editorial." },
-    ],
-    links: [{ rel: "canonical", href: "/work" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ImageGallery",
-          name: "Selected Work — Jaspreet Singh Photography",
-          url: "/work",
-          author: { "@id": "/#person" },
-        }),
-      },
-    ],
-  }),
+  head: () => buildHead(meta),
   component: WorkPage,
 });
+
 
 function WorkPage() {
   return (

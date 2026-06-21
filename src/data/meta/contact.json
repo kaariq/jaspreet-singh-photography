@@ -1,0 +1,32 @@
+{
+  "title": "Contact — Book a Toronto Photographer | Jaspreet Singh",
+  "description": "Tell me about what you're planning. Based in Toronto, available worldwide. I reply to every note within a day.",
+  "keywords": "contact photographer Toronto, book wedding photographer, hire portrait photographer",
+  "canonical": "/contact",
+  "ogTitle": "Let's talk — Jaspreet Singh Photography",
+  "ogDescription": "Based in Toronto, available worldwide. I reply within a day.",
+  "ogType": "website",
+  "ogUrl": "/contact",
+  "ogImage": "",
+  "twitterTitle": "Contact — Jaspreet Singh Photography",
+  "twitterDescription": "Based in Toronto, available worldwide.",
+  "twitterCard": "summary_large_image",
+  "robots": "index, follow",
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Jaspreet Singh Photography",
+    "url": "/contact",
+    "mainEntity": {
+      "@id": "/#person",
+      "email": "hello@jslens.studio",
+      "telephone": "+1-416-555-0126",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
+    }
+  }
+}

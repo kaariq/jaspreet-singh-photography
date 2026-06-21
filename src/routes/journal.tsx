@@ -4,73 +4,17 @@ import { ArrowUpRight } from "lucide-react";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import meta from "@/data/meta/journal.json";
+import journalData from "@/data/pages/journal.json";
+import { buildHead } from "@/lib/meta";
 
 export const Route = createFileRoute("/journal")({
-  head: () => ({
-    meta: [
-      { title: "Journal — Field Notes from a Toronto Photographer" },
-      {
-        name: "description",
-        content:
-          "Notes from behind the lens — field stories, gear thoughts and lessons from a decade of making photographs.",
-      },
-      { property: "og:title", content: "Journal — Jaspreet Singh Photography" },
-      {
-        property: "og:description",
-        content: "Notes from behind the lens — field stories and lessons.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/journal" },
-      { name: "twitter:title", content: "Journal — Jaspreet Singh Photography" },
-      { name: "twitter:description", content: "Field notes from behind the lens." },
-    ],
-    links: [{ rel: "canonical", href: "/journal" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          name: "Journal — Jaspreet Singh Photography",
-          url: "/journal",
-          author: { "@id": "/#person" },
-        }),
-      },
-    ],
-  }),
+  head: () => buildHead(meta),
   component: JournalPage,
 });
 
-const POSTS = [
-  {
-    src: "https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=900&q=80",
-    tag: "Field Notes",
-    date: "Jun 2026",
-    title: "Chasing the last ten minutes of light",
-    excerpt: "Why the golden hour is really a golden ten minutes — and how to be ready for it.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=900&q=80",
-    tag: "Gear",
-    date: "May 2026",
-    title: "One lens, one year",
-    excerpt: "What shooting an entire year on a single 35mm taught me about seeing.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80",
-    tag: "Weddings",
-    date: "Apr 2026",
-    title: "Documenting a day without directing it",
-    excerpt: "The quiet art of disappearing on the most important day of someone's life.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80",
-    tag: "Process",
-    date: "Mar 2026",
-    title: "How I grade for a film feel",
-    excerpt: "A look at the restrained colour pipeline behind every JS Lens frame.",
-  },
-];
+const POSTS = journalData.posts;
+
 
 function JournalPage() {
   return (

@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "eyebrow": "Jaspreet Singh — Photographer",
+    "title": "ABOUT",
+    "subtitle": "We capture the things we are too quiet to say, and trust the frame to hold them still."
+  },
+  "intro": {
+    "name": "Jaspreet",
+    "openingLine": "I used to think important moments would announce themselves.",
+    "interjection": "They never do.",
+    "quietHeadline": "The important moments arrive quietly.",
+    "quietLines": [
+      "A hand on a shoulder.",
+      "A laugh that escapes too early.",
+      "Someone looking away before they realise they're being seen."
+    ],
+    "closingPart1": "Photography became my way of",
+    "closingAccent": "paying attention."
+  },
+  "piecesSection": {
+    "eyebrow": "Off camera",
+    "titlePrefix": "Pieces of",
+    "titleAccent": "me.",
+    "subtitle": "Seven small things that have very little to do with photography and everything to do with the way I see."
+  },
+  "pieces": [
+    {
+      "n": "01",
+      "title": "Between Pages & Perfumes",
+      "body": "A second-hand bookshop and a half-empty bottle of oud — that's where most of my evenings end up."
+    },
+    {
+      "n": "02",
+      "title": "A City That Knows My Story",
+      "body": "Toronto has watched me grow up twice — once as a kid, once again behind a camera."
+    },
+    {
+      "n": "03",
+      "title": "The Great Escape",
+      "body": "A road trip with no fixed return is my favourite kind of reset. Mountains preferred."
+    },
+    {
+      "n": "04",
+      "title": "Strings & Scribbles",
+      "body": "A small guitar I can't really play and a notebook full of half-finished thoughts."
+    },
+    {
+      "n": "05",
+      "title": "Comfort on a Plate",
+      "body": "My mother's rajma-chawal could end most wars. It certainly ends most of my bad days."
+    },
+    {
+      "n": "06",
+      "title": "Still on the Horizon",
+      "body": "A list of places, projects and quiet ambitions that I'm in no rush to finish."
+    }
+  ],
+  "outro": {
+    "lines": [
+      "And if you've made it this far,",
+      "thank you for being curious.",
+      "The truth is, I still feel nervous before every shoot.",
+      "I still wonder if the light will show up.",
+      "I still get excited when a photograph becomes more than a photograph."
+    ],
+    "finalLine": "Maybe we'll make something worth remembering",
+    "finalAccent": "together.",
+    "ctaText": "If you've read this far, we probably already get along.",
+    "ctaLabel": "Let's Talk",
+    "ctaHref": "/contact"
+  }
+}

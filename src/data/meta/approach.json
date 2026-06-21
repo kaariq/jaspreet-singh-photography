@@ -1,0 +1,24 @@
+{
+  "title": "Approach & Process — How I Shoot Weddings & Editorials",
+  "description": "How I work, the process I follow, how I help, and how I shoot weddings — a quiet, considered way of making pictures in Toronto and worldwide.",
+  "keywords": "wedding photography process, photographer approach, how I shoot weddings, Toronto wedding photographer",
+  "canonical": "/approach",
+  "ogTitle": "Approach — Jaspreet Singh Photography",
+  "ogDescription": "How I work, the process I follow, and how I shoot weddings.",
+  "ogType": "website",
+  "ogUrl": "/approach",
+  "ogImage": "",
+  "twitterTitle": "Approach — Jaspreet Singh Photography",
+  "twitterDescription": "How I work, and how I shoot weddings.",
+  "twitterCard": "summary_large_image",
+  "robots": "index, follow",
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Wedding & Portrait Photography",
+    "provider": { "@id": "/#person" },
+    "areaServed": ["Toronto", "Canada", "Worldwide"],
+    "serviceType": "Photography",
+    "description": "A considered, documentary-led approach to weddings, portraits and editorial photography."
+  }
+}

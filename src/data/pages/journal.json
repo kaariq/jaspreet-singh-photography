@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "eyebrow": "Journal",
+    "title": "Field notes.",
+    "subtitle": "Stories, gear thoughts, and lessons from behind the lens."
+  },
+  "posts": [
+    {
+      "src": "https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=900&q=80",
+      "tag": "Field Notes",
+      "date": "Jun 2026",
+      "title": "Chasing the last ten minutes of light",
+      "excerpt": "Why the golden hour is really a golden ten minutes — and how to be ready for it."
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80",
+      "tag": "Wedding Diary",
+      "date": "May 2026",
+      "title": "A quiet wedding in the Niagara hills",
+      "excerpt": "On photographing a 20-person ceremony where nothing was performed and everything was felt."
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=900&q=80",
+      "tag": "Gear",
+      "date": "Apr 2026",
+      "title": "Why I shoot two prime lenses, mostly",
+      "excerpt": "On constraints, intentionality, and the strange freedom of fewer choices."
+    }
+  ]
+}

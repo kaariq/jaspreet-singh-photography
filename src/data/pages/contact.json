@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "eyebrow": "Let's talk",
+    "titlePrefix": "Tell me what you're",
+    "titleAccent": "planning.",
+    "subtitle": "Based in Toronto, available worldwide. I reply to every note within a day."
+  },
+  "details": [
+    { "icon": "Mail", "label": "Email", "value": "hello@jslens.studio", "href": "mailto:hello@jslens.studio" },
+    { "icon": "Phone", "label": "Phone", "value": "+1 (416) 555-0126", "href": "tel:+14165550126" },
+    { "icon": "MapPin", "label": "Studio", "value": "Toronto, Canada · travelling worldwide", "href": "#map" },
+    { "icon": "Instagram", "label": "Instagram", "value": "@jaspreetsingh.photo", "href": "#" }
+  ],
+  "form": {
+    "title": "Drop me a note",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Email address",
+    "subjectPlaceholder": "What's the project?",
+    "messagePlaceholder": "Tell me a little about it…",
+    "submitLabel": "Send",
+    "successMessage": "Thanks — I'll be in touch within a day."
+  }
+}

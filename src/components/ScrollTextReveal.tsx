@@ -25,7 +25,10 @@ export function ScrollTextReveal({
 
   return (
     <section className="relative z-10 w-full bg-white px-6 py-32 md:py-44">
-      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-80 mt-50">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-80 mt-50 hidden lg:block"
+      >
         <ScrollRibbon />
       </div>
 

@@ -3,9 +3,8 @@ import { Instagram, Youtube, Dribbble, Mail, ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const SOCIAL = [
-  { label: "Instagram", href: "#", Icon: Instagram },
-  { label: "Vimeo", href: "#", Icon: Youtube },
-  { label: "Behance", href: "#", Icon: Dribbble },
+  { label: "Instagram", href: "https://www.instagram.com/impressionsbyjz/", Icon: Instagram },
+  { label: "Vimeo", href: "https://www.youtube.com/watch?v=ho_Vklqyixg", Icon: Youtube },
   { label: "Email", href: "mailto:hello@jslens.studio", Icon: Mail },
 ];
 
@@ -19,17 +18,16 @@ export function SiteFooter() {
     offset: ["start end", "end end"],
   });
 
-  // Long parallax drift for the giant wordmark
   const markYRaw = useTransform(scrollYProgress, [0, 1], [120, 0]);
   const markY = useSpring(markYRaw, { stiffness: 60, damping: 22 });
   const markScaleRaw = useTransform(scrollYProgress, [0, 1], [1.15, 1]);
   const markScale = useSpring(markScaleRaw, { stiffness: 60, damping: 22 });
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden bg-[#0A0A0A] text-white">
+    <div ref={containerRef} className="relative mt-[20px] overflow-hidden bg-[#0A0A0A] text-white">
       <footer
         id="book"
-        className="relative z-10 mx-auto flex min-h-[92vh] w-full max-w-[1700px] flex-col justify-between px-6 pb-10 pt-24 md:px-16 md:pb-14 md:pt-32"
+        className="relative z-10 mx-auto flex min-h-[90vh] w-full max-w-[1700px] flex-col justify-between px-6 pb-10 pt-24 md:px-16 md:pb-14 md:pt-32"
       >
         {/* Top: invitation + email */}
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr] lg:items-start">
@@ -91,7 +89,7 @@ export function SiteFooter() {
           className="my-12 flex flex-wrap items-baseline justify-center gap-x-1 origin-bottom"
         >
           {WORDMARK.split("").map((ch, i) => (
-            <span key={`${ch}-${i}`} className="overflow-hidden">
+            <span key={`${ch}-${i}`} className="inline-block overflow-hidden">
               <motion.span
                 initial={{ y: "110%" }}
                 whileInView={{ y: "0%" }}

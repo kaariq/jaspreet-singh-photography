@@ -6,52 +6,14 @@ import { Mail, Phone, MapPin, ArrowUpRight, Instagram } from "lucide-react";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import meta from "@/data/meta/contact.json";
+import { buildHead } from "@/lib/meta";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Book a Toronto Photographer | Jaspreet Singh" },
-      {
-        name: "description",
-        content:
-          "Tell me about what you're planning. Based in Toronto, available worldwide. I reply to every note within a day.",
-      },
-      { property: "og:title", content: "Let's talk — Jaspreet Singh Photography" },
-      {
-        property: "og:description",
-        content: "Based in Toronto, available worldwide. I reply within a day.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
-      { name: "twitter:title", content: "Contact — Jaspreet Singh Photography" },
-      { name: "twitter:description", content: "Based in Toronto, available worldwide." },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          name: "Contact Jaspreet Singh Photography",
-          url: "/contact",
-          mainEntity: {
-            "@id": "/#person",
-            email: "hello@jslens.studio",
-            telephone: "+1-416-555-0126",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Toronto",
-              addressRegion: "ON",
-              addressCountry: "CA",
-            },
-          },
-        }),
-      },
-    ],
-  }),
+  head: () => buildHead(meta),
   component: ContactPage,
 });
+
 
 const DETAILS = [
   { Icon: Mail, label: "Email", value: "hello@jslens.studio", href: "mailto:hello@jslens.studio" },

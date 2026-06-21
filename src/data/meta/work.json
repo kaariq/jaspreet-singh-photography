@@ -1,0 +1,22 @@
+{
+  "title": "Selected Work — Portrait, Wedding & Editorial Gallery",
+  "description": "A gallery of selected photography work — portraits, weddings, editorial and brand stories shot through a single, quiet lens.",
+  "keywords": "photography portfolio, wedding gallery, portrait gallery, editorial photography Toronto",
+  "canonical": "/work",
+  "ogTitle": "Work — Jaspreet Singh Photography",
+  "ogDescription": "Selected photography — portraits, weddings, editorial and brand stories.",
+  "ogType": "website",
+  "ogUrl": "/work",
+  "ogImage": "",
+  "twitterTitle": "Work — Jaspreet Singh Photography",
+  "twitterDescription": "Selected portraits, weddings & editorial.",
+  "twitterCard": "summary_large_image",
+  "robots": "index, follow",
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Selected Work — Jaspreet Singh Photography",
+    "url": "/work",
+    "author": { "@id": "/#person" }
+  }
+}

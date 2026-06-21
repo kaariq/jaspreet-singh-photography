@@ -1,87 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import introVideo from "@/assets/intro.mp4";
+
+import meta from "@/data/meta/about.json";
+import aboutData from "@/data/pages/about.json";
+import { buildHead } from "@/lib/meta";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Jaspreet Singh — Toronto Photographer's Story" },
-      {
-        name: "description",
-        content:
-          "The story behind the lens — why I fell for photography, how I started, where I am now, and the small pieces that make me, me. Based in Toronto.",
-      },
-      { property: "og:title", content: "About — Jaspreet Singh Photography" },
-      {
-        property: "og:description",
-        content:
-          "The story behind the lens — and the small pieces that make me, me.",
-      },
-      { property: "og:type", content: "profile" },
-      { property: "og:url", content: "/about" },
-      { name: "twitter:title", content: "About — Jaspreet Singh Photography" },
-      {
-        name: "twitter:description",
-        content: "The story behind the lens.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          name: "About Jaspreet Singh",
-          url: "/about",
-          mainEntity: { "@id": "/#person" },
-        }),
-      },
-    ],
-  }),
+  head: () => buildHead(meta),
   component: AboutPage,
 });
 
-const PIECES = [
-  {
-    n: "01",
-    title: "Between Pages & Perfumes",
-    body: "A second-hand bookshop and a half-empty bottle of oud — that's where most of my evenings end up.",
-  },
-  {
-    n: "02",
-    title: "A City That Knows My Story",
-    body: "Toronto has watched me grow up twice — once as a kid, once again behind a camera.",
-  },
-  {
-    n: "03",
-    title: "The Great Escape",
-    body: "A road trip with no fixed return is my favourite kind of reset. Mountains preferred.",
-  },
-  {
-    n: "04",
-    title: "Strings & Scribbles",
-    body: "A small guitar I can't really play and a notebook full of half-finished thoughts.",
-  },
-  {
-    n: "05",
-    title: "Comfort on a Plate",
-    body: "My mother's rajma-chawal could end most wars. It certainly ends most of my bad days.",
-  },
-  {
-    n: "06",
-    title: "If You Had to Know One Thing",
-    body: "I'd rather feel something honest for a second than something perfect for an hour.",
-  },
-];
+const PIECES = aboutData.pieces;
 
 function AboutPage() {
   return (
@@ -119,8 +53,8 @@ function AboutPage() {
             </span>
           </h2>
           <p className="mt-6 max-w-md text-[15px] leading-[1.8] text-black/55">
-            Six small things that have very little to do with photography and
-            everything to do with the way I see.
+            Six small things that have very little to do with photography and everything to do with
+            the way I see.
           </p>
         </div>
 
@@ -138,10 +72,7 @@ function AboutPage() {
               }}
               className="group bg-background p-8 transition-colors duration-500 hover:bg-[oklch(0.975_0_0)] md:p-10"
             >
-              <span
-                className="font-display text-2xl"
-                style={{ color: "var(--tomato)" }}
-              >
+              <span className="font-display text-2xl" style={{ color: "var(--tomato)" }}>
                 {p.n}
               </span>
               <h3
@@ -153,9 +84,7 @@ function AboutPage() {
               >
                 {p.title}
               </h3>
-              <p className="mt-3 text-[14px] leading-[1.8] text-black/55">
-                {p.body}
-              </p>
+              <p className="mt-3 text-[14px] leading-[1.8] text-black/55">{p.body}</p>
             </motion.div>
           ))}
         </div>
@@ -195,7 +124,7 @@ function AboutHero() {
         muted
         playsInline
       >
-        <source src="@/assets/intro.mp4" type="video/mp4" />
+        <source src={introVideo} type="video/mp4" />
       </motion.video>
 
       {/* cinematic grade */}
@@ -243,8 +172,7 @@ function AboutHero() {
             transition={{ duration: 0.8, delay: 1 }}
             className="mt-8 max-w-md text-[15px] leading-[1.9] text-white/70"
           >
-            We capture the things we are too quiet to say, and trust the frame
-            to hold them still.
+            We capture the things we are too quiet to say, and trust the frame to hold them still.
           </motion.p>
         </div>
       </motion.div>
@@ -280,11 +208,7 @@ function StoryIntro() {
   return (
     <section className="relative z-10 bg-background px-6 py-32 md:py-48">
       <div ref={ref} className="mx-auto max-w-5xl">
-        <RevealLine
-          progress={scrollYProgress}
-          range={[0.0, 0.12]}
-          className="mb-16"
-        >
+        <RevealLine progress={scrollYProgress} range={[0.0, 0.12]} className="mb-16">
           <p
             className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-light leading-[1.5] text-black"
             style={{ fontFamily: "var(--font-family-sans)" }}
@@ -299,10 +223,7 @@ function StoryIntro() {
           </p>
         </RevealLine>
 
-        <div
-          className="space-y-10 select-none"
-          style={{ fontFamily: "var(--font-family-sans)" }}
-        >
+        <div className="space-y-10 select-none" style={{ fontFamily: "var(--font-family-sans)" }}>
           <RevealLine progress={scrollYProgress} range={[0.1, 0.26]}>
             <p className="text-[clamp(1.7rem,3.2vw,2.8rem)] font-bold leading-[1.25] tracking-[-0.02em] text-black">
               I used to think important moments would announce themselves.
@@ -344,11 +265,7 @@ function StoryIntro() {
             </RevealLine>
           </div>
 
-          <RevealLine
-            progress={scrollYProgress}
-            range={[0.82, 1.0]}
-            className="pt-6"
-          >
+          <RevealLine progress={scrollYProgress} range={[0.82, 1.0]} className="pt-6">
             <p className="text-[clamp(1.8rem,4vw,3.2rem)] font-bold leading-[1.2] tracking-[-0.02em] text-black">
               Photography became my way of{" "}
               <span
@@ -394,11 +311,7 @@ function StoryOutro() {
               </p>
             </RevealLine>
 
-            <RevealLine
-              progress={scrollYProgress}
-              range={[0.12, 0.26]}
-              className="pb-6"
-            >
+            <RevealLine progress={scrollYProgress} range={[0.12, 0.26]} className="pb-6">
               <p className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.95] text-white">
                 thank you for being curious.
               </p>
@@ -416,14 +329,9 @@ function StoryOutro() {
               </p>
             </RevealLine>
 
-            <RevealLine
-              progress={scrollYProgress}
-              range={[0.58, 0.72]}
-              className="pb-6"
-            >
+            <RevealLine progress={scrollYProgress} range={[0.58, 0.72]} className="pb-6">
               <p className="mx-auto max-w-2xl text-[clamp(1.3rem,2.4vw,1.9rem)] font-light leading-[1.6] text-white/60">
-                I still get excited when a photograph becomes more than a
-                photograph.
+                I still get excited when a photograph becomes more than a photograph.
               </p>
             </RevealLine>
 
